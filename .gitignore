@@ -29,6 +29,8 @@ nbdist/
 node/
 bin/
 
+#push branch protection test
+
 # compiled output
 /dist
 /tmp
