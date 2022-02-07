@@ -8,25 +8,24 @@ import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { LinechartComponent } from './components/linechart/linechart.component';
 import {ChartsModule} from "ng2-charts";
-import { HttpClientModule } from "@angular/common/http";
 import { BarchartComponent } from './components/barchart/barchart.component';
-import { SignupComponent } from './components/signup/signup.component';
+import {signupComponent} from "./components/signup/signup.component";
+import {WelcomePageComponent} from "./components/welcome-page/welcome-page.component";
 
 @NgModule({
   declarations: [
     AppComponent,
-    FitnesssearchComponent
-    AppComponent,
+    FitnesssearchComponent,
     LinechartComponent,
     BarchartComponent,
-    SignupComponent
+    WelcomePageComponent,
+    signupComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
-    AppRoutingModule,
+    HttpClientModule,
     ChartsModule,
     HttpClientModule
   ],
