@@ -26,25 +26,23 @@ export class LinechartComponent implements OnInit {
         months.push(entry.month)
         calories.push(entry.calories)
       }
+      const chartdata = {
+        labels: months,
+        datasets: [{
+          label: 'Calories Consumed',
+          data: calories,
+          fill: false,
+          borderColor: 'rgb(75, 192, 192)',
+          tension: 0.1
+        }]
+      };
+      const myChart = new Chart("myChart", {
+        type: 'line',
+        data: chartdata,
+
+      });
 
     })
-  console.log(months.reverse())
-    const data = {
-      labels: months,
-      datasets: [{
-        label: 'Calories Consumed',
-        data: calories,
-        fill: false,
-        borderColor: 'rgb(75, 192, 192)',
-        tension: 0.1
-      }]
-    };
-
-    const myChart = new Chart("myChart", {
-      type: 'line',
-      data: data,
-
-    });
   }
 
 
