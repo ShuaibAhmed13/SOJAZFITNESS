@@ -16,18 +16,22 @@ export class LinechartComponent implements OnInit {
 
 
   ngOnInit(): void {
-    var months: any[] = [];
+    var xaxis: any[] = [];
     var calories: any[] = [];
-    this.httpClient.get("assets/linechartdata.json").subscribe(data=> {
+    this.httpClient.get("assets/linechartdatadaily.json").subscribe(data=> {
 
       var objs = Object.values(data)[0]
 
       for (let entry of objs) {
-        months.push(entry.month)
+        if(entry.day != null) {
+          xaxis.push(entry.day)
+        }else if(entry.month != null) {
+          xaxis.push(entry.month)
+        }
         calories.push(entry.calories)
       }
       const chartdata = {
-        labels: months,
+        labels: xaxis,
         datasets: [{
           label: 'Calories Consumed',
           data: calories,
