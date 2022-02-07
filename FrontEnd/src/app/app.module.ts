@@ -9,15 +9,18 @@ import { LinechartComponent } from './components/linechart/linechart.component';
 import {ChartsModule} from "ng2-charts";
 import { HttpClientModule } from "@angular/common/http";
 import { BarchartComponent } from './components/barchart/barchart.component';
-import { signupComponent } from "./components/signup/signup.component";
+import {signupComponent} from "./components/signup/signup.component";
+import {WelcomePageComponent} from "./components/welcome-page/welcome-page.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     FitnesssearchComponent,
+    FitnesssearchComponent,
     AppComponent,
     LinechartComponent,
     BarchartComponent,
+    WelcomePageComponent,
     signupComponent
   ],
   imports: [
