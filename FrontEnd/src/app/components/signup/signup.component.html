@@ -1,0 +1,25 @@
+<div class="imgcontainer">
+  <img src="/assets/Logo.png" alt="Logo" class="logo">
+</div>
+
+<form  #userData="ngForm" (ngSubmit)="signup(userData)" novalidate>
+  <div class="form-group">
+    <input class="form-control login-input" placeholder="Email" name="email" id="email" ngModel=""><br>
+  </div>
+  <div class="form-group">
+    <input class="form-control login-input" placeholder="Username" name="username" id="username" ngModel=""><br>
+  </div>
+  <div class="form-group">
+    <input class="form-control login-input" placeholder="First Name" name="firstname" id="firstname" ngModel=""><br>
+  </div>
+  <div class="form-group">
+    <input class="form-control login-input" placeholder="Last Name" name="lastname" id="lastname" ngModel=""><br>
+  </div>
+  <div class="form-group">
+    <input class="form-control login-input" placeholder="Password" type="password"  name="password" id="password" ngModel=""><br>
+  </div>
+  <div class="form-group">
+    <input class="form-control login-input" placeholder="Confirm Password" type="password"  name="confirmpassword" id="confirmpassword" ngModel=""><br>
+  </div>
+  <button type="submit" class="register-btn">Register</button>
+</form>`
