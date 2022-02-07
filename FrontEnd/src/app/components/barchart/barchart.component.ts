@@ -69,7 +69,7 @@ export class BarchartComponent implements OnInit {
         }]
       };
 
-      const myChart = new Chart("myChart",{
+      const myChart = new Chart("myChartBar",{
         type: 'bar',
         data: chartdata,
         options: {
