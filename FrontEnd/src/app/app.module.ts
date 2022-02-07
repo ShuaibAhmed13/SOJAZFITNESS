@@ -11,6 +11,7 @@ import {ChartsModule} from "ng2-charts";
 import { BarchartComponent } from './components/barchart/barchart.component';
 import {signupComponent} from "./components/signup/signup.component";
 import {WelcomePageComponent} from "./components/welcome-page/welcome-page.component";
+import { AboutUsComponent } from './components/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {WelcomePageComponent} from "./components/welcome-page/welcome-page.compo
     LinechartComponent,
     BarchartComponent,
     WelcomePageComponent,
-    signupComponent
+    signupComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
