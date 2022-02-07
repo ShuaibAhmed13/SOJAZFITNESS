@@ -40,10 +40,9 @@ export class LinechartComponent implements OnInit {
           tension: 0.1
         }]
       };
-      const myChart = new Chart("myChart", {
+      const myChart = new Chart("myChartLine", {
         type: 'line',
         data: chartdata,
-
       });
 
     })
