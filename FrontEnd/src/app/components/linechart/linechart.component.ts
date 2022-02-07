@@ -18,7 +18,7 @@ export class LinechartComponent implements OnInit {
   ngOnInit(): void {
     var xaxis: any[] = [];
     var calories: any[] = [];
-    this.httpClient.get("assets/linechartdatadaily.json").subscribe(data=> {
+    this.httpClient.get("assets/linechartdata.json").subscribe(data=> {
 
       var objs = Object.values(data)[0]
 
