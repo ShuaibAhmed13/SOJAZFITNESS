@@ -4,11 +4,13 @@ import {WelcomePageComponent} from "./components/welcome-page/welcome-page.compo
 import {PageNotFoundPageComponent} from "./components/page-not-found-page/page-not-found-page.component";
 import {FitnesssearchComponent} from "./components/fitnesssearch/fitnesssearch.component";
 import {AboutUsComponent} from "./components/about-us/about-us.component";
+import {signupComponent} from "./components/signup/signup.component";
 
 const routes: Routes = [
   { path: 'welcomepage', component: WelcomePageComponent},
   { path: 'aboutus', component: AboutUsComponent},
   {path: 'search', component:FitnesssearchComponent},
+  {path: 'signup', component: signupComponent},
   { path: '**', component: PageNotFoundPageComponent}
 ];
 
