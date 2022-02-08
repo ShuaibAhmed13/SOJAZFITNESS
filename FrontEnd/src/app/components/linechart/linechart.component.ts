@@ -33,11 +33,13 @@ export class LinechartComponent implements OnInit {
       const chartdata = {
         labels: xaxis,
         datasets: [{
+
           label: 'Calories Consumed',
           data: calories,
           fill: false,
           borderColor: 'rgb(75, 192, 192)',
-          tension: 0.1
+          tension: 0.1,
+
         }]
       };
       const myChart = new Chart("myChartLine", {
