@@ -12,7 +12,7 @@ import { BarchartComponent } from './components/barchart/barchart.component';
 import {signupComponent} from "./components/signup/signup.component";
 import {WelcomePageComponent} from "./components/welcome-page/welcome-page.component";
 import { AboutUsComponent } from './components/about-us/about-us.component';
-import { SearchComponent } from './components/search/search.component';
+import {FoodwidgetComponent} from "./components/foodwidget/foodwidget.component";
 
 @NgModule({
   declarations: [
@@ -25,7 +25,7 @@ import { SearchComponent } from './components/search/search.component';
     WelcomePageComponent,
     signupComponent,
     AboutUsComponent,
-    SearchComponent
+    FoodwidgetComponent
   ],
   imports: [
     BrowserModule,
