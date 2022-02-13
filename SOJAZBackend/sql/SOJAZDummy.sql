@@ -15,38 +15,35 @@ CREATE SCHEMA IF NOT EXISTS `sojazdummyschema` DEFAULT CHARACTER SET utf8 ;
 -- -----------------------------------------------------
 -- Schema sojazdummyschema
 -- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema sojazdummyschema
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `sojazdummyschema` DEFAULT CHARACTER SET utf8 ;
 USE `sojazdummyschema` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`User`
+-- Table `sojazdummyschema`.`food`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sojazdummyschema`.`User` (
-  `idUser` INT NOT NULL,
-  `username` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`idUser`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mydb`.`Food`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sojazdummyschema`.`Food` (
-  `idFood` INT NOT NULL,
-  `foodName` VARCHAR(45) NOT NULL,
+CREATE TABLE IF NOT EXISTS `sojazdummyschema`.`food` (
+  `id` INT NOT NULL,
+  `food_name` VARCHAR(45) NOT NULL,
   `calories` INT NOT NULL,
   `carbs` INT NOT NULL,
   `sodium` INT NOT NULL,
-  `totalFat` INT NOT NULL,
+  `total_fat` INT NOT NULL,
   `protein` INT NOT NULL,
   `sugar` INT NOT NULL,
-  PRIMARY KEY (`idFood`))
-ENGINE = InnoDB;
+  `serving_size` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb3;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Food_Consumed`
+-- Table `sojazdummyschema`.`food_consumed`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sojazdummyschema`.`Food_Consumed` (
+CREATE TABLE IF NOT EXISTS `sojazdummyschema`.`food_consumed` (
   `idUser` INT NOT NULL,
   `idFood` INT NOT NULL,
   `meal` INT NOT NULL,
@@ -56,19 +53,28 @@ CREATE TABLE IF NOT EXISTS `sojazdummyschema`.`Food_Consumed` (
   `proteinsConsumed` INT NOT NULL,
   `sodiumConsumed` INT NOT NULL,
   `sugarConsumed` INT NOT NULL,
+  `noOfServings` INT NOT NULL,
   PRIMARY KEY (`idUser`, `idFood`),
   INDEX `idFood_idx` (`idFood` ASC) VISIBLE,
-  CONSTRAINT `idUser`
-    FOREIGN KEY (`idUser`)
-    REFERENCES `mydb`.`User` (`idUser`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
   CONSTRAINT `idFood`
     FOREIGN KEY (`idFood`)
-    REFERENCES `mydb`.`Food` (`idFood`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    REFERENCES `mydb`.`food` (`idFood`),
+  CONSTRAINT `idUser`
+    FOREIGN KEY (`idUser`)
+    REFERENCES `mydb`.`user` (`idUser`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb3;
+
+
+-- -----------------------------------------------------
+-- Table `sojazdummyschema`.`user`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `sojazdummyschema`.`user` (
+  `id` INT NOT NULL,
+  `username` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb3;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
@@ -77,5 +83,6 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 
 
+
 INSERT INTO `User` VALUES ('1', 'Dummy');
-INSERT INTO `Food` VALUES ('1','Chicken','300', '12', '7', '5', '5', '2', '0'), ('2', 'NY Strip Steak', '400', '18', '9', '3', '3', '2', '0'), ('3', 'Rice', '200', '15', '7', '1', '1', '1', '0'), ('4', 'Spaghetti & Meatballs', '700', '20', '12', '15', '12', '4', '0'), ('5', 'Peanut Butter', '150', '18', '9', '2', '2', '3', '0');
+INSERT INTO `Food` VALUES ('1','Chicken','300', '12', '7', '5', '5', '2', '1'), ('2', 'NY Strip Steak', '400', '18', '9', '3', '3', '2', '1'), ('3', 'Rice', '200', '15', '7', '1', '1', '1', '1'), ('4', 'Spaghetti & Meatballs', '700', '20', '12', '15', '12', '4', '1'), ('5', 'Peanut Butter', '150', '18', '9', '2', '2', '3', '1');
