@@ -13,6 +13,8 @@ import {signupComponent} from "./components/signup/signup.component";
 import {WelcomePageComponent} from "./components/welcome-page/welcome-page.component";
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import {FoodwidgetComponent} from "./components/foodwidget/foodwidget.component";
+import {WorkoutmanualComponent} from "./components/workoutmanual/workoutmanual.component";
+import {NavbarComponent} from "./components/navbar/navbar.component";
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import {FoodwidgetComponent} from "./components/foodwidget/foodwidget.component"
     WelcomePageComponent,
     signupComponent,
     AboutUsComponent,
-    FoodwidgetComponent
+    FoodwidgetComponent,
+    WorkoutmanualComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
