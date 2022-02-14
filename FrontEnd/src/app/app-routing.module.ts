@@ -6,6 +6,13 @@ import {FitnesssearchComponent} from "./components/fitnesssearch/fitnesssearch.c
 import {AboutUsComponent} from "./components/about-us/about-us.component";
 import {signupComponent} from "./components/signup/signup.component";
 import {WorkoutmanualComponent} from "./components/workoutmanual/workoutmanual.component";
+import {ArmsComponent} from "./components/WORKOUTS/arms/arms.component";
+import {BackComponent} from "./components/WORKOUTS/back/back.component";
+import {CardioComponent} from "./components/WORKOUTS/cardio/cardio.component";
+import {ChestComponent} from "./components/WORKOUTS/chest/chest.component";
+import {CoreComponent} from "./components/WORKOUTS/core/core.component";
+import {LegsComponent} from "./components/WORKOUTS/legs/legs.component";
+import {ShouldersComponent} from "./components/WORKOUTS/shoulders/shoulders.component";
 
 const routes: Routes = [
   { path: 'welcomepage', component: WelcomePageComponent},
