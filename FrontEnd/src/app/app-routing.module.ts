@@ -20,6 +20,13 @@ const routes: Routes = [
   {path: 'search', component:FitnesssearchComponent},
   {path: 'signup', component: signupComponent},
   {path: 'workoutmanual', component: WorkoutmanualComponent},
+  {path: 'arms', component: ArmsComponent},
+  {path: 'back', component: BackComponent},
+  {path: 'cardio', component: CardioComponent},
+  {path: 'chest', component: ChestComponent},
+  {path: 'core', component: CoreComponent},
+  {path: 'legs', component: LegsComponent},
+  {path: 'shoulders', component: ShouldersComponent},
   { path: '**', component: PageNotFoundPageComponent}
 ];
 
