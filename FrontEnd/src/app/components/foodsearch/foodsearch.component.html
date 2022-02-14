@@ -1,0 +1,37 @@
+<div id="foodWidget">
+  <h1 class="title divChild">Search Food</h1>
+  <form class="formgroup">
+    <mat-form-field appearance="fill">
+      <input class="input-field" type="text" matInput [formControl]="myControl" [matAutocomplete]="auto" placeholder="Search">
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+        <mat-option class="matoptions" *ngFor="let food of filteredOptions | async" [value]="food" (mousedown)="setFood(food)">
+          {{food.foodName}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+<!--  <div class="formgroup">-->
+<!--&lt;!&ndash;  <button mat-raised-button style="background-color: #333333; color: aliceblue" >Select</button>&ndash;&gt;-->
+
+<!--  </div>-->
+  <div>
+    <ul *ngIf="selectedFood" class="nutrition-facts">
+      <div class="listgroup">
+      <li>Food: {{selectedFood.foodName}}</li>
+      <li>Calories: {{selectedFood.calories}}</li>
+      <li>Carbs: {{selectedFood.carbs}}</li>
+      <li>Sodium: {{selectedFood.sodium}}</li>
+      </div>
+      <div class="listgroup">
+      <li>Total Fat: {{selectedFood.totalFat}}</li>
+      <li>Protein: {{selectedFood.protein}}</li>
+      <li>Sugar: {{selectedFood.sugar}}</li>
+      <li>Serving Size: {{selectedFood.servingSize}}</li>
+      </div>
+    </ul>
+  </div>
+  <div>
+    <p></p>
+  </div>
+
+</div>
