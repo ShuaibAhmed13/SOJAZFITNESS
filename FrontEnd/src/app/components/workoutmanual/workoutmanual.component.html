@@ -1,0 +1,48 @@
+<html>
+<app-navbar></app-navbar>
+
+<div class="header">
+  <h1>WORKOUTZ</h1>
+  <h3>KEY to success. That's it.</h3>
+</div>
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for muscle group...">
+
+<ul id="myUL">
+  <li><a href="arms">Arms</a></li>
+  <li><a href="shoulders">Shoulders</a></li>
+
+  <li><a href="chest">Chest</a></li>
+  <li><a href="back">Back</a></li>
+
+  <li><a href="legs">Legs</a></li>
+  <li><a href="cardio">Cardio</a></li>
+  <li><a href="core">Core</a></li>
+</ul>
+
+<script>
+  function myFunction() {
+    // Declare variables
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById('myInput');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName('li');
+
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < li.length; i++) {
+      a = li[i].getElementsByTagName("a")[0];
+      txtValue = a.textContent || a.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        li[i].style.display = "";
+      } else {
+        li[i].style.display = "none";
+      }
+    }
+  }
+</script>
+
+</html>
+
+
+

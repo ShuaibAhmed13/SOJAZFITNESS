@@ -20,6 +20,16 @@ import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import { DisplayFoodNutritionComponent } from './components/display-food-nutrition/display-food-nutrition.component';
+import {WorkoutmanualComponent} from "./components/workoutmanual/workoutmanual.component";
+import {NavbarComponent} from "./components/navbar/navbar.component";
+import {ShouldersComponent} from "./components/WORKOUTS/shoulders/shoulders.component";
+import {ChestComponent} from "./components/WORKOUTS/chest/chest.component";
+import {ArmsComponent} from "./components/WORKOUTS/arms/arms.component";
+import {CardioComponent} from "./components/WORKOUTS/cardio/cardio.component";
+import {BackComponent} from "./components/WORKOUTS/back/back.component";
+import {CoreComponent} from "./components/WORKOUTS/core/core.component";
+import {LegsComponent} from "./components/WORKOUTS/legs/legs.component";
+
 
 @NgModule({
   declarations: [
@@ -33,9 +43,18 @@ import { DisplayFoodNutritionComponent } from './components/display-food-nutriti
     signupComponent,
     AboutUsComponent,
     FoodwidgetComponent,
-    LoginpageComponent
+    LoginpageComponent,
     FoodsearchComponent,
-    DisplayFoodNutritionComponent
+    DisplayFoodNutritionComponent,
+    WorkoutmanualComponent,
+    NavbarComponent,
+    ArmsComponent,
+    BackComponent,
+    CardioComponent,
+    ChestComponent,
+    CoreComponent,
+    LegsComponent,
+    ShouldersComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +70,8 @@ import { DisplayFoodNutritionComponent } from './components/display-food-nutriti
     MatAutocompleteModule,
     MatInputModule,
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
