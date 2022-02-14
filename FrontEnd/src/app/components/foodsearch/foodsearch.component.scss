@@ -1,0 +1,81 @@
+#foodWidget {
+  width: 450px;
+  height: 300px;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: #121212;
+  justify-content: center;
+  margin: 20px;
+
+}
+
+.title {
+  font-size: 40px;
+  color: white;
+  text-align: center;
+  margin: 20px;
+}
+.divChild {
+  //background-color: #333131;
+}
+
+.input-field {
+  border: 2px solid #818988;
+  padding: 3px;
+  border-radius: 5px;
+  background-color: #333131;
+  color: aliceblue;
+}
+
+.input-field:focus {
+  border: 2px solid white;
+}
+
+.matoptions {
+  background-color: #333131;
+  color: white;
+  border: 2px solid #333333;
+}
+
+.matoptions:hover {
+  background-color: #121212;
+}
+
+.matoptions:active {
+  background-color: #333131;
+}
+
+.formgroup {
+  display: flex;
+  justify-content: center;
+}
+
+.mat-button {
+  background-color: #333131;
+  color: white;
+  margin: 5px;
+  margin-left: 20%;
+}
+
+::ng-deep .mat-form-field-underline {
+  display: none;
+}
+
+.listgroup {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 20px;
+}
+
+.nutrition-facts {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+}
+
+.nutrition-facts li {
+  font-size: 20px;
+  margin: 2px;
+}
