@@ -2,3 +2,26 @@
   <h1 class="title divChild">Add Food</h1>
   <input class="divChild">
 </div>
+<br>
+<table>
+  <tr>
+    <th>Food</th>
+    <th>Calories</th>
+    <th>Carbs</th>
+    <th>Sodium</th>
+    <th>Total Fat</th>
+    <th>Protein</th>
+    <th>Sugar</th>
+    <th>Serving Size</th>
+  </tr>
+  <tr *ngFor="let foods of this.foodService.foods">
+    <td>{{foods.foodName}}</td>
+    <td>{{foods.calories}}</td>
+    <td>{{foods.carbs}}</td>
+    <td>{{foods.sodium}}</td>
+    <td>{{foods.totalFat}}</td>
+    <td>{{foods.protein}}</td>
+    <td>{{foods.sugar}}</td>
+    <td>{{foods.servingSize}}</td>
+  </tr>
+</table>
