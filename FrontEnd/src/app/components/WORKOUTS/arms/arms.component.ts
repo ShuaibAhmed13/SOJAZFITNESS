@@ -5,7 +5,8 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './arms.component.html',
   styleUrls: ['./arms.component.scss']
 })
-export class ArmsComponent implements OnInit {
+export class ArmsComponent {
+  public isCollapsed = true;
 
   constructor() { }
 
@@ -13,3 +14,4 @@ export class ArmsComponent implements OnInit {
   }
 
 }
+
