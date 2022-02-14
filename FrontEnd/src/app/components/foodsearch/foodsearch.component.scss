@@ -10,7 +10,8 @@
 }
 
 .title {
-  color: #a8b5ff;
+  font-size: 40px;
+  color: white;
   text-align: center;
   margin: 20px;
 }
@@ -19,7 +20,7 @@
 }
 
 .input-field {
-  border: 2px solid #333333;
+  border: 2px solid #818988;
   padding: 3px;
   border-radius: 5px;
   background-color: #333131;
@@ -27,12 +28,12 @@
 }
 
 .input-field:focus {
-  border: 2px solid #a8b5ff;
+  border: 2px solid white;
 }
 
 .matoptions {
   background-color: #333131;
-  color: aliceblue;
+  color: white;
   border: 2px solid #333333;
 }
 
@@ -51,7 +52,7 @@
 
 .mat-button {
   background-color: #333131;
-  color: aliceblue;
+  color: white;
   margin: 5px;
   margin-left: 20%;
 }
@@ -61,7 +62,7 @@
 }
 
 .listgroup {
-  color: aliceblue;
+  color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;

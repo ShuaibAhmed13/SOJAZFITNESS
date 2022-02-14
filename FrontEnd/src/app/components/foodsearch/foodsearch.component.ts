@@ -18,6 +18,7 @@ export class FoodsearchComponent implements OnInit {
   // @ts-ignore
   filteredOptions: Observable<Food[]>;
   selectedFood: Food | undefined;
+  private data: any;
 
   constructor(public foodService: FoodService) { }
 
@@ -48,6 +49,13 @@ export class FoodsearchComponent implements OnInit {
 
   setFood(value: Food) {
     this.selectedFood = value;
+  }
 
+  setFoodEnter(value: string) {
+    this.data
+    this.filteredOptions.subscribe(data => {
+      this.data = data.filter(data => data.foodName?.toLowerCase().includes(value))[0]
+    })
+    this.selectedFood = this.data
   }
 }
