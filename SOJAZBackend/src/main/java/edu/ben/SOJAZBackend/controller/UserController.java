@@ -36,13 +36,19 @@ public class UserController {
 
 
     @PutMapping("/users/{email}")
-    public ResponseEntity<User> updateUser(@PathVariable(value = "email") String email, @RequestBody User userObject) throws NotFoundException {
-        User user = userRepository.findById(email).orElseThrow(() -> new ChangeSetPersister.NotFoundException("User with this email does not exist" + email));
-        user.setUsername(userObject.getUsername());
-        user.setFirstname(userObject.getFirstname());
-        user.setLastname(userObject.getLastname());
-        user.setPassword(userObject.getPassword());
+    public ResponseEntity<User> updateUser(@PathVariable(value = "email") String email, @RequestBody User userObject) throws NotFoundException, ChangeSetPersister.NotFoundException {
+        User user = userRepository.findById(email).orElseThrow(ChangeSetPersister.NotFoundException::new);
         final User addUser = userRepository.save(user);
+        try {
+            user = userRepository.findById(email).orElseThrow(ChangeSetPersister.NotFoundException::new);
+            user.setUsername(userObject.getUsername());
+            user.setFirstname(userObject.getFirstname());
+            user.setLastname(userObject.getLastname());
+            user.setPassword(userObject.getPassword());
+        } catch (ChangeSetPersister.NotFoundException e) {
+            e.printStackTrace();
+            System.out.println("User with this email does not exist " + email);
+        }
         return ResponseEntity.ok(addUser);
     }
 }
