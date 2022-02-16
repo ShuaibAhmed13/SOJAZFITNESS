@@ -1,31 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<app-navbar></app-navbar>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-</head>
-<body>
-
-<div class="container">
-  <h2>Types of Arm Workouts</h2>
-  <ul class="list-group">
-    <li class="list-group-item">Arm Curl Ups - Ensure your elbows are close to your torso and your palms facing forward. Keeping your upper arms stationary, exhale as you curl the weights up to shoulder level while contracting your biceps. ... Hold the weight at shoulder height for a brief pause, then inhale as you slowly lower back to the start position.</li>
-    <li class="list-group-item">Hammer Curls - a quintessential weightlifting exercise that targets the biceps and forearms. The exercise is performed with dumbbells, and it strengthens the three largest muscles along the front of your upper arms. To gain all the benefits of the exercise, make sure not to lean back or swing the weights.</li>
-    <li class="list-group-item">Incline dumbbell curl - Set up an incline bench at 45 degrees.
-      Holding a dumbbell in each hand, sit on the bench, keeping your shoulders and back firmly against the back rest.
-      Put your arms down by your side with your palms facing in to your body.
-      Slowly curl your arms up, rotating your wrist outwards (thumbs pointing away from your body) until the dumbbell is level with your shoulders. (Your palms should be facing your shoulders)</li>
-  </ul>
+<p>
+  <button type="button" class="btn btn-outline-primary" (click)="collapse.toggle()" [attr.aria-expanded]="!isCollapsed"
+          aria-controls="collapseExample">
+    Toggle
+  </button>
+</p>
+<div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+  <div class="card">
+    <div class="card-body">
+      Arms workout
+    </div>
+  </div>
 </div>
-
-</body>
-</html>
-
 
 
 
