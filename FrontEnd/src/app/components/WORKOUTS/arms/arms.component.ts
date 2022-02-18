@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./arms.component.scss']
 })
 export class ArmsComponent {
-  public isCollapsed = true;
+  public isCollapsed:boolean = true;
 
   constructor() { }
 

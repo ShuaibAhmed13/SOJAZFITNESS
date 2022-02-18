@@ -30,6 +30,8 @@ import {BackComponent} from "./components/WORKOUTS/back/back.component";
 import {CoreComponent} from "./components/WORKOUTS/core/core.component";
 import {LegsComponent} from "./components/WORKOUTS/legs/legs.component";
 
+import {NgbCollapseModule, NgbModule} from "@ng-bootstrap/ng-bootstrap";
+
 
 @NgModule({
   declarations: [
@@ -69,8 +71,11 @@ import {LegsComponent} from "./components/WORKOUTS/legs/legs.component";
     ReactiveFormsModule,
     MatAutocompleteModule,
     MatInputModule,
-    BrowserAnimationsModule,
+
+    NgbCollapseModule,
     MatButtonModule,
+    BrowserAnimationsModule,
+    NgbModule,
 
   ],
   providers: [],
