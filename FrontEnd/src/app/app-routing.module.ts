@@ -14,6 +14,7 @@ import {CoreComponent} from "./components/WORKOUTS/core/core.component";
 import {LegsComponent} from "./components/WORKOUTS/legs/legs.component";
 import {ShouldersComponent} from "./components/WORKOUTS/shoulders/shoulders.component";
 import {LoginpageComponent} from "./components/loginpage/loginpage.component";
+import {WorkoutpostComponent} from "./components/workoutpost/workoutpost.component";
 
 const routes: Routes = [
   { path: 'welcomepage', component: WelcomePageComponent},
@@ -29,6 +30,7 @@ const routes: Routes = [
   {path: 'legs', component: LegsComponent},
   {path: 'shoulders', component: ShouldersComponent},
   {path: 'loginpage', component:LoginpageComponent},
+  {path: 'exercisepost', component:WorkoutpostComponent},
   { path: '**', component: PageNotFoundPageComponent}
 ];
 
