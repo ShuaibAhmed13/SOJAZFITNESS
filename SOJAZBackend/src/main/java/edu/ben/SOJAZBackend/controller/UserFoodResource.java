@@ -3,10 +3,7 @@ package edu.ben.SOJAZBackend.controller;
 import edu.ben.SOJAZBackend.model.User_Food;
 import edu.ben.SOJAZBackend.service.UserFoodService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -36,4 +33,8 @@ public class UserFoodResource {
         return userFoodService.getAllUsersByFoodId(food_id);
     }
 
+    @PostMapping("/addfoodconsumedbyuser")
+    public void addusersfood(@RequestBody User_Food user_food) {
+        userFoodService.addFoodToUserDiary(user_food);
+    }
 }

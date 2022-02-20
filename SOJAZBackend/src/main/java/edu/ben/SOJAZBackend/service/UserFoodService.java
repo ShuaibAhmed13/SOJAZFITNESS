@@ -1,8 +1,6 @@
 package edu.ben.SOJAZBackend.service;
-
 import edu.ben.SOJAZBackend.model.User_Food;
 import edu.ben.SOJAZBackend.repository.UserFoodRepository;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,5 +22,9 @@ public class UserFoodService {
 
     public List<User_Food> getAllUsersByFoodId(Long food_id) {
         return userFoodRepository.findUser_FoodsByFoodId(food_id);
+    }
+
+    public void addFoodToUserDiary(User_Food user_food) {
+        userFoodRepository.save(user_food);
     }
 }

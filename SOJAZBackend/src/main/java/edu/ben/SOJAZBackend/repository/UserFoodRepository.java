@@ -20,5 +20,4 @@ public interface UserFoodRepository extends JpaRepository<User_Food, Long> {
 
     List<User_Food> findUser_FoodsByFoodId(Long food);
 
-
 }

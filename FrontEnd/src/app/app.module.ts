@@ -32,6 +32,7 @@ import {LegsComponent} from "./components/WORKOUTS/legs/legs.component";
 import { WorkoutpostComponent } from './components/workoutpost/workoutpost.component';
 import {NgbCollapseModule, NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {AddfoodComponent} from "./components/addfood/addfood.component";
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import {AddfoodComponent} from "./components/addfood/addfood.component";
     ShouldersComponent,
     WorkoutpostComponent,
     FoodsearchComponent,
-    AddfoodComponent
+    AddfoodComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,
