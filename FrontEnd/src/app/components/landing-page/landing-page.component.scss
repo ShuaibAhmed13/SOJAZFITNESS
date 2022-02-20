@@ -504,6 +504,18 @@
 
 @media only screen and (min-width: 1400px) {
 
+  @keyframes drop {
+    0% {
+      transform: translateY(-50px);
+      opacity: 0%;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 100%;
+    }
+
+  }
+
   .large-white-circle {
     width: 400px;
     display: block;
@@ -546,7 +558,21 @@
       text-align: left;
       line-height: 25px;
     }
+    .description {
+      animation: 0.50s ease-out 0s 1 drop;
+    }
+
+    .light {
+      animation: .5s ease-out .25s 1 drop;
+      animation-fill-mode: both;
+    }
+    .dark {
+      animation: .5s ease-out .5s 1 drop;
+      animation-fill-mode: both;
+
+    }
     .buttons {
+
       width: 100%;
       justify-content: left;
     }
