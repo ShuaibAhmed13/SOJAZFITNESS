@@ -28,14 +28,14 @@ public class User_Food {
     //@Id
     //@Column(name = "food_id")
     @OneToOne
-    @JoinColumn(name = "food_id", referencedColumnName = "id")
+    @JoinColumn(name = "food", referencedColumnName = "id")
     //Long food_id;
     Food food;
 
     //@Id
     //@Column(name = "user_id")
     @OneToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @JoinColumn(name = "user", referencedColumnName = "id")
     //Long user_id;
     user user;
 
@@ -70,13 +70,3 @@ public class User_Food {
 
 
 }
-//class User_FoodPK implements Serializable {
-//    private Food food;
-//    private user user;
-//    private String meal;
-//    private Date date;
-//
-//    public User_FoodPK() {
-//
-//    }
-//}

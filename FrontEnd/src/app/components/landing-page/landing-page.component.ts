@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-landing-page',
@@ -7,9 +7,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingPageComponent implements OnInit {
 
+  showmenu: boolean = true;
+  public innerWidth: any;
+  private _event: any;
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this._event = event;
+    this.innerWidth = window.innerWidth;
+    this.autoToggleBurgerMenu()
+  }
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  autoToggleBurgerMenu() {
+    if(innerWidth >= 1000) {
+      this.showmenu = true
+    } else if (innerWidth <1000) {
+      this.showmenu = false
+    }
+
+  }
+
+  toggleBurgerMenu() {
+    this.showmenu = !this.showmenu;
+  }
 }
