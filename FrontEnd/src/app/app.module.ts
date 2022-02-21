@@ -31,6 +31,8 @@ import {CoreComponent} from "./components/WORKOUTS/core/core.component";
 import {LegsComponent} from "./components/WORKOUTS/legs/legs.component";
 import { WorkoutpostComponent } from './components/workoutpost/workoutpost.component';
 import {NgbCollapseModule, NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {AddfoodComponent} from "./components/addfood/addfood.component";
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
 
 
 @NgModule({
@@ -57,7 +59,10 @@ import {NgbCollapseModule, NgbModule} from "@ng-bootstrap/ng-bootstrap";
     CoreComponent,
     LegsComponent,
     ShouldersComponent,
-    WorkoutpostComponent
+    WorkoutpostComponent,
+    FoodsearchComponent,
+    AddfoodComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +77,6 @@ import {NgbCollapseModule, NgbModule} from "@ng-bootstrap/ng-bootstrap";
     ReactiveFormsModule,
     MatAutocompleteModule,
     MatInputModule,
-
     NgbCollapseModule,
     MatButtonModule,
     BrowserAnimationsModule,
