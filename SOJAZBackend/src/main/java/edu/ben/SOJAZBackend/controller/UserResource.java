@@ -38,4 +38,9 @@ public class UserResource {
         return userService.getAllUsers();
     }
 
+    @PostMapping("/register")
+    public void registration(@RequestBody userDTO userDTO){
+        this.userService.register(userDTO);
+
+    }
 }
