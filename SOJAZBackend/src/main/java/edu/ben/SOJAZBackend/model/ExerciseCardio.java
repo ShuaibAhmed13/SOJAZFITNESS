@@ -3,6 +3,7 @@ package edu.ben.SOJAZBackend.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.sql.Time;
 
 @Entity
 @ToString
@@ -11,24 +12,22 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Data
 @Builder
-@Table(name = "exercise")
-public class Exercise {
+@Table(name = "exercise_cardio")
+public class ExerciseCardio {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-    @Column(name = "workout")
+    @Column(name = "workout_cardio")
     String workout;
-    @Column(name = "sets")
-    int sets;
-    @Column(name = "reps")
-    int reps;
+    @Column(name = "length")
+    String length;
     @Column(name = "intensity")
     String intensity;
 
-    public Exercise(String workout, int sets, int reps, String intensity) {
+    public ExerciseCardio(String workout, String length, String intensity) {
         this.workout = workout;
-        this.sets = sets;
-        this.reps = reps;
+        this.length = length;
         this.intensity = intensity;
     }
 }
