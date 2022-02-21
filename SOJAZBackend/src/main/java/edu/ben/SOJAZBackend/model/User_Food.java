@@ -48,25 +48,25 @@ public class User_Food {
     Date date;
 
     @Column(name = "calories_consumed", nullable = false)
-    int caloriesConsumed;
+    double caloriesConsumed;
 
     @Column(name = "fat_consumed", nullable = false)
-    int fatsConsumed;
+    double fatsConsumed;
 
     @Column(name = "carbs_consumed", nullable = false)
-    int carbsConsumed;
+    double carbsConsumed;
 
     @Column(name = "protein_consumed", nullable = false)
-    int proteinConsumed;
+    double proteinConsumed;
 
     @Column(name = "sodium_consumed", nullable = false)
-    int sodiumConsumed;
+    double sodiumConsumed;
 
     @Column(name = "sugar_consumed", nullable = false)
-    int sugarConsumed;
+    double sugarConsumed;
 
     @Column(name = "number_of_servings", nullable = false)
-    int noOfServings;
+    double noOfServings;
 
 
 }

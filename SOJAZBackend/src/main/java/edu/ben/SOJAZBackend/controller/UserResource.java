@@ -6,6 +6,7 @@ import edu.ben.SOJAZBackend.model.dto.userDTO;
 import edu.ben.SOJAZBackend.model.user;
 import edu.ben.SOJAZBackend.repository.UserRepository;
 import edu.ben.SOJAZBackend.service.UserService;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.http.ResponseEntity;
@@ -38,4 +39,8 @@ public class UserResource {
         return userService.getAllUsers();
     }
 
+    @GetMapping("/getuserbyid/{user_id}")
+    public user getUserById(@PathVariable Long user_id) {
+        return this.userService.getUserById(user_id);
+    }
 }

@@ -14,13 +14,21 @@
     </div>
 <!--    -->
   </ul>
-  <input class="servingsinput" type="number" step="0.5" min="0" #servno placeholder="Number of Servings" (change)="validateValue(servno.value)">
-  <h1 class="error" *ngIf="servno.valueAsNumber <= 0">Please enter a valid amount!</h1>
+  <select class="selectmeal servingsinput" (change)="validateValues(meal.value, servno.valueAsNumber)" #meal>
+    <option value="Breakfast">Breakfast</option>
+    <option value="Lunch">Lunch</option>
+    <option value="Dinner">Dinner</option>
+    <option value="Snack">Snack</option>
+  </select>
+  <input class="servingsinput" type="number" step="0.5" min="0" #servno placeholder="Number of Servings" (change)="validateValues(meal.value, servno.valueAsNumber)">
+  <h1 class="error" *ngIf="error">{{error}}</h1>
+  <h1 class="success" *ngIf="success">{{success}}</h1>
+
 <div>
   <div class="buttonsrow">
     <button class="button cancel" (click)="cancelAdd()">Cancel</button>
 
-    <button class="button add">ADD</button>
+    <button class="button add" (click)="addFoodToDiary(meal.value, servno.valueAsNumber)">ADD</button>
   </div>
 </div>
 </div>

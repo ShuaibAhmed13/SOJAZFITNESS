@@ -416,7 +416,7 @@
     display: none;
   }
 }
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 1001px) {
 
   .big-purple {
     height: 800px;
@@ -517,6 +517,7 @@
   }
 
   .large-white-circle {
+    opacity: 0.8;
     width: 400px;
     display: block;
     position: absolute;
@@ -525,6 +526,7 @@
   }
 
   .medium-white-circle {
+    opacity: 0.8;
     width: 300px;
     display: block;
     position: absolute;
@@ -532,6 +534,7 @@
     top: 28%;
   }
   .small-white-circle {
+    opacity: 0.8;
     width: 200px;
     display: block;
     position: absolute;
@@ -583,3 +586,8 @@
   }
 }
 
+@media only screen and (max-width: 340px) {
+  .hero-details h1{
+    font-size: 2rem;
+  }
+}

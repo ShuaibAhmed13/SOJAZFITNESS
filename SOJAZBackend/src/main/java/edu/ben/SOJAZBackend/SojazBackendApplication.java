@@ -10,4 +10,5 @@ public class SojazBackendApplication {
 		SpringApplication.run(SojazBackendApplication.class, args);
 	}
 
+
 }
