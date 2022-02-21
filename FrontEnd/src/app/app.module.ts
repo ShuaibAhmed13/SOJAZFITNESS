@@ -24,12 +24,12 @@ import {WorkoutmanualComponent} from "./components/workoutmanual/workoutmanual.c
 import {NavbarComponent} from "./components/navbar/navbar.component";
 import {ShouldersComponent} from "./components/WORKOUTS/shoulders/shoulders.component";
 import {ChestComponent} from "./components/WORKOUTS/chest/chest.component";
-
+import {ArmsComponent} from "./components/WORKOUTS/arms/arms.component";
 import {CardioComponent} from "./components/WORKOUTS/cardio/cardio.component";
 import {BackComponent} from "./components/WORKOUTS/back/back.component";
 import {CoreComponent} from "./components/WORKOUTS/core/core.component";
 import {LegsComponent} from "./components/WORKOUTS/legs/legs.component";
-
+import { WorkoutpostComponent } from './components/workoutpost/workoutpost.component';
 import {NgbCollapseModule, NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
 import {MatExpansionModule} from "@angular/material/expansion";
@@ -53,6 +53,7 @@ import {MatExpansionModule} from "@angular/material/expansion";
     DisplayFoodNutritionComponent,
     WorkoutmanualComponent,
     NavbarComponent,
+    ArmsComponent,
     BackComponent,
     CardioComponent,
     ChestComponent,
@@ -61,6 +62,8 @@ import {MatExpansionModule} from "@angular/material/expansion";
     ShouldersComponent,
     ProgressBarComponent,
 
+
+    WorkoutpostComponent
   ],
   imports: [
     BrowserModule,

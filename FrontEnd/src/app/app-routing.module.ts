@@ -6,7 +6,7 @@ import {FitnesssearchComponent} from "./components/fitnesssearch/fitnesssearch.c
 import {AboutUsComponent} from "./components/about-us/about-us.component";
 import {signupComponent} from "./components/signup/signup.component";
 import {WorkoutmanualComponent} from "./components/workoutmanual/workoutmanual.component";
-
+import {ArmsComponent} from "./components/WORKOUTS/arms/arms.component";
 import {BackComponent} from "./components/WORKOUTS/back/back.component";
 import {CardioComponent} from "./components/WORKOUTS/cardio/cardio.component";
 import {ChestComponent} from "./components/WORKOUTS/chest/chest.component";
@@ -16,6 +16,7 @@ import {ShouldersComponent} from "./components/WORKOUTS/shoulders/shoulders.comp
 import {LoginpageComponent} from "./components/loginpage/loginpage.component";
 import {ProgressBarComponent} from "./components/progress-bar/progress-bar.component";
 
+import {WorkoutpostComponent} from "./components/workoutpost/workoutpost.component";
 
 const routes: Routes = [
   { path: 'welcomepage', component: WelcomePageComponent},
@@ -30,6 +31,7 @@ const routes: Routes = [
   {path: 'legs', component: LegsComponent},
   {path: 'shoulders', component: ShouldersComponent},
   {path: 'loginpage', component:LoginpageComponent},
+  {path: 'exercisepost', component:WorkoutpostComponent},
   {path: 'progressbar', component:ProgressBarComponent},
   { path: '**', component: PageNotFoundPageComponent}
 ];

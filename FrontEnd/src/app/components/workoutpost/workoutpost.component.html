@@ -1,0 +1,18 @@
+<form  #workoutData="ngForm" (ngSubmit)="workout(workoutData)" novalidate>
+  <div class="form-group">
+    <input class="form-control login-input" name="workout" id="workout" placeholder="Enter Workout" ngModel=""><br>
+  </div>
+  <div class="form-group">
+    <input class="form-control login-input" name="workoutType" id="workoutType" placeholder="Enter Workout Type" ngModel=""><br>
+  </div>
+  <div class="form-group">
+    <input class="form-control login-input" name="sets" id="sets" placeholder="Enter Sets" ngModel=""><br>
+  </div>
+  <div class="form-group">
+    <input class="form-control login-input" name="reps" id="reps" placeholder="Enter Reps" ngModel=""><br>
+  </div>
+  <div class="form-group">
+    <input class="form-control login-input" name="intensity" id="intensity" placeholder="Enter Intensity" ngModel=""><br>
+  </div>
+  <button class="login-btn">Submit</button>
+</form>

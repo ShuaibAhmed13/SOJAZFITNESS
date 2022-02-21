@@ -70,8 +70,25 @@ DEFAULT CHARACTER SET = utf8mb3;
 -- Table `sojazdummyschema`.`user`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `sojazdummyschema`.`user` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL auto_increment,
+  `email` VARCHAR(45) NOT NULL,
   `username` VARCHAR(45) NOT NULL,
+  `first_name` VARCHAR(45) NOT NULL,
+  `last_name` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(45) NOT NULL,
+
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb3;
+
+CREATE TABLE IF NOT EXISTS `sojazdummyschema`.`exercise` (
+  `id` INT NOT NULL auto_increment,
+  `workout` VARCHAR(45) NOT NULL,
+  `workout_type` VARCHAR(45) NOT NULL,
+  `sets` INT NOT NULL,
+  `reps` INT NOT NULL,
+  `intensity` VARCHAR(45) NOT NULL,
+
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb3;
@@ -84,5 +101,5 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 
 
-INSERT INTO `User` VALUES ('1', 'Dummy');
+INSERT INTO `User` VALUES ('1', 'dummy@gmail.com', 'dummy1', 'Dummy', 'One', 'aaaa1111');
 INSERT INTO `Food` VALUES ('1','Chicken','300', '12', '7', '5', '5', '2', '1'), ('2', 'NY Strip Steak', '400', '18', '9', '3', '3', '2', '1'), ('3', 'Rice', '200', '15', '7', '1', '1', '1', '1'), ('4', 'Spaghetti & Meatballs', '700', '20', '12', '15', '12', '4', '1'), ('5', 'Peanut Butter', '150', '18', '9', '2', '2', '3', '1');
