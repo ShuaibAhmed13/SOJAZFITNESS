@@ -24,6 +24,6 @@ export class NavbarComponent implements OnInit {
     this.router.navigateByUrl("/workoutmanual")
   }
   pageFourDisplay(): void {
-    this.router.navigateByUrl("/progressbar")
+    this.router.navigateByUrl("/myprogress")
   }
 }

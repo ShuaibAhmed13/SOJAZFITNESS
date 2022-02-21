@@ -1,0 +1,10 @@
+<app-navbar></app-navbar>
+
+<div class="header">
+  <h1>MY PROGRESS</h1>
+  <h3>YOU LIE. YOU DIE.</h3>
+</div>
+
+<input type="number" #CalorieInput (keyup.enter)="CalorieInput" value="gees">
+
+<app-progress-bar [progress]="CalorieInput.valueAsNumber" [total]="100"></app-progress-bar>

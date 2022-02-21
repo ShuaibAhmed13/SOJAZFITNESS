@@ -24,7 +24,6 @@ import {WorkoutmanualComponent} from "./components/workoutmanual/workoutmanual.c
 import {NavbarComponent} from "./components/navbar/navbar.component";
 import {ShouldersComponent} from "./components/WORKOUTS/shoulders/shoulders.component";
 import {ChestComponent} from "./components/WORKOUTS/chest/chest.component";
-imp
 import {CardioComponent} from "./components/WORKOUTS/cardio/cardio.component";
 import {BackComponent} from "./components/WORKOUTS/back/back.component";
 import {CoreComponent} from "./components/WORKOUTS/core/core.component";
@@ -33,6 +32,8 @@ import { WorkoutpostComponent } from './components/workoutpost/workoutpost.compo
 import {NgbCollapseModule, NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
 import {MatExpansionModule} from "@angular/material/expansion";
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { MyProgressComponent } from './components/my-progress/my-progress.component';
 
 
 
@@ -62,7 +63,8 @@ import {MatExpansionModule} from "@angular/material/expansion";
     ProgressBarComponent,
 
 
-    WorkoutpostComponent
+    WorkoutpostComponent,
+      MyProgressComponent
   ],
   imports: [
     BrowserModule,
@@ -77,7 +79,7 @@ import {MatExpansionModule} from "@angular/material/expansion";
     ReactiveFormsModule,
     MatAutocompleteModule,
     MatInputModule,
-
+    MatProgressBarModule,
     NgbCollapseModule,
     MatButtonModule,
     BrowserAnimationsModule,
