@@ -6,42 +6,106 @@
   <h3>KEY to success. That's it.</h3>
 </div>
 
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for muscle group...">
+<mat-accordion>
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Arms
+      </mat-panel-title>
+      <mat-panel-description>
+        Currently I am arms
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>I'm visible because I am open</p>
+  </mat-expansion-panel>
 
-<ul id="myUL">
-  <li><a href="arms">Arms</a></li>
-  <li><a href="shoulders">Shoulders</a></li>
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+      Back
+      </mat-panel-title>
+      <mat-panel-description>
+        Currently I am legs
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>I'm visible because I am open</p>
+  </mat-expansion-panel>
 
-  <li><a href="chest">Chest</a></li>
-  <li><a href="back">Back</a></li>
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Cardio
+      </mat-panel-title>
+      <mat-panel-description>
+        Currently I am legs
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>I'm visible because I am open</p>
+  </mat-expansion-panel>
 
-  <li><a href="legs">Legs</a></li>
-  <li><a href="cardio">Cardio</a></li>
-  <li><a href="core">Core</a></li>
-</ul>
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Chest
+      </mat-panel-title>
+      <mat-panel-description>
+        Currently I am legs
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>I'm visible because I am open</p>
+  </mat-expansion-panel>
 
-<script>
-  function myFunction() {
-    // Declare variables
-    var input, filter, ul, li, a, i, txtValue;
-    input = document.getElementById('myInput');
-    filter = input.value.toUpperCase();
-    ul = document.getElementById("myUL");
-    li = ul.getElementsByTagName('li');
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Core
+      </mat-panel-title>
+      <mat-panel-description>
+        Currently I am legs
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>I'm visible because I am open</p>
+  </mat-expansion-panel>
 
-    // Loop through all list items, and hide those who don't match the search query
-    for (i = 0; i < li.length; i++) {
-      a = li[i].getElementsByTagName("a")[0];
-      txtValue = a.textContent || a.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        li[i].style.display = "";
-      } else {
-        li[i].style.display = "none";
-      }
-    }
-  }
-</script>
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Legs
+      </mat-panel-title>
+      <mat-panel-description>
+        Currently I am legs
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>I'm visible because I am open</p>
+  </mat-expansion-panel>
 
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false" class ="para">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Shoulders
+      </mat-panel-title>
+      <mat-panel-description>
+        Shoulders. They Lit
+      </mat-panel-description>
+
+    </mat-expansion-panel-header>
+    <p>Push ups- get down on all fours, extend your legs behind you, and lower your upper body. Hold this position for
+      a few seconds and push yourself back up parallel to the floor.</p>
+    <p>Overhaed Press- the starting position by standing with your barbell tucked underneath your chin and your hands
+      close to your shoulders and palms facing upwards. Extend your arms to raise the barbell above your head.
+      Wait a few seconds before gradually lowering the barbell.</p>
+    <p>Crab Walk - crawl by moving one hand along with the opposite foot and repeating on the other side. It’ll takes
+      some practice to master, but it’s a worthy inclusion to to any full-body workout.</p>
+  </mat-expansion-panel>
+
+</mat-accordion>
 </html>
 
 
