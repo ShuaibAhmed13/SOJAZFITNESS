@@ -33,6 +33,9 @@ public class UserService {
             return new userDTO(user.getId(), user.getEmail(), user.getUsername(), user.getFirstName(), user.getLastName(), user.getPassword());
         }
     }
+    public void register(userDTO userDTO){
+        userRepository.save(new user(userDTO.getEmail(),userDTO.getUsername(),userDTO.getFirstName(),userDTO.getLastName(),userDTO.getPassword()));
+    }
 
     public userDTO getLoggedInUser() {
         System.out.println(loggedInUser);

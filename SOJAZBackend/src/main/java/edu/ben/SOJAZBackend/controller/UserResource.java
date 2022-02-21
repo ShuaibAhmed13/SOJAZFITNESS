@@ -42,5 +42,9 @@ public class UserResource {
     @GetMapping("/getuserbyid/{user_id}")
     public user getUserById(@PathVariable Long user_id) {
         return this.userService.getUserById(user_id);
+    @PostMapping("/register")
+    public void registration(@RequestBody userDTO userDTO){
+        this.userService.register(userDTO);
+
     }
 }

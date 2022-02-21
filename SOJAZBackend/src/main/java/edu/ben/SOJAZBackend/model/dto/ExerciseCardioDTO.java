@@ -5,16 +5,16 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
+import java.sql.Time;
+
 @Data
 @ToString
 @EqualsAndHashCode
 @AllArgsConstructor
-public class ExerciseDTO {
-
+public class ExerciseCardioDTO {
     Long id;
-    String workout;
-    int sets;
-    int reps;
+    String workoutCardio;
+    String length;
     String intensity;
 
 }
