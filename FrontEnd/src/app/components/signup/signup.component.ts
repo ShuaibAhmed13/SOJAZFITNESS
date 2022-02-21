@@ -14,6 +14,7 @@ export class signupComponent implements OnInit {
   }
 
   signup(userData: any) {
-this.userService.register({email:userData.value.email,username:userData.value.username,firstname:userData.value.firstname,lastname:userData.value.lastname,password:userData.value.password})
+    console.log(userData.value)
+    this.userService.registration({email:userData.value.email, username:userData.value.username, firstName:userData.value.firstName, lastName:userData.value.lastName, password:userData.value.password})
   }
 }
