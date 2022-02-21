@@ -15,7 +15,6 @@ public class ExerciseService {
     }
 
     public void exerciseSave(ExerciseDTO exerciseDTO) {
-
-        exerciseRepository.save(new Exercise(exerciseDTO.getWorkout(), exerciseDTO.getWorkoutType(), exerciseDTO.getSets(), exerciseDTO.getReps(), exerciseDTO.getIntensity()));
+        exerciseRepository.save(new Exercise(exerciseDTO.getWorkout(), exerciseDTO.getSets(), exerciseDTO.getReps(), exerciseDTO.getIntensity()));
     }
 }
