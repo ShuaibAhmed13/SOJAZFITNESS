@@ -1,0 +1,26 @@
+<div *ngIf="selectedFood" class="addfood">
+  <ul  class="nutrition-facts">
+    <div class="listgroup">
+      <li>Food: {{selectedFood.foodName}}</li>
+      <li>Calories: {{selectedFood.calories}}</li>
+      <li>Carbs: {{selectedFood.carbs}}</li>
+      <li>Sodium: {{selectedFood.sodium}}</li>
+    </div>
+    <div class="listgroup">
+      <li>Total Fat: {{selectedFood.totalFat}}</li>
+      <li>Protein: {{selectedFood.protein}}</li>
+      <li>Sugar: {{selectedFood.sugar}}</li>
+      <li>Serving Size: {{selectedFood.servingSize}}</li>
+    </div>
+<!--    -->
+  </ul>
+  <input class="servingsinput" type="number" step="0.5" min="0" #servno placeholder="Number of Servings" (change)="validateValue(servno.value)">
+  <h1 class="error" *ngIf="servno.valueAsNumber <= 0">Please enter a valid amount!</h1>
+<div>
+  <div class="buttonsrow">
+    <button class="button cancel" (click)="cancelAdd()">Cancel</button>
+
+    <button class="button add">ADD</button>
+  </div>
+</div>
+</div>
