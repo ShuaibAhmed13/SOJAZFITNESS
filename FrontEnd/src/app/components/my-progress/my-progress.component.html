@@ -5,6 +5,11 @@
   <h3>YOU LIE. YOU DIE.</h3>
 </div>
 
-<input type="number" #CalorieInput (keyup.enter)="CalorieInput" value="gees">
+<div class="desc">
+  <h2>Enter you percentage of calories here:</h2>
+  <input type="number" #CalorieInput (keyup.enter)="CalorieInput" value="gees">
+</div>
 
+<br>
+<br>
 <app-progress-bar [progress]="CalorieInput.valueAsNumber" [total]="100"></app-progress-bar>
