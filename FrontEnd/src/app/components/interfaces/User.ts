@@ -1,8 +1,8 @@
 export interface User {
-  firstname?: string;
-  lastname?:string;
-  email?:string;
   id?: number;
-  username:string;
+  email?:string;
+  username?:string;
+  firstName?: string;
+  lastName?:string;
   password:string;
 }

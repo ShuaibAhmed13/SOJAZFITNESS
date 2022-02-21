@@ -39,6 +39,11 @@ public class UserResource {
         return userService.getAllUsers();
     }
 
+    @PostMapping("/register")
+    public void registration(@RequestBody userDTO userDTO){
+        this.userService.register(userDTO);
+
+    }
     @GetMapping("/getuserbyid/{user_id}")
     public user getUserById(@PathVariable Long user_id) {
         return this.userService.getUserById(user_id);

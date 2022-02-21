@@ -84,9 +84,18 @@ DEFAULT CHARACTER SET = utf8mb3;
 CREATE TABLE IF NOT EXISTS `sojazdummyschema`.`exercise` (
   `id` INT NOT NULL auto_increment,
   `workout` VARCHAR(45) NOT NULL,
-  `workout_type` VARCHAR(45) NOT NULL,
   `sets` INT NOT NULL,
   `reps` INT NOT NULL,
+  `intensity` VARCHAR(45) NOT NULL,
+
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb3;
+
+CREATE TABLE IF NOT EXISTS `sojazdummyschema`.`exercise_cardio` (
+  `id` INT NOT NULL auto_increment,
+  `workout_cardio` VARCHAR(45) NOT NULL,
+  `length` VARCHAR(45) NOT NULL,
   `intensity` VARCHAR(45) NOT NULL,
 
   PRIMARY KEY (`id`))
