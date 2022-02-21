@@ -36,8 +36,8 @@ export class UserService {
     })
   }
 
-  register(user:User){
-    this.httpClient.post<User>('api/users/register',user).subscribe(()=>{
+  registration(user:User){
+    this.httpClient.post<User>('api/users/register', user).subscribe(() => {
       this.router.navigateByUrl('/loginpage')
     });
   }
