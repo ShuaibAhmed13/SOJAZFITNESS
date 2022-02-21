@@ -25,9 +25,9 @@ export class LandingPageComponent implements OnInit {
   }
 
   autoToggleBurgerMenu() {
-    if(innerWidth >= 1000) {
+    if(innerWidth > 1000) {
       this.showmenu = true
-    } else if (innerWidth <1000) {
+    } else if (innerWidth <=1000) {
       this.showmenu = false
     }
 

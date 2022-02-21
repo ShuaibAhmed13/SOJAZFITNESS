@@ -1,6 +1,7 @@
 package edu.ben.SOJAZBackend.controller;
 
 import edu.ben.SOJAZBackend.model.User_Food;
+import edu.ben.SOJAZBackend.model.dto.UserFoodDTO;
 import edu.ben.SOJAZBackend.service.UserFoodService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -33,8 +34,14 @@ public class UserFoodResource {
         return userFoodService.getAllUsersByFoodId(food_id);
     }
 
-    @PostMapping("/addfoodconsumedbyuser")
-    public void addusersfood(@RequestBody User_Food user_food) {
-        userFoodService.addFoodToUserDiary(user_food);
+    @PostMapping("/addfoodconsumedbyuser/{user_id}/{food_id}")
+    public void addusersfood(@RequestBody User_Food user_food, @PathVariable Long user_id, @PathVariable Long food_id) {
+        userFoodService.addFoodToUserDiary(user_food, user_id, food_id);
+    }
+
+    @PutMapping("/addtofooddiary/{food_id}/{user_id}")
+    public void addToFoodDiary(@RequestBody UserFoodDTO userFoodDTO, @PathVariable Long food_id, @PathVariable Long user_id) {
+        System.out.println("The food id is " + food_id + "The user id is " + user_id + " The serv is " + userFoodDTO.getNoOfServings() + " The meal is " + userFoodDTO.getMeal());
+        userFoodService.addFoodToDiary(food_id, user_id, userFoodDTO.getNoOfServings(), userFoodDTO.getMeal());
     }
 }
