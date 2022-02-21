@@ -16,6 +16,7 @@ import {ShouldersComponent} from "./components/WORKOUTS/shoulders/shoulders.comp
 import {LoginpageComponent} from "./components/loginpage/loginpage.component";
 import {WorkoutpostComponent} from "./components/workoutpost/workoutpost.component";
 import {FoodsearchComponent} from "./components/foodsearch/foodsearch.component";
+import {LandingPageComponent} from "./components/landing-page/landing-page.component";
 
 const routes: Routes = [
   { path: 'welcomepage', component: WelcomePageComponent},
@@ -33,7 +34,7 @@ const routes: Routes = [
   {path: 'loginpage', component:LoginpageComponent},
   {path: 'exercisepost', component:WorkoutpostComponent},
   {path: 'searchfood', component:FoodsearchComponent},
-
+  {path: 'landingpage', component:LandingPageComponent},
   { path: '**', component: PageNotFoundPageComponent}
 ];
 
