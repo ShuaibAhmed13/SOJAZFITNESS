@@ -6,7 +6,7 @@ import {FitnesssearchComponent} from "./components/fitnesssearch/fitnesssearch.c
 import {AboutUsComponent} from "./components/about-us/about-us.component";
 import {signupComponent} from "./components/signup/signup.component";
 import {WorkoutmanualComponent} from "./components/workoutmanual/workoutmanual.component";
-import {ArmsComponent} from "./components/WORKOUTS/arms/arms.component";
+
 import {BackComponent} from "./components/WORKOUTS/back/back.component";
 import {CardioComponent} from "./components/WORKOUTS/cardio/cardio.component";
 import {ChestComponent} from "./components/WORKOUTS/chest/chest.component";

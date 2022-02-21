@@ -24,7 +24,7 @@ import {WorkoutmanualComponent} from "./components/workoutmanual/workoutmanual.c
 import {NavbarComponent} from "./components/navbar/navbar.component";
 import {ShouldersComponent} from "./components/WORKOUTS/shoulders/shoulders.component";
 import {ChestComponent} from "./components/WORKOUTS/chest/chest.component";
-import {ArmsComponent} from "./components/WORKOUTS/arms/arms.component";
+imp
 import {CardioComponent} from "./components/WORKOUTS/cardio/cardio.component";
 import {BackComponent} from "./components/WORKOUTS/back/back.component";
 import {CoreComponent} from "./components/WORKOUTS/core/core.component";
@@ -53,7 +53,6 @@ import {MatExpansionModule} from "@angular/material/expansion";
     DisplayFoodNutritionComponent,
     WorkoutmanualComponent,
     NavbarComponent,
-    ArmsComponent,
     BackComponent,
     CardioComponent,
     ChestComponent,
