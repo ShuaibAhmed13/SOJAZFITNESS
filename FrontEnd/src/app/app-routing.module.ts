@@ -11,7 +11,6 @@ import {CardioComponent} from "./components/WORKOUTS/cardio/cardio.component";
 import {ChestComponent} from "./components/WORKOUTS/chest/chest.component";
 import {CoreComponent} from "./components/WORKOUTS/core/core.component";
 import {LegsComponent} from "./components/WORKOUTS/legs/legs.component";
-import {ShouldersComponent} from "./components/WORKOUTS/shoulders/shoulders.component";
 import {LoginpageComponent} from "./components/loginpage/loginpage.component";
 import {ProgressBarComponent} from "./components/progress-bar/progress-bar.component";
 
@@ -29,7 +28,6 @@ const routes: Routes = [
   {path: 'chest', component: ChestComponent},
   {path: 'core', component: CoreComponent},
   {path: 'legs', component: LegsComponent},
-  {path: 'shoulders', component: ShouldersComponent},
   {path: 'loginpage', component:LoginpageComponent},
   {path: 'exercisepost', component:WorkoutpostComponent},
   {path: 'progressbar', component:ProgressBarComponent},

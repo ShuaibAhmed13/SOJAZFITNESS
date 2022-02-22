@@ -22,7 +22,7 @@ import {MatButtonModule} from "@angular/material/button";
 import { DisplayFoodNutritionComponent } from './components/display-food-nutrition/display-food-nutrition.component';
 import {WorkoutmanualComponent} from "./components/workoutmanual/workoutmanual.component";
 import {NavbarComponent} from "./components/navbar/navbar.component";
-import {ShouldersComponent} from "./components/WORKOUTS/shoulders/shoulders.component";
+
 import {ChestComponent} from "./components/WORKOUTS/chest/chest.component";
 import {CardioComponent} from "./components/WORKOUTS/cardio/cardio.component";
 import {BackComponent} from "./components/WORKOUTS/back/back.component";
@@ -59,7 +59,6 @@ import { MyProgressComponent } from './components/my-progress/my-progress.compon
     ChestComponent,
     CoreComponent,
     LegsComponent,
-    ShouldersComponent,
     ProgressBarComponent,
 
 
