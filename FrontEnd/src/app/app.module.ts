@@ -23,11 +23,7 @@ import { DisplayFoodNutritionComponent } from './components/display-food-nutriti
 import {WorkoutmanualComponent} from "./components/workoutmanual/workoutmanual.component";
 import {NavbarComponent} from "./components/navbar/navbar.component";
 
-import {ChestComponent} from "./components/WORKOUTS/chest/chest.component";
-import {CardioComponent} from "./components/WORKOUTS/cardio/cardio.component";
-import {BackComponent} from "./components/WORKOUTS/back/back.component";
-import {CoreComponent} from "./components/WORKOUTS/core/core.component";
-import {LegsComponent} from "./components/WORKOUTS/legs/legs.component";
+
 import { WorkoutpostComponent } from './components/workoutpost/workoutpost.component';
 import {NgbCollapseModule, NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
@@ -54,14 +50,7 @@ import { MyProgressComponent } from './components/my-progress/my-progress.compon
     DisplayFoodNutritionComponent,
     WorkoutmanualComponent,
     NavbarComponent,
-    BackComponent,
-    CardioComponent,
-    ChestComponent,
-    CoreComponent,
-    LegsComponent,
     ProgressBarComponent,
-
-
     WorkoutpostComponent,
       MyProgressComponent
   ],
