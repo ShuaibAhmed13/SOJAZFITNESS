@@ -367,6 +367,7 @@ input:focus {
 
 .cursor {
   animation: 2s ease-out 0s 1 needleslide;
+  transition: top 2s;
 }
 @media only screen and (min-width: 500px) {
 
