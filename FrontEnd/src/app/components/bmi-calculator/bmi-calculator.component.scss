@@ -355,6 +355,19 @@ input:focus {
   background-color: red;
 }
 
+@keyframes needleslide {
+  0% {
+    //opacity: 0%;
+    top: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+.cursor {
+  animation: 2s ease-out 0s 1 needleslide;
+}
 @media only screen and (min-width: 500px) {
 
   .calculatorcontainer {
@@ -433,17 +446,5 @@ input:focus {
     height: 80vh;
   }
 
-  @keyframes needleslide {
-    0% {
-      //opacity: 0%;
-      top: 0;
-    }
-    100% {
-      opacity: 100%;
-    }
-  }
 
-  .cursor {
-    animation: 2s ease-out 0s 1 needleslide;
-  }
 }
