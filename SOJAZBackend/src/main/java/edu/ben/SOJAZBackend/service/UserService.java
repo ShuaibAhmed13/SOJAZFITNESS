@@ -53,4 +53,15 @@ public class UserService {
     }
 
     public user getUserById(Long user_id) {return userRepository.findById(user_id).get();}
+
+    public user getUserByEmail(String email) {return userRepository.getByEmail(email);}
+
+    public user addUser(user user) {return userRepository.save(user);}
+
+    public user updateUser(Long user_id, user user) {
+        user.setId(user_id);
+        return userRepository.save(user);
+    }
+
+    public void deleteUser(Long user_id) {userRepository.deleteById(user_id);}
 }

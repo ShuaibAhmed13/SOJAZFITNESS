@@ -29,7 +29,7 @@ const routes: Routes = [
   { path: 'aboutus', component: AboutUsComponent},
   {path: 'search', component:FitnesssearchComponent},
   {path: 'signup', component: signupComponent, canActivate: [LoggedinauthGuard]},
-  {path: 'workoutmanual', component: WorkoutmanualComponent},
+  {path: 'workoutmanual', component: WorkoutmanualComponent, canActivate: [AuthGuard]},
   {path: 'arms', component: ArmsComponent},
   {path: 'back', component: BackComponent},
   {path: 'cardio', component: CardioComponent},
@@ -39,9 +39,8 @@ const routes: Routes = [
   {path: 'shoulders', component: ShouldersComponent},
   {path: 'loginpage', component:LoginpageComponent, canActivate: [LoggedinauthGuard]},
   {path: 'exercisepost', component:WorkoutpostComponent},
-  {path: 'searchfood', component:FoodsearchComponent},
+  {path: 'searchfood', component:FoodsearchComponent, canActivate: [AuthGuard]},
   {path: 'calculatorpage', component: CalculatorpageComponent},
-  {path:'newnavbar', component: NewnavbarComponent},
   { path: '**', component: PageNotFoundPageComponent}
 ];
 
