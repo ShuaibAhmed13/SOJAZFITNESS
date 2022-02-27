@@ -8,6 +8,7 @@ import edu.ben.SOJAZBackend.model.user;
 import edu.ben.SOJAZBackend.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 
 @Service
@@ -33,8 +34,18 @@ public class UserService {
 //            return new userDTO(user.getId(), user.getEmail(), user.getUsername(), user.getFirstName(), user.getLastName(), user.getPassword());
 //        }
 //    }
-    public void register(userDTO userDTO){
-        userRepository.save(new user(userDTO.getEmail(),userDTO.getUsername(),userDTO.getFirstName(),userDTO.getLastName(),userDTO.getPassword()));
+    public String register(userDTO userDTO){
+            if(userRepository.existsByEmail(userDTO.getEmail())) {
+                System.out.println("EMail already exists");
+                return "User by this email already exists!";
+            } else if(userRepository.existsByUsername(userDTO.getUsername())) {
+                System.out.println("username is taken");
+                return "This username is taken!";
+            }
+            else {
+                userRepository.save(new user(userDTO.getEmail(), userDTO.getUsername(), userDTO.getFirstName(), userDTO.getLastName(), userDTO.getPassword()));
+                return "Registered Successfully";
+            }
     }
 
     public userDTO getLoggedInUser(String username) {

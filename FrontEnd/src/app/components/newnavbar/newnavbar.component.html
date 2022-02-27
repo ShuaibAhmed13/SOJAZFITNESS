@@ -16,7 +16,7 @@
 <!--    <div *ngIf="this.authenticated" class="link"><a href="/welcomepage">HOME</a></div>-->
     <div *ngIf="this.authenticated" class="link"><a href="/workoutmanual">WORKOUTS</a></div>
     <div class="link"><a href="/aboutus">ABOUT</a></div>
-    <div *ngIf="this.checkIfAdmin()" class="link"><a>ADMIN</a></div>
+    <div *ngIf="this.checkIfAdmin()" class="link"><a href="/adminpanelpage">ADMIN</a></div>
     <div *ngIf="this.authenticated" class="link"><a (click)="logout()" >LOG OUT</a></div>
 
   </div>

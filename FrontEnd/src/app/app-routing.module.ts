@@ -22,6 +22,8 @@ import {CalculatorpageComponent} from "./components/calculatorpage/calculatorpag
 import {NewnavbarComponent} from "./components/newnavbar/newnavbar.component";
 import {AuthGuard} from "./components/services/auth.guard";
 import {LoggedinauthGuard} from "./components/services/loggedinauth.guard";
+import {AdminpanelpageComponent} from "./components/adminpanelpage/adminpanelpage.component";
+import {RoleGuard} from "./components/services/role.guard";
 
 const routes: Routes = [
   {path: '', component:LandingPageComponent, canActivate: [LoggedinauthGuard]},
@@ -41,6 +43,7 @@ const routes: Routes = [
   {path: 'exercisepost', component:WorkoutpostComponent},
   {path: 'searchfood', component:FoodsearchComponent, canActivate: [AuthGuard]},
   {path: 'calculatorpage', component: CalculatorpageComponent},
+  {path: 'adminpanelpage', component: AdminpanelpageComponent, canActivate: [RoleGuard]},
   { path: '**', component: PageNotFoundPageComponent}
 ];
 

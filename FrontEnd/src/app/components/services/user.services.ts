@@ -22,6 +22,14 @@ export class UserService {
     return !!localStorage.getItem("username");
   }
 
+  isUserAdmin() {
+    // @ts-ignore
+    if(localStorage.getItem("user_role") != null && localStorage.getItem("user_role").match("ROLE_ADMIN")) {
+      return true;
+    }
+    return false;
+  }
+
   public login(username: string, password: string): Observable<any> {
     const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username + ":" + password)})
     return this.httpClient.get("api/users/login", {headers, responseType: 'text' as 'json'}).pipe(map((res)=> {
@@ -61,7 +69,7 @@ export class UserService {
 
 
   public setSpecificUserInfo() {
-    this.httpClient.get<userDTO>("api/users/getLoggedInUser/" + this.currentUsername).subscribe(data => {
+    this.httpClient.get<userDTO>("api/users/crud/getLoggedInUser/" + this.currentUsername).subscribe(data => {
         localStorage.setItem("user_id", String(data.id));
         localStorage.setItem("user_role", data.roles);
       }
@@ -88,10 +96,11 @@ export class UserService {
   //   })
   // }
 
-  registration(user:User){
-    this.httpClient.post<User>('api/users/register', user).subscribe(() => {
-      this.router.navigateByUrl('/loginpage')
-    });
+  registration(user:User): Observable<string>{
+    return this.httpClient.post<string>('api/users/register', user);
+    //   .subscribe(() => {
+    //   this.router.navigateByUrl('/loginpage')
+    // });
   }
 }
 

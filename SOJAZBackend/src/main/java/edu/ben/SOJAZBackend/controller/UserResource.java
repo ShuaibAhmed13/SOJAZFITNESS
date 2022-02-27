@@ -45,8 +45,8 @@ public class UserResource {
 
 
     @PostMapping("/register")
-    public void registration(@RequestBody userDTO userDTO) {
-        this.userService.register(userDTO);
+    public String registration(@RequestBody userDTO userDTO) {
+        return this.userService.register(userDTO);
     }
 
 
