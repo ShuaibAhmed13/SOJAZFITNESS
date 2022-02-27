@@ -14,6 +14,15 @@ export class NewnavbarComponent implements OnInit {
   private _event: any;
   public authenticated = false;
 
+
+  checkIfAdmin():boolean {
+    let roles = localStorage.getItem("user_role");
+    if(roles !== null && roles.match("ROLE_ADMIN")) {
+      return true;
+    }
+    return false;
+  }
+
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
     this._event = event;
@@ -27,8 +36,10 @@ export class NewnavbarComponent implements OnInit {
   ngOnInit(): void {
     this.autoToggleBurgerMenu();
     this.checkAuthenticated();
-
+    this.checkIfAdmin();
   }
+
+
 
   checkAuthenticated() {
     if(localStorage.getItem("username") !== null) {

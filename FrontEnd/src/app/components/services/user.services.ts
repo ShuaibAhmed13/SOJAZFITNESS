@@ -13,10 +13,9 @@ export class UserService {
   constructor(private httpClient: HttpClient, private router: Router) { }
 
 
-  authenticated = false;
   error = "";
   currentUsername = "";
-  //loggedInUser = <User>{};
+  //loggedInUser = <userDTO>{};
 
 
   isUserLoggedIn() {
@@ -43,8 +42,8 @@ export class UserService {
 
     localStorage.setItem('username', username);
     this.currentUsername = username;
+    this.setSpecificUserInfo();
     //console.log("authenticated!")
-    this.authenticated = true;
 
   }
 
@@ -54,14 +53,19 @@ export class UserService {
       console.log(data)
     })
     localStorage.removeItem("username");
+    localStorage.removeItem("user_id");
+    localStorage.removeItem("user_role");
     this.currentUsername = "";
-    this.authenticated = false;
   }
 
 
 
-  public getSpecificUserInfo(): Observable<userDTO> {
-    return this.httpClient.get<userDTO>("api/users/getLoggedInUser/" + this.currentUsername);
+  public setSpecificUserInfo() {
+    this.httpClient.get<userDTO>("api/users/getLoggedInUser/" + this.currentUsername).subscribe(data => {
+        localStorage.setItem("user_id", String(data.id));
+        localStorage.setItem("user_role", data.roles);
+      }
+    );
   }
   // login(user:User) {
   //   this.httpClient.get<User>(`api/users/${user.username}/${user.password}`).subscribe((data: User) => {

@@ -13,8 +13,9 @@
   <div class="" [ngClass]="showmenu ? 'right':'hidemenu'">
     <div *ngIf="!this.authenticated" class="link"><a href="/signup">SIGN UP</a></div>
     <div *ngIf="!this.authenticated" class="link"><a href="/loginpage">LOGIN</a></div>
-    <div *ngIf="this.authenticated" class="link"><a (click)="logout()">LOG OUT</a></div>
     <div class="link"><a href="/aboutus">ABOUT</a></div>
+    <div *ngIf="this.checkIfAdmin()" class="link"><a>ADMIN</a></div>
+    <div *ngIf="this.authenticated" class="link"><a (click)="logout()" >LOG OUT</a></div>
 
   </div>
 </div>
