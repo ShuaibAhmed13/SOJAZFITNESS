@@ -37,6 +37,9 @@ import { BmiCalculatorComponent } from './components/bmi-calculator/bmi-calculat
 import { HeaderComponent } from './components/header/header.component';
 import { CalculatorpageComponent } from './components/calculatorpage/calculatorpage.component';
 import { FooterComponent } from './components/footer/footer.component';
+import {UserService} from "./components/services/user.services";
+import { NewnavbarComponent } from './components/newnavbar/newnavbar.component';
+import {AuthGuard} from "./components/services/auth.guard";
 
 
 @NgModule({
@@ -70,7 +73,8 @@ import { FooterComponent } from './components/footer/footer.component';
     BmiCalculatorComponent,
     HeaderComponent,
     CalculatorpageComponent,
-    FooterComponent
+    FooterComponent,
+    NewnavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -91,7 +95,7 @@ import { FooterComponent } from './components/footer/footer.component';
     NgbModule,
 
   ],
-  providers: [],
+  providers: [UserService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

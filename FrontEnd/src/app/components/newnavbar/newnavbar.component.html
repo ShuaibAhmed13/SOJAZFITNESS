@@ -1,0 +1,22 @@
+<div class="container-all">
+
+  <div class="contain-width">
+
+
+<div class="nav">
+  <div class="left">
+    <img class="logo" src="assets/SOJAZLOGO%201.svg"/>
+  </div>
+
+  <img class="menu-icon" (click)="toggleBurgerMenu()" src="assets/menu-icon.svg"/>
+  <!--    <div  [ngClass]="(showmenu && innerWidth < 1000 ? 'right':'hidemenu') || (innerWidth>=1000 ? 'right': 'hello')">-->
+  <div class="" [ngClass]="showmenu ? 'right':'hidemenu'">
+    <div *ngIf="!this.authenticated" class="link"><a href="/signup">SIGN UP</a></div>
+    <div *ngIf="!this.authenticated" class="link"><a href="/loginpage">LOGIN</a></div>
+    <div *ngIf="this.authenticated" class="link"><a (click)="logout()">LOG OUT</a></div>
+    <div class="link"><a href="/aboutus">ABOUT</a></div>
+
+  </div>
+</div>
+  </div>
+</div>

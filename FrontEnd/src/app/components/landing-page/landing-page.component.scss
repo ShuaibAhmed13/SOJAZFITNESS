@@ -264,7 +264,10 @@
   flex: 1;
 }
 
-
+.link {
+  font-family: var(--ff-regular);
+  font-weight: 600;
+}
 
 .menu-icon {
   width: 25px;
@@ -366,6 +369,7 @@
     margin-bottom: 10%;
     a {
       color: white;
+
     }
     .link {
       display: flex;
@@ -375,6 +379,7 @@
       background-color: transparent;
       border: 1px solid var(--light-color);
       border-radius: 0.5rem;
+
     }
   }
   .hidemenu {
