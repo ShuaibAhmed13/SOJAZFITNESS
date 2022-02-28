@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface UserFoodRepository extends JpaRepository<User_Food, Long> {
     //Get all foods consumed by the specified user
-    @Query(value = "SELECT * FROM user_food where user_id = ?;", nativeQuery = true)
+    @Query(value = "SELECT * FROM sojazdummyschema.user_food where user_id = ?;", nativeQuery = true)
     public List<User_Food> findUser_FoodsByUserUserId(Long user_id);
 
 

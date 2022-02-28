@@ -19,12 +19,16 @@ import {FoodsearchComponent} from "./components/foodsearch/foodsearch.component"
 import {LandingPageComponent} from "./components/landing-page/landing-page.component";
 import {BmiCalculatorComponent} from "./components/bmi-calculator/bmi-calculator.component";
 import {CalculatorpageComponent} from "./components/calculatorpage/calculatorpage.component";
+import {NewnavbarComponent} from "./components/newnavbar/newnavbar.component";
+import {AuthGuard} from "./components/services/auth.guard";
+import {LoggedinauthGuard} from "./components/services/loggedinauth.guard";
 
 const routes: Routes = [
-  { path: 'welcomepage', component: WelcomePageComponent},
+  {path: '', component:LandingPageComponent, canActivate: [LoggedinauthGuard]},
+  { path: 'welcomepage', component: WelcomePageComponent, canActivate: [AuthGuard]},
   { path: 'aboutus', component: AboutUsComponent},
   {path: 'search', component:FitnesssearchComponent},
-  {path: 'signup', component: signupComponent},
+  {path: 'signup', component: signupComponent, canActivate: [LoggedinauthGuard]},
   {path: 'workoutmanual', component: WorkoutmanualComponent},
   {path: 'arms', component: ArmsComponent},
   {path: 'back', component: BackComponent},
@@ -33,11 +37,11 @@ const routes: Routes = [
   {path: 'core', component: CoreComponent},
   {path: 'legs', component: LegsComponent},
   {path: 'shoulders', component: ShouldersComponent},
-  {path: 'loginpage', component:LoginpageComponent},
+  {path: 'loginpage', component:LoginpageComponent, canActivate: [LoggedinauthGuard]},
   {path: 'exercisepost', component:WorkoutpostComponent},
   {path: 'searchfood', component:FoodsearchComponent},
-  {path: 'landingpage', component:LandingPageComponent},
   {path: 'calculatorpage', component: CalculatorpageComponent},
+  {path:'newnavbar', component: NewnavbarComponent},
   { path: '**', component: PageNotFoundPageComponent}
 ];
 
