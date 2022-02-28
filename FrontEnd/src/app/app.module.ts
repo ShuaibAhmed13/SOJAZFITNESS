@@ -22,15 +22,14 @@ import {MatButtonModule} from "@angular/material/button";
 import { DisplayFoodNutritionComponent } from './components/display-food-nutrition/display-food-nutrition.component';
 import {WorkoutmanualComponent} from "./components/workoutmanual/workoutmanual.component";
 import {NavbarComponent} from "./components/navbar/navbar.component";
-
-
 import { WorkoutpostComponent } from './components/workoutpost/workoutpost.component';
 import {NgbCollapseModule, NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { MyProgressComponent } from './components/my-progress/my-progress.component';
-
+import { SettingsPageComponent } from './components/settings-page/settings-page.component';
+import{ ConnectionService} from "./connection.service";
 
 
 @NgModule({
@@ -52,7 +51,8 @@ import { MyProgressComponent } from './components/my-progress/my-progress.compon
     NavbarComponent,
     ProgressBarComponent,
     WorkoutpostComponent,
-      MyProgressComponent
+      MyProgressComponent,
+      SettingsPageComponent
   ],
   imports: [
     BrowserModule,
@@ -74,8 +74,11 @@ import { MyProgressComponent } from './components/my-progress/my-progress.compon
     NgbModule,
     MatExpansionModule,
 
+
   ],
-  providers: [],
+  providers: [
+    ConnectionService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -8,7 +8,7 @@ import {signupComponent} from "./components/signup/signup.component";
 import {WorkoutmanualComponent} from "./components/workoutmanual/workoutmanual.component";
 import {LoginpageComponent} from "./components/loginpage/loginpage.component";
 import {ProgressBarComponent} from "./components/progress-bar/progress-bar.component";
-
+import {SettingsPageComponent} from "./components/settings-page/settings-page.component";
 import {WorkoutpostComponent} from "./components/workoutpost/workoutpost.component";
 import {MyProgressComponent} from "./components/my-progress/my-progress.component";
 
@@ -22,6 +22,7 @@ const routes: Routes = [
   {path: 'exercisepost', component:WorkoutpostComponent},
   {path: 'progressbar', component:ProgressBarComponent},
   {path: 'myprogress', component: MyProgressComponent},
+  {path: 'settingspage', component: SettingsPageComponent},
   { path: '**', component: PageNotFoundPageComponent}
 ];
 
