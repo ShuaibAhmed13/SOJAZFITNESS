@@ -9,9 +9,5 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode
 @AllArgsConstructor
-public class ExerciseDTO {
-    Long id;
-    String name;
-    String description;
-
+public class WeightWorkoutDTO {
 }
