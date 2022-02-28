@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.sql.Time;
+import java.util.Set;
 
 @Entity
 @ToString
@@ -12,22 +13,22 @@ import java.sql.Time;
 @NoArgsConstructor
 @Data
 @Builder
-@Table(name = "exercise_cardio")
+@Table(name = "usercardiodiary")
 public class ExerciseCardio {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-    @Column(name = "workout_cardio")
-    String workout;
-    @Column(name = "length")
-    String length;
+    @Column(name = "time")
+    Time time;
     @Column(name = "intensity")
     String intensity;
+    @ManyToOne
+    @JoinColumn(name = "user", referencedColumnName = "id")
+    user user;
 
-    public ExerciseCardio(String workout, String length, String intensity) {
-        this.workout = workout;
-        this.length = length;
+    public ExerciseCardio(Time time, String intensity) {
+        this.time = time;
         this.intensity = intensity;
     }
 }

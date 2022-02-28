@@ -9,9 +9,9 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode
 @AllArgsConstructor
-public class ExerciseDTO {
+public class MuscleDTO {
     Long id;
-    String name;
-    String description;
+    String muscleName;
+    String muscleGroup;
 
 }
