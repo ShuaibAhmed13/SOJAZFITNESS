@@ -1,0 +1,22 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 500" width="100" height="500">
+	<title>New Project</title>
+	<defs>
+		<image  width="100" height="500" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAH0AQMAAADxPRrgAAAAAXNSR0IB2cksfwAAAANQTFRF////p8QbyAAAAB5JREFUeJztwYEAAAAAw6D5Ux/hAlUBAAAAAAAAzwAbWAABJ2cxXwAAAABJRU5ErkJggg=="/>
+	</defs>
+	<style>
+		.s0 { fill: #ff0000 } 
+		.s1 { fill: #e84343 } 
+		.s2 { fill: #e46c6c } 
+		.s3 { fill: #00ff00 } 
+		.s4 { fill: #ffff00 } 
+	</style>
+	<use id="Background" href="#img1" x="0" y="0" />
+	<path id="Shape 1" class="s0" d="m0 0h100v50h-100z" />
+	<path id="Shape 2" class="s1" d="m0 50h100v17h-100z" />
+	<path id="Shape 3" class="s2" d="m0 67h100v25h-100z" />
+	<path id="Shape 4" class="s3" d="m0 92h100v109h-100z" />
+	<path id="Shape 5" class="s4" d="m0 201h100v84h-100z" />
+	<path id="Shape 6" class="s2" d="m0 285h100v84h-100z" />
+	<path id="Shape 7" class="s1" d="m0 369h100v84h-100z" />
+	<path id="Shape 8" class="s0" d="m0 453h100v50h-100z" />
+</svg>

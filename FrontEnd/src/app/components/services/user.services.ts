@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {User} from "../interfaces/User";
 import {Router} from "@angular/router";
+import {map} from "rxjs/operators";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -10,35 +12,94 @@ export class UserService {
 
   constructor(private httpClient: HttpClient, private router: Router) { }
 
-  authenticated = false;
+
   error = "";
-  loggedInUser = <User>{};
+  currentUsername = "";
+  //loggedInUser = <userDTO>{};
 
 
-  login(user:User) {
-    this.httpClient.get<User>(`api/users/login/${user.username}/${user.password}`).subscribe((data: User) => {
+  isUserLoggedIn() {
+    return !!localStorage.getItem("username");
+  }
+
+  public login(username: string, password: string): Observable<any> {
+    const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username + ":" + password)})
+    return this.httpClient.get("api/users/login", {headers, responseType: 'text' as 'json'}).pipe(map((res)=> {
+      this.successfulLogin(username);
+    }))
+
+  }
+  //     .subscribe(data=> {
+  //     console.log(data);
+  //     if(data==="Login Successful") {
+  //       this.successfulLogin(username);
+  //       this.router.navigateByUrl('/welcomepage')
+  //     }
+  //   })
+  // }
+
+  public successfulLogin(username: string) {
+
+    localStorage.setItem('username', username);
+    this.currentUsername = username;
+    this.setSpecificUserInfo();
+    //console.log("authenticated!")
+
+  }
+
+  public Logout() {
+    this.httpClient.get("/api/users/logout").subscribe(data => {
+      console.log("Logout Successful")
       console.log(data)
-      if (data.username) {
-        this.authenticated = true;
-        console.log("User data " + JSON.stringify(data))
-        this.loggedInUser = data
-        this.router.navigateByUrl('/welcomepage');
-      } else {
-        this.authenticated = false;
-      }
     })
+    localStorage.removeItem("username");
+    localStorage.removeItem("user_id");
+    localStorage.removeItem("user_role");
+    this.currentUsername = "";
   }
 
-  getLoggedInUser() {
-    this.httpClient.get<User>('api/users/getloggedinuser').subscribe((data) => {
-      console.log("User data " + JSON.stringify(data))
-      this.loggedInUser = data;
-    })
+
+
+  public setSpecificUserInfo() {
+    this.httpClient.get<userDTO>("api/users/getLoggedInUser/" + this.currentUsername).subscribe(data => {
+        localStorage.setItem("user_id", String(data.id));
+        localStorage.setItem("user_role", data.roles);
+      }
+    );
   }
+  // login(user:User) {
+  //   this.httpClient.get<User>(`api/users/${user.username}/${user.password}`).subscribe((data: User) => {
+  //     console.log(data)
+  //     if (data.username) {
+  //       this.authenticated = true;
+  //       console.log("User data " + JSON.stringify(data))
+  //       this.loggedInUser = data
+  //       this.router.navigateByUrl('/welcomepage');
+  //     } else {
+  //       this.authenticated = false;
+  //     }
+  //   })
+  // }
+
+  // getLoggedInUser() {
+  //   this.httpClient.get<User>('api/users/getloggedinuser').subscribe((data) => {
+  //     console.log("User data " + JSON.stringify(data))
+  //     this.loggedInUser = data;
+  //   })
+  // }
 
   registration(user:User){
     this.httpClient.post<User>('api/users/register', user).subscribe(() => {
       this.router.navigateByUrl('/loginpage')
     });
   }
+}
+
+export interface userDTO {
+  id: number;
+  email: string;
+  username: string;
+  firstName: string;
+  lastName: string;
+  roles: string;
 }

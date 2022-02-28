@@ -1,0 +1,17 @@
+.footer {
+  background-color: var(--main-color);
+  height: 10%;
+  width: 100%;
+  position: fixed;
+  bottom: 0%;
+  color: var(--light-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  h5 {
+    font-size: 0.8rem;
+    font-family: var(--ff-regular);
+    font-weight: 400;
+  }
+}

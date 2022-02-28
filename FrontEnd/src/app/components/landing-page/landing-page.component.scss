@@ -264,7 +264,10 @@
   flex: 1;
 }
 
-
+.link {
+  font-family: var(--ff-regular);
+  font-weight: 600;
+}
 
 .menu-icon {
   width: 25px;
@@ -275,6 +278,10 @@
   flex-direction: column;
   position: relative;
   z-index: 1;
+}
+
+.hero-image {
+  border: 2px solid var(--light-color);
 }
 
 .hero-image-div {
@@ -362,6 +369,7 @@
     margin-bottom: 10%;
     a {
       color: white;
+
     }
     .link {
       display: flex;
@@ -371,6 +379,7 @@
       background-color: transparent;
       border: 1px solid var(--light-color);
       border-radius: 0.5rem;
+
     }
   }
   .hidemenu {
@@ -590,4 +599,10 @@
   .hero-details h1{
     font-size: 2rem;
   }
+}
+
+
+::selection {
+  background-color: var(--light-color);
+  color: var(--main-color);
 }
