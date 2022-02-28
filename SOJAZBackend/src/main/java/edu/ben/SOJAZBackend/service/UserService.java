@@ -36,14 +36,16 @@ public class UserService {
 //    }
     public String register(userDTO userDTO){
             if(userRepository.existsByEmail(userDTO.getEmail())) {
-                System.out.println("EMail already exists");
+                System.out.println("Email already exists");
                 return "User by this email already exists!";
             } else if(userRepository.existsByUsername(userDTO.getUsername())) {
                 System.out.println("username is taken");
                 return "This username is taken!";
             }
             else {
-                userRepository.save(new user(userDTO.getEmail(), userDTO.getUsername(), userDTO.getFirstName(), userDTO.getLastName(), userDTO.getPassword()));
+                Long newID = userRepository.count() + 1;
+                System.out.println("The new id number is " + newID);
+                userRepository.save(new user(newID, userDTO.getEmail(), userDTO.getUsername(), userDTO.getFirstName(), userDTO.getLastName(), userDTO.getPassword()));
                 return "Registered Successfully";
             }
     }

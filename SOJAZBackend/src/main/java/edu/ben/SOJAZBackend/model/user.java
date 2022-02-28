@@ -16,7 +16,7 @@ import java.io.Serializable;
 public class user implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     @Column(name = "email", unique = true)
     String email;
@@ -33,6 +33,16 @@ public class user implements Serializable {
     @Column(name = "ROLES")
     String roles;
 
+    public user(Long id, String email, String username, String firstName, String lastName, String password) {
+        this.id = id;
+        this.email = email;
+        this.username = username;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.password = password;
+        this.active = true;
+        this.roles = "ROLE_USER";
+    }
 
     public user(String email, String username, String firstName, String lastName, String password) {
         this.email = email;

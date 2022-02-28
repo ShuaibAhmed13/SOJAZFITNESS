@@ -102,6 +102,14 @@ export class UserService {
     //   this.router.navigateByUrl('/loginpage')
     // });
   }
+
+  getAllUsers(): Observable<userDTO[]> {
+    return this.httpClient.get<userDTO[]>('api/users/crud/getUsers');
+  }
+
+  deleteUser(user_id: number): Observable<string> {
+    return this.httpClient.delete<string>('/api/users/crud/deleteuserbyid/' + user_id)
+  }
 }
 
 export interface userDTO {
