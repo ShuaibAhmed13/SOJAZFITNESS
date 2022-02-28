@@ -1,7 +1,6 @@
 package edu.ben.SOJAZBackend.controller;
 
 import edu.ben.SOJAZBackend.model.ExerciseMuscle;
-import edu.ben.SOJAZBackend.model.Food;
 import edu.ben.SOJAZBackend.service.ExerciseMuscleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

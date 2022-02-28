@@ -32,7 +32,7 @@
 </ng-container>
 
 <ng-container *ngIf="optionValue == 'cardio'">
-  <h2>Enter Your Workout</h2>
+<!--  <h2>Enter Your Workout</h2>
 <form #workoutCardioData="ngForm" (ngSubmit)="workoutCardio(workoutCardioData)" novalidate style="width: 500px;">
   <div class="form-group">
     <input class="form-control login-input" name="workoutCardio" id="workoutCardio" placeholder="Enter Workout" ngModel=""><br>
@@ -44,9 +44,10 @@
     <input class="form-control login-input" name="intensityCardio" id="intensityCardio" placeholder="Enter Intensity" ngModel=""><br>
   </div>
   <button class="button button3">Submit</button>
-</form>
+</form>-->
 </ng-container>
 
+<!--
 <div class="form-container">
   <form #filterData="ngForm" (ngSubmit)="filterMuscles(filterData)" novalidate>
     <div class="form-group">
@@ -55,3 +56,23 @@
     </div>
   </form>
 </div>
+-->
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr *ngFor="let exercises of this.exerciseService.exercises">
+    <td>{{exercises.name}}</td>
+    <td>{{exercises.description}}</td>
+  </tr>
+  <tr>
+    <th>Sets</th>
+    <th>Reps</th>
+  </tr>
+  <tr *ngFor="let exerciseWeights of this.exerciseService.exerciseWeights">
+    <td>{{exerciseWeights.sets}}</td>
+    <td>{{exerciseWeights.reps}}</td>
+  </tr>
+
+</table>
