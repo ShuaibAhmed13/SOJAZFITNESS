@@ -13,6 +13,9 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `sojazdummyschema` DEFAULT CHARACTER SET utf8 ;
 -- -----------------------------------------------------
+-- Schema sportsdex
+-- -----------------------------------------------------
+-- -----------------------------------------------------
 -- Schema sojazdummyschema
 -- -----------------------------------------------------
 
@@ -23,90 +26,217 @@ CREATE SCHEMA IF NOT EXISTS `sojazdummyschema` DEFAULT CHARACTER SET utf8 ;
 USE `sojazdummyschema` ;
 
 -- -----------------------------------------------------
+-- Table `sojazdummyschema`.`user`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `sojazdummyschema`.`user` (
+                                                         `id` BIGINT NOT NULL,
+                                                         `username` VARCHAR(45) NOT NULL,
+    `email` VARCHAR(255) NULL DEFAULT NULL,
+    `first_name` VARCHAR(255) NULL DEFAULT NULL,
+    `last_name` VARCHAR(255) NULL DEFAULT NULL,
+    `password` VARCHAR(255) NULL DEFAULT NULL,
+    PRIMARY KEY (`id`))
+    ENGINE = InnoDB
+    DEFAULT CHARACTER SET = utf8mb3;
+
+
+-- -----------------------------------------------------
+-- Table `sojazdummyschema`.`equipment`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `sojazdummyschema`.`equipment` (
+                                                              `id` BIGINT NOT NULL,
+                                                              `name` VARCHAR(45) NOT NULL,
+    `type` VARCHAR(45) NOT NULL,
+    PRIMARY KEY (`id`))
+    ENGINE = InnoDB
+    DEFAULT CHARACTER SET = utf8mb3;
+
+
+-- -----------------------------------------------------
+-- Table `sojazdummyschema`.`cardioworkouts`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `sojazdummyschema`.`cardioworkouts` (
+                                                                   `id` BIGINT NOT NULL,
+                                                                   `name` VARCHAR(45) NOT NULL,
+    `description` VARCHAR(45) NOT NULL,
+    `cardioequipmentID` BIGINT NOT NULL,
+    PRIMARY KEY (`id`),
+    INDEX `cardioequipmentID_idx` (`cardioequipmentID` ASC) VISIBLE,
+    CONSTRAINT `cardioequipmentID`
+    FOREIGN KEY (`cardioequipmentID`)
+    REFERENCES `sojazdummyschema`.`equipment` (`id`))
+    ENGINE = InnoDB
+    DEFAULT CHARACTER SET = utf8mb3;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`usercardiodiary`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `sojazdummyschema`.`usercardiodiary` (
+                                                                    `id` BIGINT NOT NULL,
+                                                                    `time` TIME NULL,
+                                                                    `distance` DOUBLE NULL,
+                                                                    `intensity` VARCHAR(10) NULL,
+    `userID` BIGINT NULL,
+    `workoutID` BIGINT NULL,
+    PRIMARY KEY (`id`),
+    INDEX `userID_idx` (`userID` ASC) VISIBLE,
+    INDEX `workoutID_idx` (`workoutID` ASC) VISIBLE,
+    CONSTRAINT `userID`
+    FOREIGN KEY (`userID`)
+    REFERENCES `sojazdummyschema`.`user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+    CONSTRAINT `workoutID`
+    FOREIGN KEY (`workoutID`)
+    REFERENCES `sojazdummyschema`.`cardioworkouts` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+    ENGINE = InnoDB;
+
+USE `sojazdummyschema` ;
+
+-- -----------------------------------------------------
+-- Table `sojazdummyschema`.`equipment`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `sojazdummyschema`.`equipment` (
+                                                              `id` BIGINT NOT NULL,
+                                                              `name` VARCHAR(45) NOT NULL,
+    `type` VARCHAR(45) NOT NULL,
+    PRIMARY KEY (`id`))
+    ENGINE = InnoDB
+    DEFAULT CHARACTER SET = utf8mb3;
+
+
+-- -----------------------------------------------------
+-- Table `sojazdummyschema`.`cardioworkouts`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `sojazdummyschema`.`cardioworkouts` (
+                                                                   `id` BIGINT NOT NULL,
+                                                                   `name` VARCHAR(45) NOT NULL,
+    `description` VARCHAR(45) NOT NULL,
+    `cardioequipmentID` BIGINT NOT NULL,
+    PRIMARY KEY (`id`),
+    INDEX `cardioequipmentID_idx` (`cardioequipmentID` ASC) VISIBLE,
+    CONSTRAINT `cardioequipmentID`
+    FOREIGN KEY (`cardioequipmentID`)
+    REFERENCES `sojazdummyschema`.`equipment` (`id`))
+    ENGINE = InnoDB
+    DEFAULT CHARACTER SET = utf8mb3;
+
+
+-- -----------------------------------------------------
 -- Table `sojazdummyschema`.`food`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `sojazdummyschema`.`food` (
-  `id` INT NOT NULL,
-  `food_name` VARCHAR(45) NOT NULL,
-  `calories` INT NOT NULL,
-  `carbs` INT NOT NULL,
-  `sodium` INT NOT NULL,
-  `total_fat` INT NOT NULL,
-  `protein` INT NOT NULL,
-  `sugar` INT NOT NULL,
-  `serving_size` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb3;
+                                                         `id` INT NOT NULL,
+                                                         `food_name` VARCHAR(45) NOT NULL,
+    `calories` INT NOT NULL,
+    `carbs` INT NOT NULL,
+    `sodium` INT NOT NULL,
+    `total_fat` INT NOT NULL,
+    `protein` INT NOT NULL,
+    `sugar` INT NOT NULL,
+    `serving_size` VARCHAR(45) NOT NULL,
+    PRIMARY KEY (`id`))
+    ENGINE = InnoDB
+    DEFAULT CHARACTER SET = utf8mb3;
 
 
 -- -----------------------------------------------------
--- Table `sojazdummyschema`.`food_consumed`
+-- Table `sojazdummyschema`.`muscles`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sojazdummyschema`.`food_consumed` (
-  `idUser` INT NOT NULL,
-  `idFood` INT NOT NULL,
-  `meal` INT NOT NULL,
-  `caloriesCounted` INT NOT NULL,
-  `fatsConsumed` INT NOT NULL,
-  `carbsConsumed` INT NOT NULL,
-  `proteinsConsumed` INT NOT NULL,
-  `sodiumConsumed` INT NOT NULL,
-  `sugarConsumed` INT NOT NULL,
-  `noOfServings` INT NOT NULL,
-  PRIMARY KEY (`idUser`, `idFood`),
-  INDEX `idFood_idx` (`idFood` ASC) VISIBLE,
-  CONSTRAINT `idFood`
-    FOREIGN KEY (`idFood`)
-    REFERENCES `mydb`.`food` (`idFood`),
-  CONSTRAINT `idUser`
-    FOREIGN KEY (`idUser`)
-    REFERENCES `mydb`.`user` (`idUser`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb3;
+CREATE TABLE IF NOT EXISTS `sojazdummyschema`.`muscles` (
+                                                            `id` BIGINT NOT NULL,
+                                                            `name` VARCHAR(45) NOT NULL,
+    `musclegroup` VARCHAR(45) NOT NULL,
+    PRIMARY KEY (`id`))
+    ENGINE = InnoDB
+    DEFAULT CHARACTER SET = utf8mb3;
 
 
 -- -----------------------------------------------------
 -- Table `sojazdummyschema`.`user`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `sojazdummyschema`.`user` (
-  `id` INT NOT NULL auto_increment,
-  `email` VARCHAR(45) NOT NULL,
-  `username` VARCHAR(45) NOT NULL,
-  `first_name` VARCHAR(45) NOT NULL,
-  `last_name` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(45) NOT NULL,
+                                                         `id` BIGINT NOT NULL,
+                                                         `username` VARCHAR(45) NOT NULL,
+    `email` VARCHAR(255) NULL DEFAULT NULL,
+    `first_name` VARCHAR(255) NULL DEFAULT NULL,
+    `last_name` VARCHAR(255) NULL DEFAULT NULL,
+    `password` VARCHAR(255) NULL DEFAULT NULL,
+    PRIMARY KEY (`id`))
+    ENGINE = InnoDB
+    DEFAULT CHARACTER SET = utf8mb3;
 
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb3;
 
-CREATE TABLE IF NOT EXISTS `sojazdummyschema`.`exercise` (
-  `id` INT NOT NULL auto_increment,
-  `workout` VARCHAR(45) NOT NULL,
-  `sets` INT NOT NULL,
-  `reps` INT NOT NULL,
-  `intensity` VARCHAR(45) NOT NULL,
+-- -----------------------------------------------------
+-- Table `sojazdummyschema`.`user_food`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `sojazdummyschema`.`user_food` (
+                                                              `id` BIGINT NOT NULL AUTO_INCREMENT,
+                                                              `calories_consumed` INT NOT NULL,
+                                                              `carbs_consumed` INT NOT NULL,
+                                                              `date` DATETIME(6) NOT NULL,
+    `fat_consumed` INT NOT NULL,
+    `meal` VARCHAR(255) NOT NULL,
+    `number_of_servings` INT NOT NULL,
+    `protein_consumed` INT NOT NULL,
+    `sodium_consumed` INT NOT NULL,
+    `sugar_consumed` INT NOT NULL,
+    `food` BIGINT NULL DEFAULT NULL,
+    `user` BIGINT NULL DEFAULT NULL,
+    PRIMARY KEY (`id`))
+    ENGINE = InnoDB
+    DEFAULT CHARACTER SET = utf8mb3;
 
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb3;
 
-CREATE TABLE IF NOT EXISTS `sojazdummyschema`.`exercise_cardio` (
-  `id` INT NOT NULL auto_increment,
-  `workout_cardio` VARCHAR(45) NOT NULL,
-  `length` VARCHAR(45) NOT NULL,
-  `intensity` VARCHAR(45) NOT NULL,
+-- -----------------------------------------------------
+-- Table `sojazdummyschema`.`weightworkouts`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `sojazdummyschema`.`weightworkouts` (
+                                                                   `id` BIGINT NOT NULL,
+                                                                   `name` VARCHAR(45) NOT NULL,
+    `description` VARCHAR(45) NOT NULL,
+    `muscleID` BIGINT NOT NULL,
+    `equipmentID` BIGINT NOT NULL,
+    PRIMARY KEY (`id`),
+    INDEX `muscleID_idx` (`muscleID` ASC) VISIBLE,
+    INDEX `equipmentID_idx` (`equipmentID` ASC) VISIBLE,
+    CONSTRAINT `equipmentID`
+    FOREIGN KEY (`equipmentID`)
+    REFERENCES `sojazdummyschema`.`equipment` (`id`),
+    CONSTRAINT `muscleID`
+    FOREIGN KEY (`muscleID`)
+    REFERENCES `sojazdummyschema`.`muscles` (`id`))
+    ENGINE = InnoDB
+    DEFAULT CHARACTER SET = utf8mb3;
 
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb3;
+
+-- -----------------------------------------------------
+-- Table `sojazdummyschema`.`userweightdiary`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `sojazdummyschema`.`userweightdiary` (
+                                                                    `id` BIGINT NOT NULL AUTO_INCREMENT,
+                                                                    `reps` INT NULL DEFAULT NULL,
+                                                                    `sets` INT NULL DEFAULT NULL,
+                                                                    `weightworkoutID` BIGINT NOT NULL,
+                                                                    `weightuserID` BIGINT NOT NULL,
+                                                                    PRIMARY KEY (`id`),
+    INDEX `weightuserID_idx` (`weightuserID` ASC) VISIBLE,
+    CONSTRAINT `weightuserID`
+    FOREIGN KEY (`weightuserID`)
+    REFERENCES `sojazdummyschema`.`user` (`id`),
+    CONSTRAINT `weightworkoutID`
+    FOREIGN KEY (`weightuserID`)
+    REFERENCES `sojazdummyschema`.`weightworkouts` (`id`))
+    ENGINE = InnoDB
+    DEFAULT CHARACTER SET = utf8mb3;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-
 
 
 

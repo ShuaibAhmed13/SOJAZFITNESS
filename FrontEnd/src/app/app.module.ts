@@ -40,6 +40,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import {UserService} from "./components/services/user.services";
 import { NewnavbarComponent } from './components/newnavbar/newnavbar.component';
 import {AuthGuard} from "./components/services/auth.guard";
+import { WorkoutequipmentComponent } from './components/workoutequipment/workoutequipment.component';
 
 
 @NgModule({
@@ -74,7 +75,8 @@ import {AuthGuard} from "./components/services/auth.guard";
     HeaderComponent,
     CalculatorpageComponent,
     FooterComponent,
-    NewnavbarComponent
+    NewnavbarComponent,
+    WorkoutequipmentComponent
   ],
   imports: [
     BrowserModule,
