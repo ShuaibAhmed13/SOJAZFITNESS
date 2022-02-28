@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Food} from "../interfaces/Food";
 import {FooddiaryService} from "../services/fooddiary.service";
+import {UserService} from "../services/user.services";
 
 @Component({
   selector: 'app-addfood',
@@ -35,7 +36,7 @@ export class AddfoodComponent implements OnInit {
      // @ts-ignore
     let food_id = this.selectedFood.id;
     //Change this to id of user logged in/ session
-    let user_id = 1;
+    let user_id = localStorage.getItem("user_id");
 
     if((meal == "Breakfast" || meal == "Lunch" || meal == "Dinner" || meal == "Snack") && noOfServings > 0) {
       // @ts-ignore
