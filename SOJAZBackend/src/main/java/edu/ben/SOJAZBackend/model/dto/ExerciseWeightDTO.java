@@ -1,5 +1,6 @@
 package edu.ben.SOJAZBackend.model.dto;
-
+import edu.ben.SOJAZBackend.model.user;
+import edu.ben.SOJAZBackend.model.Equipment;
 import edu.ben.SOJAZBackend.model.Muscle;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,6 +17,7 @@ public class ExerciseWeightDTO {
     Long id;
     int sets;
     int reps;
-    Set<Muscle> muscleID;
-
+    Set<Muscle> muscle;
+    Set<Equipment> equipment;
+    Set<user> user;
 }

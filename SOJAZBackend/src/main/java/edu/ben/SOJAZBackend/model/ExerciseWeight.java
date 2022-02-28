@@ -23,10 +23,13 @@ public class ExerciseWeight {
     int sets;
     @OneToMany
     @JoinColumn(name = "muscleID", referencedColumnName = "id")
-    Set<Muscle> muscleID;
-    /*@OneToMany
+    Set<Muscle> muscle;
+    @OneToMany
     @JoinColumn(name = "equipmentID", referencedColumnName = "id")
-    int equipmentID;*/
+    Set<Equipment> equipment;
+    @OneToMany
+    @JoinColumn(name = "user", referencedColumnName = "id")
+    Set<user> user;
 
     public ExerciseWeight(int reps, int sets) {
         this.reps = reps;

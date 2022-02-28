@@ -18,18 +18,28 @@ export class WorkoutpostComponent implements OnInit {
 
   @Input() muscle = <Muscle>{};
   ngOnInit(): void {
+    this.getExercises();
+    this.getWeightExercises();
   }
 
   workout(workoutData: any) {
-    this.exerciseService.create({name: workoutData.value.name, description:workoutData.value.description, reps: workoutData.value.reps, sets: workoutData.value.sets });
+    this.exerciseService.create({name: workoutData.value.name, description:workoutData.value.description}, {reps: workoutData.value.reps, sets: workoutData.value.sets});
   }
 
-  workoutCardio(workoutCardioData: any) {
+ /* workoutCardio(workoutCardioData: any) {
     this.exerciseCardioService.createCardio({workoutCardio: workoutCardioData.value.workoutCardio, length: workoutCardioData.value.length, intensity: workoutCardioData.value.intensityCardio});
-  }
+  }*/
 
   filterMuscles(filterData: any) {
     this.muscleService.getFilteredData(filterData.value.filterName);
+  }
+
+  getExercises() {
+    return this.exerciseService.getExercises();
+  }
+
+  getWeightExercises() {
+    return this.exerciseService.getWeightExercises();
   }
 
 
