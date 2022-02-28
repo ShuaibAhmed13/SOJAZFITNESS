@@ -33,6 +33,10 @@ import { WorkoutpostComponent } from './components/workoutpost/workoutpost.compo
 import {NgbCollapseModule, NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {AddfoodComponent} from "./components/addfood/addfood.component";
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { BmiCalculatorComponent } from './components/bmi-calculator/bmi-calculator.component';
+import { HeaderComponent } from './components/header/header.component';
+import { CalculatorpageComponent } from './components/calculatorpage/calculatorpage.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -62,7 +66,11 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
     WorkoutpostComponent,
     FoodsearchComponent,
     AddfoodComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    BmiCalculatorComponent,
+    HeaderComponent,
+    CalculatorpageComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
