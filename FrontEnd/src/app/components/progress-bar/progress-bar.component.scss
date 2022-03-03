@@ -1,0 +1,35 @@
+.progress {
+  height: 50px;
+  width: 80%;
+  margin: auto;
+  align-content: center;
+  background-color: darkgray;
+
+
+}
+
+.progress-bar-container {
+  width: 90%;
+  margin: auto;
+  background-color: navy;
+}
+.progress-bar-animated {
+  background-color: black;
+}
+
+.progress-bar {
+  height: 50px;
+  width: 80%;
+
+  align-content: center;
+  background-color: black;
+}
+.progress-bar.green {
+  background-color: green;
+}
+.progress-bar.yellow {
+  background-color: yellow;
+}
+.progress-bar.red {
+  background-color: red;
+}

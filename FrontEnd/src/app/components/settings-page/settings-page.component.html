@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>CSS Template</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+
+<div class="sidenav">
+  <a href="/welcomepage">Go Back Home</a>
+  <a href="/settingspage">FAQ</a>
+  <a href="/settingspage">Privacy & Security</a>
+  <a href="/settingspage">Contact Us</a>
+</div>
+
+<div class="contentHeader">
+  <h1> GENERAL SETTINGS</h1>
+  <h3> For those who need better understanding</h3>
+
+</div>
+<div class="content">
+  <h2>FAQ</h2>
+  <mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Q: How does this app work?
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>A: It is a very simple and easy to use application that allows you to track your calories and track your fitness goals!</p>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Q: Do I need to make an account to save my calories?
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>A: Yes, in order to save your goals and keep track of your calorie intake, you must create an account, we do not take in
+        any personal data and send it to the FBI, unless we have to.</p>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Q: How does this app work?
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>A: It is a very simple and easy to use application that allows you to track your calories and track your fitness goals!</p>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Q: Do I need to add any personal information?
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>A: NOPE, we only ask for your basic infor such as name and email when creating an account.</p>
+    </mat-expansion-panel>
+
+  </mat-accordion>
+
+</div>
+
+<br>
+
+<div class="content">
+  <h2>Privacy & Security</h2>
+  <p>Here at SOJAZ Fitness, we strive to create a way for users to be able to workout and keep track of there goals as much
+  as they can, without any worry of having there information exposed. We have a zero tolerance policy in exposing or releasing
+    any information to any authority or any third party companies who choose to try and get sensitive information from
+    eating donuts with milk. By creating an account with us, it is a gurantee that we as a company will not release any information
+  as well as leave you in the dark. we have integrated a very professional website that will prevent any hackers from entering in.</p>
+</div>
+
+<div class="content">
+  <h2>Terms & Conditions</h2>
+  <p>SOJAZ Fitness LLC. is not responsible for anything that you input within our website, there is nothing that we can do since we rely on
+  the honor system. Any signs of eating donuts with milk will automatically be fined $50,000. If in any situation you feel that this website is
+  seemingly unfair, well, that's on you. The point is to have fun, work out, and enjoy and easy expipernce when tracking your calories. nothing else.
+  Any probelms within these terms will result in a Mirsky whoopin, Cornely Slash, and a Kendall Bashin for those who wanna talk.</p>
+</div>
+
+<div class="content">
+  <h2>Contact Us</h2>
+  <div class="container">
+    <form action="/action_page.php">
+      <label for="fname">First Name</label>
+      <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+      <label for="lname">Last Name</label>
+      <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+      <label for="country">Country</label>
+      <select id="country" name="country">
+        <option value="usa">USA</option>
+        <option value="mexico">Mexico</option>
+        <option value="el salvador">EL Salvador</option>
+        <option value="australia">Australia</option>
+        <option value="canada">Canada</option>
+
+      </select>
+
+      <label for="subject">Subject</label>
+      <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+</div>
+
+<br>
+
+<footer>
+  <h5>COPYRIGHT BY SOJAZ LLC. 2022</h5>
+</footer>
+
+</body>
+
+
+
+
+
+</html>
