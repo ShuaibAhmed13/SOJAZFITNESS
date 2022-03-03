@@ -1,0 +1,154 @@
+<div class="fullpagecontainer">
+  <div class="container">
+    <div class="calculatorcontainer">
+      <h1 class="title">BMI Calculator</h1>
+      <label class="switchsystem">Switch to {{system}}
+        <input type="checkbox" (change)="changeSystem()"/>
+      </label>
+      <div class="entireform" *ngIf="system != 'Imperial'">
+        <label class="aboveinput">Height</label>
+        <div class="inputgroup double-input">
+          <input type="number" min="0" #feet (change)="feet"
+                 (keyup.enter)="calculateResultsImperial(feet.valueAsNumber, inches.valueAsNumber, pounds.valueAsNumber)"/>
+          <label class="afterinput">Feet</label>
+          <input type="number" min="0" #inches (change)="inches"
+                 (keyup.enter)="calculateResultsImperial(feet.valueAsNumber, inches.valueAsNumber, pounds.valueAsNumber)"/>
+          <label class="afterinput">Inches</label>
+        </div>
+        <label class="aboveinput">Weight</label>
+        <div class="inputgroup">
+          <input type="number" min="0" #pounds (change)="pounds"
+                 (keyup.enter)="calculateResultsImperial(feet.valueAsNumber, inches.valueAsNumber, pounds.valueAsNumber)"/>
+          <label class="afterinput">Pounds</label>
+        </div>
+        <div class="error">
+          <h1 *ngIf="feet.valueAsNumber <= 0">{{setError()}}Please enter a valid height</h1>
+          <h1 *ngIf="inches.valueAsNumber < 0 && feet.valueAsNumber > 0">{{setError()}}Please enter a valid height</h1>
+          <h1 *ngIf="pounds.valueAsNumber <= 0">{{setError()}}Please enter a valid weight</h1>
+        </div>
+        <div class="inputgroup">
+          <button class="button"
+                  (click)="calculateResultsImperial(feet.valueAsNumber, inches.valueAsNumber, pounds.valueAsNumber)">
+            Calculate
+          </button>
+        </div>
+      </div>
+      <div class="entireform" *ngIf="system != 'Metric'">
+        <label class="aboveinput">Height</label>
+        <div class="inputgroup">
+          <input type="number" #centimeters (change)="centimeters" min="0"
+                 (keyup.enter)="calculateResultsMetric(centimeters.valueAsNumber, kilograms.valueAsNumber)"/>
+          <label class="afterinput">Centimeters</label>
+        </div>
+        <label class="aboveinput">Weight</label>
+        <div class="inputgroup">
+          <input type="number" #kilograms (change)="kilograms" min="0"
+                 (keyup.enter)="calculateResultsMetric(centimeters.valueAsNumber, kilograms.valueAsNumber)"/>
+          <label class="afterinput">Kilograms</label>
+        </div>
+        <div class="error">
+          <h1 *ngIf="centimeters.valueAsNumber <= 0">Please enter a valid height</h1>
+          <h1 *ngIf="kilograms.valueAsNumber <= 0">Please enter a valid weight</h1>
+
+        </div>
+        <div class="inputgroup">
+          <button class="button" (click)="calculateResultsMetric(centimeters.valueAsNumber, kilograms.valueAsNumber)">
+            Calculate
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="resultscontainer">
+      <div *ngIf="results" class="results">
+        <h1>Your BMI is <span class="red"
+                              [ngClass]="{'green': weightClass==='Healthy', 'yellow':weightClass==='Overweight'}">{{results}}
+          kg/m<sup>2</sup></span></h1>
+      </div>
+      <div class="weightclass" *ngIf="weightClass">
+        <h1>You are considered <span class="red"
+                                     [ngClass]="{'green': weightClass==='Healthy', 'yellow':weightClass==='Overweight'}">{{weightClass}}</span>
+        </h1>
+      </div>
+      <div *ngIf="healthyRange.length > 0" class="weightranges">
+        <h1>A healthy weight range for you is</h1>
+        <h1 *ngIf="system!='Metric'" class="healthyweightrange">{{this.healthyRange}} kilograms</h1>
+        <h1 *ngIf="system!='Imperial'" class="healthyweightrange">{{this.healthyRange}} pounds</h1>
+      </div>
+
+      <div *ngIf="needlePosition" class="BmiVisual2">
+        <div class="levels">
+          <p class="severelyunderweight">Severely Underweight</p>
+          <p class="moderatelyunderweight">Moderately Underweight</p>
+          <p class="underweight">Underweight</p>
+          <p class="healthyweight">Healthy Weight</p>
+          <p class="overweight">Overweight</p>
+          <p class="obeseweight">Obese</p>
+          <p class="obeseclass2">Obese Class 2</p>
+          <p class="obeseclass3">Obese Class 3</p>
+        </div>
+        <div class="imgcontaner">
+          <img class="img" src="assets/bmichart.svg"/>
+        </div>
+        <div class="cursorcontainer">
+        <div class="cursor" [ngStyle]="{'top': needlePosition + '%' }">
+          <img class="purple-needle" src="assets/purpleneedle.png"/>
+        </div>
+      </div>
+    </div>
+<!--      <div class="BMIVisual">-->
+
+<!--        <div class="wholepart severeunder">-->
+<!--          <div class=" piece">-->
+<!--          </div>-->
+<!--          <p></p>-->
+<!--        </div>-->
+<!--        <div class="wholepart moderateunder">-->
+
+<!--          <div class=" piece">-->
+
+<!--          </div>-->
+<!--          <p>16</p>-->
+<!--        </div>-->
+<!--        <div class="wholepart under">-->
+
+<!--          <div class=" piece">-->
+<!--          </div>-->
+<!--          <p>17</p>-->
+<!--        </div>-->
+<!--        <div class="wholepart healthy">-->
+
+<!--          <div class=" piece">-->
+<!--          </div>-->
+<!--          <p>18.5</p>-->
+<!--        </div>-->
+<!--        <div class="wholepart over">-->
+
+<!--          <div class=" piece">-->
+<!--          </div>-->
+<!--          <p>25</p>-->
+<!--        </div>-->
+<!--        <div class="wholepart obese">-->
+
+<!--          <div class=" piece">-->
+<!--          </div>-->
+<!--          <p>30</p>-->
+<!--        </div>-->
+<!--        <div class="wholepart class2">-->
+
+<!--          <div class=" piece">-->
+<!--          </div>-->
+<!--          <p>35</p>-->
+<!--        </div>-->
+<!--        <div class="wholepart class3">-->
+
+<!--          <div class=" piece">-->
+<!--          </div>-->
+<!--          <p class="last">40+</p>-->
+<!--        </div>-->
+
+<!--        </div>-->
+
+    </div>
+  </div>
+</div>

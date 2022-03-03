@@ -1,0 +1,42 @@
+div {
+  margin: auto;
+  align-content: center;
+
+}
+
+form {
+  margin: auto;
+  text-align: center;
+}
+
+.header {
+  background-color: navy;
+  color: #7FFFD4;
+  text-align: center;
+  font-family: Geneva;
+  padding: 100px;
+}
+
+.desc{
+  text-align: center;
+}
+
+.button {
+  background-color: navy;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button3 {border-radius: 8px;}
+
+h2 {
+  font-size: 20px;
+  text-align: center;
+}

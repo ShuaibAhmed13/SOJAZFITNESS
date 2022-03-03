@@ -30,6 +30,15 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { MyProgressComponent } from './components/my-progress/my-progress.component';
 import { SettingsPageComponent } from './components/settings-page/settings-page.component';
 import{ ConnectionService} from "./connection.service";
+import {AddfoodComponent} from "./components/addfood/addfood.component";
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { BmiCalculatorComponent } from './components/bmi-calculator/bmi-calculator.component';
+import { HeaderComponent } from './components/header/header.component';
+import { CalculatorpageComponent } from './components/calculatorpage/calculatorpage.component';
+import { FooterComponent } from './components/footer/footer.component';
+import {UserService} from "./components/services/user.services";
+import { NewnavbarComponent } from './components/newnavbar/newnavbar.component';
+import {AuthGuard} from "./components/services/auth.guard";
 
 
 @NgModule({
@@ -52,7 +61,16 @@ import{ ConnectionService} from "./connection.service";
     ProgressBarComponent,
     WorkoutpostComponent,
       MyProgressComponent,
-      SettingsPageComponent
+      SettingsPageComponent,
+    WorkoutpostComponent,
+    FoodsearchComponent,
+    AddfoodComponent,
+    LandingPageComponent,
+    BmiCalculatorComponent,
+    HeaderComponent,
+    CalculatorpageComponent,
+    FooterComponent,
+    NewnavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -76,9 +94,8 @@ import{ ConnectionService} from "./connection.service";
 
 
   ],
-  providers: [
-    ConnectionService
-  ],
+  providers: [UserService,AuthGuard, ConnectionService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

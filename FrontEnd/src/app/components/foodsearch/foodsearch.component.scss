@@ -1,12 +1,14 @@
 #foodWidget {
-  width: 450px;
-  height: 300px;
+  width: clamp(250px, 25%, 450px);
+  height: clamp(150px, 25%);
   border: 2px solid black;
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: #121212;
   justify-content: center;
+  align-items: center;
   margin: 20px;
-
+  overflow: hidden;
+  padding: 15px;
 }
 
 .title {
@@ -25,6 +27,7 @@
   border-radius: 5px;
   background-color: #333131;
   color: aliceblue;
+  caret-color: white;
 }
 
 .input-field:focus {
@@ -44,7 +47,9 @@
 .matoptions:active {
   background-color: #333131;
 }
-
+.matoptions:after {
+  background-color: yellow;
+}
 .formgroup {
   display: flex;
   justify-content: center;
@@ -61,21 +66,16 @@
   display: none;
 }
 
-.listgroup {
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 20px;
-}
 
-.nutrition-facts {
+.appcontain {
   display: flex;
   justify-content: center;
-  list-style-type: none;
+  align-items: center;
 }
 
-.nutrition-facts li {
-  font-size: 20px;
-  margin: 2px;
+::placeholder {
+  color: #b2b2b2;
 }
+
+//SILVER COLOR TO CONSIDER
+//#afb9c3
