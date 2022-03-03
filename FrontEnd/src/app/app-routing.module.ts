@@ -24,6 +24,7 @@ import {AuthGuard} from "./components/services/auth.guard";
 import {LoggedinauthGuard} from "./components/services/loggedinauth.guard";
 import {AdminpanelpageComponent} from "./components/adminpanelpage/adminpanelpage.component";
 import {RoleGuard} from "./components/services/role.guard";
+import {EditaddmodalComponent} from "./components/editaddmodal/editaddmodal.component";
 
 const routes: Routes = [
   {path: '', component:LandingPageComponent, canActivate: [LoggedinauthGuard]},
@@ -44,6 +45,7 @@ const routes: Routes = [
   {path: 'searchfood', component:FoodsearchComponent, canActivate: [AuthGuard]},
   {path: 'calculatorpage', component: CalculatorpageComponent},
   {path: 'adminpanelpage', component: AdminpanelpageComponent, canActivate: [RoleGuard]},
+  {path: 'modal', component: EditaddmodalComponent},
   { path: '**', component: PageNotFoundPageComponent}
 ];
 

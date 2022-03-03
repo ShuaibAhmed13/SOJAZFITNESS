@@ -41,6 +41,7 @@ import {UserService} from "./components/services/user.services";
 import { NewnavbarComponent } from './components/newnavbar/newnavbar.component';
 import {AuthGuard} from "./components/services/auth.guard";
 import { AdminpanelpageComponent } from './components/adminpanelpage/adminpanelpage.component';
+import { EditaddmodalComponent } from './components/editaddmodal/editaddmodal.component';
 
 
 @NgModule({
@@ -76,7 +77,8 @@ import { AdminpanelpageComponent } from './components/adminpanelpage/adminpanelp
     CalculatorpageComponent,
     FooterComponent,
     NewnavbarComponent,
-    AdminpanelpageComponent
+    AdminpanelpageComponent,
+    EditaddmodalComponent
   ],
   imports: [
     BrowserModule,

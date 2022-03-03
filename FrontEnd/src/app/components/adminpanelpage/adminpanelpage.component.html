@@ -12,8 +12,9 @@
         <th>FIRST NAME</th>
         <th>LAST NAME</th>
         <th>ROLE</th>
-        <th>EDIT</th>
-        <th>DELETE</th>
+        <th>SUSPEND</th>
+<!--        <th>EDIT</th>-->
+<!--        <th>DELETE</th>-->
         </thead>
         <tbody>
         <tr *ngFor="let user of users">
@@ -23,8 +24,10 @@
           <td label="FIRST NAME">{{user.firstName}}</td>
           <td label="LAST NAME">{{user.lastName}}</td>
           <td label="ROLE(S)">{{user.roles}}</td>
-          <td class="buttontd"><button class="edit-button button">EDIT</button></td>
-          <td class="buttontd"><button (click)="deleteUser(user.id)" class="delete-button button">DELETE</button></td>
+          <td *ngIf="user.active == true" class="buttontd"><button (click)="suspendUser(user.id)" class="delete-button button">SUSPEND</button></td>
+          <td *ngIf="user.active== false" class="buttontd"><button (click)="reactivateUser(user.id)" class="edit-button button">REACTIVATE</button></td>
+<!--          <td class="buttontd"><button class="edit-button button">EDIT</button></td>-->
+<!--          <td class="buttontd"><button (click)="deleteUser(user.id)" class="delete-button button">DELETE</button></td>-->
         </tr>
 
         </tbody>
@@ -39,3 +42,5 @@
 <div class="imgs">
   <img class="big-purple" src="assets/big-purple.svg">
 </div>
+<!--<app-editaddmodal></app-editaddmodal>-->
+

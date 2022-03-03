@@ -29,6 +29,9 @@ export class UserService {
     }
     return false;
   }
+  getUserActiveByUsername(username: string): Observable<boolean> {
+    return this.httpClient.get<boolean>("api/users/getuseractivebyusername/" + username);
+  }
 
   public login(username: string, password: string): Observable<any> {
     const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username + ":" + password)})
@@ -110,6 +113,13 @@ export class UserService {
   deleteUser(user_id: number): Observable<string> {
     return this.httpClient.delete<string>('/api/users/crud/deleteuserbyid/' + user_id)
   }
+  suspendUser(user_id: number) {
+    return this.httpClient.get('/api/users/crud/suspenduser/' + user_id);
+  }
+
+  reactivateUser(user_id:number) {
+    return this.httpClient.get('/api/users/crud/reactivateuser/' + user_id);
+  }
 }
 
 export interface userDTO {
@@ -119,4 +129,6 @@ export interface userDTO {
   firstName: string;
   lastName: string;
   roles: string;
+  active: boolean;
 }
+

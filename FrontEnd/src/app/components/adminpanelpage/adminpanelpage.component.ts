@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {userDTO, UserService} from "../services/user.services";
 import {User} from "../interfaces/User";
+import {Observable, TimeInterval} from "rxjs";
 
 @Component({
   selector: 'app-adminpanelpage',
@@ -10,21 +11,33 @@ import {User} from "../interfaces/User";
 export class AdminpanelpageComponent implements OnInit {
 
   users: userDTO[] = [];
+  interval: number = 0
 
   constructor(public userService: UserService) { }
 
 
   ngOnInit(): void {
     this.getUsers();
-    setInterval(() => {
+    this.interval = setInterval(() => {
       this.getUsers()
       console.log("interval");
     },5000)
   }
 
-  // ngOnDestroy() {
-  //   clearInterval();
-  // }
+  ngOnDestroy() {
+
+    clearInterval(this.interval);
+
+  }
+
+  suspendUser(user_id: number) {
+    this.userService.suspendUser(user_id).subscribe();
+    this.ngOnInit();
+  }
+  reactivateUser(user_id:number) {
+    this.userService.reactivateUser(user_id).subscribe();
+    this.ngOnInit();
+  }
 
   getUsers() {
     this.userService.getAllUsers().subscribe(data => {

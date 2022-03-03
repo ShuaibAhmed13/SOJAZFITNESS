@@ -61,6 +61,11 @@ public class UserService {
 //        return loggedInUser;
 //    }
 
+    public boolean getActiveByUsername(String username) {
+        user user = userRepository.getByUsername(username);
+        return user.getActive();
+    }
+
     public List<user> getAllUsers() {
         return userRepository.findAll();
     }
