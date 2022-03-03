@@ -23,4 +23,11 @@ export class NavbarComponent implements OnInit {
   pageThreeDisplay(): void {
     this.router.navigateByUrl("/workoutmanual")
   }
+  pageFourDisplay(): void {
+    this.router.navigateByUrl("/myprogress")
+  }
+
+  pageFiveDisplay() {
+    this.router.navigateByUrl("/exercisepost")
+  }
 }

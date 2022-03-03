@@ -1,9 +1,9 @@
 package edu.ben.SOJAZBackend.controller;
 
 import edu.ben.SOJAZBackend.model.dto.ExerciseCardioDTO;
-import edu.ben.SOJAZBackend.model.dto.ExerciseDTO;
+import edu.ben.SOJAZBackend.model.dto.ExerciseWeightDTO;
 import edu.ben.SOJAZBackend.service.ExerciseCardioService;
-import edu.ben.SOJAZBackend.service.ExerciseService;
+import edu.ben.SOJAZBackend.service.ExerciseWeightService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

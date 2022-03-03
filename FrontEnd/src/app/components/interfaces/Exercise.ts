@@ -1,8 +1,7 @@
 export interface Exercise {
   id?: string;
-  workout?: string;
-  sets?: number;
-  reps?: number;
-  intensity?: string;
-
+  name?: string;
+  description?: string;
+  userID?: string;
+  muscleID?: string;
 }

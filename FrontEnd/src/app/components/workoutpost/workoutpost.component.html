@@ -1,5 +1,11 @@
+<app-navbar></app-navbar>
+<div class="header">
+  <h1>EXERCISE POST</h1>
+  <h3>What you have been working out on?</h3>
+</div>
+<br>
 <h2 style="text-align: center">Select the Type of Workout</h2>
-<div>
+<div style="width: 500px;">
   <select class="form-control select2" type="text" style="width: 100%;" [(ngModel)]="optionValue">
     <option value="strength">Strength</option>
     <option value="cardio" selected>Cardio</option>
@@ -7,25 +13,27 @@
 </div>
 <br><br>
 <ng-container *ngIf="optionValue == 'strength'">
-<form  #workoutData="ngForm" (ngSubmit)="workout(workoutData)" novalidate >
+  <h2>Enter Your Workout</h2>
+<form #workoutData="ngForm" (ngSubmit)="workout(workoutData)" novalidate style="width: 500px;">
   <div class="form-group">
-    <input class="form-control login-input" name="workout" id="workout" placeholder="Enter Workout" ngModel=""><br>
+    <input class="form-control login-input" name="name" id="name" placeholder="Enter Workout" ngModel=""><br>
   </div>
   <div class="form-group">
-    <input class="form-control login-input" name="sets" id="sets" placeholder="Enter Sets" ngModel=""><br>
+    <input class="form-control login-input" name="description" id="description" placeholder="Enter Description" ngModel=""><br>
   </div>
   <div class="form-group">
     <input class="form-control login-input" name="reps" id="reps" placeholder="Enter Reps" ngModel=""><br>
   </div>
   <div class="form-group">
-    <input class="form-control login-input" name="intensity" id="intensity" placeholder="Enter Intensity" ngModel=""><br>
+    <input class="form-control login-input" name="sets" id="sets" placeholder="Enter Sets" ngModel=""><br>
   </div>
-  <button class="btn">Submit</button>
+  <button class="button button3">Submit</button>
 </form>
 </ng-container>
 
 <ng-container *ngIf="optionValue == 'cardio'">
-<form  #workoutCardioData="ngForm" (ngSubmit)="workoutCardio(workoutCardioData)" novalidate>
+<!--  <h2>Enter Your Workout</h2>
+<form #workoutCardioData="ngForm" (ngSubmit)="workoutCardio(workoutCardioData)" novalidate style="width: 500px;">
   <div class="form-group">
     <input class="form-control login-input" name="workoutCardio" id="workoutCardio" placeholder="Enter Workout" ngModel=""><br>
   </div>
@@ -35,6 +43,36 @@
   <div class="form-group">
     <input class="form-control login-input" name="intensityCardio" id="intensityCardio" placeholder="Enter Intensity" ngModel=""><br>
   </div>
-  <button class="btn">Submit</button>
-</form>
+  <button class="button button3">Submit</button>
+</form>-->
 </ng-container>
+
+<!--
+<div class="form-container">
+  <form #filterData="ngForm" (ngSubmit)="filterMuscles(filterData)" novalidate>
+    <div class="form-group">
+      <input class="form-control filter-input" name="filterName" value="filterName" id="filterName" ngModel required #team="ngModel">
+      <button class="filter-btn">Filter By Team!</button>
+    </div>
+  </form>
+</div>
+-->
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr *ngFor="let exercises of this.exerciseService.exercises">
+    <td>{{exercises.name}}</td>
+    <td>{{exercises.description}}</td>
+  </tr>
+  <tr>
+    <th>Sets</th>
+    <th>Reps</th>
+  </tr>
+  <tr *ngFor="let exerciseWeights of this.exerciseService.exerciseWeights">
+    <td>{{exerciseWeights.sets}}</td>
+    <td>{{exerciseWeights.reps}}</td>
+  </tr>
+
+</table>

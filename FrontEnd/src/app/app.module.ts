@@ -22,15 +22,14 @@ import {MatButtonModule} from "@angular/material/button";
 import { DisplayFoodNutritionComponent } from './components/display-food-nutrition/display-food-nutrition.component';
 import {WorkoutmanualComponent} from "./components/workoutmanual/workoutmanual.component";
 import {NavbarComponent} from "./components/navbar/navbar.component";
-import {ShouldersComponent} from "./components/WORKOUTS/shoulders/shoulders.component";
-import {ChestComponent} from "./components/WORKOUTS/chest/chest.component";
-import {ArmsComponent} from "./components/WORKOUTS/arms/arms.component";
-import {CardioComponent} from "./components/WORKOUTS/cardio/cardio.component";
-import {BackComponent} from "./components/WORKOUTS/back/back.component";
-import {CoreComponent} from "./components/WORKOUTS/core/core.component";
-import {LegsComponent} from "./components/WORKOUTS/legs/legs.component";
 import { WorkoutpostComponent } from './components/workoutpost/workoutpost.component';
 import {NgbCollapseModule, NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
+import {MatExpansionModule} from "@angular/material/expansion";
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { MyProgressComponent } from './components/my-progress/my-progress.component';
+import { SettingsPageComponent } from './components/settings-page/settings-page.component';
+import{ ConnectionService} from "./connection.service";
 import {AddfoodComponent} from "./components/addfood/addfood.component";
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { BmiCalculatorComponent } from './components/bmi-calculator/bmi-calculator.component';
@@ -61,13 +60,10 @@ import { EditaddmodalComponent } from './components/editaddmodal/editaddmodal.co
     DisplayFoodNutritionComponent,
     WorkoutmanualComponent,
     NavbarComponent,
-    ArmsComponent,
-    BackComponent,
-    CardioComponent,
-    ChestComponent,
-    CoreComponent,
-    LegsComponent,
-    ShouldersComponent,
+    ProgressBarComponent,
+    WorkoutpostComponent,
+      MyProgressComponent,
+      SettingsPageComponent,
     WorkoutpostComponent,
     FoodsearchComponent,
     AddfoodComponent,
@@ -93,13 +89,17 @@ import { EditaddmodalComponent } from './components/editaddmodal/editaddmodal.co
     ReactiveFormsModule,
     MatAutocompleteModule,
     MatInputModule,
+    MatProgressBarModule,
     NgbCollapseModule,
     MatButtonModule,
     BrowserAnimationsModule,
     NgbModule,
+    MatExpansionModule,
+
 
   ],
-  providers: [UserService,AuthGuard],
+  providers: [UserService,AuthGuard, ConnectionService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
