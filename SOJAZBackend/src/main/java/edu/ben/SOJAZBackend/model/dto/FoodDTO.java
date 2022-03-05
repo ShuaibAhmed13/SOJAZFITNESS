@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
+import javax.persistence.Column;
+
 @Data
 @ToString
 @EqualsAndHashCode
@@ -14,10 +16,14 @@ public class FoodDTO {
     Long id;
     String foodName;
     int calories;
-    int carbs;
-    int sodium;
-    Integer totalFat;
-    int protein;
-    int sugar;
+    double totalFat;
+    double satFats;
+    double transFats;
+    double cholesterol;
+    double sodium;
+    double totalCarbs;
+    double dietaryFiber;
+    double sugar;
+    double protein;
     String servingSize;
 }

@@ -21,16 +21,24 @@ public class Food {
     String foodName;
     @Column(name = "calories")
     int calories;
-    @Column(name = "carbs")
-    int carbs;
-    @Column(name = "sodium")
-    int sodium;
     @Column(name = "total_fat")
-    Integer totalFat;
-    @Column(name = "protein")
-    int protein;
+    double totalFat;
+    @Column(name = "saturated_fats")
+    double satFats;
+    @Column(name = "trans_fats")
+    double transFats;
+    @Column(name = "cholesterol")
+    double cholesterol;
+    @Column(name = "sodium")
+    double sodium;
+    @Column(name = "total_carbs")
+    double totalCarbs;
+    @Column(name = "dietary_fiber")
+    double dietaryFiber;
     @Column(name = "sugar")
-    int sugar;
+    double sugar;
+    @Column(name = "protein")
+    double protein;
     @Column(name = "serving_size")
     String servingSize;
 }
