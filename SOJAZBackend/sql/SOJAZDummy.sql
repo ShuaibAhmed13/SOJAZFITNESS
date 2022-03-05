@@ -206,7 +206,7 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 
-INSERT INTO `User` VALUES ('1', 'dummy1', 'dummy@gmail.com', 'Dummy', 'One', 'aaaa1111', 0, 'member');
+INSERT INTO `user` VALUES ('1', 'dummy1', 'dummy@gmail.com', 'Dummy', 'One', 'aaaa1111', 0, 'member');
 INSERT INTO `Food` VALUES ('1','Chicken','300', '12', '7', '5', '5', '2', '1'), ('2', 'NY Strip Steak', '400', '18', '9', '3', '3', '2', '1'), ('3', 'Rice', '200', '15', '7', '1', '1', '1', '1'), ('4', 'Spaghetti & Meatballs', '700', '20', '12', '15', '12', '4', '1'), ('5', 'Peanut Butter', '150', '18', '9', '2', '2', '3', '1');
 INSERT INTO `muscles` VALUES ('1', 'Chest', 'Upper Body');
 INSERT INTO `equipment` VALUES ('1', 'Bar', 'Metal');
