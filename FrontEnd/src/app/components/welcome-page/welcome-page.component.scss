@@ -1,23 +1,34 @@
 .header {
-  background-color: navy;
-  color: #7FFFD4;
+  background-color: var(--main-color);
+  color: white;
   text-align: center;
   font-family: Geneva;
   padding: 100px;
 }
 
 .font{
-  color: navy;
+  color: var(--main-color);
   font-family: Geneva;
   text-align: center;
 }
 .chart {
  text-align: center;
-  color: navy;
+  color: var(--main-color);
 }
 
 .copyright {
-  color: navy;
+  color: var(--main-color);
   text-align: center;
   font-family: Geneva;
+}
+
+footer {
+  background-color: #333333;
+  color: white;
+  text-align: center;
+  margin: auto;
+
+  bottom: 0;
+  width: 100%;
+  height: 15%;
 }
