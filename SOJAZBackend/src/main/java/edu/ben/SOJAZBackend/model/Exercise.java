@@ -22,12 +22,6 @@ public class Exercise {
     String name;
     @Column(name = "description")
     String description;
-    @OneToMany
-    @JoinColumn(name = "muscles", referencedColumnName = "id")
-    Set<Muscle> muscleID;
-    @ManyToOne
-    @JoinColumn(name = "user", referencedColumnName = "id")
-    user userID;
 
     public Exercise(String name, String description) {
         this.name = name;

@@ -1,0 +1,21 @@
+<h2>Filter Workouts by Muscle</h2>
+<div class="form-container">
+  <form #filterData="ngForm" (ngSubmit)="filterVideos(filterData)" novalidate>
+    <div class="form-group">
+      <input style="width: 250px; margin: auto; text-align: center;"  class="form-control filter-input" name="filterName" value="filterName" id="filterName" ngModel required #muscle="ngModel">
+      <br>
+      <button class="button button3">Filter Videos</button>
+    </div>
+  </form>
+</div>
+<table style="margin: auto; text-align: center;" >
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr *ngFor="let videos of this.videoService.video">
+    <td>{{videos.videoName}}</td>
+    <td>{{videos.author}}</td>
+    <td><iframe width="420" height="345" src="{{videos.link | safe}}"></iframe></td>
+  </tr>
+</table>

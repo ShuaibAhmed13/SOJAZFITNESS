@@ -18,6 +18,7 @@ import {CalculatorpageComponent} from "./components/calculatorpage/calculatorpag
 import {NewnavbarComponent} from "./components/newnavbar/newnavbar.component";
 import {AuthGuard} from "./components/services/auth.guard";
 import {LoggedinauthGuard} from "./components/services/loggedinauth.guard";
+import {VideosearchComponent} from "./components/videosearch/videosearch.component";
 
 const routes: Routes = [
   {path: '', component:LandingPageComponent, canActivate: [LoggedinauthGuard]},
@@ -33,6 +34,7 @@ const routes: Routes = [
   {path: 'settingspage', component: SettingsPageComponent},
   {path: 'searchfood', component:FoodsearchComponent, canActivate: [AuthGuard]},
   {path: 'calculatorpage', component: CalculatorpageComponent},
+  {path: 'videosearch', component: VideosearchComponent},
   { path: '**', component: PageNotFoundPageComponent}
 ];
 

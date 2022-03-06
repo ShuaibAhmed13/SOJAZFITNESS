@@ -20,6 +20,7 @@ export class WorkoutpostComponent implements OnInit {
   ngOnInit(): void {
     this.getExercises();
     this.getWeightExercises();
+    this.getMuscles();
   }
 
   workout(workoutData: any) {
@@ -42,5 +43,8 @@ export class WorkoutpostComponent implements OnInit {
     return this.exerciseService.getWeightExercises();
   }
 
+  getMuscles() {
+    return this.muscleService.getMuscles();
+  }
 
 }
