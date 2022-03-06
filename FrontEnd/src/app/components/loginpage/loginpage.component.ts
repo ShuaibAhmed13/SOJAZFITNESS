@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {UserService} from "../services/user.services";
 
@@ -11,7 +11,7 @@ export class LoginpageComponent implements OnInit {
 
   error: string = "";
 
-  constructor( public userServ: UserService, public router: Router) {
+  constructor(public userServ: UserService, public router: Router) {
     this.userServ = userServ;
   }
 
@@ -26,18 +26,27 @@ export class LoginpageComponent implements OnInit {
   login(userData: any) {
     let username = userData.value.username;
     let password = userData.value.password;
-    if(username != null && username != "" && password != null && password != "") {
-      this.userServ.login(username, password).subscribe(data=>{
-          this.router.navigateByUrl('/welcomepage');
-        },
-        () => {
-          this.error = "Invalid Credentials!";
-        }  );
+    let active = true;
+    this.userServ.getUserActiveByUsername(username).subscribe(data => {
+        active = data;
+        if (active === false) {
+          console.log("USER SUSPENDED")
+          this.error = "User is suspended!";
+          return;
+        } else if (username != null && username != "" && password != null && password != "") {
+          this.userServ.login(username, password).subscribe(data => {
+              this.router.navigateByUrl('/welcomepage');
+            },
+            error => {
+              console.log(error);
+              this.error = "Invalid Credentials!";
+            });
+        } else {
+          this.error = "Please fill in the fields!";
+        }
+      }
+    )
 
-    } else {
-      this.error = "Please fill in the fields!";
-
-    }
 
   }
 }

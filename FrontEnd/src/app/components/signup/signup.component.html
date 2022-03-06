@@ -8,23 +8,26 @@
 
 <form  #userData="ngForm" (ngSubmit)="signup(userData)" novalidate>
   <div class="form-group">
-    <input class="form-control login-input" placeholder="Email" name="email" id="email" ngModel=""><br>
+    <input class="form-control login-input" placeholder="Email" name="email" id="email" ngModel="" required="required"><br>
   </div>
   <div class="form-group">
-    <input class="form-control login-input" placeholder="Username" name="username" id="username" ngModel=""><br>
+    <input class="form-control login-input" placeholder="Username" name="username" id="username" ngModel="" required="required"><br>
   </div>
   <div class="form-group">
-    <input class="form-control login-input" placeholder="First Name" name="firstName" id="firstName" ngModel=""><br>
+    <input class="form-control login-input" placeholder="First Name" name="firstName" id="firstName" ngModel="" required="required"><br>
   </div>
   <div class="form-group">
-    <input class="form-control login-input" placeholder="Last Name" name="lastName" id="lastName" ngModel=""><br>
+    <input class="form-control login-input" placeholder="Last Name" name="lastName" id="lastName" ngModel="" required="required"><br>
   </div>
   <div class="form-group">
-    <input class="form-control login-input" placeholder="Password" type="password"  name="password" id="password" ngModel=""><br>
+    <input class="form-control login-input" placeholder="Password" type="password"  name="password" id="password" ngModel="" required="required" (select)="error = ''"><br>
+  </div>
+  <div class="form-group">
+    <input class="form-control login-input" placeholder="Confirm Password" type="password"  name="passwordconfirm" id="passwordconfirm" ngModel="" required="required" (select)="error = ''"><br>
   </div>
   <div class="form-group"></div>
   <button type="submit" class="register-btn">Register</button>
-
+  <p *ngIf="error" [ngClass]="{'success': error == 'Registered Successfully' }" class="error">{{this.error}}</p>
 </form>
   <div class="copyright">
     <h5>COPYRIGHT BY SOJAZ LLC. 2022</h5>

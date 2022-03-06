@@ -17,8 +17,8 @@ public class Equipment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     @Column(name = "name")
-    String equipmentName;
+    String name;
     @Column(name = "type")
-    String equipmentType;
+    String type;
 
 }

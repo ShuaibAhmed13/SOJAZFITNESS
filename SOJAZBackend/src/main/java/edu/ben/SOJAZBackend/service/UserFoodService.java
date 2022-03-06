@@ -49,7 +49,7 @@ public class UserFoodService {
         user user = userRepository.findById(user_id).get();
         Date date = new Date();
         User_Food user_food = new User_Food(id, food, user, meal, date, food.getCalories() * noServ, food.getTotalFat() * noServ,
-                food.getCarbs() * noServ, food.getProtein() * noServ, food.getSodium() * noServ, food.getSugar() * noServ, noServ);
+                food.getTotalCarbs() * noServ, food.getProtein() * noServ, food.getSodium() * noServ, food.getSugar() * noServ, noServ);
         userFoodRepository.save(user_food);
 
     }
