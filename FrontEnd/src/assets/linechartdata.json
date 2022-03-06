@@ -1,0 +1,16 @@
+{
+  "data": [
+      {"month": "Jan", "calories": "61265"},
+      {"month": "Feb", "calories": "61259"},
+      {"month": "Mar", "calories": "61280"},
+      {"month": "Apr", "calories": "61281"},
+      {"month": "May", "calories": "61256"},
+      {"month": "June", "calories": "61255"},
+      {"month": "July", "calories": "61240"},
+      {"month": "Aug", "calories": "61238"},
+      {"month": "Sep", "calories": "61290"},
+      {"month": "Oct", "calories": "61248"},
+      {"month": "Nov", "calories": "61287"},
+      {"month": "Dec", "calories": "61268"}
+  ]
+}

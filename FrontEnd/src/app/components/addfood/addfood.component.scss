@@ -1,0 +1,85 @@
+.listgroup {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10px;
+  gap: 5px;
+}
+
+.nutrition-facts {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+}
+
+.nutrition-facts li {
+  font-size: 20px;
+  margin: 2px;
+}
+
+.addfood {
+  background-color: #333131;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  overflow: hidden;
+  width: fit-content;
+  height: fit-content;
+  padding: 10px;
+  border-top: 2px solid #767676;
+  border-left: 2px solid #767676;
+  border-bottom: 2px solid #212121;
+  border-right: 2px solid #212121;
+}
+
+.servingsinput {
+  width: 45%;
+  background-color: #121212;
+  color: white;
+}
+
+::placeholder {
+  color: #b2b2b2;
+}
+
+.button {
+  margin-top: 10px;
+  background-color: #333333;
+  color: white;
+  border-radius: 5px;
+  border: 2px solid white;
+  padding: 5px;
+  margin: 10px;
+}
+
+.button:hover {
+  background-color: #818988;
+}
+
+.button:active {
+  border: 2px solid #818988;
+}
+.cancel {
+  background-color: red;
+}
+
+.error {
+  color: #e02121;
+  font-size: 20px;
+}
+
+.success {
+  margin-top: 2%;
+  color: #11cc3b;
+  font-size: 20px;
+}
+.add {
+  background-color: green;
+}
+
+.selectmeal {
+  margin-bottom: 2%;
+}

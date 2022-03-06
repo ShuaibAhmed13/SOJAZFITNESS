@@ -1,0 +1,28 @@
+.pagecontainer {
+  background-color: var(--off-white-color);
+  height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  overflow: auto;
+}
+.imgcontainer img {
+  height: 200px;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  display: none;
+}
+
+.footing {
+  z-index: 3;
+  position: absolute;
+}
+
+.calculator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  position: relative;
+}

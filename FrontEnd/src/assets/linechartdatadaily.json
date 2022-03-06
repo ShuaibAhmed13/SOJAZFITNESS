@@ -1,0 +1,36 @@
+{
+  "data": [
+    {"day": "1", "calories": "2210"},
+    {"day": "2", "calories": "2100"},
+    {"day": "3", "calories": "2012"},
+    {"day": "4", "calories": "2023"},
+    {"day": "5", "calories": "2012"},
+    {"day": "6", "calories": "2012"},
+    {"day": "7", "calories": "2222"},
+    {"day": "8", "calories": "2322"},
+    {"day": "9", "calories": "2122"},
+    {"day": "10", "calories": "2183"},
+    {"day": "11", "calories": "2184"},
+    {"day": "12", "calories": "2184"},
+    {"day": "13", "calories": "2182"},
+    {"day": "14", "calories": "2134"},
+    {"day": "15", "calories": "2184"},
+    {"day": "16", "calories": "2223"},
+    {"day": "17", "calories": "2184"},
+    {"day": "18", "calories": "2184"},
+    {"day": "19", "calories": "2137"},
+    {"day": "20", "calories": "2147"},
+    {"day": "21", "calories": "2145"},
+    {"day": "22", "calories": "2164"},
+    {"day": "23", "calories": "2184"},
+    {"day": "24", "calories": "2322"},
+    {"day": "25", "calories": "2321"},
+    {"day": "26", "calories": "2320"},
+    {"day": "27", "calories": "2203"},
+    {"day": "28", "calories": "2205"},
+    {"day": "29", "calories": "2242"},
+    {"day": "30", "calories": "2254"},
+    {"day": "31", "calories": "2240"}
+
+  ]
+}

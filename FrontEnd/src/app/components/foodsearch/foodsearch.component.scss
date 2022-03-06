@@ -1,0 +1,81 @@
+#foodWidget {
+  width: clamp(250px, 25%, 450px);
+  height: clamp(150px, 25%);
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: #121212;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  overflow: hidden;
+  padding: 15px;
+}
+
+.title {
+  font-size: 40px;
+  color: white;
+  text-align: center;
+  margin: 20px;
+}
+.divChild {
+  //background-color: #333131;
+}
+
+.input-field {
+  border: 2px solid #818988;
+  padding: 3px;
+  border-radius: 5px;
+  background-color: #333131;
+  color: aliceblue;
+  caret-color: white;
+}
+
+.input-field:focus {
+  border: 2px solid white;
+}
+
+.matoptions {
+  background-color: #333131;
+  color: white;
+  border: 2px solid #333333;
+}
+
+.matoptions:hover {
+  background-color: #121212;
+}
+
+.matoptions:active {
+  background-color: #333131;
+}
+.matoptions:after {
+  background-color: yellow;
+}
+.formgroup {
+  display: flex;
+  justify-content: center;
+}
+
+.mat-button {
+  background-color: #333131;
+  color: white;
+  margin: 5px;
+  margin-left: 20%;
+}
+
+::ng-deep .mat-form-field-underline {
+  display: none;
+}
+
+
+.appcontain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+::placeholder {
+  color: #b2b2b2;
+}
+
+//SILVER COLOR TO CONSIDER
+//#afb9c3

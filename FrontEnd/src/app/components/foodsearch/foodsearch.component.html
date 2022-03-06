@@ -1,0 +1,22 @@
+<div id="foodWidget">
+  <h1 class="title divChild">Search Food</h1>
+  <form class="formgroup">
+    <mat-form-field appearance="fill">
+      <input class="input-field" type="input" matInput [formControl]="myControl" [matAutocomplete]="auto" placeholder="Search" #input (keyup.enter)="setFoodEnter(input.value)">
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+        <mat-option class="matoptions" *ngFor="let food of filteredOptions | async" [value]="food" (mousedown)="setFood(food)">
+          {{food.foodName}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+<!--  <div class="formgroup">-->
+<!--&lt;!&ndash;  <button mat-raised-button style="background-color: #333333; color: aliceblue" >Select</button>&ndash;&gt;-->
+
+<!--  </div>-->
+  <div class="appcontain">
+    <app-addfood *ngIf="selectedFood" [selectedFood]="selectedFood"></app-addfood>
+
+  </div>
+
+</div>
