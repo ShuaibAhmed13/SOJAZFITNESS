@@ -1,4 +1,4 @@
-package edu.ben.SOJAZBackend.repository;
+/*package edu.ben.SOJAZBackend.repository;
 
 import edu.ben.SOJAZBackend.model.ExerciseWeight;
 import edu.ben.SOJAZBackend.model.Muscle;
@@ -10,4 +10,4 @@ import java.util.List;
 @Repository
 public interface ExerciseWeightRepository extends JpaRepository<ExerciseWeight, Long> {
 
-}
+}*/

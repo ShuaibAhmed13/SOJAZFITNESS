@@ -1,7 +1,6 @@
 package edu.ben.SOJAZBackend.controller;
 
 import edu.ben.SOJAZBackend.model.Exercise;
-import edu.ben.SOJAZBackend.model.ExerciseWeight;
 import edu.ben.SOJAZBackend.model.Muscle;
 import edu.ben.SOJAZBackend.model.dto.ExerciseDTO;
 import edu.ben.SOJAZBackend.model.dto.ExerciseWeightDTO;
@@ -26,17 +25,12 @@ public class ExerciseResource {
 
     @PostMapping("/create")
     public void createWorkout(@RequestBody ExerciseDTO exerciseDTO, @RequestBody ExerciseWeightDTO exerciseWeightDTO) {
-        this.exerciseWeightService.exerciseSave(exerciseDTO, exerciseWeightDTO);
+        this.exerciseWeightService.exerciseSave(exerciseDTO);
     }
 
     @GetMapping("/getExercises")
     public List<Exercise> getExercises() {
         return exerciseWeightService.getAllExercises();
-    }
-
-    @GetMapping("/getWeightExercises")
-    public List<ExerciseWeight> getWeightExercises() {
-        return exerciseWeightService.getAllExerciseWeight();
     }
 
     @GetMapping("/getExercises/{exercise}")

@@ -1,14 +1,12 @@
 package edu.ben.SOJAZBackend.service;
 import edu.ben.SOJAZBackend.model.Exercise;
 import edu.ben.SOJAZBackend.model.ExerciseMuscle;
-import edu.ben.SOJAZBackend.model.ExerciseWeight;
 import edu.ben.SOJAZBackend.model.Muscle;
 import edu.ben.SOJAZBackend.model.dto.ExerciseDTO;
 import edu.ben.SOJAZBackend.model.dto.ExerciseWeightDTO;
 import edu.ben.SOJAZBackend.model.dto.MuscleDTO;
 import edu.ben.SOJAZBackend.repository.ExerciseMuscleRepository;
 import edu.ben.SOJAZBackend.repository.ExerciseRepository;
-import edu.ben.SOJAZBackend.repository.ExerciseWeightRepository;
 import edu.ben.SOJAZBackend.repository.MuscleRepository;
 import org.springframework.stereotype.Service;
 
@@ -19,14 +17,12 @@ import java.util.List;
 public class ExerciseWeightService {
 
     ExerciseRepository exerciseRepository;
-    ExerciseWeightRepository exerciseWeightRepository;
     ExerciseMuscleRepository exerciseMuscleRepository;
     ExerciseDTO exercises;
     MuscleDTO muscleDTO;
 
-    public ExerciseWeightService(ExerciseRepository exerciseRepository, ExerciseWeightRepository exerciseWeightRepository) {
+    public ExerciseWeightService(ExerciseRepository exerciseRepository) {
         this.exerciseRepository = exerciseRepository;
-        this.exerciseWeightRepository = exerciseWeightRepository;
     }
 
     public List<ExerciseDTO> getFilteredName(String name) {
@@ -38,9 +34,8 @@ public class ExerciseWeightService {
         return answer;
     }
 
-    public void exerciseSave(ExerciseDTO exerciseDTO, ExerciseWeightDTO exerciseWeightDTO) {
+    public void exerciseSave(ExerciseDTO exerciseDTO) {
         exerciseRepository.save(new Exercise(exerciseDTO.getName(), exerciseDTO.getDescription()));
-        exerciseWeightRepository.save(new ExerciseWeight(exerciseWeightDTO.getSets(), exerciseWeightDTO.getReps()));
     }
 
     public List<ExerciseDTO> getExerciseList() {
@@ -54,10 +49,6 @@ public class ExerciseWeightService {
             }
         }
         return exercises;
-    }
-
-    public List<ExerciseWeight> getAllExerciseWeight() {
-        return exerciseWeightRepository.findAll();
     }
 
     public List<Exercise> getAllExercises() {

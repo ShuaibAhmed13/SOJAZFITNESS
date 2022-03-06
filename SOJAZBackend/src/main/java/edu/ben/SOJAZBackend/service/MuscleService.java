@@ -4,7 +4,6 @@ import edu.ben.SOJAZBackend.model.Muscle;
 import edu.ben.SOJAZBackend.model.dto.ExerciseDTO;
 import edu.ben.SOJAZBackend.model.dto.MuscleDTO;
 import edu.ben.SOJAZBackend.repository.ExerciseRepository;
-import edu.ben.SOJAZBackend.repository.ExerciseWeightRepository;
 import edu.ben.SOJAZBackend.repository.MuscleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
