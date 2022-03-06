@@ -69,5 +69,16 @@
 }
 
 
+.error {
+  font-family: var(--ff-regular);
+  margin-top: 20px;
+  text-align: center;
+  color: red;
+}
 
-
+.success {
+  font-family: var(--ff-regular);
+  margin-top: 20px;
+  text-align: center;
+  color: green;
+}
