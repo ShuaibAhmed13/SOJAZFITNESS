@@ -22,6 +22,7 @@ public class UserResource {
 
     @GetMapping("/login")
     public String login() {
+
         return "Login Successful";
     }
 
@@ -32,7 +33,10 @@ public class UserResource {
         return "Logout Successful";
     }
 
-
+    @GetMapping("/getuseractivebyusername/{username}")
+    public boolean getActiveByUsername(@PathVariable String username) {
+        return this.userService.getActiveByUsername(username);
+    }
 //    @GetMapping("/login/{username}/{password}")
 //    public userDTO login(@PathVariable String username, @PathVariable String password) {
 //        return this.userService.login(username, password);
@@ -45,8 +49,8 @@ public class UserResource {
 
 
     @PostMapping("/register")
-    public void registration(@RequestBody userDTO userDTO) {
-        this.userService.register(userDTO);
+    public String registration(@RequestBody userDTO userDTO) {
+        return this.userService.register(userDTO);
     }
 
 
@@ -81,7 +85,18 @@ public class UserResource {
     public ResponseEntity<user> updateUser(@PathVariable Long user_id, @RequestBody user user) {
         return new ResponseEntity<>(this.userService.updateUser(user_id, user), HttpStatus.OK);
     }
-
+    @GetMapping("/crud/suspenduser/{user_id}")
+    public ResponseEntity<user> suspendUser(@PathVariable Long user_id) {
+        user user = this.userService.getUserById(user_id);
+        user.setActive(false);
+        return new ResponseEntity<>(this.userService.updateUser(user_id, user), HttpStatus.OK);
+    }
+    @GetMapping("/crud/reactivateuser/{user_id}")
+    public ResponseEntity<user> reactivateUser(@PathVariable Long user_id) {
+        user user = this.userService.getUserById(user_id);
+        user.setActive(true);
+        return new ResponseEntity<>(this.userService.updateUser(user_id, user), HttpStatus.OK);
+    }
     @DeleteMapping("/crud/deleteuserbyid/{user_id}")
     public ResponseEntity<String> deleteUser(@PathVariable Long user_id) {
         this.userService.deleteUser(user_id);
