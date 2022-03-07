@@ -18,5 +18,4 @@ public class ExerciseDTO {
     String name;
     String description;
     Set<Muscle> muscleID;
-    user userID;
 }
