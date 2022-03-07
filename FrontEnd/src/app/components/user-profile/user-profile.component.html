@@ -1,1 +1,52 @@
-<p>user-profile works!</p>
+<app-navbar></app-navbar>
+<div class="header">
+  <h1>WELCOME TO YOUR FITNESS PROFILE</h1>
+  <h3>Check out the progress you've done so far solider!</h3>
+</div>
+
+<div class = "profile">
+  <h2 class = "titleHead">My Progress</h2>
+
+  <div class="card">
+
+    <div class="topPart">
+      <div class="profpic">
+        <img src="assets/aaikfy.jpg" alt="John" class="photoStyle" >
+      </div>
+      <div class = "profDesc"> <h1>Aakify</h1>
+        <div class="title">
+
+
+          <p>Sex: Male</p>
+          <p>diet: I wish</p>
+        </div>
+
+      </div>
+    </div>
+
+    <br>
+
+    <div class="bottomPart">
+      <div class="bottomLeftPart">
+
+          <a href="url">Change Theme</a>
+          <a href="url">Change Password</a>
+          <a href="url">Change Email</a>
+        <a (click)="logout()" >LOG OUT</a>
+
+      </div>
+      <div class="bottomRightPart">
+        <p>Current Weight: 110</p>
+        <p>Goal Weight: 100</p>
+        <p>Calories done today: 400</p>
+        <p>Calorie Goal: 2500</p>
+      </div>
+    </div>
+
+  </div>
+
+
+</div>
+
+<app-footer></app-footer>
+

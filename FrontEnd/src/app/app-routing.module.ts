@@ -21,6 +21,7 @@ import {LoggedinauthGuard} from "./components/services/loggedinauth.guard";
 import {AdminpanelpageComponent} from "./components/adminpanelpage/adminpanelpage.component";
 import {RoleGuard} from "./components/services/role.guard";
 import {EditaddmodalComponent} from "./components/editaddmodal/editaddmodal.component";
+import {UserProfileComponent} from "./components/user-profile/user-profile.component";
 
 const routes: Routes = [
   {path: '', component:LandingPageComponent, canActivate: [LoggedinauthGuard]},
@@ -38,6 +39,7 @@ const routes: Routes = [
   {path: 'calculatorpage', component: CalculatorpageComponent},
   {path: 'adminpanelpage', component: AdminpanelpageComponent, canActivate: [RoleGuard]},
   {path: 'modal', component: EditaddmodalComponent},
+  {path: 'userprofile', component: UserProfileComponent, canActivate: [AuthGuard]},
   { path: '**', component: PageNotFoundPageComponent}
 ];
 

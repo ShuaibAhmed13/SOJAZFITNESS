@@ -1,0 +1,110 @@
+.header {
+  background-color: var(--main-color);
+  color: white;
+  text-align: center;
+  font-family: Geneva;
+  padding: 100px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 80%;
+  padding: 20px;
+  height: 60%;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  color: black;
+  flex-direction: row;
+  font-size: 15px;
+
+}
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+button:hover, a:hover {
+  opacity: 0.7;
+}
+
+.profpic {
+  margin-left: auto;
+  max-width: 30%;
+  height: auto;
+  flex: 1;
+  border: black;
+  border-width: thick;
+
+}
+
+.profDesc {
+padding: 40px;
+  flex: 1;
+
+}
+
+.topPart {
+  display: flex;
+  flex-direction: row;
+}
+
+.bottomPart {
+  display: flex;
+  flex-direction: row;
+}
+
+.bottomRightPart {
+  padding: 15px;
+  text-align: right;
+  margin-right: 350px;
+  flex: 1;
+}
+.bottomLeftPart {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.photoStyle {
+  width:100%;
+  border: 3px solid #0b0636;
+  border-radius: 10px;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.3) ;
+}
+
+.profile {
+padding-bottom: 6vh;
+}
+
+.titleHead {
+  padding-left: 155px;
+  padding-top: 10px;
+  font-size: 30px;
+
+}
+
+.bottomLeftPart a {
+  margin: 5px;
+}

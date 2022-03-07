@@ -52,7 +52,7 @@ export class NewnavbarComponent implements OnInit {
 
   logout() {
     this.userService.Logout();
-    this.router.navigateByUrl("/loginpage");;;;;;;
+    this.router.navigateByUrl("/loginpage");
   }
 
   autoToggleBurgerMenu() {
