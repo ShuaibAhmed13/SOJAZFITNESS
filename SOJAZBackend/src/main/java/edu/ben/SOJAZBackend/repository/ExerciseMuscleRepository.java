@@ -10,4 +10,6 @@ import java.util.List;
 public interface ExerciseMuscleRepository extends JpaRepository<ExerciseMuscle, Long> {
     ExerciseMuscle findExerciseMuscleByWeightworkoutIDAndMuscleID(Long weighworkoutID, Long muscleID);
     List<ExerciseMuscle> findExerciseMuscleByWeightworkoutID(Long id);
+    List<ExerciseMuscle> findExerciseMuscleByMuscleID(Long id);
+    public boolean existsByWeightworkoutID(Long id);
 }

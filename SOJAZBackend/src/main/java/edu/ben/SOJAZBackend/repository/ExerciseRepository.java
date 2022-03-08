@@ -8,5 +8,6 @@ import java.util.List;
 
 @Repository
 public interface ExerciseRepository extends JpaRepository<Exercise, Long> {
-    public List<Exercise> findAllByName(String name);
+    public List<Exercise> findByName(String name);
+    public List<Exercise> findAll();
 }

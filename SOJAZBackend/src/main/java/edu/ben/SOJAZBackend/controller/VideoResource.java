@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "api/videos", produces = "application/json")
+@RequestMapping(value = "api/video", produces = "application/json")
 public class VideoResource {
 
     private final VideoService videoService;
@@ -29,7 +29,7 @@ public class VideoResource {
     }
 
     @GetMapping("/getVideos/{video}")
-    public List<VideoDTO> getFilteredVideos(@PathVariable String videoName) {
-        return this.videoService.getFilteredVideo(videoName);
+    public List<VideoDTO> getFilteredVideos(@PathVariable String video) {
+        return this.videoService.getFilteredVideo(video);
     }
 }

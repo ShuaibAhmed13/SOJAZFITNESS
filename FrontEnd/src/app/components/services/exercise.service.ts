@@ -14,14 +14,9 @@ export class ExerciseService {
 
   constructor(private httpClient: HttpClient, private router: Router) { }
   exercises = <Exercise[]>[];
-  exerciseWeights = <ExerciseWeight[]>[];
 
-  create(exercise: Exercise, exerciseWeight: ExerciseWeight) {
+  create(exercise: Exercise) {
     this.httpClient.post<Exercise>('api/exercise/create', exercise).subscribe(() => {
-      this.router.navigateByUrl('/exercisepost');
-    })
-
-    this.httpClient.post<ExerciseWeight>('api/exercise/create', exerciseWeight).subscribe(() => {
       this.router.navigateByUrl('/exercisepost');
     })
 
@@ -31,13 +26,6 @@ export class ExerciseService {
     this.httpClient.get<Exercise[]>('api/exercise/getExercises').subscribe(data => {
       console.log(data);
       this.exercises = data;
-    })
-  }
-
-  getWeightExercises() {
-    this.httpClient.get<ExerciseWeight[]>('api/exercise/getWeightExercises').subscribe(data => {
-      console.log(data);
-      this.exerciseWeights = data;
     })
   }
 

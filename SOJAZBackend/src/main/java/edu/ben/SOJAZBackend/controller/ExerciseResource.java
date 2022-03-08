@@ -24,13 +24,13 @@ public class ExerciseResource {
     }
 
     @PostMapping("/create")
-    public void createWorkout(@RequestBody ExerciseDTO exerciseDTO, @RequestBody ExerciseWeightDTO exerciseWeightDTO) {
+    public void createWorkout(@RequestBody ExerciseDTO exerciseDTO) {
         this.exerciseWeightService.exerciseSave(exerciseDTO);
     }
 
     @GetMapping("/getExercises")
-    public List<Exercise> getExercises() {
-        return exerciseWeightService.getAllExercises();
+    public List<ExerciseDTO> getExercises() {
+        return exerciseWeightService.getTheExerciseList();
     }
 
     @GetMapping("/getExercises/{exercise}")

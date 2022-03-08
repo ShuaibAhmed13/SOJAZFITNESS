@@ -19,12 +19,11 @@ export class WorkoutpostComponent implements OnInit {
   @Input() muscle = <Muscle>{};
   ngOnInit(): void {
     this.getExercises();
-    this.getWeightExercises();
     this.getMuscles();
   }
 
   workout(workoutData: any) {
-    this.exerciseService.create({name: workoutData.value.name, description:workoutData.value.description}, {reps: workoutData.value.reps, sets: workoutData.value.sets});
+    this.exerciseService.create({name: workoutData.value.name, description:workoutData.value.description});
   }
 
  /* workoutCardio(workoutCardioData: any) {
@@ -37,10 +36,6 @@ export class WorkoutpostComponent implements OnInit {
 
   getExercises() {
     return this.exerciseService.getExercises();
-  }
-
-  getWeightExercises() {
-    return this.exerciseService.getWeightExercises();
   }
 
   getMuscles() {

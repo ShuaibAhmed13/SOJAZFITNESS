@@ -15,14 +15,14 @@ export class VideoService {
   }
 
   getVideos() {
-    this.httpClient.get<Muscle[]>('api/videos/getVideos').subscribe(data => {
+    this.httpClient.get<Video[]>('api/video/getVideos').subscribe(data => {
       console.log(data);
       this.video = data;
     })
   }
 
-  getFilteredVideo(video: String) {
-    this.httpClient.get<Muscle[]>(`api/muscle/getVideos/${video}`).subscribe(data => {
+  getFilteredData(video: String) {
+    this.httpClient.get<Video[]>(`api/video/getVideos/${video}`).subscribe(data => {
       console.log("FILTERDATA = " + data)
       this.video = data;
     })

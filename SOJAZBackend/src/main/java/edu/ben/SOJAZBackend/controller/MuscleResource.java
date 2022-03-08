@@ -24,8 +24,8 @@ public class MuscleResource {
     }
 
     @GetMapping("/getMuscles")
-    public List<Muscle> getMuscles() {
-        return muscleService.getAllMuscles();
+    public List<MuscleDTO> getMuscles() {
+        return muscleService.getTheMuscleList();
     }
 
     @GetMapping("/getMuscles/{muscle}")

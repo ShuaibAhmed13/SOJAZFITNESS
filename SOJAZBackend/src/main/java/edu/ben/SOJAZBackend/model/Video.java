@@ -17,9 +17,9 @@ public class Video {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
-    @Column(name = "video_name", unique = true)
+    @Column(name = "video_name")
     String videoName;
-    @Column(name = "author", unique = true)
+    @Column(name = "author")
     String author;
     @Column(name = "link")
     String link;

@@ -22,9 +22,12 @@ public class Exercise {
     String name;
     @Column(name = "description")
     String description;
+    @Column(name = "type")
+    String type;
 
-    public Exercise(String name, String description) {
+    public Exercise(String name, String description, String type) {
         this.name = name;
         this.description = description;
+        this.type = type;
     }
 }

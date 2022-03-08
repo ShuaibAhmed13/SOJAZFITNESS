@@ -21,7 +21,7 @@ export class VideosearchComponent implements OnInit {
   }
 
   filterVideos(filterData: any) {
-    this.videoService.getFilteredVideo(filterData.value.filterName);
+    this.videoService.getFilteredData(filterData.value.filterName);
   }
 
   getVideos() {
