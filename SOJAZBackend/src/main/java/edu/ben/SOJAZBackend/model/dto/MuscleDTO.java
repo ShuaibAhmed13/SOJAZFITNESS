@@ -13,5 +13,4 @@ public class MuscleDTO {
     Long id;
     String muscleName;
     String muscleGroup;
-
 }

@@ -1,7 +1,5 @@
 export interface Exercise {
-  id?: string;
+  id?: number;
   name?: string;
   description?: string;
-  userID?: string;
-  muscleID?: string;
 }

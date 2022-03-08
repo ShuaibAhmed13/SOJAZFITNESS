@@ -39,8 +39,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import {UserService} from "./components/services/user.services";
 import { NewnavbarComponent } from './components/newnavbar/newnavbar.component';
 import {AuthGuard} from "./components/services/auth.guard";
-import { AdminpanelpageComponent } from './components/adminpanelpage/adminpanelpage.component';
-import { EditaddmodalComponent } from './components/editaddmodal/editaddmodal.component';
+import {SafePipe} from "./components/pipes/safe.pipe";
+import {VideosearchComponent} from "./components/videosearch/videosearch.component";
 
 
 @NgModule({
@@ -73,8 +73,8 @@ import { EditaddmodalComponent } from './components/editaddmodal/editaddmodal.co
     CalculatorpageComponent,
     FooterComponent,
     NewnavbarComponent,
-    AdminpanelpageComponent,
-    EditaddmodalComponent
+    VideosearchComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,

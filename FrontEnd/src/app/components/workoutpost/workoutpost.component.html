@@ -21,12 +21,6 @@
   <div class="form-group">
     <input class="form-control login-input" name="description" id="description" placeholder="Enter Description" ngModel=""><br>
   </div>
-  <div class="form-group">
-    <input class="form-control login-input" name="reps" id="reps" placeholder="Enter Reps" ngModel=""><br>
-  </div>
-  <div class="form-group">
-    <input class="form-control login-input" name="sets" id="sets" placeholder="Enter Sets" ngModel=""><br>
-  </div>
   <button class="button button3">Submit</button>
 </form>
 </ng-container>
@@ -46,35 +40,30 @@
   <button class="button button3">Submit</button>
 </form>-->
 </ng-container>
-
-<!--
+<h2>Filter Workouts by Muscle</h2>
 <div class="form-container">
   <form #filterData="ngForm" (ngSubmit)="filterMuscles(filterData)" novalidate>
     <div class="form-group">
-      <input class="form-control filter-input" name="filterName" value="filterName" id="filterName" ngModel required #team="ngModel">
-      <button class="filter-btn">Filter By Team!</button>
+      <input style="width: 250px; margin: auto; text-align: center;"  class="form-control filter-input" name="filterName" value="filterName" id="filterName" ngModel required #muscle="ngModel">
+      <br>
+      <button class="button button3">Filter By Muscle</button>
     </div>
   </form>
 </div>
--->
-<table>
+<br>
+<table style="margin: auto; text-align: center;" >
   <tr>
     <th>Name</th>
     <th>Description</th>
+    <th>Muscle</th>
   </tr>
   <tr *ngFor="let exercises of this.exerciseService.exercises">
-    <td>{{exercises.name}}</td>
-    <td>{{exercises.description}}</td>
+    <ng-container *ngFor="let muscles of this.muscleService.muscle">
+      <td>{{exercises.name}}</td>
+      <td>{{exercises.description}}</td>
+      <td>{{muscles.muscleName}}</td>
+    </ng-container>
   </tr>
-  <tr>
-    <th>Sets</th>
-    <th>Reps</th>
-  </tr>
-  <tr *ngFor="let exerciseWeights of this.exerciseService.exerciseWeights">
-    <td>{{exerciseWeights.sets}}</td>
-    <td>{{exerciseWeights.reps}}</td>
-  </tr>
-
 </table>
 
 <footer>
