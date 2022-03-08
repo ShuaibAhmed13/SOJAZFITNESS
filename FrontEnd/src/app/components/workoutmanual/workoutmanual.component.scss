@@ -1,15 +1,11 @@
 .header {
-  background-color: navy;
-  color: #7FFFD4;
+  background-color: var(--main-color);
+  color: white;
   text-align: center;
   font-family: Geneva;
   padding: 100px;
 }
 
-
-.para {
-  background-color: #7FFFD4;
-}
 
 .para1 {
 
@@ -21,4 +17,22 @@
 .mat-expansion-panel-header{
   border: #121212;
   border-width: thick;
+}
+
+footer {
+  background-color: #333333;
+  color: white;
+  text-align: center;
+  margin: auto;
+
+  bottom: 0;
+  width: 100%;
+  height: 15%;
+}
+
+
+.box {
+  width: 60%;
+  position: center;
+  margin: auto;
 }
