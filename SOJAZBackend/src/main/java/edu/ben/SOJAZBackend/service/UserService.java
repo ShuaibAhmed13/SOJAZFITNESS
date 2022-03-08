@@ -9,6 +9,7 @@ import edu.ben.SOJAZBackend.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.sql.SQLIntegrityConstraintViolationException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -66,8 +67,13 @@ public class UserService {
         return user.getActive();
     }
 
-    public List<user> getAllUsers() {
-        return userRepository.findAll();
+    public List<userDTO> getAllUsers() {
+        List<user> users = userRepository.findAll();
+        List<userDTO> newUsers = new ArrayList<>();
+        for(user u: users) {
+            newUsers.add(new userDTO(u.getId(), u.getEmail(), u.getUsername(), u.getFirstName(), u.getLastName(), u.getActive(), u.getRoles()));;
+        }
+        return newUsers;
     }
 
     public user getUserById(Long user_id) {return userRepository.findById(user_id).get();}
