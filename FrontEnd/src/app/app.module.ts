@@ -82,7 +82,7 @@ import {VideosearchComponent} from "./components/videosearch/videosearch.compone
     EditaddmodalComponent,
     AdminlistComponent,
     PanelTopComponent,
-    SearchfilterPipe
+    SearchfilterPipe,
     VideosearchComponent,
     SafePipe
   ],
