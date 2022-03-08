@@ -52,7 +52,25 @@ public class ExerciseService {
         }
     }
 
-    public List<Object> findAllByExerciseId(Long exercise_id) {
-        return exerciseRepository.findAllExercisesAndMusclesByExerciseId(exercise_id);
+//    public List<Object> findAllByExerciseId(Long exercise_id) {
+//        return exerciseRepository.findAllExercisesAndMusclesByExerciseId(exercise_id);
+//    }
+//    public List<Object> findAllByMuscleId(Long muscle_id) {
+//        return exerciseRepository.findAllExercisesAndMusclesByExerciseId(muscle_id);
+//    }
+
+    public List<Exercise> findByMuscleId(Long muscle_id) {
+        return exerciseRepository.findByMusclesId(muscle_id);
+    }
+
+    public List<Exercise> findByMuscleName(String muscle_name) {
+        return exerciseRepository.findByMusclesMuscleName(muscle_name);
+    }
+
+    public List<Exercise> findByEquipmentName(String equipment_name) {
+        return exerciseRepository.findByEquipmentsName(equipment_name);
+    }
+    public List<Exercise> findByEquipmentId(Long equipment_id) {
+        return exerciseRepository.findByEquipmentsId(equipment_id);
     }
 }
