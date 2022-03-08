@@ -1,0 +1,92 @@
+.container-all {
+  background-color: rgba(255, 255, 255, 0.6);
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(5px);
+}
+.modal-custom {
+  background-color: rgb(52,43,109,0.7);
+  font-family: var(--ff-regular);
+
+  //background-color: var(--light-color);
+  max-width: 90%;
+  width: 600px;
+  height: fit-content;
+  padding: 20px;
+  //backdrop-filter: blur(5px);
+  border-radius: 10px;
+  border-top: 2px solid rgb(255,255,255,0.8);
+  border-left: 1px solid rgb(255,255,255,0.8);
+  box-shadow: 10px 10px 20px rgb(0,0,0,0.2);
+  //box-shadow: -10px -10px 20px rgb(255,255,255, 0.8);
+  color: var(--light-color);
+}
+
+.top {
+  display: flex;
+  position: relative;
+  justify-content: center;
+}
+.exit {
+  position: absolute;
+  right: 1%;
+}
+.inputcontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  width: 90%;
+  //flex-wrap: wrap;
+}
+
+label + input {
+  margin-bottom: 10px;
+}
+.inputcontainer input {
+  min-width: 200px;
+  width: 80%;
+  min-height: 35px;
+  border-radius: 2px;
+  border: 2px solid var(--light-color);
+  flex: 50%;
+}
+.inputcontainer input:hover {
+  outline: 2px solid var(--main-color);
+}
+input + input{
+  margin-bottom: 10px;
+}
+.button-container {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+button + button {
+  margin-left: 20px;
+}
+.button {
+  color: var(--light-color);
+  border: 2px solid var(--light-color);
+  border-radius: 4px;
+  padding: 10px 15px;
+}
+.Cancel {
+  background-color: #ff0000;
+}
+.Submit {
+  background-color: var(--main-color);
+}
+.title {
+  margin-top: 5px;
+  font-weight: 500;
+  font-size: 2rem;
+}

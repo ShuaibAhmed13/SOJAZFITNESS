@@ -101,7 +101,7 @@ export class BmiCalculatorComponent implements OnInit {
     let high = meters * meters * 24.9;
     high = Math.round(high * 100) / 100;
     if(this.system == 'Metric') {
-      this.healthyRange = Math.round(low * 2.205 * 100)/100 + ' = ' + Math.round(high * 2.205 * 100)/100;
+      this.healthyRange = Math.round(low * 2.205 * 100)/100 + ' - ' + Math.round(high * 2.205 * 100)/100;
     } else {
       this.healthyRange = low + ' - ' + high;
     }

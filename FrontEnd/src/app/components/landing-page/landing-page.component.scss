@@ -468,7 +468,7 @@
   }
 
   .hero-image {
-    max-width: 650px;
+    max-width: 600px;
     height: auto;
     position: absolute;
     margin: auto;
@@ -480,26 +480,51 @@
   .hero-image-div {
     flex: 1;
     position: relative;
-
+    //background-color: rgb(52, 43, 109,0.5);
+    //box-shadow: 10px 10px 15px rgb(0,0,0,0.5);
+    //border-top: 2px solid rgb(255,255,255,0.3);
+    //border-left: 2px solid rgb(255,255,255,0.3);
+    //
+    //border-radius: 10px;
+    //max-height: 480px;
+    //aspect-ratio: (2,1);
   }
   .hero-details {
     flex: 1;
     display: flex;
+
+    ////glassmorphism practice
+    //background-color: rgb(255,255,255,0.1);
+    //text-align: center;
+    //border-radius: 20px;
+    //box-shadow: 10px 10px 15px rgb(0,0,0,0.5);
+    //border-top: 2px solid rgb(255,255,255,0.2);
+    //border-left: 2px solid rgb(255,255,255,0.2);
+    //backdrop-filter: blur(5px);
+
     h1 {
       font-size: 3rem;
     }
   }
   .description {
     font-size: 1.5rem;
+    //display: flex;
+    //flex-direction: column;
+    //align-items: center;
+
   }
 
   .buttons {
     width: 80%;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    align-content: center;
     align-items: center;
+    justify-content: center;
+    //justify-content: space-around;
+    //align-items: center;
   }
+
   .button {
     width: 175px;
     height: 75px;

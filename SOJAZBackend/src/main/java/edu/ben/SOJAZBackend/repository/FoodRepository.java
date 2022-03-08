@@ -10,4 +10,6 @@ import java.util.Optional;
 @Repository
 public interface FoodRepository extends JpaRepository <Food, Long> {
     List<Food> findAll();
+    Food getFoodByFoodName(String food_name);
+
 }
