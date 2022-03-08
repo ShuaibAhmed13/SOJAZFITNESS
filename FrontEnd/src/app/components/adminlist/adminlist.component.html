@@ -1,0 +1,91 @@
+<div class="container-width">
+
+  <div class="LIST">
+    <table *ngIf="listitems">
+      <!--      <thead>-->
+      <!--        <th>ID</th>-->
+      <!--        <th>EMAIL</th>-->
+      <!--        <th>USERNAME</th>-->
+      <!--        <th>FIRST NAME</th>-->
+      <!--        <th>LAST NAME</th>-->
+      <!--        <th>ROLE</th>-->
+      <!--        <th>SUSPEND</th>-->
+      <!--      &lt;!&ndash;        <th>EDIT</th>&ndash;&gt;-->
+      <!--      &lt;!&ndash;        <th>DELETE</th>&ndash;&gt;-->
+      <!--      </thead>-->
+      <thead>
+      <th *ngFor="let th of thlist">{{th}}</th>
+      <th *ngIf="selected !== 'user'">EDIT</th>
+      <th *ngIf="selected !== 'user'">DELETE</th>
+      </thead>
+
+      <!--      <tbody *ngIf="selected != 'users'">-->
+      <!--        <tr *ngFor="let item of listitems">-->
+      <!--          <td *ngFor="let column of item | keyvalue">{{column.key}} {{column.value}}</td>-->
+      <!--        </tr>-->
+      <!--      </tbody>-->
+
+      <tbody *ngIf="selected === 'equipment'">
+      <tr *ngFor="let item of listitems | searchfilter: searchInput">
+        <td label="ID">{{item.id}}</td>
+        <td label="NAME">{{item.name}}</td>
+        <td label="TYPE">{{item.type}}</td>
+        <td class="buttontd">
+          <button (click)="editEmit(item.id)" class="edit-button button">EDIT</button>
+        </td>
+        <td class="buttontd">
+          <button (click)="deleteEmit(item.id)" class="delete-button button">DELETE</button>
+        </td>
+      </tr>
+      </tbody>
+
+      <tbody *ngIf="selected === 'food'">
+      <tr *ngFor="let item of listitems | searchfilter: searchInput">
+        <td label="ID">{{item.id}}</td>
+        <td label="NAME">{{item.foodName}}</td>
+        <td label="CALORIES">{{item.calories}}</td>
+        <td label="PROTEIN">{{item.protein}}g</td>
+        <td label="TOTAL CARBS">{{item.totalCarbs}}g</td>
+        <td label="SUGAR">{{item.sugar}}g</td>
+        <td label="DIETARY FIBER">{{item.dietaryFiber}}g</td>
+        <td label="TOTAL FAT">{{item.totalFat}}g</td>
+        <td label="SATURATED FATS">{{item.satFats}}g</td>
+        <td label="TRANS FATS">{{item.transFats}}g</td>
+        <td label="CHOLESTROL">{{item.cholesterol}}g</td>
+        <td label="SODIUM">{{item.sodium}}g</td>
+        <td label="SERVING SIZE">{{item.servingSize}}</td>
+        <td class="buttontd">
+          <button (click)="editEmit(item.id)" class="edit-button button">EDIT</button>
+        </td>
+        <td class="buttontd">
+          <button (click)="deleteEmit(item.id)" class="delete-button button">DELETE</button>
+        </td>
+      </tr>
+      </tbody>
+
+
+      <tbody *ngIf="selected === 'user'">
+      <tr *ngFor="let item of listitems | searchfilter:searchInput">
+        <td label="ID">{{item.id}}</td>
+        <td label="EMAIL">{{item.email}}</td>
+        <td label="USERNAME">{{item.username}}</td>
+        <td label="FIRST NAME">{{item.firstName}}</td>
+        <td label="LAST NAME">{{item.lastName}}</td>
+        <td label="ROLE(S)">{{item.roles}}</td>
+        <td *ngIf="item.active == true" class="buttontd">
+          <button (click)="suspendEmit(item.id)" class="delete-button button">SUSPEND</button>
+        </td>
+        <td *ngIf="item.active== false" class="buttontd">
+          <button (click)="reactivateEmit(item.id)" class="edit-button button">REACTIVATE</button>
+        </td>
+        <!--          <td class="buttontd"><button class="edit-button button">EDIT</button></td>-->
+        <!--          <td class="buttontd"><button (click)="deleteUser(user.id)" class="delete-button button">DELETE</button></td>-->
+      </tr>
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+</div>

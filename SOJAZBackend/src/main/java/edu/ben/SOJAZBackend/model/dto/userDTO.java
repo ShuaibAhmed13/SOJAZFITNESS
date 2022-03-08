@@ -46,4 +46,14 @@ public class userDTO {
     }
 
     public userDTO(){}
+
+    public userDTO(Long id, String email, String username, String firstName, String lastName, Boolean active, String roles) {
+        this.id = id;
+        this.email = email;
+        this.username = username;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.active = active;
+        this.roles = roles;
+    }
 }

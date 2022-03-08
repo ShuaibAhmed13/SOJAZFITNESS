@@ -1,0 +1,226 @@
+* {
+  //box-sizing: border-box;
+}
+
+.container-all {
+  height: 100vh;
+  //width: 100%;
+  background-color: var(--off-white-color);
+  //background-color: var(--dark-color);
+
+  //overflow: hidden;
+
+  //background-color: orange;
+}
+.container-width {
+  width: 90%;
+  height: 70vh;
+  margin: auto;
+  overflow-y: scroll;
+
+}
+
+.big-purple {
+  position: absolute;
+  bottom: 0px;
+  right: -68px;
+  transform: scale(0.8);
+  //opacity: 0.7;
+}
+.LIST{
+  position: relative;
+  margin: auto;
+  width: 90%;
+  //background-color: var(--light-color);
+  margin-top: 2%;
+  font-size: 1.2rem;
+  z-index: 1;
+
+}
+
+
+table {
+  width: 100%;
+  border-radius: 10px;
+  //background-color: rgba(131, 140, 157, 0.5);
+  background-color: rgb(255,255,255,0.3);
+  box-shadow: 10px 10px 20px rgb(0,0,0,0.5);
+  //border-top: 5px solid rgb(255,255,255, 1);
+  //border-left: 5px solid rgb(255,255,255, 1);
+  box-shadow: 2px 2px 0 1px rgb(255,255,255, 0.5) inset;
+  backdrop-filter: blur(2px);
+}
+thead {
+  //background-color: #{'rgba(var(--main-color), 0.8)'};
+  //background-color: var(--main-color);
+  //background-color: rgb(200,200,200,0.5);
+  //opacity: 0.2;
+  //box-shadow: 2px 2px 0 1px rgb(255,255,255, 0.5) inset;
+  background-color: rgb(52, 43, 109,0.8);
+  box-shadow: 2px 2px 0 1px rgb(255,255,255,0.3) inset;
+  color: var(--light-color);
+}
+thead:hover {
+  cursor: pointer;
+  background-color: var(--main-color);
+}
+tbody {
+
+  font-weight: 500;
+  color: var(--dark-color);
+}
+th, td {
+  //color: var(--light-color);
+
+  padding: 0.8rem;
+}
+
+tr + tr{
+  border-top: 1px solid rgb(255,255,255,0.3);
+}
+tr:nth-child(even) {
+  background-color: rgb(255,255,255,0.01);
+}
+tr:hover {
+  cursor: pointer;
+  background-color: rgb(255,255,255,0.2);
+}
+.button {
+  padding: 5% 10%;
+  border-radius: 5px;
+  color: var(--light-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  border: 2px solid var(--light-color);
+}
+
+.edit-button {
+  background-color: rgb(52, 43, 109,0.5);
+}
+.delete-button {
+  background-color: rgb(200, 0, 0, 0.5);
+}
+.edit-button:hover {
+  background-color: var(--main-color);
+}
+.delete-button:hover {
+  background-color: rgb(200, 0, 0, 1);
+}
+
+@media only screen and (max-width: 1400px) {
+  td {
+    padding: 0.2rem;
+  }
+  .button {
+    transform: scale(0.8);
+  }
+}
+@media only screen and (max-width: 1250px) {
+  .LIST{
+    transform: scale(0.95);
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .LIST {
+    display: flex;
+    justify-content: center;
+    //background-color: pink;
+    transform: scale(0.95);
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .LIST {
+    transform: scale(0.9);
+  }
+}
+@media only screen and (max-width: 900px) {
+
+  .container-width {
+    overflow: scroll;
+  }
+  .LIST {
+    transform: scale(1);
+  }
+  thead{
+    display: none;
+  }
+  table, tbody, tr, td {
+    display: block;
+  }
+  tr {
+    margin-bottom: 15px;
+  }
+
+  td {
+    margin: 10px 0;
+    //margin-left: 50%;
+    text-align: right;
+    position: relative;
+    padding-right: 20px;
+
+    // background-color: cornflowerblue; //border-bottom: 1px solid var(--light-color);
+  }
+  td::before {
+    content: attr(label);
+    position: absolute;
+    left: 0px;
+    text-align: center;
+    padding-left: 20px;
+  }
+
+  td button {
+    display: block;
+  }
+  .buttontd {
+    display: inline-block;
+    width: 50%;
+    height: 50px;
+    button {
+      width: 50%;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      width: fit-content;
+
+    }
+    //background-color: yellow;
+  }
+  tr:hover {
+    background-color: rgb(255,255,255,0.1);
+  }
+
+}
+@media only screen and (max-width: 500px) {
+  //.big-purple {
+  //  transform: scale(0.8);
+  //  bottom: -150px;
+  //  right: -220px;
+  //}
+
+  .container-width {
+    height: 66vh;
+  }
+  td {
+    font-size: 16px;
+    width: 70%;
+    //overflow-wrap: break-word;
+    margin-left: 30%;
+  }
+  td::before {
+    position: absolute;
+    left: -45%;
+    font-size: 14px;
+  }
+  .buttontd {
+    width: 40%;
+    margin: auto;
+    display: inline-block;
+    button {
+      padding: 0.5rem;
+    }
+  }
+}

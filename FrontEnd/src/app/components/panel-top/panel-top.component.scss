@@ -1,0 +1,73 @@
+.panel-top{
+  padding-top: 0.5%;
+  width: 80%;
+  margin: auto;
+  font-family: var(--ff-regular);
+
+}
+.top-side {
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: fit-content;
+}
+
+.left-side {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.right-side {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+}
+.title {
+  font-weight: 500;
+  font-size: 2rem;
+}
+.search-box {
+  border: 2px solid var(--main-color);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+app-editaddmodal {
+  opacity: 0;
+  pointer-events: none;
+}
+.addEquipment {
+  opacity: 100%;
+  pointer-events: auto;
+}
+.bottom-side {
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  a:hover {
+    cursor: pointer;
+    transform: translateY(-2px);
+  }
+}
+.edit-button:hover {
+  background-color: var(--main-color);
+}
+.edit-button {
+   background-color: rgb(52, 43, 109,0.5);
+ }
+.button {
+  padding: 1% 2%;
+  border-radius: 5px;
+  color: var(--light-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  border: 2px solid var(--light-color);
+}
+
