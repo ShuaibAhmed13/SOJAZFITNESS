@@ -22,6 +22,7 @@ import {AdminpanelpageComponent} from "./components/adminpanelpage/adminpanelpag
 import {RoleGuard} from "./components/services/role.guard";
 import {EditaddmodalComponent} from "./components/editaddmodal/editaddmodal.component";
 import {AdminlistComponent} from "./components/adminlist/adminlist.component";
+import {VideosearchComponent} from "./components/videosearch/videosearch.component";
 
 const routes: Routes = [
   {path: '', component:LandingPageComponent, canActivate: [LoggedinauthGuard]},
@@ -40,6 +41,7 @@ const routes: Routes = [
   {path: 'adminpanelpage', component: AdminpanelpageComponent, canActivate: [RoleGuard]},
   {path: 'modal', component: EditaddmodalComponent},
   {path: 'adminlisttest', component: AdminlistComponent},
+  {path: 'videosearch', component: VideosearchComponent},
   { path: '**', component: PageNotFoundPageComponent}
 ];
 

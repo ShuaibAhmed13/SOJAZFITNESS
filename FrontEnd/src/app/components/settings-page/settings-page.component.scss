@@ -9,20 +9,20 @@ body {
 
 /* Style the side navigation */
 .sidenav {
-  height: 1236px;
+  height: 1520px;
   width: 200px;
   position: absolute;
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #7FFFD4;
+  background-color: #333333;
   overflow-x: hidden;
 }
 
 
 /* Side navigation links */
 .sidenav a {
-  color: black;
+  color: white;
   padding: 16px;
   text-decoration: none;
   display: block;
@@ -43,8 +43,8 @@ body {
 .contentHeader {
   margin-left: 200px;
   padding-left: 20px;
-  background-color: navy;
-  color: #7FFFD4;
+  background-color: var(--main-color);
+  color: white;
   text-align: center;
   font-family: Geneva;
   height: 200px;
@@ -78,7 +78,7 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-  background-color: #7FFFD4;
+  background-color: var(--main-color);
 }
 
 .container {
@@ -89,8 +89,8 @@ input[type=submit]:hover {
 
 footer{
 
-  background-color: navy;
-  color: #7FFFD4;
+  background-color: var(--main-color);
+  color: #333333;
   text-align: center;
   font-family: Geneva;
   height: 150px;

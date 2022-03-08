@@ -44,6 +44,8 @@ import { EditaddmodalComponent } from './components/editaddmodal/editaddmodal.co
 import { AdminlistComponent } from './components/adminlist/adminlist.component';
 import { PanelTopComponent } from './components/panel-top/panel-top.component';
 import { SearchfilterPipe } from './components/pipes/searchfilter.pipe';
+import {SafePipe} from "./components/pipes/safe.pipe";
+import {VideosearchComponent} from "./components/videosearch/videosearch.component";
 
 
 @NgModule({
@@ -81,6 +83,8 @@ import { SearchfilterPipe } from './components/pipes/searchfilter.pipe';
     AdminlistComponent,
     PanelTopComponent,
     SearchfilterPipe
+    VideosearchComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,

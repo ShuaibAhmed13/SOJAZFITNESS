@@ -17,8 +17,8 @@ public class ExerciseMuscle {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-    @Column(name = "name")
-    String name;
-    @Column(name = "description")
-    String description;
+    @Column(name = "weightworkoutID")
+    Long weightworkoutID;
+    @Column(name = "muscleID")
+    Long muscleID;
 }

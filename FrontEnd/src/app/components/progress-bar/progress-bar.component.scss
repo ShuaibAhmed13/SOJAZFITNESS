@@ -11,7 +11,8 @@
 .progress-bar-container {
   width: 90%;
   margin: auto;
-  background-color: navy;
+  background-color: var(--main-color);
+  border-radius: 10px;
 }
 .progress-bar-animated {
   background-color: black;
