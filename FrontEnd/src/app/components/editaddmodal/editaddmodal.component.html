@@ -1,29 +1,172 @@
 <div class="container-all">
-  <div class="modal-custom">
+<!--  <div *ngIf="selected === 'adduser'" class="modal-custom">-->
+<!--    <div class="top">-->
+<!--      <h1 class="title">ADD USER</h1>-->
+<!--      <h2 class="exit">CLOSE</h2>-->
+<!--    </div>-->
+
+<!--      <div class="inputcontainer">-->
+<!--        <label>EMAIL</label>-->
+<!--        <input type="text">-->
+<!--        <label>USERNAME</label>-->
+<!--        <input type="text">-->
+<!--        <label>FIRST NAME</label>-->
+<!--        <input type="text">-->
+<!--        <label>LAST NAME</label>-->
+<!--        <input type="text">-->
+<!--        <label>PASSWORD</label>-->
+<!--        <input type="password">-->
+<!--        <label>CONFIRM PASSWORD</label>-->
+<!--        <input type="password">-->
+<!--        <div class="button-container">-->
+<!--          <button (click)="deselect.emit('')" class="Cancel button">CANCEL</button>-->
+<!--          <button class="Submit button">SUBMIT</button>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--  </div>-->
+
+
+  <div *ngIf="selected === 'editfood'" class="modal-custom food-form">
     <div class="top">
-      <h1 class="title">ADD USER</h1>
-      <h2 class="exit">CLOSE</h2>
+      <h1 class="title">EDIT FOOD</h1>
+      <!--      <h2 class="exit">CLOSE</h2>-->
     </div>
 
+    <form #inputData="ngForm" (ngSubmit)="submitForm(inputData)">
       <div class="inputcontainer">
-        <label>EMAIL</label>
-        <input type="text">
-        <label>USERNAME</label>
-        <input type="text">
-        <label>FIRST NAME</label>
-        <input type="text">
-        <label>LAST NAME</label>
-        <input type="text">
-        <label>PASSWORD</label>
-        <input type="password">
-        <label>CONFIRM PASSWORD</label>
-        <input type="password">
+        <label>NAME</label>
+        <input type="text" ngModel="{{editItem.foodName}}" name="name" required="required">
+        <label>CALORIES</label>
+        <input type="number" ngModel="{{editItem.calories}}" name="calories"required="required">
+        <label>PROTEIN(g)</label>
+        <input type="number" ngModel="{{editItem.protein}}" name="protein" required="required">
+        <label>TOTAL CARBS(g)</label>
+        <input type="number" ngModel="{{editItem.totalCarbs}}" name="totalCarbs" required="required">
+        <label>SUGAR(g)</label>
+        <input type="number" ngModel="{{editItem.sugar}}" name="sugar" required="required">
+        <label>DIETARY FIBER(g)</label>
+        <input type="number" ngModel="{{editItem.dietaryFiber}}" name="dietaryFiber" required="required">
+        <label>TOTAL FAT(g)</label>
+        <input type="number" ngModel="{{editItem.totalFat}}" name="totalFat" required="required">
+        <label>SATURATED FATS(g)</label>
+        <input type="number" ngModel="{{editItem.satFats}}" name="saturatedFats" required="required">
+        <label>TRANS FATS(g)</label>
+        <input type="number" ngModel="{{editItem.transFats}}" name="transFats" required="required">
+        <label>CHOLESTEROL(g)</label>
+        <input type="number" ngModel="{{editItem.cholesterol}}" name="cholesterol" required="required">
+        <label>SODIUM(g)</label>
+        <input type="number" ngModel="{{editItem.sodium}}" name="sodium" required="required">
+        <label>SERVING SIZE</label>
+        <input type="text" ngModel="{{editItem.servingSize}}" name="servingSize" required="required">
+        <p class="error">{{error}}</p>
         <div class="button-container">
-          <button class="Cancel button">CANCEL</button>
-          <button class="Submit button">SUBMIT</button>
+          <button (click)="deselect.emit('')" class="Cancel button">CANCEL</button>
+          <button type="submit" class="Submit button">SUBMIT</button>
+        </div>
+      </div>
+    </form>
+
+
+  </div>
+
+  <div *ngIf="selected === 'addfood'" class="modal-custom food-form">
+    <div class="top">
+      <h1 class="title">ADD FOOD</h1>
+<!--      <h2 class="exit">CLOSE</h2>-->
+    </div>
+
+    <form #inputData="ngForm" (ngSubmit)="submitForm(inputData)">
+      <div class="inputcontainer">
+        <label>NAME</label>
+        <input type="text" ngModel="" name="name" required="required">
+        <label>CALORIES</label>
+        <input type="number" ngModel="" name="calories"required="required">
+        <label>PROTEIN(g)</label>
+        <input type="number" ngModel="" name="protein" required="required">
+        <label>TOTAL CARBS(g)</label>
+        <input type="number" ngModel="" name="totalCarbs" required="required">
+        <label>SUGAR(g)</label>
+        <input type="number" ngModel="" name="sugar" required="required">
+        <label>DIETARY FIBER(g)</label>
+        <input type="number" ngModel="" name="dietaryFiber" required="required">
+        <label>TOTAL FAT(g)</label>
+        <input type="number" ngModel="" name="totalFat" required="required">
+        <label>SATURATED FATS(g)</label>
+        <input type="number" ngModel="" name="saturatedFats" required="required">
+        <label>TRANS FATS(g)</label>
+        <input type="number" ngModel="" name="transFats" required="required">
+        <label>CHOLESTEROL(g)</label>
+        <input type="number" ngModel="" name="cholesterol" required="required">
+        <label>SODIUM(g)</label>
+        <input type="number" ngModel="" name="sodium" required="required">
+        <label>SERVING SIZE</label>
+        <input type="text" ngModel="" name="servingSize" required="required">
+        <p class="error">{{error}}</p>
+        <div class="button-container">
+          <button (click)="deselect.emit('')" class="Cancel button">CANCEL</button>
+          <button type=submit class="Submit button">SUBMIT</button>
+        </div>
+      </div>
+    </form>
+
+
+  </div>
+
+
+  <div *ngIf="selected === 'addequipment'" class="modal-custom">
+    <div class="top">
+      <h1 class="title">ADD EQUIPMENT</h1>
+<!--      <h2 class="exit">CLOSE</h2>-->
+    </div>
+
+    <form #inputData = "ngForm" (ngSubmit)="submitForm(inputData)" novalidate>
+      <div class="inputcontainer">
+        <label>NAME</label>
+        <input type="text" ngModel="" name="name" required="required">
+        <label>TYPE</label>
+        <select ngModel="" name="type" required="required">
+          <option value="CARDIO">CARDIO</option>
+          <option value="WEIGHT">WEIGHT</option>
+        </select>
+        <p class="error">{{error}}</p>
+        <div class="button-container">
+          <button (click)="deselect.emit('')" class="Cancel button">CANCEL</button>
+          <button type=submit class="Submit button">SUBMIT</button>
         </div>
       </div>
 
+    </form>
+
+
   </div>
+
+  <div *ngIf="selected === 'editequipment'" class="modal-custom">
+    <div class="top">
+      <h1 class="title">EDIT EQUIPMENT</h1>
+      <!--      <h2 class="exit">CLOSE</h2>-->
+    </div>
+
+    <form #inputData = "ngForm" (ngSubmit)="submitForm(inputData)" novalidate>
+      <div class="inputcontainer">
+        <label>NAME</label>
+        <input type="text" ngModel="{{editItem.name}}" name="name" required="required">
+        <label>TYPE</label>
+        <select ngModel="{{editItem.type}}" name="type" required="required">
+          <option value="CARDIO">CARDIO</option>
+          <option value="WEIGHT">WEIGHT</option>
+        </select>
+        <p class="error">{{error}}</p>
+        <div class="button-container">
+          <button (click)="deselect.emit('')" class="Cancel button">CANCEL</button>
+          <button type=submit class="Submit button">SUBMIT</button>
+        </div>
+      </div>
+
+    </form>
+
+
+  </div>
+
 </div>
 

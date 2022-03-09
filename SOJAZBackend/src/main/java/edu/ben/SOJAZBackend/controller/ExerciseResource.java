@@ -1,44 +1,80 @@
-//package edu.ben.SOJAZBackend.controller;
-//
-//import edu.ben.SOJAZBackend.model.Exercise;
-//import edu.ben.SOJAZBackend.model.ExerciseWeight;
-//import edu.ben.SOJAZBackend.model.dto.ExerciseDTO;
-//import edu.ben.SOJAZBackend.model.dto.ExerciseWeightDTO;
-//import edu.ben.SOJAZBackend.service.ExerciseWeightService;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.web.bind.annotation.*;
-//
-//import java.util.List;
-//
-//@RestController
-//@RequestMapping(value = "api/exercise", produces = "application/json")
-//public class ExerciseResource {
-//
-//    @Autowired
-//    private final ExerciseWeightService exerciseWeightService;
-//
-//    ExerciseResource(ExerciseWeightService exerciseWeightService) {
-//        this.exerciseWeightService = exerciseWeightService;
+package edu.ben.SOJAZBackend.controller;
+
+import edu.ben.SOJAZBackend.model.Equipment;
+import edu.ben.SOJAZBackend.model.Exercise;
+import edu.ben.SOJAZBackend.model.Muscle;
+import edu.ben.SOJAZBackend.model.dto.ExerciseDTO;
+import edu.ben.SOJAZBackend.model.dto.ExerciseMuscleDTO;
+import edu.ben.SOJAZBackend.model.dto.ExerciseWeightDTO;
+import edu.ben.SOJAZBackend.model.dto.MuscleDTO;
+
+import edu.ben.SOJAZBackend.service.ExerciseService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping(value = "api/exercises", produces = "application/json")
+public class ExerciseResource {
+
+    @Autowired
+    ExerciseService exerciseService;
+
+    @GetMapping(value = "/getall")
+    public List<Exercise> getAllExercises() {
+        return exerciseService.getAllExercises();
+    }
+
+    @GetMapping(value = "/getexercisebyid/{exercise_id}")
+    public Exercise getExerciseById(@PathVariable Long exercise_id) {
+        return exerciseService.getExerciseById(exercise_id);
+    }
+
+    //Admin privileges
+    @PostMapping(value = "/crud/createexercise")
+    public ResponseEntity<String> createExercise(@RequestBody Exercise exercise) {
+        return new ResponseEntity<String>(exerciseService.createExercise(exercise), HttpStatus.CREATED);
+    }
+
+    @PutMapping(value = "/crud/updateexercise/{exercise_id}")
+    public ResponseEntity<String> updateExercise(@PathVariable Long exercise_id, @RequestBody Exercise exercise) {
+        return new ResponseEntity<String>(exerciseService.updateExercise(exercise_id, exercise), HttpStatus.OK);
+    }
+
+    @DeleteMapping(value = "/crud/deleteexercise/{exercise_id}")
+    public ResponseEntity<String> deleteExercise(@PathVariable Long exercise_id) {
+        return new ResponseEntity<String>(exerciseService.deleteExercise(exercise_id), HttpStatus.OK);
+    }
+
+//    @GetMapping(value = "/crud/getallbyexerciseid/{exercise_id}")
+//    public ResponseEntity<List<Object>> getExercisesAndMusclesByExerciseId(@PathVariable Long exercise_id) {
+//        return new ResponseEntity<List<Object>>(exerciseService.findAllByExerciseId(exercise_id), HttpStatus.OK);
 //    }
-//
-//    @PostMapping("/create")
-//    public void createWorkout(@RequestBody ExerciseDTO exerciseDTO, @RequestBody ExerciseWeightDTO exerciseWeightDTO) {
-//        this.exerciseWeightService.exerciseSave(exerciseDTO, exerciseWeightDTO);
+//    @GetMapping(value = "/crud/getallbymuscleid/{muscle_id}")
+//    public ResponseEntity<List<Object>> getExercisesAndMusclesByMuscleId(@PathVariable Long muscle_id) {
+//        return new ResponseEntity<List<Object>>(exerciseService.findAllByMuscleId(muscle_id), HttpStatus.OK);
 //    }
-//
-//    @GetMapping("/exercise/{muscle}")
-//    public List<ExerciseWeightDTO> getFilteredAchievements(@PathVariable String muscle) {
-//        return this.exerciseWeightService.getFilteredData(muscle);
-//    }
-//
-//    @GetMapping("/getExercises")
-//    public List<Exercise> getExercises() {
-//        return exerciseWeightService.getAllExercise();
-//    }
-//
-//    @GetMapping("/getWeightExercises")
-//    public List<ExerciseWeight> getWeightExercises() {
-//        return exerciseWeightService.getAllExerciseWeight();
-//    }
-//
-//}
+
+    @GetMapping(value = "/crud/findbymusclename/{muscle_name}")
+    public ResponseEntity<List<Exercise>> findByMuscleName(@PathVariable String muscle_name) {
+        return new ResponseEntity<List<Exercise>>(exerciseService.findByMuscleName(muscle_name), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/crud/findbymuscleid/{muscle_id}")
+    public ResponseEntity<List<Exercise>> findByMuscleId(@PathVariable Long muscle_id) {
+        return new ResponseEntity<List<Exercise>>(exerciseService.findByMuscleId(muscle_id), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/crud/findbyequipmentname/{equipment_name}")
+    public ResponseEntity<List<Exercise>> findByEquipmentName(@PathVariable String equipment_name) {
+        return new ResponseEntity<List<Exercise>>(exerciseService.findByEquipmentName(equipment_name), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/crud/findbyequipmentid/{equipment_id}")
+    public ResponseEntity<List<Exercise>> findByEquipmentId(@PathVariable Long equipment_id) {
+        return new ResponseEntity<List<Exercise>>(exerciseService.findByEquipmentId(equipment_id), HttpStatus.OK);
+    }
+}

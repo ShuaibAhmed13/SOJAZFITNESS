@@ -41,6 +41,11 @@ import { NewnavbarComponent } from './components/newnavbar/newnavbar.component';
 import {AuthGuard} from "./components/services/auth.guard";
 import { AdminpanelpageComponent } from './components/adminpanelpage/adminpanelpage.component';
 import { EditaddmodalComponent } from './components/editaddmodal/editaddmodal.component';
+import { AdminlistComponent } from './components/adminlist/adminlist.component';
+import { PanelTopComponent } from './components/panel-top/panel-top.component';
+import { SearchfilterPipe } from './components/pipes/searchfilter.pipe';
+import {SafePipe} from "./components/pipes/safe.pipe";
+import {VideosearchComponent} from "./components/videosearch/videosearch.component";
 
 
 @NgModule({
@@ -74,7 +79,12 @@ import { EditaddmodalComponent } from './components/editaddmodal/editaddmodal.co
     FooterComponent,
     NewnavbarComponent,
     AdminpanelpageComponent,
-    EditaddmodalComponent
+    EditaddmodalComponent,
+    AdminlistComponent,
+    PanelTopComponent,
+    SearchfilterPipe,
+    VideosearchComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,

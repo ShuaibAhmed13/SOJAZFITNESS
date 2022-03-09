@@ -1,0 +1,21 @@
+  <div class="panel-top">
+    <div class="top-side">
+      <div class="left-side">
+        <p class="title">{{selectedtab.toUpperCase()}} TABLE</p>
+      </div>
+      <div class="right-side">
+        <button *ngIf="selectedtab !== 'user'" (click)="openModalEmit()" class="edit-button button">ADD {{selectedtab.toUpperCase()}}</button>
+        <input class="search-box" type="text" placeholder="SEARCH {{selectedtab.toUpperCase()}}" (keyup)="searchinput.emit(input.value)" #input>
+      </div>
+    </div>
+
+    <div class="bottom-side">
+      <a (click)="changeSelected('user')">USER</a>
+      <a (click)="changeSelected('food')">FOOD</a>
+      <a (click)="changeSelected('equipment')">EQUIPMENT</a>
+    </div>
+
+  </div>
+
+
+

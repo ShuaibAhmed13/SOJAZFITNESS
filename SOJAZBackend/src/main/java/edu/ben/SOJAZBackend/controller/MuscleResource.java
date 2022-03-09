@@ -1,0 +1,34 @@
+//package edu.ben.SOJAZBackend.controller;
+//
+//import edu.ben.SOJAZBackend.model.Muscle;
+//import edu.ben.SOJAZBackend.model.dto.MuscleDTO;
+//
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.web.bind.annotation.GetMapping;
+//import org.springframework.web.bind.annotation.PathVariable;
+//import org.springframework.web.bind.annotation.RequestMapping;
+//import org.springframework.web.bind.annotation.RestController;
+//
+//import java.util.List;
+//
+//@RestController
+//@RequestMapping(value = "api/muscle", produces = "application/json")
+//public class MuscleResource {
+//
+//    @Autowired
+//    private final MuscleService muscleService;
+//
+//    MuscleResource(MuscleService muscleService) {
+//        this.muscleService = muscleService;
+//    }
+//
+//    @GetMapping("/getMuscles")
+//    public List<MuscleDTO> getMuscles() {
+//        return muscleService.getTheMuscleList();
+//    }
+//
+//    @GetMapping("/getMuscles/{muscle}")
+//    public List<MuscleDTO> getFilteredMuscles(@PathVariable String muscle) {
+//        return this.muscleService.getFilteredData(muscle);
+//    }
+//}

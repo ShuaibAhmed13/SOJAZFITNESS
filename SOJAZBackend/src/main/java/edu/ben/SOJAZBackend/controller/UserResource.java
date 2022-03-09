@@ -58,7 +58,7 @@ public class UserResource {
     //Following are restricted crud operations
     //Available only to Admin
     @GetMapping("/crud/getUsers")
-    public ResponseEntity<List<user>> getUsers() {
+    public ResponseEntity<List<userDTO>> getUsers() {
         return new ResponseEntity(userService.getAllUsers(), HttpStatus.OK);
     }
 

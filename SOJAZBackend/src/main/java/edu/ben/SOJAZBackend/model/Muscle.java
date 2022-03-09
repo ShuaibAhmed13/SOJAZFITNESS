@@ -3,6 +3,7 @@ package edu.ben.SOJAZBackend.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @ToString
@@ -11,7 +12,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Data
 @Builder
-@Table(name = "muscle")
+@Table(name = "muscles")
 public class Muscle {
 
     @Id

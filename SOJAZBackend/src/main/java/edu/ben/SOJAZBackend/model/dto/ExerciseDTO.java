@@ -17,5 +17,6 @@ public class ExerciseDTO {
     Long id;
     String name;
     String description;
-    Set<Muscle> muscleID;
+    String type;
+
 }

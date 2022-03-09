@@ -1,0 +1,30 @@
+<!--<div class="header">-->
+<!--  <h1>VIDEO</h1>-->
+<!--  <h3>What you've been watching?</h3>-->
+<!--</div>-->
+<app-navbar></app-navbar>
+<br>
+<h3 style="text-align: center">Filter Workouts Videos</h3>
+<br>
+<div class="form-container">
+  <form #filterData="ngForm" (ngSubmit)="filterVideos(filterData)" novalidate>
+    <div class="form-group">
+      <input style="width: 250px; margin: auto; text-align: center;"  class="form-control filter-input" name="filterName" value="filterName" id="filterName" ngModel required #video="ngModel" placeholder="SEARCH VIDEOS">
+      <br>
+      <button class="button button3">Filter Videos</button>
+    </div>
+  </form>
+</div>
+<br>
+<table style="margin: auto; text-align: center;" >
+  <tr>
+    <th>Name</th>
+    <th>Author</th>
+    <th>Video</th>
+  </tr>
+  <tr *ngFor="let videos of this.videoService.video | searchfilter:video.value">
+    <td>{{videos.videoName}}</td>
+    <td>{{videos.author}}</td>
+    <td><iframe width="420" height="345" [src]="videos.link | safe"></iframe></td>
+  </tr>
+</table>

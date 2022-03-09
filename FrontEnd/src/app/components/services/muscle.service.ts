@@ -7,14 +7,21 @@ import {Muscle} from "../interfaces/Muscle";
   providedIn: 'root'
 })
 export class MuscleService {
-  muscles = <Muscle[]>[];
+  muscle = <Muscle[]>[];
   constructor(private httpClient: HttpClient, private router: Router) {
   }
 
+  getMuscles() {
+    this.httpClient.get<Muscle[]>('api/muscle/getMuscles').subscribe(data => {
+      console.log(data);
+      this.muscle = data;
+    })
+  }
+
   getFilteredData(muscle: String) {
-    this.httpClient.get<Muscle[]>(`api/achievement/getLockedFilteredAchievements/${muscle}`).subscribe(data => {
+    this.httpClient.get<Muscle[]>(`api/muscle/getMuscles/${muscle}`).subscribe(data => {
       console.log("FILTERDATA = " + data)
-      this.muscles = data;
+      this.muscle = data;
     })
   }
 }
