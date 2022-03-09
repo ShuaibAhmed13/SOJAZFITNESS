@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Data
 @Builder
 @Table(name = "userProfile")
-public class userProfile {
+public class userProfileModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
