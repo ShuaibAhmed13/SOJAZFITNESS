@@ -23,23 +23,22 @@ export class ExerciseService {
   }
 
   getExercises() {
-    this.httpClient.get<Exercise[]>('api/exercise/getExercises').subscribe(data => {
+    this.httpClient.get<Exercise[]>('api/exercises/findall').subscribe(data => {
       console.log(data);
       this.exercises = data;
     })
   }
 
-  getAllMuscles(): Observable<Exercise[]> {
-    return this.httpClient.get<Exercise[]>('api/muscle/getMuscles');
+  getFilteredData(muscleName: String) {
+    this.httpClient.get<Exercise[]>(`api/muscle/getMuscles/${muscleName}`).subscribe(data => {
+      console.log("FILTERDATA = " + data)
+      this.exercises = data;
+    })
   }
 
 
   getAllExercises(): Observable<Exercise[]> {
-    return this.httpClient.get<Exercise[]>('api/exercise/getExercises');
-  }
-
-  getAllWeightExercises(): Observable<ExerciseWeight[]> {
-    return this.httpClient.get<ExerciseWeight[]>('api/exercise/getWeightExercises');
+    return this.httpClient.get<Exercise[]>('api/exercises/getExercises');
   }
 
 }

@@ -3,6 +3,7 @@ import {ExerciseService} from "../services/exercise.service";
 import {ExerciseCardioService} from "../services/exercise-cardio.service";
 import {Muscle} from "../interfaces/Muscle";
 import {MuscleService} from "../services/muscle.service";
+import {Exercise} from "../interfaces/Exercise";
 
 @Component({
   selector: 'app-workoutpost',
@@ -16,10 +17,9 @@ export class WorkoutpostComponent implements OnInit {
   constructor(public exerciseService: ExerciseService, public exerciseCardioService: ExerciseCardioService, public muscleService: MuscleService) {
   }
 
-  @Input() muscle = <Muscle>{};
+  @Input() exercises = <Exercise>{};
   ngOnInit(): void {
     this.getExercises();
-    this.getMuscles();
   }
 
   workout(workoutData: any) {
@@ -29,17 +29,14 @@ export class WorkoutpostComponent implements OnInit {
  /* workoutCardio(workoutCardioData: any) {
     this.exerciseCardioService.createCardio({workoutCardio: workoutCardioData.value.workoutCardio, length: workoutCardioData.value.length, intensity: workoutCardioData.value.intensityCardio});
   }*/
+  muscleName: any;
 
   filterMuscles(filterData: any) {
-    this.muscleService.getFilteredData(filterData.value.filterName);
+    this.exerciseService.getFilteredData(filterData.value.filterName);
   }
 
   getExercises() {
     return this.exerciseService.getExercises();
-  }
-
-  getMuscles() {
-    return this.muscleService.getMuscles();
   }
 
 }
