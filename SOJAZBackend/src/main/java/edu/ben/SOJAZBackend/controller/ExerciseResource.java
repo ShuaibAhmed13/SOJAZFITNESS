@@ -1,6 +1,5 @@
 package edu.ben.SOJAZBackend.controller;
 
-import edu.ben.SOJAZBackend.model.Equipment;
 import edu.ben.SOJAZBackend.model.Exercise;
 import edu.ben.SOJAZBackend.model.Muscle;
 import edu.ben.SOJAZBackend.model.dto.ExerciseDTO;
@@ -28,10 +27,17 @@ public class ExerciseResource {
         return exerciseService.getAllExercises();
     }
 
+    @GetMapping(value = "/findall")
+    public List<Object> findAllExercises() {
+        return exerciseService.findAllExercises();
+    }
+
     @GetMapping(value = "/getexercisebyid/{exercise_id}")
     public Exercise getExerciseById(@PathVariable Long exercise_id) {
         return exerciseService.getExerciseById(exercise_id);
     }
+
+
 
     //Admin privileges
     @PostMapping(value = "/crud/createexercise")
@@ -49,32 +55,8 @@ public class ExerciseResource {
         return new ResponseEntity<String>(exerciseService.deleteExercise(exercise_id), HttpStatus.OK);
     }
 
-//    @GetMapping(value = "/crud/getallbyexerciseid/{exercise_id}")
-//    public ResponseEntity<List<Object>> getExercisesAndMusclesByExerciseId(@PathVariable Long exercise_id) {
-//        return new ResponseEntity<List<Object>>(exerciseService.findAllByExerciseId(exercise_id), HttpStatus.OK);
-//    }
-//    @GetMapping(value = "/crud/getallbymuscleid/{muscle_id}")
-//    public ResponseEntity<List<Object>> getExercisesAndMusclesByMuscleId(@PathVariable Long muscle_id) {
-//        return new ResponseEntity<List<Object>>(exerciseService.findAllByMuscleId(muscle_id), HttpStatus.OK);
-//    }
-
-    @GetMapping(value = "/crud/findbymusclename/{muscle_name}")
-    public ResponseEntity<List<Exercise>> findByMuscleName(@PathVariable String muscle_name) {
-        return new ResponseEntity<List<Exercise>>(exerciseService.findByMuscleName(muscle_name), HttpStatus.OK);
-    }
-
-    @GetMapping(value = "/crud/findbymuscleid/{muscle_id}")
-    public ResponseEntity<List<Exercise>> findByMuscleId(@PathVariable Long muscle_id) {
-        return new ResponseEntity<List<Exercise>>(exerciseService.findByMuscleId(muscle_id), HttpStatus.OK);
-    }
-
-    @GetMapping(value = "/crud/findbyequipmentname/{equipment_name}")
-    public ResponseEntity<List<Exercise>> findByEquipmentName(@PathVariable String equipment_name) {
-        return new ResponseEntity<List<Exercise>>(exerciseService.findByEquipmentName(equipment_name), HttpStatus.OK);
-    }
-
-    @GetMapping(value = "/crud/findbyequipmentid/{equipment_id}")
-    public ResponseEntity<List<Exercise>> findByEquipmentId(@PathVariable Long equipment_id) {
-        return new ResponseEntity<List<Exercise>>(exerciseService.findByEquipmentId(equipment_id), HttpStatus.OK);
+    @GetMapping(value = "/crud/getallbyexerciseid/{muscleId}")
+    public List<Exercise> getExercisesAndMusclesByExerciseId(@PathVariable Long muscleId) {
+        return exerciseService.findAllByMuscleId(muscleId);
     }
 }
