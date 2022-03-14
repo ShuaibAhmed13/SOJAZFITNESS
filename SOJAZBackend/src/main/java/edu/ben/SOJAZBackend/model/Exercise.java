@@ -31,4 +31,10 @@ public class Exercise {
     @ManyToMany
     @JoinColumn(name = "equipment", referencedColumnName = "id")
     Set<Equipment> equipments;
+
+    public Exercise(String name, String description, String type) {
+        this.name = name;
+        this.description = description;
+        this.type = type;
+    }
 }

@@ -23,13 +23,8 @@ export class WorkoutpostComponent implements OnInit {
   }
 
   workout(workoutData: any) {
-    this.exerciseService.create({name: workoutData.value.name, description:workoutData.value.description});
+    this.exerciseService.create({name: workoutData.value.name, description:workoutData.value.description, type:workoutData.value.type});
   }
-
- /* workoutCardio(workoutCardioData: any) {
-    this.exerciseCardioService.createCardio({workoutCardio: workoutCardioData.value.workoutCardio, length: workoutCardioData.value.length, intensity: workoutCardioData.value.intensityCardio});
-  }*/
-  muscleName: any;
 
   filterMuscles(filterData: any) {
     this.exerciseService.getFilteredData(filterData.value.filterName);

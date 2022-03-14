@@ -16,7 +16,7 @@ export class ExerciseService {
   exercises = <Exercise[]>[];
 
   create(exercise: Exercise) {
-    this.httpClient.post<Exercise>('api/exercise/create', exercise).subscribe(() => {
+    this.httpClient.post<Exercise>('api/exercises/create', exercise).subscribe(() => {
       this.router.navigateByUrl('/exercisepost');
     })
 

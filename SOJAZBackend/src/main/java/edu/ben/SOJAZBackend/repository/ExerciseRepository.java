@@ -17,6 +17,7 @@ public interface ExerciseRepository extends JpaRepository<Exercise, Long> {
             "inner join exercise.muscles")
     public List<Object> findAllExercises();
 
+
     @Query(value = "select exercise from Exercise exercise " +
             "inner join exercise.muscles muscles " +
             "where muscles.id = :muscleId")
