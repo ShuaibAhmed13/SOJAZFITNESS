@@ -51,21 +51,19 @@
   </form>
 </div>
 <br>
-<table style="margin: auto; text-align: center;" >
+<table style="margin: auto; text-align: center; width: 600px" >
   <tr>
     <th>Name</th>
     <th>Description</th>
     <th>Muscle</th>
   </tr>
-  <tr *ngFor="let exercises of this.exerciseService.exercises">
-    <ng-container *ngFor="let muscles of this.muscleService.muscle">
+  <tr *ngFor="let exercises of this.exerciseService.exercises; let i = index">
       <td>{{exercises.name}}</td>
       <td>{{exercises.description}}</td>
-      <td>{{muscles.muscleName}}</td>
-    </ng-container>
+      <td>{{exercises.muscles![0].muscleName}}</td>
   </tr>
 </table>
-
+<br>
 <footer>
  <p>COPYRIGHT BY SOJAZ LLC.</p>
   <a href="settingspage">Settings</a>
