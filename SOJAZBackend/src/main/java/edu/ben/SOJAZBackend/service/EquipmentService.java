@@ -53,4 +53,8 @@ public class EquipmentService {
         }
     }
 
+    public List <Object>findAllExercisesByEquipmentName(String equipmentName){
+        return equipmentRepository.findAllExercisesByEquipmentName(equipmentName);
+    }
+
 }

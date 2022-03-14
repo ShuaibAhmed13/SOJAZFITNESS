@@ -1,0 +1,43 @@
+<app-navbar></app-navbar>
+<div class="header">
+  <h1>Workout Equipment</h1>
+  <h3>What equipment do you want to choose?</h3>
+</div>
+<div>
+  <div class="form-container">
+    <form #filterData="ngForm" (ngSubmit)="filterEquipment(filterData)" novalidate>
+      <div class="form-group">
+        <input style="width: 250px; margin: auto; text-align: center;" class="form-control filter-input"
+               name="filterName" value="filterName" id="filterName" ngModel required #muscle="ngModel">
+        <br>
+        <button class="button button3">Filter By Equipment</button>
+      </div>
+    </form>
+  </div>
+  <h2 style="text-align: center">Equipment</h2>
+  <br>
+  <table style="margin: auto; text-align: center;">
+    <tr>
+      <th>Equipment Name</th>
+      <th>Exercise Name</th>
+      <th>Description</th>
+      <th>Type</th>
+    </tr>
+
+    <tr *ngFor="let exercises of this.exerciseService.exercises">
+      <td>{{exercises.equipments![0].name}}</td>
+      <td>{{exercises.name}}</td>
+      <td>{{exercises.description}}</td>
+      <td>{{exercises.type}}</td>
+    </tr>
+
+  </table>
+
+  <footer>
+    <p>COPYRIGHT BY SOJAZ LLC.</p>
+    <a href="settingspage">Settings</a>
+  </footer>
+</div>
+
+
+
