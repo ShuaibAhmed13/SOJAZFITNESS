@@ -10,7 +10,7 @@
 //@Autowired
 //private final ExerciseEquipmentService exerciseEquipmentService;
 //
-//ExerciseResource(ExerciseEquipmentService exerciseEquipmentServiee){
+//ExerciseResource(ExerciseEquipmentService exerciseEquipmentService){
 //    this.exerciseEquipmentService = exerciseEquipmentService;
 //        }
 //

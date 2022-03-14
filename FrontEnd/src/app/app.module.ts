@@ -46,7 +46,7 @@ import { PanelTopComponent } from './components/panel-top/panel-top.component';
 import { SearchfilterPipe } from './components/pipes/searchfilter.pipe';
 import {SafePipe} from "./components/pipes/safe.pipe";
 import {VideosearchComponent} from "./components/videosearch/videosearch.component";
-
+import{WorkoutequipmentComponent} from "./components/workoutequipment/workoutequipment.component";
 
 @NgModule({
   declarations: [
@@ -84,7 +84,8 @@ import {VideosearchComponent} from "./components/videosearch/videosearch.compone
     PanelTopComponent,
     SearchfilterPipe,
     VideosearchComponent,
-    SafePipe
+    SafePipe,
+    WorkoutequipmentComponent
   ],
   imports: [
     BrowserModule,

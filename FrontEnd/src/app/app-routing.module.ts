@@ -23,6 +23,7 @@ import {RoleGuard} from "./components/services/role.guard";
 import {EditaddmodalComponent} from "./components/editaddmodal/editaddmodal.component";
 import {AdminlistComponent} from "./components/adminlist/adminlist.component";
 import {VideosearchComponent} from "./components/videosearch/videosearch.component";
+import {WorkoutequipmentComponent} from "./components/workoutequipment/workoutequipment.component";
 
 const routes: Routes = [
   {path: '', component:LandingPageComponent, canActivate: [LoggedinauthGuard]},
@@ -42,6 +43,8 @@ const routes: Routes = [
   {path: 'modal', component: EditaddmodalComponent},
   {path: 'adminlisttest', component: AdminlistComponent},
   {path: 'videosearch', component: VideosearchComponent},
+  {path: 'workoutequipment', component: WorkoutequipmentComponent},
+
   { path: '**', component: PageNotFoundPageComponent}
 ];
 

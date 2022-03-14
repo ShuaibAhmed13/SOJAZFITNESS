@@ -6,14 +6,17 @@ Insert into video values('1', 'Calisthenicmovement',  'https://www.youtube.com/e
 Insert into video values('2', 'LIVESTRONG.COM',  'https://www.youtube.com/embed/1fbU_MkV7NE','Sit Ups');
 insert into exercise values(1, 'A chest exercise that uses a barbell and bench.', 'Bench Press', 'Weight');
 insert into exercise values(2, 'A leg workout that uses a barbell.', 'Squats', 'Weight');
+insert into exercise values(3,'100 jumps with a jumprope.','JumpingRope','Cardio');
 
 Insert into equipment values (1, 'Bench', 'Weight');
 Insert into equipment values (2, 'Barbell', 'Weight');
+Insert into equipment values(3,'Jumprope', 'Cardio');
 
 
 insert into exercise_equipments values(1,1);
 insert into exercise_equipments values(1,2);
 insert into exercise_equipments values(2,2);
+insert into exercise_equipments values(3,3);
 
 
 insert into muscles values(1, 'Chest', 'Pectoralis Major');

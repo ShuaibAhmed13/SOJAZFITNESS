@@ -23,7 +23,7 @@ export class ExerciseService {
   }
 
   getExercises() {
-    this.httpClient.get<Exercise[]>('api/exercises/findall').subscribe(data => {
+    this.httpClient.get<Exercise[]>('api/exercises/getall').subscribe(data => {
       console.log(data);
       this.exercises = data;
     })
@@ -34,6 +34,12 @@ export class ExerciseService {
       console.log("FILTERDATA = " + data)
       this.exercises = data;
     })
+  }
+
+  getFilteredEquipment(equipmentName:String){
+    this.httpClient.get<Exercise[]>(`api/equipment/getequipment/${equipmentName}`).subscribe((data =>{console.log("FILTERDATA = " + data)
+      this.exercises = data;
+    }))
   }
 
 

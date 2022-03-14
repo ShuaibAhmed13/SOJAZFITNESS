@@ -1,5 +1,6 @@
-export interface Equipment {
-  id?:number;
-  name?:string;
-  type?:string;
+export interface Equipment{
+  id?: number;
+  equipmentName?: string;
+  equipmentString?: string;
+
 }

@@ -18,11 +18,11 @@ export class EquipmentService {
     return this.httpClient.get<Equipment>('api/equipment/getequipmentbyid/' + equipment_id);
   }
 
-  createEquipment(equipment: Equipment): Observable<string> {
+  createEquipment(equipment: { name: any; type: any }): Observable<string> {
     return this.httpClient.post<string>('api/equipment/crud/createequipment', equipment);
   }
 
-  updateEquipment(equipment_id: number, equipment: Equipment): Observable<string> {
+  updateEquipment(equipment_id: number, equipment: { name: any; type: any }): Observable<string> {
     return this.httpClient.put<string>('api/equipment/crud/updateequipment/' + equipment_id, equipment);
   }
 
