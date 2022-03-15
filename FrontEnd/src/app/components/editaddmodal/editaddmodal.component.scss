@@ -14,7 +14,6 @@
 .modal-custom {
   background-color: rgb(52,43,109,0.7);
   font-family: var(--ff-regular);
-
   //background-color: var(--light-color);
   max-width: 90%;
   width: 600px;
@@ -50,7 +49,7 @@
 label + input {
   margin-bottom: 10px;
 }
-.inputcontainer input {
+.inputcontainer input, select {
   min-width: 200px;
   width: 80%;
   min-height: 35px;
@@ -89,4 +88,18 @@ button + button {
   margin-top: 5px;
   font-weight: 500;
   font-size: 2rem;
+}
+.error {
+  margin-top: 10px;
+  text-align: center;
+  color: #ea8f8f;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+
+@media only screen and (max-height: 1000px){
+  .food-form {
+    transform: scale(0.8);
+  }
 }

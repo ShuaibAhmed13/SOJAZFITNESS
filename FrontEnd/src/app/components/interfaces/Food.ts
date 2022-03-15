@@ -1,11 +1,15 @@
 export interface Food {
-  id?: string;
+  id?: number;
   foodName?: string;
-  calories?: string;
-  carbs?: string;
-  sodium?: string;
-  totalFat?: string;
-  protein?: string;
+  calories?: number;
+  protein?: number;
+  totalCarbs?: number;
   sugar?: string;
+  dietaryFiber?: number;
+  totalFat?: number;
+  satFats?: number;
+  transFats?: number;
+  cholesterol?: number;
+  sodium?: number;
   servingSize?: string;
 }

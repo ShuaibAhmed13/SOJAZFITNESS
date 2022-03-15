@@ -21,6 +21,9 @@ import {LoggedinauthGuard} from "./components/services/loggedinauth.guard";
 import {AdminpanelpageComponent} from "./components/adminpanelpage/adminpanelpage.component";
 import {RoleGuard} from "./components/services/role.guard";
 import {EditaddmodalComponent} from "./components/editaddmodal/editaddmodal.component";
+import {AdminlistComponent} from "./components/adminlist/adminlist.component";
+import {VideosearchComponent} from "./components/videosearch/videosearch.component";
+import {WorkoutequipmentComponent} from "./components/workoutequipment/workoutequipment.component";
 import {UserProfileComponent} from "./components/user-profile/user-profile.component";
 
 const routes: Routes = [
@@ -40,6 +43,10 @@ const routes: Routes = [
   {path: 'adminpanelpage', component: AdminpanelpageComponent, canActivate: [RoleGuard]},
   {path: 'modal', component: EditaddmodalComponent},
   {path: 'userprofile', component: UserProfileComponent, canActivate: [AuthGuard]},
+  {path: 'adminlisttest', component: AdminlistComponent},
+  {path: 'videosearch', component: VideosearchComponent},
+  {path: 'workoutequipment', component: WorkoutequipmentComponent},
+
   { path: '**', component: PageNotFoundPageComponent}
 ];
 

@@ -5,6 +5,7 @@ import {Exercise} from "../interfaces/Exercise";
 import {ExerciseWeight} from "../interfaces/ExerciseWeight";
 import {Observable} from "rxjs";
 import {Food} from "../interfaces/Food";
+import {Muscle} from "../interfaces/Muscle";
 
 @Injectable({
   providedIn: 'root'
@@ -13,40 +14,37 @@ export class ExerciseService {
 
   constructor(private httpClient: HttpClient, private router: Router) { }
   exercises = <Exercise[]>[];
-  exerciseWeights = <ExerciseWeight[]>[];
 
-
-  create(exercise: Exercise, exerciseWeight: ExerciseWeight) {
+  create(exercise: Exercise) {
     this.httpClient.post<Exercise>('api/exercise/create', exercise).subscribe(() => {
-      this.router.navigateByUrl('/exercisepost');
-    })
-
-    this.httpClient.post<ExerciseWeight>('api/exercise/create', exerciseWeight).subscribe(() => {
       this.router.navigateByUrl('/exercisepost');
     })
 
   }
 
   getExercises() {
-    this.httpClient.get<Exercise[]>('api/exercise/getExercises').subscribe(data => {
+    this.httpClient.get<Exercise[]>('api/exercises/getall').subscribe(data => {
       console.log(data);
       this.exercises = data;
     })
   }
 
-  getWeightExercises() {
-    this.httpClient.get<ExerciseWeight[]>('api/exercise/getWeightExercises').subscribe(data => {
-      console.log(data);
-      this.exerciseWeights = data;
+  getFilteredData(muscleName: String) {
+    this.httpClient.get<Exercise[]>(`api/muscle/getMuscles/${muscleName}`).subscribe(data => {
+      console.log("FILTERDATA = " + data)
+      this.exercises = data;
     })
   }
 
-  getAllExercises(): Observable<Exercise[]> {
-    return this.httpClient.get<Exercise[]>('api/exercise/getExercises');
+  getFilteredEquipment(equipmentName:String){
+    this.httpClient.get<Exercise[]>(`api/equipment/getequipment/${equipmentName}`).subscribe((data =>{console.log("FILTERDATA = " + data)
+      this.exercises = data;
+    }))
   }
 
-  getAllWeightExercises(): Observable<ExerciseWeight[]> {
-    return this.httpClient.get<ExerciseWeight[]>('api/exercise/getWeightExercises');
+
+  getAllExercises(): Observable<Exercise[]> {
+    return this.httpClient.get<Exercise[]>('api/exercises/getExercises');
   }
 
 }

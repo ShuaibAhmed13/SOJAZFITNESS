@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/api/equipment")
+@RequestMapping(value = "api/equipment")
 public class EquipmentResource {
 
     @Autowired
@@ -29,6 +29,11 @@ public class EquipmentResource {
     @GetMapping("/getequipmentbyname/{equipment_name}")
     public Equipment getEquipmentByName(@PathVariable String equipment_name) {
         return equipmentService.getEquipmentByName(equipment_name);
+    }
+    @GetMapping("/getequipment/{equipmentName}")
+    public List<Object>getExerciseByEquipmentName(@PathVariable String equipmentName){
+        return equipmentService.findAllExercisesByEquipmentName(equipmentName);
+
     }
 
     //Admin restricted requests

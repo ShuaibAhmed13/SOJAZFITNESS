@@ -1,46 +1,71 @@
 <div class="container-all">
 
   <app-newnavbar></app-newnavbar>
-  <div class="container-width">
 
-    <div class="LIST">
-      <table *ngIf="users">
-        <thead>
-        <th>ID</th>
-        <th>EMAIL</th>
-        <th>USERNAME</th>
-        <th>FIRST NAME</th>
-        <th>LAST NAME</th>
-        <th>ROLE</th>
-        <th>SUSPEND</th>
-<!--        <th>EDIT</th>-->
-<!--        <th>DELETE</th>-->
-        </thead>
-        <tbody>
-        <tr *ngFor="let user of users">
-          <td label="ID">{{user.id}}</td>
-          <td label="EMAIL">{{user.email}}</td>
-          <td label="USERNAME">{{user.username}}</td>
-          <td label="FIRST NAME">{{user.firstName}}</td>
-          <td label="LAST NAME">{{user.lastName}}</td>
-          <td label="ROLE(S)">{{user.roles}}</td>
-          <td *ngIf="user.active == true" class="buttontd"><button (click)="suspendUser(user.id)" class="delete-button button">SUSPEND</button></td>
-          <td *ngIf="user.active== false" class="buttontd"><button (click)="reactivateUser(user.id)" class="edit-button button">REACTIVATE</button></td>
-<!--          <td class="buttontd"><button class="edit-button button">EDIT</button></td>-->
-<!--          <td class="buttontd"><button (click)="deleteUser(user.id)" class="delete-button button">DELETE</button></td>-->
-        </tr>
+<!--  <div class="panel-top">-->
+<!--    <div class="top-side">-->
+<!--      <div class="left-side">-->
+<!--        <p class="title">EQUIPMENT</p>-->
+<!--      </div>-->
+<!--      <div class="right-side">-->
+<!--        <button  class="edit-button button">ADD EQUIPMENT</button>-->
+<!--        <input class="search-box" type="text" placeholder="SEARCH">-->
+<!--      </div>-->
+<!--    </div>-->
 
-        </tbody>
-      </table>
+<!--    <div class="bottom-side">-->
+<!--      <a (click)="changeSelected('users')">USERS</a>-->
+<!--      <a (click)="changeSelected('foods')">FOOD</a>-->
+<!--      <a (click)="changeSelected('equipment')">EQUIPMENT</a>-->
+<!--    </div>-->
 
-    </div>
+<!--  </div>-->
+  <app-panel-top [selectedtab]="selectedtab" (newSelect)="changeSelected($event)" (addModalOpen)="showAndChooseModal($event)" (searchinput)="searchValue = $event"></app-panel-top>
+  <app-adminlist *ngIf="selectedtab ==='user'" [selected]="selectedtab" [listitems]="users" [thlist]="usersTHlist" (suspend)="suspendUser($event)" (reactivate)="reactivateUser($event)" [searchInput]="searchValue"></app-adminlist>
+  <app-adminlist *ngIf="selectedtab === 'food'" [selected]="selectedtab" [listitems]="foods" [thlist]="foodsTHlist" (delete)="deleteFood($event)" (edit)="editFood($event)" [searchInput]="searchValue"></app-adminlist>
+  <app-adminlist *ngIf="selectedtab === 'equipment'" [selected]="selectedtab" [listitems]="equipments" [thlist]="equipmentsTHlist" (delete)="deleteEquipment($event)" (edit)="editEquipment($event)" [searchInput]="searchValue"></app-adminlist>
+<!--  <div class="container-width">-->
+
+<!--    <div class="LIST">-->
+<!--      <table *ngIf="users">-->
+<!--        <thead>-->
+<!--        <th>ID</th>-->
+<!--        <th>EMAIL</th>-->
+<!--        <th>USERNAME</th>-->
+<!--        <th>FIRST NAME</th>-->
+<!--        <th>LAST NAME</th>-->
+<!--        <th>ROLE</th>-->
+<!--        <th>SUSPEND</th>-->
+
+<!--        </thead>-->
+<!--        <tbody>-->
+<!--        <tr *ngFor="let user of users">-->
+<!--          <td label="ID">{{user.id}}</td>-->
+<!--          <td label="EMAIL">{{user.email}}</td>-->
+<!--          <td label="USERNAME">{{user.username}}</td>-->
+<!--          <td label="FIRST NAME">{{user.firstName}}</td>-->
+<!--          <td label="LAST NAME">{{user.lastName}}</td>-->
+<!--          <td label="ROLE(S)">{{user.roles}}</td>-->
+<!--          <td *ngIf="user.active == true" class="buttontd"><button (click)="suspendUser(user.id)" class="delete-button button">SUSPEND</button></td>-->
+<!--          <td *ngIf="user.active== false" class="buttontd"><button (click)="reactivateUser(user.id)" class="edit-button button">REACTIVATE</button></td>-->
+<!--&lt;!&ndash;          <td class="buttontd"><button class="edit-button button">EDIT</button></td>&ndash;&gt;-->
+<!--&lt;!&ndash;          <td class="buttontd"><button (click)="deleteUser(user.id)" class="delete-button button">DELETE</button></td>&ndash;&gt;-->
+<!--        </tr>-->
+
+<!--        </tbody>-->
+<!--      </table>-->
+
+<!--    </div>-->
 
 
-  </div>
+
+<!--  </div>-->
+
+
 </div>
 <app-footer></app-footer>
 <div class="imgs">
   <img class="big-purple" src="assets/big-purple.svg">
 </div>
-<!--<app-editaddmodal></app-editaddmodal>-->
+<app-editaddmodal *ngIf="chooseModal.length > 0" [selected]="chooseModal" (deselect)="modalClose()" [editItem]="editItem"></app-editaddmodal>
 

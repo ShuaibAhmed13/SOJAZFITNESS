@@ -42,7 +42,12 @@ import {AuthGuard} from "./components/services/auth.guard";
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { AdminpanelpageComponent } from './components/adminpanelpage/adminpanelpage.component';
 import { EditaddmodalComponent } from './components/editaddmodal/editaddmodal.component';
-
+import { AdminlistComponent } from './components/adminlist/adminlist.component';
+import { PanelTopComponent } from './components/panel-top/panel-top.component';
+import { SearchfilterPipe } from './components/pipes/searchfilter.pipe';
+import {SafePipe} from "./components/pipes/safe.pipe";
+import {VideosearchComponent} from "./components/videosearch/videosearch.component";
+import{WorkoutequipmentComponent} from "./components/workoutequipment/workoutequipment.component";
 
 @NgModule({
   declarations: [
@@ -76,7 +81,13 @@ import { EditaddmodalComponent } from './components/editaddmodal/editaddmodal.co
     NewnavbarComponent,
     UserProfileComponent,
     AdminpanelpageComponent,
-    EditaddmodalComponent
+    EditaddmodalComponent,
+    AdminlistComponent,
+    PanelTopComponent,
+    SearchfilterPipe,
+    VideosearchComponent,
+    SafePipe,
+    WorkoutequipmentComponent
   ],
   imports: [
     BrowserModule,

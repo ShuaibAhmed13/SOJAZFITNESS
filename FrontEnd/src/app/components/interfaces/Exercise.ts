@@ -1,7 +1,8 @@
 export interface Exercise {
-  id?: string;
+  id?: number;
   name?: string;
   description?: string;
-  userID?: string;
-  muscleID?: string;
+  type?:string;
+  muscles?: [{id?:number, muscleName?:string, muscleGroup?:string}];
+  equipments?:[{id?:number,name?:string,type?:string}];
 }
