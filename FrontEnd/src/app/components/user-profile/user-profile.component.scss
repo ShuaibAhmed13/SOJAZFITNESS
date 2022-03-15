@@ -108,3 +108,21 @@ padding-bottom: 6vh;
 .bottomLeftPart a {
   margin: 5px;
 }
+
+
+.container-width {
+  width: 90%;
+  height: 70vh;
+  margin: auto;
+  //overflow: scroll;
+}
+
+.LIST{
+  position: relative;
+  margin: auto;
+  width: 90%;
+  //background-color: var(--light-color);
+  margin-top: 2%;
+  font-size: 1.2rem;
+  z-index: 1;
+}

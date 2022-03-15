@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from "../services/user.services";
+import {userDTO, UserService} from "../services/user.services";
 import {Router} from "@angular/router";
+import {userProfileDTO, userProfileService} from "../services/userProfile.service";
 
 @Component({
   selector: 'app-user-profile',
@@ -9,13 +10,24 @@ import {Router} from "@angular/router";
 })
 export class UserProfileComponent implements OnInit {
 
-  constructor(private userService: UserService, private router: Router) { }
+  users: userProfileDTO[] = [];
+  constructor(private userProfileService: userProfileService, private router: Router) { }
 
   ngOnInit(): void {
+
   }
 
   logout() {
-    this.userService.Logout();
+    this.userProfileService.Logout();
     this.router.navigateByUrl("/loginpage");
   }
+
+/*  getallUsersProfile() {
+    this.userProfileService.setUserProfile(data => {
+      this.users = data;
+    })
+  }*/
+
+
+
 }

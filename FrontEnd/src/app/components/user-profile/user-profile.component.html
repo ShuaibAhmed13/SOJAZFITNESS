@@ -50,5 +50,37 @@
 
 </div>
 
+<div class="container-width">
+  <div class="LIST">
+    <table *ngIf="users">
+      <thead>
+      <th>ID</th>
+      <th>EMAIL</th>
+      <th>USERNAME</th>
+      <th>FIRST NAME</th>
+      <th>LAST NAME</th>
+      <th>EDIT</th>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of users">
+        <td label="ID">{{user.id}}</td>
+        <td label="NAME">{{user.user}}</td>
+        <td label="HIEGHT">{{user.height}}</td>
+        <td label="LIFESTYLE">{{user.lifestyle}}</td>
+        <td label="CURRENT WEIGHT">{{user.currenWeight}}</td>
+        <td label="GOAL WEIGHT">{{user.goalWeight}}</td>
+        <td class="buttontd"><button class="edit-button button">EDIT</button></td>
+      </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+
+
+</div>
+
+
+
 <app-footer></app-footer>
 
