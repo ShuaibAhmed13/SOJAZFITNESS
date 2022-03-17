@@ -25,7 +25,7 @@ public class userProfileModel {
     @Column (name= "height")
     Double Height;
     @OneToOne
-            @JoinColumn(name="user", referencedColumnName = "id")
+    @JoinColumn(name="user", referencedColumnName = "id")
     user user;
 
 }

@@ -14,32 +14,34 @@ public class userProfileService {
     @Autowired
     userProfileRepository userProfileRepository;
 
-    public List<userProfileModel> getAllUserProfile() {return userProfileRepository.findAll();}
-
-    public userProfileModel getUserProfileById(Long userProfile_id) {return userProfileRepository.getById(userProfile_id);}
-
-
-
-    public userProfileModel getUserProfileByName(String userProfile_name) {
-        return userProfileRepository.getUserProfileByName(userProfile_name);
+    public List<userProfileModel> getAllUserProfile() {
+        return userProfileRepository.findAll();
     }
 
+    public userProfileModel findUserProfileById(Long userProfId) {
+        return userProfileRepository.findUserProfileById(userProfId);
+    }
+
+
+    public userProfileModel finduserProfileModelByUserId(Long user_id) {
+        return userProfileRepository.finduserProfileModelByUser(user_id);
+    }
     //Update
-    public String updateUserProfile (userProfileModel userProfile , Long userProfile_id){
-        try{
+    public String updateUserProfile(userProfileModel userProfile, Long userProfile_id) {
+        try {
             userProfile.setId(userProfile_id);
             userProfileRepository.save(userProfile);
             return "Current Weight Succesfully Changed!";
-        }catch (Exception ex) {
+        } catch (Exception ex) {
             return "Current Weight could not be changed.";
         }
     }
 
     public String deleteUserProfile(Long userprofileId) {
-        try{
+        try {
             userProfileRepository.deleteById(userprofileId);
             return "User Profile Successfully Deleted";
-        } catch(Exception ex) {
+        } catch (Exception ex) {
             return "User Profile could not be deleted";
         }
     }
