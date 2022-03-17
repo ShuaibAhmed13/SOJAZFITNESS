@@ -1,10 +1,12 @@
 package edu.ben.SOJAZBackend.service;
 
+import edu.ben.SOJAZBackend.model.dto.userProfileDTO;
 import edu.ben.SOJAZBackend.model.userProfileModel;
 import edu.ben.SOJAZBackend.repository.userProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -50,4 +52,20 @@ public class userProfileService {
             return "User Profile could not be added to the database";
         }
     }
+
+
+
+ /*   public userProfileModel updateUserProfile(Long userP_id, userProfileModel userProf) {
+        userProf.setId(userP_id);
+        return userProfileRepository.save(userProf);
+    }
+
+    public List<userProfileDTO> getAllUserProfiles() {
+        List<userProfileModel> userProfs = userProfileRepository.findAll();
+        List<userProfileDTO> newUserProfs = new ArrayList<>();
+        for(userProfileModel up: userProfs) {
+            newUserProfs.add(new userProfileDTO(up.getId(), up.getCurrentWeight(), up.getGoalWeight(), up.getLifestyle(), up.getHeight(), up.getUser()));
+        }
+        return newUserProfs;
+    }*/
 }

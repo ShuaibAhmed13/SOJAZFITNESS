@@ -15,17 +15,18 @@ public class userProfileResource {
     @Autowired
     userProfileService userProfileService;
 
-    @GetMapping("/getalluserprofile")
+    @GetMapping("/getAllUserProfile")
     public List<userProfileModel> getAllUserProfile() {return userProfileService.getAllUserProfile();}
 
-    @GetMapping("/getuserprofileid")
-    public userProfileModel getUserProfileId(@PathVariable Long userProfile_Id) {
-        return userProfileService.getUserProfileById(userProfile_Id);
+    @GetMapping("/getuserprofilebyid/{userProfile_Id}")
+    public userProfileModel getUserProfileById(@PathVariable Long userProfile_Id) {
+        return userProfileService.findUserProfileById(userProfile_Id);
     }
 
-    @GetMapping("/getuserprofilebyname/{userprofile_name}")
-    public userProfileModel getUserProfileByName(@PathVariable String userProfile_name) {
-        return userProfileService.getUserProfileByName(userProfile_name);
+
+    @GetMapping("/getuserprofilebyuserid/{user_id}")
+    public userProfileModel finduserProfileModelByUserId(@PathVariable Long user_id) {
+        return userProfileService.finduserProfileModelByUserId(user_id);
     }
 
     //ADMIN

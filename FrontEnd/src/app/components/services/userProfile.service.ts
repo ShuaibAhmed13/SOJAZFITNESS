@@ -40,6 +40,10 @@ export class userProfileService {
     localStorage.removeItem("user_role");
     this.currentUsername = "";
   }
+
+  getUserProfileByUserId(user_id: number) :Observable<userProfileDTO> {
+    return this.httpClient.get<userProfileDTO>("/api/userProfile/getuserprofilebyuserid/" + user_id);
+  }
 }
 
 export interface userProfileDTO {
