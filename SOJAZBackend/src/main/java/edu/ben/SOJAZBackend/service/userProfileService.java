@@ -1,12 +1,10 @@
 package edu.ben.SOJAZBackend.service;
 
-import edu.ben.SOJAZBackend.model.dto.userProfileDTO;
-import edu.ben.SOJAZBackend.model.userProfileModel;
+import edu.ben.SOJAZBackend.model.UserProfileModel;
 import edu.ben.SOJAZBackend.repository.userProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -14,20 +12,20 @@ public class userProfileService {
     @Autowired
     userProfileRepository userProfileRepository;
 
-    public List<userProfileModel> getAllUserProfile() {
+    public List<UserProfileModel> getAllUserProfile() {
         return userProfileRepository.findAll();
     }
 
-    public userProfileModel findUserProfileById(Long userProfId) {
+    public UserProfileModel FindUserProfileById(Long userProfId) {
         return userProfileRepository.findUserProfileById(userProfId);
     }
 
 
-    public userProfileModel finduserProfileModelByUserId(Long user_id) {
-        return userProfileRepository.finduserProfileModelByUser(user_id);
+    public UserProfileModel FindUserProfileModelByUserId(Long user_id) {
+        return userProfileRepository.findUserProfileById(user_id);
     }
     //Update
-    public String updateUserProfile(userProfileModel userProfile, Long userProfile_id) {
+    public String UpdateUserProfile(UserProfileModel userProfile, Long userProfile_id) {
         try {
             userProfile.setId(userProfile_id);
             userProfileRepository.save(userProfile);
@@ -37,7 +35,7 @@ public class userProfileService {
         }
     }
 
-    public String deleteUserProfile(Long userprofileId) {
+    public String DeleteUserProfile(Long userprofileId) {
         try {
             userProfileRepository.deleteById(userprofileId);
             return "User Profile Successfully Deleted";
@@ -46,7 +44,7 @@ public class userProfileService {
         }
     }
 
-    public String addUserProfile(userProfileModel userProfile) {
+    public String AddUserProfile(UserProfileModel userProfile) {
         try {
             userProfileRepository.save(userProfile);
             return "User Profile Successfully added";

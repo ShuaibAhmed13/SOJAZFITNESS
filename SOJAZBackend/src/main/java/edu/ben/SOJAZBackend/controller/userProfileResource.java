@@ -1,5 +1,5 @@
 package edu.ben.SOJAZBackend.controller;
-import edu.ben.SOJAZBackend.model.userProfileModel;
+import edu.ben.SOJAZBackend.model.UserProfileModel;
 import edu.ben.SOJAZBackend.service.userProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,33 +16,33 @@ public class userProfileResource {
     userProfileService userProfileService;
 
     @GetMapping("/getAllUserProfile")
-    public List<userProfileModel> getAllUserProfile() {return userProfileService.getAllUserProfile();}
+    public List<UserProfileModel> getAllUserProfile() {return userProfileService.getAllUserProfile();}
 
     @GetMapping("/getuserprofilebyid/{userProfile_Id}")
-    public userProfileModel getUserProfileById(@PathVariable Long userProfile_Id) {
-        return userProfileService.findUserProfileById(userProfile_Id);
+    public UserProfileModel getUserProfileById(@PathVariable Long userProfile_Id) {
+        return userProfileService.FindUserProfileById(userProfile_Id);
     }
 
 
     @GetMapping("/getuserprofilebyuserid/{user_id}")
-    public userProfileModel finduserProfileModelByUserId(@PathVariable Long user_id) {
-        return userProfileService.finduserProfileModelByUserId(user_id);
+    public UserProfileModel FindUserProfileModelByUserId(@PathVariable Long user_id) {
+        return userProfileService.FindUserProfileModelByUserId(user_id);
     }
 
     //ADMIN
     @PostMapping("/crud/createuserprofile")
-    public ResponseEntity<String> createUserProfile(@RequestBody userProfileModel userProfile) {
-        return new ResponseEntity<>(userProfileService.addUserProfile(userProfile), HttpStatus.CREATED);
+    public ResponseEntity<String> CreateUserProfile(@RequestBody UserProfileModel userProfile) {
+        return new ResponseEntity<>(userProfileService.AddUserProfile(userProfile), HttpStatus.CREATED);
     }
 
     //Update
     @PutMapping("/updateUserProfile/{user_id}")
-    public ResponseEntity<String> updateUserProfile(@PathVariable Long user_id, @RequestBody userProfileModel userProfile) {
-        return new ResponseEntity<>(userProfileService.updateUserProfile(userProfile, user_id), HttpStatus.OK);
+    public ResponseEntity<String> UpdateUserProfile(@PathVariable Long user_id, @RequestBody UserProfileModel userProfile) {
+        return new ResponseEntity<>(userProfileService.UpdateUserProfile(userProfile, user_id), HttpStatus.OK);
     }
 
     @DeleteMapping("/crud/deleteuserprofile/{user_id}")
-    public ResponseEntity<String> deleteUserProfile(@PathVariable Long user_id) {
-        return new ResponseEntity<>(userProfileService.deleteUserProfile(user_id), HttpStatus.OK);
+    public ResponseEntity<String> DeleteUserProfile(@PathVariable Long user_id) {
+        return new ResponseEntity<>(userProfileService.DeleteUserProfile(user_id), HttpStatus.OK);
     }
 }
