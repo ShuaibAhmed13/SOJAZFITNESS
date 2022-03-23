@@ -23,7 +23,7 @@ $email_body= "This is an automated email from Sojaz Fitness with the following m
   "\n\n Message:".$message;
 $headers = "From: jonc9011@gmail.com";
 
-mail($to, $email_subject, $email_body, $headers );
+//mail($to, $email_subject, $email_body, $headers );
 
 if(mail($to, $email_subject, $email_body, $headers )) {
   echo json_encode("success");

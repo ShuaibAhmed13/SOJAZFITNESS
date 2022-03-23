@@ -48,6 +48,9 @@ import { SearchfilterPipe } from './components/pipes/searchfilter.pipe';
 import {SafePipe} from "./components/pipes/safe.pipe";
 import {VideosearchComponent} from "./components/videosearch/videosearch.component";
 import{WorkoutequipmentComponent} from "./components/workoutequipment/workoutequipment.component";
+import {ContactService} from "./contact.service";
+
+
 
 @NgModule({
   declarations: [
@@ -96,7 +99,6 @@ import{WorkoutequipmentComponent} from "./components/workoutequipment/workoutequ
     HttpClientModule,
     AppRoutingModule,
     ChartsModule,
-    HttpClientModule,
     NoopAnimationsModule,
     MatFormFieldModule,
     ReactiveFormsModule,
@@ -110,9 +112,13 @@ import{WorkoutequipmentComponent} from "./components/workoutequipment/workoutequ
     MatExpansionModule,
 
 
-  ],
-  providers: [UserService,AuthGuard, ConnectionService],
 
+/*  HttpClientInMemoryApiModule.forRoot(
+    InMemoryDataService, {dataEncapsulation: false,
+    passThruUnknownUrl: true}
+)*/
+  ],
+  providers: [UserService,AuthGuard, ConnectionService, ContactService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

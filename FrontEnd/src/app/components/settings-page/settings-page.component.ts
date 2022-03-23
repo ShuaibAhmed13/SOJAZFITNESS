@@ -1,6 +1,7 @@
 import {Component, HostListener, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators, NgForm} from "@angular/forms";
 import {ConnectionService} from "../../connection.service";
+import {ContactService} from "../../contact.service";
 
 @Component({
   selector: 'app-settings-page',
@@ -20,9 +21,9 @@ export class SettingsPageComponent implements OnInit {
     }
   }
 
-  constructor(private fb: FormBuilder, private connectionService: ConnectionService) {
+  constructor(private fb: FormBuilder, private contact: ContactService) {
 
-    this.contactForm = fb.group({
+    this.contactForm = this.fb.group({
       'contactFormName': ['', Validators.required],
       'contactFormEmail': ['', Validators.compose([Validators.required, Validators.email])],
       'contactFormSubjects': ['', Validators.required],
@@ -30,18 +31,25 @@ export class SettingsPageComponent implements OnInit {
       'contactFormCopy': [''],
     });
   }
-
-  onSubmit() {
-    this.connectionService.sendMessage(this.contactForm.value).subscribe(() => {
-      alert('Your message has been sent.');
-      this.contactForm.reset();
-      this.disabledSubmitButton = true;
-    }, error => {
-      console.log('Error', error);
-    });
+  onSubmit(contactForm: FormGroup) {
+    this.contactForm = contactForm;
+    console.log(contactForm)
+    this.contact.PostMessage(contactForm)
+      .subscribe((response: any) => {
+        location.href = 'https://mailthis.to/confirm'
+        console.log(response)
+      }, (error: { responseText: any; }) => {
+        console.warn(error.responseText)
+        console.log({ error })
+      })
   }
 
   ngOnInit(): void {
+    this.contactForm = this.fb.group({
+      Fullname: new FormControl('', [Validators.required]),
+      Email: new FormControl('', [Validators.required, Validators.email]),
+      Comment: new FormControl('', [Validators.required])
+    })
   }
 
 }
