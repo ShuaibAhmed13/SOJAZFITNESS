@@ -1,5 +1,6 @@
 <app-navbar></app-navbar>
-<div class="header">
+
+<div class="content {{storedTheme}}" role="main">
   <h1>WELCOME TO YOUR FITNESS PROFILE</h1>
   <h3>Check out the progress you've done so far solider!</h3>
 </div>
@@ -50,6 +51,36 @@
 </div>
 
 
+
+  <div class="theme-options">
+    <div id="theme-og"
+         [ngClass]="(storedTheme === 'theme-og') ? 'active' : ''"
+         (click)="setTheme('theme-og')"></div>
+    <div id="theme-green"
+         [ngClass]="(storedTheme === 'theme-green') ? 'active' : ''"
+         (click)="setTheme('theme-green')"></div>
+    <div id="theme-blue"
+         [ngClass]="(storedTheme === 'theme-blue') ? 'active' : ''"
+         (click)="setTheme('theme-blue')"></div>
+    <div id="theme-red"
+         [ngClass]="(storedTheme === 'theme-red') ? 'active' : ''"
+         (click)="setTheme('theme-red')"></div>
+  </div>
+<div class="theme-options">
+  <div id="theme-yellow"
+       [ngClass]="(storedTheme === 'theme-yellow') ? 'active' : ''"
+       (click)="setTheme('theme-yellow')"></div>
+  <div id="theme-orange"
+       [ngClass]="(storedTheme === 'theme-orange') ? 'active' : ''"
+       (click)="setTheme('theme-orange')"></div>
+  <div id="theme-pink"
+       [ngClass]="(storedTheme === 'theme-pink') ? 'active' : ''"
+       (click)="setTheme('theme-pink')"></div>
+  <div id="theme-black"
+       [ngClass]="(storedTheme === 'theme-black') ? 'active' : ''"
+       (click)="setTheme('theme-black')"></div>
+
+</div>
 
 
 

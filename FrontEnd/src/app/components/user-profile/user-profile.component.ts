@@ -11,6 +11,10 @@ import {userProfile} from "../interfaces/userProfile";
   styleUrls: ['./user-profile.component.scss']
 })
 export class UserProfileComponent implements OnInit {
+  title = 'angular-multiple-theme-switcher';
+  // @ts-ignore
+  storedTheme: string = localStorage.getItem('theme-color');
+
 /*  @Input() profList: string[] = [];
   @Input() listProf: any[] = [];
   @Input() selectProf: 'user' | 'currentweight' | 'goalweight' | 'lifestyle' | 'height' = 'user';*/
@@ -45,6 +49,11 @@ export class UserProfileComponent implements OnInit {
     this.router.navigateByUrl("/loginpage");
   }
 
+  setTheme(themes: string) {
+    localStorage.setItem('theme-color', themes);
+    // @ts-ignore
+    this.storedTheme = localStorage.getItem('theme-color');
+  }
 
 
 /*  getallUsersProfile() {

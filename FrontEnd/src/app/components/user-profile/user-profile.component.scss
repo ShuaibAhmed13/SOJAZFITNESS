@@ -1,4 +1,4 @@
-.header {
+.content {
   background-color: var(--main-color);
   color: white;
   text-align: center;
@@ -125,4 +125,81 @@ padding-bottom: 6vh;
   margin-top: 2%;
   font-size: 1.2rem;
   z-index: 1;
+}
+
+.theme-options{
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+  padding: 20px 0;
+  div{
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    margin: 2px 10px;
+    border: 1px solid #fff;
+    display: inline-block;
+    opacity: 0.5;
+
+    &.active {
+      opacity: 1;
+
+    }
+  }
+  #theme-og{
+    background-color: var(--main-color);
+  }
+  #theme-green{
+    background-color: #11cc3b;
+  }
+  #theme-blue{
+    background-color: #2980B9;
+  }
+  #theme-red{
+    background-color: #e02121;
+  }
+  #theme-yellow{
+    background-color: yellow;
+  }
+  #theme-orange{
+    background-color: orange;
+  }
+  #theme-pink{
+    background-color: pink;
+  }
+  #theme-black{
+    background-color: #333333;
+  }
+}
+
+.content.theme-black{
+  background-color: #333333;
+}
+.content.theme-pink{
+  background-color: pink;
+  color: #333333;
+}
+.content.theme-orange{
+  background-color: orange;
+}
+.content.theme-yellow{
+  background-color: yellow;
+  color: #333333;
+}
+
+.content.theme-og{
+  background-color: var(--main-color);
+}
+.content.theme-red{
+  background-color: #e02121;
+
+}
+
+.content.theme-blue{
+  background-color: #2980B9;
+}
+
+.content.theme-green{
+  background-color: #11cc3b;
 }
