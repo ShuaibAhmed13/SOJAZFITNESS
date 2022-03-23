@@ -24,6 +24,7 @@ import {EditaddmodalComponent} from "./components/editaddmodal/editaddmodal.comp
 import {AdminlistComponent} from "./components/adminlist/adminlist.component";
 import {VideosearchComponent} from "./components/videosearch/videosearch.component";
 import {WorkoutequipmentComponent} from "./components/workoutequipment/workoutequipment.component";
+import {UserProfileComponent} from "./components/user-profile/user-profile.component";
 
 const routes: Routes = [
   {path: '', component:LandingPageComponent, canActivate: [LoggedinauthGuard]},
@@ -41,6 +42,7 @@ const routes: Routes = [
   {path: 'calculatorpage', component: CalculatorpageComponent},
   {path: 'adminpanelpage', component: AdminpanelpageComponent, canActivate: [RoleGuard]},
   {path: 'modal', component: EditaddmodalComponent},
+  {path: 'userprofile', component: UserProfileComponent, canActivate: [AuthGuard]},
   {path: 'adminlisttest', component: AdminlistComponent},
   {path: 'videosearch', component: VideosearchComponent},
   {path: 'workoutequipment', component: WorkoutequipmentComponent},

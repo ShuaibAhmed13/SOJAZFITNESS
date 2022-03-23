@@ -5,6 +5,9 @@
   <li class="link" (click)="pageOneDisplay()">
     <a class="navButton">Welcome</a>
   </li>
+  <li class="link" (click)="pageSixDisplay()">
+    <a class="navButton">My Profile</a>
+  </li>
   <li class="link" (click)="pageFourDisplay()">
   <a class="navButton">My Progress</a>
 </li>
@@ -18,5 +21,9 @@
   <li class="link" (click)="pageFiveDisplay()">
     <a class="navButton">Workout Post</a>
   </li>
+  <li class="link" (click)="logout()">
+    <a class="navButton" (click)="logout()" >Log Out</a>
+  </li>
+
 </div>
 <router-outlet></router-outlet>
