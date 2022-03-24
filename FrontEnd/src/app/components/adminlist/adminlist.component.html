@@ -25,6 +25,20 @@
       <!--        </tr>-->
       <!--      </tbody>-->
 
+      <tbody *ngIf="selected === 'muscles'">
+      <tr *ngFor="let muscles of muscle | searchfilter: searchInput">
+        <td label="ID">{{muscles.id}}</td>
+        <td label="NAME">{{muscles.muscleName}}</td>
+        <td label="TYPE">{{muscles.muscleGroup}}</td>
+        <td class="buttontd">
+          <button (click)="editEmit(muscles.id)" class="edit-button button">EDIT</button>
+        </td>
+        <td class="buttontd">
+          <button (click)="deleteEmit(muscles.id)" class="delete-button button">DELETE</button>
+        </td>
+      </tr>
+      </tbody>
+
       <tbody *ngIf="selected === 'equipment'">
       <tr *ngFor="let item of listitems | searchfilter: searchInput">
         <td label="ID">{{item.id}}</td>
@@ -83,9 +97,24 @@
       </tr>
       </tbody>
 
+      <tbody *ngIf="selected === 'muscles'">
+      <tr *ngFor="let item of listitems | searchfilter:searchInput">
+        <td label="ID">{{item.id}}</td>
+        <td label="MUSCLE NAME">{{item.muscleName}}</td>
+        <td label="MUSCLE GROUP">{{item.muscleGroup}}</td>
+        <td class="buttontd">
+          <button (click)="editEmit(item.id)" class="edit-button button">EDIT</button>
+        </td>
+        <td class="buttontd">
+          <button (click)="deleteEmit(item.id)" class="delete-button button">DELETE</button>
+        </td>
+      </tbody>
+
     </table>
 
   </div>
+
+
 
 
 </div>

@@ -6,6 +6,8 @@ import {FoodService} from "../services/food.service";
 import {Food} from "../interfaces/Food";
 import {Equipment} from "../interfaces/equipment";
 import {EquipmentService} from "../services/equipment.service";
+import {MuscleService} from "../services/muscle.service";
+import {Muscle} from "../interfaces/Muscle";
 
 
 @Component({
@@ -18,10 +20,12 @@ export class AdminpanelpageComponent implements OnInit, OnDestroy {
   selectedtab: string = 'user';
   users: userDTO[] = [];
   foods: Food[] = [];
+  muscles: Muscle[] = [];
   equipments: Equipment[] = [];
   usersTHlist: string[] = ['ID', 'EMAIL', 'USERNAME', 'FIRST NAME', 'LAST NAME', 'ROLE', 'SUSPEND'];
   foodsTHlist: string[] = ['ID', 'NAME', 'CALORIES','PROTEIN', 'TOTAL CARBS', 'SUGAR', 'DIETARY FIBER', 'TOTAL FATS', 'SATURATED FATS', 'TRANS FATS', 'CHOLESTEROL', 'SODIUM', 'SERVING SIZE'];
   equipmentsTHlist: string[] = ['ID', 'NAME', 'TYPE'];
+  musclesTHlist: string[] = ['ID', 'MUSCLE NAME', 'MUSCLE GROUP'];
   chooseModal: string = "";
   editItem: any;
   interval: number = 0
@@ -37,7 +41,7 @@ export class AdminpanelpageComponent implements OnInit, OnDestroy {
     this.ngOnInit();
   }
 
-  constructor(public userService: UserService, public foodService: FoodService, public equipmentService: EquipmentService) { }
+  constructor(public userService: UserService, public foodService: FoodService, public equipmentService: EquipmentService, public muscleService: MuscleService) { }
   ngOnInit(): void {
     this.setTimer();
   }
@@ -59,6 +63,12 @@ export class AdminpanelpageComponent implements OnInit, OnDestroy {
       this.getEquipment();
       this.interval = setInterval(() => {
         this.getEquipment();
+      }, 5000)
+    }
+    else if(this.selectedtab === 'muscles') {
+      this.getMuscles();
+      this.interval = setInterval(() => {
+        this.getMuscles();
       }, 5000)
     }
   }
@@ -96,9 +106,25 @@ export class AdminpanelpageComponent implements OnInit, OnDestroy {
       this.equipments = data;
     })
   }
+
+  getMuscles() {
+    this.subscribe = this.muscleService.getAllMuscle().subscribe(data => {
+      this.muscles = data;
+    })
+  }
+
   deleteFood(food_id: number) {
     if(confirm("Are you sure you want to delete this food?")) {
       this.subscribe = this.foodService.deleteFood(food_id).subscribe(data => {
+        return data;
+        this.ngOnInit();
+      })
+    }
+  }
+
+  deleteMuscle(muscleId: number) {
+    if(confirm("Are you sure you want to delete this muscle?")) {
+      this.subscribe = this.muscleService.deleteMuscle(muscleId).subscribe(data => {
         return data;
         this.ngOnInit();
       })
@@ -138,6 +164,12 @@ export class AdminpanelpageComponent implements OnInit, OnDestroy {
     this.chooseModal = 'editequipment';
     let equipment = this.equipments.find(x => x.id === equipment_id);
     this.editItem = equipment;
+  }
+
+  editMuscle(muscleId: number) {
+    this.chooseModal = 'editmuscle';
+    let muscle = this.muscles.find(x => x.id === muscleId);
+    this.editItem = muscle;
   }
 
   modalClose() {
