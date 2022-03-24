@@ -39,6 +39,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import {UserService} from "./components/services/user.services";
 import { NewnavbarComponent } from './components/newnavbar/newnavbar.component';
 import {AuthGuard} from "./components/services/auth.guard";
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { AdminpanelpageComponent } from './components/adminpanelpage/adminpanelpage.component';
 import { EditaddmodalComponent } from './components/editaddmodal/editaddmodal.component';
 import { AdminlistComponent } from './components/adminlist/adminlist.component';
@@ -47,6 +48,9 @@ import { SearchfilterPipe } from './components/pipes/searchfilter.pipe';
 import {SafePipe} from "./components/pipes/safe.pipe";
 import {VideosearchComponent} from "./components/videosearch/videosearch.component";
 import{WorkoutequipmentComponent} from "./components/workoutequipment/workoutequipment.component";
+import {ContactService} from "./contact.service";
+
+
 
 @NgModule({
   declarations: [
@@ -78,6 +82,7 @@ import{WorkoutequipmentComponent} from "./components/workoutequipment/workoutequ
     CalculatorpageComponent,
     FooterComponent,
     NewnavbarComponent,
+    UserProfileComponent,
     AdminpanelpageComponent,
     EditaddmodalComponent,
     AdminlistComponent,
@@ -94,7 +99,6 @@ import{WorkoutequipmentComponent} from "./components/workoutequipment/workoutequ
     HttpClientModule,
     AppRoutingModule,
     ChartsModule,
-    HttpClientModule,
     NoopAnimationsModule,
     MatFormFieldModule,
     ReactiveFormsModule,
@@ -108,9 +112,13 @@ import{WorkoutequipmentComponent} from "./components/workoutequipment/workoutequ
     MatExpansionModule,
 
 
-  ],
-  providers: [UserService,AuthGuard, ConnectionService],
 
+/*  HttpClientInMemoryApiModule.forRoot(
+    InMemoryDataService, {dataEncapsulation: false,
+    passThruUnknownUrl: true}
+)*/
+  ],
+  providers: [UserService,AuthGuard, ConnectionService, ContactService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
