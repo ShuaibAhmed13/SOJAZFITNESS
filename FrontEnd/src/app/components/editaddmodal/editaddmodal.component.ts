@@ -4,6 +4,7 @@ import {FoodService} from "../services/food.service";
 import {EquipmentService} from "../services/equipment.service";
 import {Food} from "../interfaces/Food";
 import {Equipment} from "../interfaces/equipment";
+import {MuscleService} from "../services/muscle.service";
 
 @Component({
   selector: 'app-editaddmodal',
@@ -19,7 +20,7 @@ export class EditaddmodalComponent implements OnInit {
   inputData: string[] = [];
   @Input() editItem: any;
 
-  constructor(public foodService: FoodService, public equipmentService: EquipmentService) { }
+  constructor(public foodService: FoodService, public equipmentService: EquipmentService, public muscleService: MuscleService) { }
 
   ngOnInit(): void {
   }
@@ -84,6 +85,20 @@ export class EditaddmodalComponent implements OnInit {
         }, message => {
           console.log(message.error.text);
         })
+      this.deselect.emit('');
+
+    } else if(this.selected === 'addmuscles') {
+      this.muscleService.createMuscle( {muscleName:inputData.value.muscleName, muscleGroup: inputData.value.muscleGroup}).subscribe(data => {
+      }, message => {
+        console.log(message.error.text);
+      })
+      this.deselect.emit('');
+    } else if(this.selected === 'editmuscles' && this.editItem) {
+      this.muscleService.updateMuscle(this.editItem.id, {muscleName:inputData.value.muscleName, muscleGroup: inputData.value.muscleGroup}).subscribe(data => {
+
+      }, message => {
+        console.log(message.error.text);
+      })
       this.deselect.emit('');
 
     }
