@@ -101,7 +101,21 @@ export class EditaddmodalComponent implements OnInit {
       })
       this.deselect.emit('');
 
-    }
+    } /*else if(this.selected === 'addexercise') {
+      this.exerciseService.createExercise( {muscleName:inputData.value.muscleName, muscleGroup: inputData.value.muscleGroup}).subscribe(data => {
+      }, message => {
+        console.log(message.error.text);
+      })
+      this.deselect.emit('');
+    } else if(this.selected === 'editexercise' && this.editItem) {
+      this.exerciseService.updateExercise(this.editItem.id, {}).subscribe(data => {
+
+      }, message => {
+        console.log(message.error.text);
+      })
+      this.deselect.emit('');
+
+    }*/
 
   }
 }

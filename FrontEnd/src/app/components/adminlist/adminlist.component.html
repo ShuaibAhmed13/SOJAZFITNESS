@@ -110,6 +110,19 @@
         </td>
       </tbody>
 
+      <tbody *ngIf="selected === 'exercise'">
+      <tr *ngFor="let item of listitems | searchfilter:searchInput">
+        <td label="ID">{{item.id}}</td>
+        <td label="NAME">{{item.name}}</td>
+        <td label="DESCRIPTION">{{item.description}}</td>
+        <td class="buttontd">
+          <button (click)="editEmit(item.id)" class="edit-button button">EDIT</button>
+        </td>
+        <td class="buttontd">
+          <button (click)="deleteEmit(item.id)" class="delete-button button">DELETE</button>
+        </td>
+      </tbody>
+
     </table>
 
   </div>

@@ -218,3 +218,55 @@
 
 </div>
 
+<div *ngIf="selected === 'addexercise'" class="modal-custom">
+  <div class="top">
+    <h1 class="title">ADD MUSCLE</h1>
+    <!--      <h2 class="exit">CLOSE</h2>-->
+  </div>
+
+  <form #inputData = "ngForm" (ngSubmit)="submitForm(inputData)" novalidate>
+    <div class="inputcontainer">
+      <label>MUSCLE NAME</label>
+      <input type="text" ngModel="" name="muscleName" required="required">
+      <label>MUSCLE GROUP</label>
+      <input type="text" ngModel="" name="muscleGroup" required="required">
+      <p class="error">{{error}}</p>
+      <div class="button-container">
+        <button (click)="deselect.emit('')" class="Cancel button">CANCEL</button>
+        <button type=submit class="Submit button">SUBMIT</button>
+      </div>
+    </div>
+
+  </form>
+
+
+</div>
+
+<div *ngIf="selected === 'editexercise'" class="modal-custom">
+  <div class="top">
+    <h1 class="title">EDIT MUSCLE</h1>
+    <!--      <h2 class="exit">CLOSE</h2>-->
+  </div>
+
+  <form #inputData = "ngForm" (ngSubmit)="submitForm(inputData)" novalidate>
+    <div class="inputcontainer">
+      <label>EXERCISE NAME</label>
+      <input type="text" ngModel="{{editItem.name}}" name="name" required="required">
+      <label>EXERCISE DESCRIPTION</label>
+      <input type="text" ngModel="{{editItem.description}}" name="description" required="required">
+      <label>TYPE</label>
+      <select ngModel="{{editItem.type}}" name="type" required="required">
+        <option value="CARDIO">CARDIO</option>
+        <option value="WEIGHT">WEIGHT</option>
+      </select>
+      <p class="error">{{error}}</p>
+      <div class="button-container">
+        <button (click)="deselect.emit('')" class="Cancel button">CANCEL</button>
+        <button type=submit class="Submit button">SUBMIT</button>
+      </div>
+    </div>
+
+  </form>
+
+</div>
+
