@@ -1,0 +1,85 @@
+<app-navbar xmlns="http://www.w3.org/1999/html"></app-navbar>
+<div class="fooddiary">
+
+  <div class="diarycontainer">
+    <div class="searchportion">
+      <h1 class="portiontitle">SEARCH FOOD</h1>
+      <input type="search" placeholder="search" list="food" [(ngModel)]="searchValue" (change)="validateSearch()"/>
+      <datalist id="food">
+        <option *ngFor="let food of foods">{{food.foodName}}</option>
+      </datalist>
+
+    </div>
+    <div *ngIf="selectedFood" class="displaynutritionportion">
+      <div class="nutritionlabel">
+        <p class="title"><span class="bold">Nutrition Facts</span></p>
+        <p><span class="bold">Food: {{selectedFood.foodName}}</span></p>
+        <p><span class="bold">Serving size: <span class="right">{{selectedFood.servingSize}}</span></span></p>
+        <p><span class="bold">Amount per serving</span></p>
+        <p><span class="bold">Calories <span class="right">{{selectedFood.calories}}</span></span></p>
+        <p><span class="bold">Total Fat</span> {{selectedFood.totalFat}}</p>
+        <p><span class="indent">Saturated Fat {{selectedFood.satFats}}</span></p>
+        <p><span class="indent">Trans Fat {{selectedFood.transFats}}</span></p>
+        <p><span class="bold">Cholesterol</span> {{selectedFood.cholesterol}}</p>
+        <p><span class="bold">Sodium</span> {{selectedFood.sodium}}</p>
+        <p><span class="bold">Total Carbohydrate</span> {{selectedFood.totalCarbs}}</p>
+        <p><span class="indent">Dietary Fiber {{selectedFood.dietaryFiber}}</span></p>
+        <p><span class="indent">Total Sugars {{selectedFood.sugar}}</span></p>
+        <p><span class="bold">Protein</span> {{selectedFood.protein}}</p>
+      </div>
+      <div class="addPortion">
+
+        <div class="portionwithoutmessage">
+
+
+          <div class="inputsInAdd">
+
+            <select #meal>
+              <option>Breakfast</option>
+              <option>Lunch</option>
+              <option>Dinner</option>
+              <option>Snack</option>
+            </select>
+            <input type="number" step="0.5" min="0" placeholder="No of Servings" #noOfServings (change)="message = ''"/>
+          </div>
+          <button [disabled]="noOfServings.value.length < 1" (click)="addFood(noOfServings.valueAsNumber, meal.value)">
+            ADD
+          </button>
+        </div>
+        <div class="messagescontainer">
+          <h1 class="message error" *ngIf="message">{{message}}</h1>
+          <h1 class="message success" *ngIf="successmessage">{{successmessage}}</h1>
+        </div>
+
+      </div>
+    </div>
+    <div class="displaydiaryportion">
+      <h1 class="portiontitle">FOOD DIARY</h1>
+      <input class="dateselect" type="date" [value]="selectedDate" #date (change)="changeDate(date.value)"/>
+      <p class="fulldate">{{selectedDate | date:'fullDate'}}</p>
+      <table *ngIf="foodDiary.length > 0">
+        <thead>
+        <th>Food</th>
+        <th>Meal</th>
+        <th>Calories</th>
+        <th>No of Servings</th>
+        <th></th>
+
+        </thead>
+        <tbody>
+        <tr *ngFor="let entry of foodDiary">
+          <td>{{entry.food.foodName}}</td>
+          <td>{{entry.meal}}</td>
+          <td>{{entry.caloriesConsumed}}</td>
+          <td>{{entry.noOfServings}}</td>
+          <td><img class="deleteimg" (click)="deleteFood(entry.id)" src="assets/deleteicon.svg"></td>
+        </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+  </div>
+
+</div>
+<app-footer></app-footer>
