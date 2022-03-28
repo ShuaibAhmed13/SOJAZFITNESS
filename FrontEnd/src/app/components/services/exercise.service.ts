@@ -34,11 +34,11 @@ export class ExerciseService {
   getcreateExercises(exercise: Exercise): Observable<string> {
     return this.httpClient.post<string>('api/exercises/crud/createexercise', exercise);
   }
-  geteditExercises(exerciseId: number, exercise: Exercise): Observable<string> {
-    return this.httpClient.put<string>('api/exercises/crud/updateexercise/' + exerciseId, exercise);
+  geteditExercises(exercise_id: number, exercise: Exercise): Observable<string> {
+    return this.httpClient.put<string>('api/exercises/crud/updateexercise/' + exercise_id, exercise);
   }
-  getdeleteExercises(exerciseId: number): Observable<string> {
-    return this.httpClient.delete<string>('api/exercises/crud/deleteexercise/' + exerciseId);
+  getdeleteExercises(exercise_id: number): Observable<string> {
+    return this.httpClient.delete<string>('api/exercises/crud/deleteexercise/' + exercise_id);
   }
 
   getFilteredData(muscleName: String) {
