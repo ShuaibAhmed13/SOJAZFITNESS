@@ -5,6 +5,7 @@ import {EquipmentService} from "../services/equipment.service";
 import {Food} from "../interfaces/Food";
 import {Equipment} from "../interfaces/equipment";
 import {MuscleService} from "../services/muscle.service";
+import {ExerciseService} from "../services/exercise.service";
 
 @Component({
   selector: 'app-editaddmodal',
@@ -20,7 +21,7 @@ export class EditaddmodalComponent implements OnInit {
   inputData: string[] = [];
   @Input() editItem: any;
 
-  constructor(public foodService: FoodService, public equipmentService: EquipmentService, public muscleService: MuscleService) { }
+  constructor(public foodService: FoodService, public equipmentService: EquipmentService, public muscleService: MuscleService, public exerciseService: ExerciseService) { }
 
   ngOnInit(): void {
   }
@@ -88,11 +89,13 @@ export class EditaddmodalComponent implements OnInit {
       this.deselect.emit('');
 
     } else if(this.selected === 'addmuscles') {
+      console.log(this.selected);
       this.muscleService.createMuscle( {muscleName:inputData.value.muscleName, muscleGroup: inputData.value.muscleGroup}).subscribe(data => {
       }, message => {
         console.log(message.error.text);
       })
       this.deselect.emit('');
+
     } else if(this.selected === 'editmuscles' && this.editItem) {
       this.muscleService.updateMuscle(this.editItem.id, {muscleName:inputData.value.muscleName, muscleGroup: inputData.value.muscleGroup}).subscribe(data => {
 
@@ -101,21 +104,24 @@ export class EditaddmodalComponent implements OnInit {
       })
       this.deselect.emit('');
 
-    } /*else if(this.selected === 'addexercise') {
-      this.exerciseService.createExercise( {muscleName:inputData.value.muscleName, muscleGroup: inputData.value.muscleGroup}).subscribe(data => {
+    } else if(this.selected === 'addexercises') {
+      console.log(this.selected);
+      this.exerciseService.getcreateExercises( {name:inputData.value.name, description: inputData.value.description,type:inputData.value.type}).subscribe(data => {
       }, message => {
         console.log(message.error.text);
       })
       this.deselect.emit('');
-    } else if(this.selected === 'editexercise' && this.editItem) {
-      this.exerciseService.updateExercise(this.editItem.id, {}).subscribe(data => {
+
+    } else if(this.selected === 'editexercises' && this.editItem) {
+      console.log(this.selected);
+      this.exerciseService.geteditExercises(this.editItem.id, {name:inputData.value.name, description: inputData.value.description,type:inputData.value.type}).subscribe(data => {
 
       }, message => {
         console.log(message.error.text);
       })
       this.deselect.emit('');
 
-    }*/
+    }
 
   }
 }

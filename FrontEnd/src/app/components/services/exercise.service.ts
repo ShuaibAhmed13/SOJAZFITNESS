@@ -28,6 +28,18 @@ export class ExerciseService {
       this.exercises = data;
     })
   }
+  getAllExercises():Observable<Exercise[]> {
+    return this.httpClient.get<Exercise[]>('api/exercises/findall');
+  }
+  getcreateExercises(exercise: Exercise): Observable<string> {
+    return this.httpClient.post<string>('api/exercises/crud/createexercise', exercise);
+  }
+  geteditExercises(exercise_id: number, exercise: Exercise): Observable<string> {
+    return this.httpClient.put<string>('api/exercises/crud/updateexercise/' + exercise_id, exercise);
+  }
+  getdeleteExercises(exercise_id: number): Observable<string> {
+    return this.httpClient.delete<string>('api/exercises/crud/deleteexercise/' + exercise_id);
+  }
 
   getFilteredData(muscleName: String) {
     this.httpClient.get<Exercise[]>(`api/muscle/getMuscles/${muscleName}`).subscribe(data => {
@@ -40,11 +52,6 @@ export class ExerciseService {
     this.httpClient.get<Exercise[]>(`api/equipment/getequipment/${equipmentName}`).subscribe((data =>{console.log("FILTERDATA = " + data)
       this.exercises = data;
     }))
-  }
-
-
-  getAllExercises(): Observable<Exercise[]> {
-    return this.httpClient.get<Exercise[]>('api/exercises/getExercises');
   }
 
 }
