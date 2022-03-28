@@ -6,6 +6,8 @@ import edu.ben.SOJAZBackend.service.UserFoodService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -20,8 +22,13 @@ public class UserFoodResource {
     }
 
     @GetMapping("/getusersfoods/{user_id}")
-    public List<User_Food> getUsersFood(@PathVariable Long user_id) {
-         return userFoodService.getAllFoodsConsumedByUser(user_id);
+    public List<User_Food> getUsersFoods(@PathVariable Long user_id) {
+         return userFoodService.getAllUserFoodByUserId(user_id);
+    }
+
+    @GetMapping("/getusersfoodsbydate/{user_id}/{date}")
+    public List<User_Food> getUsersFoodsByDate(@PathVariable Long user_id, @PathVariable String date) throws ParseException {
+        return userFoodService.getAllUserFoodByUserIdAndDate(user_id, date);
     }
 
     @GetMapping("/getall")
@@ -29,19 +36,24 @@ public class UserFoodResource {
         return userFoodService.getAll();
     }
 
-    @GetMapping("/getallfoodsbyuser/{food_id}")
-    public List<User_Food> getFoodsUsers(@PathVariable Long food_id) {
-        return userFoodService.getAllUsersByFoodId(food_id);
-    }
+//    @GetMapping("/getallfoodsbyuser/{food_id}")
+//    public List<User_Food> getFoodsUsers(@PathVariable Long food_id) {
+//        return userFoodService.getAllUsersByFoodId(food_id);
+//    }
 
     @PostMapping("/addfoodconsumedbyuser/{user_id}/{food_id}")
     public void addusersfood(@RequestBody User_Food user_food, @PathVariable Long user_id, @PathVariable Long food_id) {
         userFoodService.addFoodToUserDiary(user_food, user_id, food_id);
     }
 
-    @PutMapping("/addtofooddiary/{food_id}/{user_id}")
+    @PostMapping("/addtofooddiary/{food_id}/{user_id}")
     public void addToFoodDiary(@RequestBody UserFoodDTO userFoodDTO, @PathVariable Long food_id, @PathVariable Long user_id) {
         System.out.println("The food id is " + food_id + "The user id is " + user_id + " The serv is " + userFoodDTO.getNoOfServings() + " The meal is " + userFoodDTO.getMeal());
         userFoodService.addFoodToDiary(food_id, user_id, userFoodDTO.getNoOfServings(), userFoodDTO.getMeal());
+    }
+
+    @DeleteMapping("/deletefromfooddiary/{id}")
+    public void deleteFromFoodDiary(@PathVariable Long id) {
+        userFoodService.deleteFromFoodDiary(id);
     }
 }

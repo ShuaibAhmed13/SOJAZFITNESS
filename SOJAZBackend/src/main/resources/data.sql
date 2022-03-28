@@ -27,3 +27,10 @@ insert into muscles values(2, 'Legs', 'Quadriceps');
 
 insert into exercise_muscles values(1,1);
 insert into exercise_muscles values(2,2);
+
+insert into user_food values (1, 100, 100, "2022-03-24", 100, 'lunch', 2, 100, 100, 100, 1, 1);
+insert into user_food values (2, 100, 100, "2022-03-25", 100, 'lunch', 2, 100, 100, 100, 2, 1);
+insert into user_food values (3, 100, 100, "2022-03-24", 100, 'lunch', 2, 100, 100, 100, 1, 2);
+insert into user_food values (4, 100, 100, "2022-03-26", 100, 'lunch', 2, 100, 100, 100, 5, 1);
+insert into user_food values (5, 100, 100, "2022-03-26", 100, 'Dinner', 2, 100, 100, 100, 5, 1);
+insert into user_food values (6, 100, 100, "2022-03-27", 100, 'Breakfast', 2, 100, 100, 100, 4, 1);
