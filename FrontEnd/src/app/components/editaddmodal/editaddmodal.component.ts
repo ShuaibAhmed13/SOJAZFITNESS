@@ -89,11 +89,13 @@ export class EditaddmodalComponent implements OnInit {
       this.deselect.emit('');
 
     } else if(this.selected === 'addmuscles') {
+      console.log(this.selected);
       this.muscleService.createMuscle( {muscleName:inputData.value.muscleName, muscleGroup: inputData.value.muscleGroup}).subscribe(data => {
       }, message => {
         console.log(message.error.text);
       })
       this.deselect.emit('');
+
     } else if(this.selected === 'editmuscles' && this.editItem) {
       this.muscleService.updateMuscle(this.editItem.id, {muscleName:inputData.value.muscleName, muscleGroup: inputData.value.muscleGroup}).subscribe(data => {
 
@@ -103,13 +105,16 @@ export class EditaddmodalComponent implements OnInit {
       this.deselect.emit('');
 
     } else if(this.selected === 'addexercises') {
+      console.log(this.selected);
       this.exerciseService.getcreateExercises( {name:inputData.value.name, description: inputData.value.description,type:inputData.value.type}).subscribe(data => {
       }, message => {
         console.log(message.error.text);
       })
       this.deselect.emit('');
+
     } else if(this.selected === 'editexercises' && this.editItem) {
-      this.exerciseService.geteditExercises(this.editItem.id, {}).subscribe(data => {
+      console.log(this.selected);
+      this.exerciseService.geteditExercises(this.editItem.id, {name:inputData.value.name, description: inputData.value.description,type:inputData.value.type}).subscribe(data => {
 
       }, message => {
         console.log(message.error.text);
