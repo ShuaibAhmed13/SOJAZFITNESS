@@ -28,4 +28,28 @@ export class FooddiaryService {
   deleteFromFoodDiary(entry_id: number) {
     return this.httpClient.delete('api/userfood/deletefromfooddiary/' + entry_id);
   }
+
+  getUsersCaloriesForTheDay(user_id: number, date: string): dailyConsumption {
+    let entries: Fooddiary[];
+    let consumption: dailyConsumption = {totalCalories: 0, totalCarbs: 0, totalProteins: 0, totalFats: 0}
+
+    this.getUsersFoodDiaryByDate(user_id, date).subscribe(data => {
+      entries = data;
+      for (let entry of entries) {
+        consumption.totalCalories += Number(entry.caloriesConsumed);
+        consumption.totalCarbs += Number(entry.carbsConsumed);
+        consumption.totalProteins += Number(entry.proteinConsumed);
+        consumption.totalFats += Number(entry.fatsConsumed);
+      }
+    })
+    return consumption;
+  }
+
+}
+
+export interface dailyConsumption {
+  totalCalories: number;
+  totalCarbs: number;
+  totalProteins: number;
+  totalFats: number;
 }

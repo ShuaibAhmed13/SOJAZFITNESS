@@ -16,14 +16,55 @@
 
 .searchportion {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   justify-content: center;
   align-items: center;
   border-bottom: 2px solid var(--main-color);
   padding-bottom: 1rem;
-
   input {
     width: 80%;
+  }
+}
+.search {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+.consumptioncontainer {
+  border-bottom: 2px solid var(--main-color);
+  padding-top: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .title {
+    text-align: center;
+  }
+}
+.calories {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 1rem;
+}
+.macrocal {
+  font-weight: 600;
+}
+.macronutrients {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  div {
+    flex: 1;
+    text-align: center;
   }
 }
 
@@ -180,11 +221,22 @@ table {
 
   }
 
+  .search {
+    margin-bottom: 1rem;
+    height: 100%;
+  }
 
   .searchportion {
     border: none;
     flex: 1;
     margin: 0;
+    flex-direction: column;
+  }
+
+  .consumptioncontainer {
+    border-bottom: 0;
+    border-top: 2px solid var(--main-color);
+    height: 100%;
   }
 
   .displaynutritionportion {
@@ -224,6 +276,15 @@ table {
 
   }
 
+  .consumptioncontainer {
+    .calories, .macronutrients {
+      font-size: 1.3rem;
+    }
+    .title {
+      font-size: 2rem;
+    }
+  }
+
   .displaynutritionportion {
     display: flex;
     flex-direction: column;
@@ -238,9 +299,11 @@ table {
     input {
       transform: scale(1.5);
     }
+    width: 100%;
   }
 
   table {
+    margin-top: 1rem;
     font-size: 1.5rem;
     td {
       font-size: 1.5rem;

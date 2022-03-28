@@ -28,9 +28,11 @@ insert into muscles values(2, 'Legs', 'Quadriceps');
 insert into exercise_muscles values(1,1);
 insert into exercise_muscles values(2,2);
 
-insert into user_food values (1, 100, 100, "2022-03-24", 100, 'lunch', 2, 100, 100, 100, 1, 1);
-insert into user_food values (2, 100, 100, "2022-03-25", 100, 'lunch', 2, 100, 100, 100, 2, 1);
-insert into user_food values (3, 100, 100, "2022-03-24", 100, 'lunch', 2, 100, 100, 100, 1, 2);
-insert into user_food values (4, 100, 100, "2022-03-26", 100, 'lunch', 2, 100, 100, 100, 5, 1);
-insert into user_food values (5, 100, 100, "2022-03-26", 100, 'Dinner', 2, 100, 100, 100, 5, 1);
-insert into user_food values (6, 100, 100, "2022-03-27", 100, 'Breakfast', 2, 100, 100, 100, 4, 1);
+insert into user_food values (1, 403, 403, "2022-03-24", 403, 'lunch', 2, 123, 432, 123, 1, 1);
+insert into user_food values (2, 334, 334, "2022-03-25", 334, 'lunch', 2, 240, 323, 343, 2, 1);
+insert into user_food values (3, 393, 393, "2022-03-24", 393, 'lunch', 2, 420, 142, 232, 1, 2);
+insert into user_food values (4, 299, 299, "2022-03-26", 299, 'lunch', 2, 123, 432, 432, 5, 1);
+insert into user_food values (5, 249, 249, "2022-03-26", 249, 'Dinner', 2, 423, 432, 432, 5, 1);
+insert into user_food values (6, 330, 330, "2022-03-27", 330, 'Breakfast', 2, 402, 234, 432, 4, 1);
+insert into user_food values (7, 390, 331, "2022-03-28", 330, 'Breakfast', 2, 422, 234, 442, 4, 1);
+insert into user_food values (8, 229, 242, "2022-03-28", 249, 'Dinner', 2, 433, 431, 132, 5, 1);
