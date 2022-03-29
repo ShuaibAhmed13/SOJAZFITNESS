@@ -41,6 +41,7 @@ export class UserProfileComponent implements OnInit {
       console.log("The user id is: " + userID);
     }
      this.userProfileService.getUserProfileByUserId(userID).subscribe(data => {
+       console.log(data);
        this.currentUserProfile = data;
      });
   }

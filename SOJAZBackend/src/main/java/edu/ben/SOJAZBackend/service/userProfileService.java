@@ -17,12 +17,12 @@ public class userProfileService {
     }
 
     public UserProfileModel FindUserProfileById(Long userProfId) {
-        return userProfileRepository.findUserProfileById(userProfId);
+        return userProfileRepository.findByUserId(userProfId);
     }
 
 
     public UserProfileModel FindUserProfileModelByUserId(Long user_id) {
-        return userProfileRepository.findUserProfileById(user_id);
+        return userProfileRepository.findUserProfileModelByUserId(user_id);
     }
     //Update
     public String UpdateUserProfile(UserProfileModel userProfile, Long userProfile_id) {
