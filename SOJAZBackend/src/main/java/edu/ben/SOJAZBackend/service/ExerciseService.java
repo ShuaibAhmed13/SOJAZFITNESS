@@ -1,6 +1,7 @@
 package edu.ben.SOJAZBackend.service;
 
 import edu.ben.SOJAZBackend.model.Exercise;
+import edu.ben.SOJAZBackend.model.dto.ExerciseDTO;
 import edu.ben.SOJAZBackend.model.dto.ExerciseMuscleDTO;
 import edu.ben.SOJAZBackend.repository.ExerciseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,10 @@ public class ExerciseService {
 
     public Exercise getExerciseById(Long exercise_id) {
         return exerciseRepository.getById(exercise_id);
+    }
+
+    public void exerciseSave(ExerciseDTO exerciseDTO) {
+        exerciseRepository.save(new Exercise(exerciseDTO.getName(), exerciseDTO.getDescription(), exerciseDTO.getType()));
     }
 
     public String createExercise(Exercise exercise) {

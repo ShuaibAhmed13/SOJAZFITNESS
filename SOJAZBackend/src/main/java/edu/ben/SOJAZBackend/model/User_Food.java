@@ -5,6 +5,7 @@ import org.apache.catalina.User;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -45,7 +46,7 @@ public class User_Food {
 
     //@Id
     @Column(name = "date", nullable = false)
-    Date date;
+    LocalDate date;
 
     @Column(name = "calories_consumed", nullable = false)
     double caloriesConsumed;

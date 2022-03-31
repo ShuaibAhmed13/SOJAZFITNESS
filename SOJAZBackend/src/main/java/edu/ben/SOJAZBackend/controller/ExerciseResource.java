@@ -37,7 +37,10 @@ public class ExerciseResource {
         return exerciseService.getExerciseById(exercise_id);
     }
 
-
+    @PostMapping("/create")
+    public void createWorkout(@RequestBody ExerciseDTO exerciseDTO) {
+       this.exerciseService.exerciseSave(exerciseDTO);
+    }
 
     //Admin privileges
     @PostMapping(value = "/crud/createexercise")

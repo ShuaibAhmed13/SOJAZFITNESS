@@ -16,7 +16,7 @@ export class ExerciseService {
   exercises = <Exercise[]>[];
 
   create(exercise: Exercise) {
-    this.httpClient.post<Exercise>('api/exercise/create', exercise).subscribe(() => {
+    this.httpClient.post<Exercise>('api/exercises/create', exercise).subscribe(() => {
       this.router.navigateByUrl('/exercisepost');
     })
 
@@ -27,6 +27,18 @@ export class ExerciseService {
       console.log(data);
       this.exercises = data;
     })
+  }
+  getAllExercises():Observable<Exercise[]> {
+    return this.httpClient.get<Exercise[]>('api/exercises/getall');
+  }
+  getcreateExercises(exercise: Exercise): Observable<string> {
+    return this.httpClient.post<string>('api/exercises/crud/createexercise', exercise);
+  }
+  geteditExercises(exercise_id: number, exercise: Exercise): Observable<string> {
+    return this.httpClient.put<string>('api/exercises/crud/updateexercise/' + exercise_id, exercise);
+  }
+  getdeleteExercises(exercise_id: number): Observable<string> {
+    return this.httpClient.delete<string>('api/exercises/crud/deleteexercise/' + exercise_id);
   }
 
   getFilteredData(muscleName: String) {
@@ -40,11 +52,6 @@ export class ExerciseService {
     this.httpClient.get<Exercise[]>(`api/equipment/getequipment/${equipmentName}`).subscribe((data =>{console.log("FILTERDATA = " + data)
       this.exercises = data;
     }))
-  }
-
-
-  getAllExercises(): Observable<Exercise[]> {
-    return this.httpClient.get<Exercise[]>('api/exercises/getExercises');
   }
 
 }

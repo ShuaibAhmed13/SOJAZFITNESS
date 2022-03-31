@@ -49,6 +49,7 @@ import {SafePipe} from "./components/pipes/safe.pipe";
 import {VideosearchComponent} from "./components/videosearch/videosearch.component";
 import{WorkoutequipmentComponent} from "./components/workoutequipment/workoutequipment.component";
 import {ContactService} from "./contact.service";
+import { FooddiaryComponent } from './components/fooddiary/fooddiary.component';
 
 
 
@@ -90,7 +91,9 @@ import {ContactService} from "./contact.service";
     SearchfilterPipe,
     VideosearchComponent,
     SafePipe,
-    WorkoutequipmentComponent
+    WorkoutequipmentComponent,
+    FooddiaryComponent,
+
   ],
   imports: [
     BrowserModule,

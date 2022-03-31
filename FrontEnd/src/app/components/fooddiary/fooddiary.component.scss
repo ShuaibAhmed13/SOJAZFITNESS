@@ -1,0 +1,259 @@
+.fooddiary {
+  height: 75%;
+  width: 100%;
+  background-color: var(--off-white-color);
+  min-height: fit-content;
+  overflow: scroll;
+}
+
+.diarycontainer {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  height: 100%;
+}
+
+.searchportion {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid var(--main-color);
+  padding-bottom: 1rem;
+
+  input {
+    width: 80%;
+  }
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.displaynutritionportion {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 2px solid var(--main-color);
+  padding-bottom: 1rem;
+}
+input {
+  height: 2rem;
+}
+
+.deleteimg {
+  cursor: pointer;
+}
+.addPortion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  input, select {
+    width: 50%;
+    margin-top: 0.5rem;
+    height: 2rem;
+  }
+  button {
+    margin-top: 0.5rem;
+  }
+}
+
+.nutritionlabel {
+  border: 3px solid black;
+  padding: 10px;
+
+  p {
+    font-size: 1rem;
+    width: 100%;
+    height: fit-content;
+  }
+  p + p {
+    border-top: 2px solid black;
+    margin: 0.3rem 0;
+    padding: 0.2rem 0;
+  }
+  .title {
+    font-size: 2.2rem;
+  }
+  .indent {
+    margin-left: 1rem;
+  }
+}
+
+.displaydiaryportion {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 1rem;
+}
+.portionwithoutmessage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.inputsInAdd {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  input, select{
+    width: 100%;
+  }
+}
+
+.fulldate {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-top: 1rem;
+  color: var(--main-color);
+}
+
+table {
+  //border: 2px solid var(--main-color);
+  text-align: center;
+  width: 100%;
+  thead {
+    background-color: var(--main-color);
+    color: var(--light-color);
+    height: 60px;
+  }
+  tbody {
+    border-bottom: 2px solid var(--main-color);
+  }
+  tr {
+    border-bottom: 1px solid var(--main-color);
+    height: 60px;
+  }
+  td {
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+}
+
+.message {
+  font-size: 1rem;
+}
+.error {
+  color: red;
+}
+
+.success {
+  color: green;
+}
+
+@media only screen and (min-width: 600px) {
+  .searchportion input {
+    width: 65%;
+  }
+  table {
+    width: 90%;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .searchportion input {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .fooddiary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .diarycontainer {
+    flex-direction: row;
+    flex-basis: auto;
+    width: 90%;
+    border: 2px solid var(--main-color);
+    height: 95%;
+    box-shadow: 4px 4px 8px 0 rgb(0, 0, 0),
+      -4px -4px 8px 0 rgb(255, 255, 255);
+
+  }
+
+
+  .searchportion {
+    border: none;
+    flex: 1;
+    margin: 0;
+  }
+
+  .displaynutritionportion {
+    flex: 1;
+    border: none;
+    margin: 0;
+    height: 100%;
+    .addPortion {
+      flex-direction: column;
+      width: 90%;
+    }
+  }
+
+  .inputsInAdd {
+    flex-direction: row;
+  }
+
+  .displaydiaryportion {
+    flex: 1;
+    margin: 0;
+    display: flex;
+    justify-content: flex-start;
+    overflow-y: scroll;
+
+  }
+  table {
+    height: fit-content;
+    overflow-y: scroll;
+
+  }
+}
+
+@media only screen and (min-width: 2000px) {
+  .diarycontainer {
+    width: 80%;
+    overflow: hidden;
+
+  }
+
+  .displaynutritionportion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: scale(1.4);
+    .nutritionlabel {
+
+    }
+  }
+  .displaydiaryportion {
+    input {
+      transform: scale(1.5);
+    }
+  }
+
+  table {
+    font-size: 1.5rem;
+    td {
+      font-size: 1.5rem;
+    }
+    td, tr {
+      height: 80px;
+    }
+  }
+
+  .portiontitle {
+    font-size: 2rem;
+  }
+  .fulldate {
+    font-size: 1.5rem;
+  }
+}

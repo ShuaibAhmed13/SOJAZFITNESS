@@ -20,7 +20,9 @@ export class AdminlistComponent implements OnInit {
   @Input() searchInput: string = "";
   @Input() listitems: any[] = [];
   @Input() thlist: string[] = [];
-  @Input() selected: 'user' | 'food' | 'equipment' = 'user';
+  @Input() selected: 'user' | 'food' | 'equipment' | 'muscles' | 'exercises' = 'user';
+  @Input() muscle: any[] = [];
+  @Input() exercise: any[] = [];
 
   //button outputs
   @Output() suspend: EventEmitter<number> = new EventEmitter<number>();

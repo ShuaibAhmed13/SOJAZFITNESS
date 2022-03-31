@@ -25,6 +25,7 @@ import {AdminlistComponent} from "./components/adminlist/adminlist.component";
 import {VideosearchComponent} from "./components/videosearch/videosearch.component";
 import {WorkoutequipmentComponent} from "./components/workoutequipment/workoutequipment.component";
 import {UserProfileComponent} from "./components/user-profile/user-profile.component";
+import {FooddiaryComponent} from "./components/fooddiary/fooddiary.component";
 
 const routes: Routes = [
   {path: '', component:LandingPageComponent, canActivate: [LoggedinauthGuard]},
@@ -46,7 +47,7 @@ const routes: Routes = [
   {path: 'adminlisttest', component: AdminlistComponent},
   {path: 'videosearch', component: VideosearchComponent},
   {path: 'workoutequipment', component: WorkoutequipmentComponent},
-
+  {path: 'fooddiary', component: FooddiaryComponent},
   { path: '**', component: PageNotFoundPageComponent}
 ];
 

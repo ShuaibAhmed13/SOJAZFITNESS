@@ -24,6 +24,8 @@
   <app-adminlist *ngIf="selectedtab ==='user'" [selected]="selectedtab" [listitems]="users" [thlist]="usersTHlist" (suspend)="suspendUser($event)" (reactivate)="reactivateUser($event)" [searchInput]="searchValue"></app-adminlist>
   <app-adminlist *ngIf="selectedtab === 'food'" [selected]="selectedtab" [listitems]="foods" [thlist]="foodsTHlist" (delete)="deleteFood($event)" (edit)="editFood($event)" [searchInput]="searchValue"></app-adminlist>
   <app-adminlist *ngIf="selectedtab === 'equipment'" [selected]="selectedtab" [listitems]="equipments" [thlist]="equipmentsTHlist" (delete)="deleteEquipment($event)" (edit)="editEquipment($event)" [searchInput]="searchValue"></app-adminlist>
+  <app-adminlist *ngIf="selectedtab === 'muscles'" [selected]="selectedtab" [listitems]="muscles" [thlist]="musclesTHlist" (delete)="deleteMuscle($event)" (edit)="editMuscle($event)" [searchInput]="searchValue"></app-adminlist>
+  <app-adminlist *ngIf="selectedtab === 'exercises'" [selected]="selectedtab" [listitems]="exercises" [thlist]="exercisesTHlist" (delete)="deleteExercise($event)" (edit)="editExercise($event)" [searchInput]="searchValue"></app-adminlist>
 <!--  <div class="container-width">-->
 
 <!--    <div class="LIST">-->

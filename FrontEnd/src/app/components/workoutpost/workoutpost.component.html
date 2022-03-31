@@ -4,16 +4,7 @@
   <h3>What you have been working out on?</h3>
 </div>
 <br>
-<h2 style="text-align: center">Select the Type of Workout</h2>
-<div style="width: 500px;">
-  <select class="form-control select2" type="text" style="width: 100%;" [(ngModel)]="optionValue">
-    <option value="strength">Strength</option>
-    <option value="cardio" selected>Cardio</option>
-  </select>
-</div>
-<br><br>
-<ng-container *ngIf="optionValue == 'strength'">
-  <h2>Enter Your Workout</h2>
+<!--  <h2>Enter Your Workout</h2>
 <form #workoutData="ngForm" (ngSubmit)="workout(workoutData)" novalidate style="width: 500px;">
   <div class="form-group">
     <input class="form-control login-input" name="name" id="name" placeholder="Enter Workout" ngModel=""><br>
@@ -21,25 +12,12 @@
   <div class="form-group">
     <input class="form-control login-input" name="description" id="description" placeholder="Enter Description" ngModel=""><br>
   </div>
-  <button class="button button3">Submit</button>
-</form>
-</ng-container>
-
-<ng-container *ngIf="optionValue == 'cardio'">
-<!--  <h2>Enter Your Workout</h2>
-<form #workoutCardioData="ngForm" (ngSubmit)="workoutCardio(workoutCardioData)" novalidate style="width: 500px;">
   <div class="form-group">
-    <input class="form-control login-input" name="workoutCardio" id="workoutCardio" placeholder="Enter Workout" ngModel=""><br>
-  </div>
-  <div class="form-group">
-    <input class="form-control login-input" name="length" id="length" placeholder="Enter Time" ngModel=""><br>
-  </div>
-  <div class="form-group">
-    <input class="form-control login-input" name="intensityCardio" id="intensityCardio" placeholder="Enter Intensity" ngModel=""><br>
+    <input class="form-control login-input" name="type" id="type" placeholder="Enter Type" ngModel=""><br>
   </div>
   <button class="button button3">Submit</button>
 </form>-->
-</ng-container>
+
 <h2>Filter Workouts by Muscle</h2>
 <div class="form-container">
   <form #filterData="ngForm" (ngSubmit)="filterMuscles(filterData)" novalidate>
@@ -51,16 +29,37 @@
   </form>
 </div>
 <br>
+<h2>Weight Workouts</h2>
 <table style="margin: auto; text-align: center; width: 600px" >
   <tr>
     <th>Name</th>
     <th>Description</th>
+    <th>Type</th>
     <th>Muscle</th>
   </tr>
   <tr *ngFor="let exercises of this.exerciseService.exercises; let i = index">
+    <ng-container *ngIf="exercises.type == 'Weight'">
       <td>{{exercises.name}}</td>
       <td>{{exercises.description}}</td>
+      <td>{{exercises.type}}</td>
       <td>{{exercises.muscles![0].muscleName}}</td>
+    </ng-container>
+  </tr>
+</table>
+<br><br>
+<h2>Cardio Workouts</h2>
+<table style="margin: auto; text-align: center; width: 600px" >
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Type</th>
+  </tr>
+  <tr *ngFor="let exercises of this.exerciseService.exercises; let i = index">
+    <ng-container *ngIf="exercises.type == 'Cardio'">
+      <td>{{exercises.name}}</td>
+      <td>{{exercises.description}}</td>
+      <td>{{exercises.type}}</td>
+    </ng-container>
   </tr>
 </table>
 <br>
