@@ -6,6 +6,9 @@ import edu.ben.SOJAZBackend.model.Food;
 import edu.ben.SOJAZBackend.model.dto.userDTO;
 import edu.ben.SOJAZBackend.model.user;
 import edu.ben.SOJAZBackend.repository.UserRepository;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.sql.SQLIntegrityConstraintViolationException;
@@ -46,14 +49,14 @@ public class UserService {
             else {
                 Long newID = userRepository.count() + 1;
                 System.out.println("The new id number is " + newID);
-                userRepository.save(new user(newID, userDTO.getEmail(), userDTO.getUsername(), userDTO.getFirstName(), userDTO.getLastName(), userDTO.getPassword()));
+                userRepository.save(new user(newID, userDTO.getEmail(), userDTO.getUsername(), userDTO.getFirstName(), userDTO.getLastName(), userDTO.getPassword(), userDTO.getResetPassword()));
                 return "Registered Successfully";
             }
     }
 
     public userDTO getLoggedInUser(String username) {
         user user = userRepository.findByUsername(username).get();
-        return new userDTO(user.getId(), user.getEmail(), user.getUsername(), user.getFirstName(), user.getLastName(), user.getRoles());
+        return new userDTO(user.getId(), user.getEmail(), user.getUsername(), user.getFirstName(), user.getLastName(), user.getRoles(), user.getResetPassword());
     }
 
 //    public userDTO getLoggedInUser() {
@@ -71,7 +74,7 @@ public class UserService {
         List<user> users = userRepository.findAll();
         List<userDTO> newUsers = new ArrayList<>();
         for(user u: users) {
-            newUsers.add(new userDTO(u.getId(), u.getEmail(), u.getUsername(), u.getFirstName(), u.getLastName(), u.getActive(), u.getRoles()));;
+            newUsers.add(new userDTO(u.getId(), u.getEmail(), u.getUsername(), u.getFirstName(), u.getLastName(), u.getActive(), u.getRoles(), u.getResetPassword()));;
         }
         return newUsers;
     }
@@ -88,4 +91,27 @@ public class UserService {
     }
 
     public void deleteUser(Long user_id) {userRepository.deleteById(user_id);}
+
+    public void updateResetPassword(String newPassword, String email) throws UsernameNotFoundException {
+        user userEmailPass = userRepository.findByEmail(email);
+        if(userEmailPass != null){
+            userEmailPass.setResetPassword(newPassword);
+            userRepository.save(userEmailPass);
+        } else {
+            throw new UsernameNotFoundException("Could not find user with that email" + email);
+        }
+    }
+
+    public user getByResetPassword(String newPassword){
+        return userRepository.findByResetPasswordToken(newPassword);
+    }
+
+    public void updatePassword(user User, String newPassword) {
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = passwordEncoder.encode(newPassword);
+        User.setPassword(encodedPassword);
+
+        User.setResetPassword(null);
+        userRepository.save(User);
+    }
 }

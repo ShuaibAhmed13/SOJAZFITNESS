@@ -19,14 +19,16 @@ public class userDTO {
     String password;
     Boolean active;
     String roles;
+    String resetPassword;
 
-    public userDTO(Long id, String email, String username, String firstName, String lastName, String roles) {
+    public userDTO(Long id, String email, String username, String firstName, String lastName, String roles, String resetPassword) {
         this.id = id;
         this.email = email;
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
         this.roles = roles;
+        this.resetPassword = resetPassword;
     }
 
     public userDTO (String email, String username, String firstName, String lastName, String password) {
@@ -47,7 +49,7 @@ public class userDTO {
 
     public userDTO(){}
 
-    public userDTO(Long id, String email, String username, String firstName, String lastName, Boolean active, String roles) {
+    public userDTO(Long id, String email, String username, String firstName, String lastName, Boolean active, String roles, String resetPassword) {
         this.id = id;
         this.email = email;
         this.username = username;
@@ -55,5 +57,6 @@ public class userDTO {
         this.lastName = lastName;
         this.active = active;
         this.roles = roles;
+        this.resetPassword = resetPassword;
     }
 }
