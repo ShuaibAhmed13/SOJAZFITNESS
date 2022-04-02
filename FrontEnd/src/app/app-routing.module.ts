@@ -26,6 +26,8 @@ import {VideosearchComponent} from "./components/videosearch/videosearch.compone
 import {WorkoutequipmentComponent} from "./components/workoutequipment/workoutequipment.component";
 import {UserProfileComponent} from "./components/user-profile/user-profile.component";
 import {FooddiaryComponent} from "./components/fooddiary/fooddiary.component";
+import {ForgotPasswordFormComponent} from "./components/forgot-password-form/forgot-password-form.component";
+import {ResetPasswordFormComponent} from "./components/reset-password-form/reset-password-form.component";
 
 const routes: Routes = [
   {path: '', component:LandingPageComponent, canActivate: [LoggedinauthGuard]},
@@ -48,6 +50,8 @@ const routes: Routes = [
   {path: 'videosearch', component: VideosearchComponent},
   {path: 'workoutequipment', component: WorkoutequipmentComponent},
   {path: 'fooddiary', component: FooddiaryComponent},
+  {path: 'resetpasswordform', component: ResetPasswordFormComponent},
+  {path: 'forgotpasswordform', component: ForgotPasswordFormComponent},
   { path: '**', component: PageNotFoundPageComponent}
 ];
 

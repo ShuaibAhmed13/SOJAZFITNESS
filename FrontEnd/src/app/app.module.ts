@@ -51,6 +51,7 @@ import{WorkoutequipmentComponent} from "./components/workoutequipment/workoutequ
 import {ContactService} from "./contact.service";
 import { FooddiaryComponent } from './components/fooddiary/fooddiary.component';
 import { ForgotPasswordFormComponent } from './components/forgot-password-form/forgot-password-form.component';
+import { ResetPasswordFormComponent } from './components/reset-password-form/reset-password-form.component';
 
 
 
@@ -95,6 +96,7 @@ import { ForgotPasswordFormComponent } from './components/forgot-password-form/f
     WorkoutequipmentComponent,
     FooddiaryComponent,
     ForgotPasswordFormComponent,
+    ResetPasswordFormComponent,
 
   ],
   imports: [

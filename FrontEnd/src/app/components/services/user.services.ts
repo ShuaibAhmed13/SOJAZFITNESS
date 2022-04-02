@@ -120,6 +120,10 @@ export class UserService {
   reactivateUser(user_id:number) {
     return this.httpClient.get('/api/users/crud/reactivateuser/' + user_id);
   }
+
+  resetUserPassword(){
+
+  }
 }
 
 export interface userDTO {
@@ -130,5 +134,6 @@ export interface userDTO {
   lastName: string;
   roles: string;
   active: boolean;
+  resetPassword: string;
 }
 
