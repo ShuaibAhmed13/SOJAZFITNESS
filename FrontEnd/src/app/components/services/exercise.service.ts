@@ -29,7 +29,7 @@ export class ExerciseService {
     })
   }
   getAllExercises():Observable<Exercise[]> {
-    return this.httpClient.get<Exercise[]>('api/exercises/findall');
+    return this.httpClient.get<Exercise[]>('api/exercises/getall');
   }
   getcreateExercises(exercise: Exercise): Observable<string> {
     return this.httpClient.post<string>('api/exercises/crud/createexercise', exercise);
