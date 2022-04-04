@@ -1,5 +1,6 @@
 package edu.ben.SOJAZBackend.controller;
 
+import edu.ben.SOJAZBackend.model.Muscle;
 import edu.ben.SOJAZBackend.model.dto.userDTO;
 import edu.ben.SOJAZBackend.model.user;
 import edu.ben.SOJAZBackend.service.UserService;
@@ -101,5 +102,25 @@ public class UserResource {
     public ResponseEntity<String> deleteUser(@PathVariable Long user_id) {
         this.userService.deleteUser(user_id);
         return new ResponseEntity("Deleted Successfully!", HttpStatus.OK);
+    }
+
+    @GetMapping(value= "getUser/{emailToken}")
+    public List<user> getEmail(@PathVariable String emailToken){
+        return userService.getByEmail(emailToken);
+    }
+
+    @GetMapping(value="/getAll")
+    public List<user> getAllEmail(){
+        return userService.getUsersEmail();
+    }
+
+  /*  @PutMapping(value = "/crud/updatemuscle/{muscleId}")
+    public ResponseEntity<String> updateMuscle(@PathVariable Long muscleId, @RequestBody Muscle muscle) {
+        return new ResponseEntity<String>(muscleService.updateMuscle(muscleId, muscle), HttpStatus.OK);
+    }*/
+
+    @PutMapping(value = "/crud/updatePassword/{password}")
+    public ResponseEntity<String> updatePassword(@PathVariable String password, @RequestBody user User) {
+        return new ResponseEntity<String>(userService.updatePassword(password, User), HttpStatus.OK);
     }
 }

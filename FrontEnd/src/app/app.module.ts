@@ -50,7 +50,7 @@ import {VideosearchComponent} from "./components/videosearch/videosearch.compone
 import{WorkoutequipmentComponent} from "./components/workoutequipment/workoutequipment.component";
 import {ContactService} from "./contact.service";
 import { FooddiaryComponent } from './components/fooddiary/fooddiary.component';
-import { ForgotPasswordFormComponent } from './components/forgot-password-form/forgot-password-form.component';
+
 import { ResetPasswordFormComponent } from './components/reset-password-form/reset-password-form.component';
 
 
@@ -95,7 +95,6 @@ import { ResetPasswordFormComponent } from './components/reset-password-form/res
     SafePipe,
     WorkoutequipmentComponent,
     FooddiaryComponent,
-    ForgotPasswordFormComponent,
     ResetPasswordFormComponent,
 
   ],

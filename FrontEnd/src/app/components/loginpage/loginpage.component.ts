@@ -49,4 +49,8 @@ export class LoginpageComponent implements OnInit {
 
 
   }
+
+  pageOneDisplay(): void {
+    this.router.navigateByUrl("/resetpasswordform")
+  }
 }

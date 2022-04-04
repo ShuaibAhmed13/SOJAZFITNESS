@@ -3,6 +3,7 @@ package edu.ben.SOJAZBackend.service;
 import edu.ben.SOJAZBackend.Exception.IncorrectPasswordException;
 import edu.ben.SOJAZBackend.Exception.NotFoundException;
 import edu.ben.SOJAZBackend.model.Food;
+import edu.ben.SOJAZBackend.model.Muscle;
 import edu.ben.SOJAZBackend.model.dto.userDTO;
 import edu.ben.SOJAZBackend.model.user;
 import edu.ben.SOJAZBackend.repository.UserRepository;
@@ -49,14 +50,14 @@ public class UserService {
             else {
                 Long newID = userRepository.count() + 1;
                 System.out.println("The new id number is " + newID);
-                userRepository.save(new user(newID, userDTO.getEmail(), userDTO.getUsername(), userDTO.getFirstName(), userDTO.getLastName(), userDTO.getPassword(), userDTO.getResetPassword()));
+                userRepository.save(new user(newID, userDTO.getEmail(), userDTO.getUsername(), userDTO.getFirstName(), userDTO.getLastName(), userDTO.getPassword(), userDTO.getEmailToken()));
                 return "Registered Successfully";
             }
     }
 
     public userDTO getLoggedInUser(String username) {
         user user = userRepository.findByUsername(username).get();
-        return new userDTO(user.getId(), user.getEmail(), user.getUsername(), user.getFirstName(), user.getLastName(), user.getRoles(), user.getResetPassword());
+        return new userDTO(user.getId(), user.getEmail(), user.getUsername(), user.getFirstName(), user.getLastName(), user.getRoles(), user.getEmailToken());
     }
 
 //    public userDTO getLoggedInUser() {
@@ -74,7 +75,7 @@ public class UserService {
         List<user> users = userRepository.findAll();
         List<userDTO> newUsers = new ArrayList<>();
         for(user u: users) {
-            newUsers.add(new userDTO(u.getId(), u.getEmail(), u.getUsername(), u.getFirstName(), u.getLastName(), u.getActive(), u.getRoles(), u.getResetPassword()));;
+            newUsers.add(new userDTO(u.getId(), u.getEmail(), u.getUsername(), u.getFirstName(), u.getLastName(), u.getActive(), u.getRoles(), u.getEmailToken()));;
         }
         return newUsers;
     }
@@ -92,26 +93,53 @@ public class UserService {
 
     public void deleteUser(Long user_id) {userRepository.deleteById(user_id);}
 
+    //JAYC
     public void updateResetPassword(String newPassword, String email) throws UsernameNotFoundException {
         user userEmailPass = userRepository.findByEmail(email);
         if(userEmailPass != null){
-            userEmailPass.setResetPassword(newPassword);
+            userEmailPass.setEmailToken(newPassword);
             userRepository.save(userEmailPass);
         } else {
             throw new UsernameNotFoundException("Could not find user with that email" + email);
         }
     }
 
-    public user getByResetPassword(String newPassword){
-        return userRepository.findByResetPasswordToken(newPassword);
+    public List<user> getByEmail(String emailToken){
+        return userRepository.findByEmailToken(emailToken);
     }
 
-    public void updatePassword(user User, String newPassword) {
+  /*  public void updatePassword(user User, String newPassword) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(newPassword);
         User.setPassword(encodedPassword);
 
-        User.setResetPassword(null);
+        User.setEmailToken(null);
         userRepository.save(User);
+    }*/
+
+    public List<user>getUsersEmail(){
+        return userRepository.findAll();
+    }
+
+  /*  public String updateMuscle(Long muscleId, Muscle muscle) {
+        try {
+            muscle.setId(muscleId);
+            muscleRepository.save(muscle);
+            return "Muscle successfully updated.";
+        } catch (Exception ex) {
+            return "Muscle could not be updated.";
+        }
+    }*/
+
+    public String updatePassword(String password, user User){
+        try{
+            User.setPassword(password);
+            userRepository.save(User);
+            return "Password Set!";
+        } catch (Exception ex) {
+            return  "Password Error";
+        }
+
+
     }
 }

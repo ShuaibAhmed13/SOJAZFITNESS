@@ -27,13 +27,13 @@ public class ForgotPasswordResource {
     private UserService userService;
 
     @GetMapping("/forgot_password")
-    public String showForgotPasswordForm(Model model) {
+    public String showForgotPass(Model model) {
         model.addAttribute("pagetitle", "Forgot Password");
         return "forgot_password_form";
     }
 
-    @PostMapping("/forgot_password")
-    public String processForgotPassword(HttpServletRequest request, Model model) {
+   /* @PostMapping("/forgot_password")
+    public String processForgotPass(HttpServletRequest request, Model model) {
         String email = request.getParameter("email");
         String token = RandomString.make(30);
 
@@ -55,7 +55,7 @@ public class ForgotPasswordResource {
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message);
 
-        helper.setFrom("contact@shopme.com", "Shopme Support");
+        helper.setFrom("sojazfitness@gmail.com", "SOJAZ Fitness Support");
         helper.setTo(recipientEmail);
 
         String subject = "Here's the link to reset your password";
@@ -73,11 +73,11 @@ public class ForgotPasswordResource {
         helper.setText(content, true);
 
         mailSender.send(message);
-    }
+    }*/
 
-    @GetMapping("/forgot_password")
+  /*  @GetMapping("/reset_password")
     public String showResetPasswordForm(@Param(value = "password") String password, Model model) {
-        user User = userService.getByResetPassword(password);
+        user User = userService.getUserByEmail(password);
         model.addAttribute("password", password);
 
         if(User == null){
@@ -87,12 +87,12 @@ public class ForgotPasswordResource {
         return "forgot_password_form" ;
     }
 
-    @PostMapping("/forgot_password")
-    public String processResetPassword(HttpServletRequest request, Model model) {
+    @PostMapping("/reset_password")
+    public String resetPasswordMessage(HttpServletRequest request, Model model) {
         String token = request.getParameter("token");
         String password = request.getParameter("password");
 
-        user User = userService.getByResetPassword(token);
+        user User = userService.getUserByEmail(token);
         model.addAttribute("model","Reset Password");
 
         if(User == null){
@@ -105,6 +105,6 @@ public class ForgotPasswordResource {
             model.addAttribute("message", "You have successfully reset your password.");
         }
         return "message";
-    }
+    }*/
 
 }

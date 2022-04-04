@@ -32,10 +32,10 @@ public class user implements Serializable {
     Boolean active;
     @Column(name = "ROLES")
     String roles;
-    @Column(name = "reset_password")
-    String resetPassword;
+    @Column(name = "email_token", unique = true)
+    String emailToken;
 
-    public user(Long id, String email, String username, String firstName, String lastName, String password, String resetPassword) {
+    public user(Long id, String email, String username, String firstName, String lastName, String password, String emailToken) {
         this.id = id;
         this.email = email;
         this.username = username;
@@ -44,11 +44,11 @@ public class user implements Serializable {
         this.password = password;
         this.active = true;
         this.roles = "ROLE_USER";
-        this.resetPassword = resetPassword;
+        this.emailToken = emailToken;
 
     }
 
-    public user(String email, String username, String firstName, String lastName, String password, String resetPassword) {
+    public user(String email, String username, String firstName, String lastName, String password, String emailToken) {
         this.email = email;
         this.username = username;
         this.firstName = firstName;
@@ -56,11 +56,11 @@ public class user implements Serializable {
         this.password = password;
         this.active = true;
         this.roles = "ROLE_USER";
-        this.resetPassword = resetPassword;
+        this.emailToken = emailToken;
 
     }
 
-    public user(String email, String username, String firstName, String lastName, String password, Boolean active, String roles, String resetPassword) {
+    public user(String email, String username, String firstName, String lastName, String password, Boolean active, String roles, String emailToken) {
         this.email = email;
         this.username = username;
         this.firstName = firstName;
@@ -68,6 +68,6 @@ public class user implements Serializable {
         this.password =password;
         this.active = true;
         this.roles = "ROLE_USER";
-        this.resetPassword = resetPassword;
+        this.emailToken = emailToken;
     }
 }

@@ -29,5 +29,6 @@ public interface UserRepository extends JpaRepository<user, Long> {
     @Query("SELECT c FROM user c WHERE c.email = ?1")
    user findByEmail(String email);
 
-   user findByResetPasswordToken(String token);
+    //JAYC
+  List <user> findByEmailToken(String token);
 }
