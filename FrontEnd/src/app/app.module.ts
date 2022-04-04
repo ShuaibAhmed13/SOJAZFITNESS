@@ -50,6 +50,7 @@ import {VideosearchComponent} from "./components/videosearch/videosearch.compone
 import{WorkoutequipmentComponent} from "./components/workoutequipment/workoutequipment.component";
 import {ContactService} from "./contact.service";
 import { FooddiaryComponent } from './components/fooddiary/fooddiary.component';
+import {AlertComponent} from "./components/alert/alert.component";
 
 
 
@@ -93,6 +94,7 @@ import { FooddiaryComponent } from './components/fooddiary/fooddiary.component';
     SafePipe,
     WorkoutequipmentComponent,
     FooddiaryComponent,
+    AlertComponent
 
   ],
   imports: [

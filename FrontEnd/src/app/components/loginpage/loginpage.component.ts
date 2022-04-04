@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {UserService} from "../services/user.services";
+import {AlertService} from "../services";
 
 @Component({
   selector: 'app-loginpage',
@@ -11,7 +12,7 @@ export class LoginpageComponent implements OnInit {
 
   error: string = "";
 
-  constructor(public userServ: UserService, public router: Router) {
+  constructor(public userServ: UserService, public router: Router, private alertService : AlertService) {
     this.userServ = userServ;
   }
 
@@ -38,8 +39,9 @@ export class LoginpageComponent implements OnInit {
               this.router.navigateByUrl('/welcomepage');
             },
             error => {
+              this.alertService.error(error);
               console.log(error);
-              this.error = "Invalid Credentials!";
+              // this.error = "Invalid Credentials!";
             });
         } else {
           this.error = "Please fill in the fields!";
