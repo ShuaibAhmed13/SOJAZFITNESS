@@ -18,7 +18,7 @@ export class MuscleService {
   }
 
   getAllMuscle():Observable<Muscle[]> {
-    return this.httpClient.get<Muscle[]>('api/muscle/findall');
+    return this.httpClient.get<Muscle[]>('api/muscle/getall');
   }
 
   getMuscles() {
