@@ -104,10 +104,10 @@ public class UserResource {
         return new ResponseEntity("Deleted Successfully!", HttpStatus.OK);
     }
 
-    @GetMapping(value= "getUser/{emailToken}")
+/*    @GetMapping(value= "getUser/{emailToken}")
     public List<user> getEmail(@PathVariable String emailToken){
         return userService.getByEmail(emailToken);
-    }
+    }*/
 
     @GetMapping(value="/getAll")
     public List<user> getAllEmail(){

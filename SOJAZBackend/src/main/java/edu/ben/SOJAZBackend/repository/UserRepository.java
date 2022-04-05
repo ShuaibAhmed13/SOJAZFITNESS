@@ -30,5 +30,5 @@ public interface UserRepository extends JpaRepository<user, Long> {
    user findByEmail(String email);
 
     //JAYC
-  List <user> findByEmailToken(String token);
+  /*List <user> findBygeneratetoken(String token);*/
 }

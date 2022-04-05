@@ -32,10 +32,9 @@ public class user implements Serializable {
     Boolean active;
     @Column(name = "ROLES")
     String roles;
-    @Column(name = "email_token", unique = true)
-    String emailToken;
 
-    public user(Long id, String email, String username, String firstName, String lastName, String password, String emailToken) {
+
+    public user(Long id, String email, String username, String firstName, String lastName, String password) {
         this.id = id;
         this.email = email;
         this.username = username;
@@ -44,11 +43,11 @@ public class user implements Serializable {
         this.password = password;
         this.active = true;
         this.roles = "ROLE_USER";
-        this.emailToken = emailToken;
+
 
     }
 
-    public user(String email, String username, String firstName, String lastName, String password, String emailToken) {
+    public user(String email, String username, String firstName, String lastName, String password) {
         this.email = email;
         this.username = username;
         this.firstName = firstName;
@@ -56,11 +55,11 @@ public class user implements Serializable {
         this.password = password;
         this.active = true;
         this.roles = "ROLE_USER";
-        this.emailToken = emailToken;
+
 
     }
 
-    public user(String email, String username, String firstName, String lastName, String password, Boolean active, String roles, String emailToken) {
+    public user(String email, String username, String firstName, String lastName, String password, Boolean active, String roles) {
         this.email = email;
         this.username = username;
         this.firstName = firstName;
@@ -68,6 +67,6 @@ public class user implements Serializable {
         this.password =password;
         this.active = true;
         this.roles = "ROLE_USER";
-        this.emailToken = emailToken;
+
     }
 }

@@ -50,14 +50,14 @@ public class UserService {
             else {
                 Long newID = userRepository.count() + 1;
                 System.out.println("The new id number is " + newID);
-                userRepository.save(new user(newID, userDTO.getEmail(), userDTO.getUsername(), userDTO.getFirstName(), userDTO.getLastName(), userDTO.getPassword(), userDTO.getEmailToken()));
+                userRepository.save(new user(newID, userDTO.getEmail(), userDTO.getUsername(), userDTO.getFirstName(), userDTO.getLastName(), userDTO.getPassword()));
                 return "Registered Successfully";
             }
     }
 
     public userDTO getLoggedInUser(String username) {
         user user = userRepository.findByUsername(username).get();
-        return new userDTO(user.getId(), user.getEmail(), user.getUsername(), user.getFirstName(), user.getLastName(), user.getRoles(), user.getEmailToken());
+        return new userDTO(user.getId(), user.getEmail(), user.getUsername(), user.getFirstName(), user.getLastName(), user.getRoles());
     }
 
 //    public userDTO getLoggedInUser() {
@@ -75,7 +75,7 @@ public class UserService {
         List<user> users = userRepository.findAll();
         List<userDTO> newUsers = new ArrayList<>();
         for(user u: users) {
-            newUsers.add(new userDTO(u.getId(), u.getEmail(), u.getUsername(), u.getFirstName(), u.getLastName(), u.getActive(), u.getRoles(), u.getEmailToken()));;
+            newUsers.add(new userDTO(u.getId(), u.getEmail(), u.getUsername(), u.getFirstName(), u.getLastName(), u.getActive(), u.getRoles()));;
         }
         return newUsers;
     }
@@ -97,16 +97,16 @@ public class UserService {
     public void updateResetPassword(String newPassword, String email) throws UsernameNotFoundException {
         user userEmailPass = userRepository.findByEmail(email);
         if(userEmailPass != null){
-            userEmailPass.setEmailToken(newPassword);
+           /* userEmailPass.setGeneratetoken(newPassword);*/
             userRepository.save(userEmailPass);
         } else {
             throw new UsernameNotFoundException("Could not find user with that email" + email);
         }
     }
 
-    public List<user> getByEmail(String emailToken){
-        return userRepository.findByEmailToken(emailToken);
-    }
+ /*   public List<user> getByEmail(String emailToken){
+        return userRepository.findBygeneratetoken(emailToken);
+    }*/
 
   /*  public void updatePassword(user User, String newPassword) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();

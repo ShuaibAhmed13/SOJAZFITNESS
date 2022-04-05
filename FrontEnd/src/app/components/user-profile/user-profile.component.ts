@@ -56,6 +56,9 @@ export class UserProfileComponent implements OnInit {
     this.storedTheme = localStorage.getItem('theme-color');
   }
 
+  pageOneDisplay(): void {
+    this.router.navigateByUrl("/resetpasswordform")
+  }
 
 /*  getallUsersProfile() {
     this.userProfileService.setUserProfile(data => {
