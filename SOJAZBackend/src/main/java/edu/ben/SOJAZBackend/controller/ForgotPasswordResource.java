@@ -1,110 +1,75 @@
 package edu.ben.SOJAZBackend.controller;
 
+import edu.ben.SOJAZBackend.model.Mail;
+import edu.ben.SOJAZBackend.model.ResetPasswordToken;
+import edu.ben.SOJAZBackend.model.dto.ForgotPasswordDTO;
 import edu.ben.SOJAZBackend.model.user;
+import edu.ben.SOJAZBackend.repository.ResetPasswordTokenRepository;
+import edu.ben.SOJAZBackend.service.EmailService;
 import edu.ben.SOJAZBackend.service.UserService;
-import edu.ben.SOJAZBackend.service.Utility;
-import net.bytebuddy.utility.RandomString;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessageHelper;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.mail.MessagingException;
-import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
-import java.io.UnsupportedEncodingException;
+import javax.validation.Valid;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+
 
 @Controller
+@RequestMapping("/forgot_password")
 public class ForgotPasswordResource {
+    @Autowired private UserService userService;
+    @Autowired private ResetPasswordTokenRepository tokenRepository;
+    @Autowired private EmailService emailService;
 
-    private JavaMailSender mailSender;
-    @Autowired
-    private UserService userService;
-
-    @GetMapping("/forgot_password")
-    public String showForgotPass(Model model) {
-        model.addAttribute("pagetitle", "Forgot Password");
-        return "forgot_password_form";
+    @ModelAttribute("forgotpasswordForm")
+    public ForgotPasswordDTO forgotPasswordDTO(){
+        return new ForgotPasswordDTO();
     }
 
-   /* @PostMapping("/forgot_password")
-    public String processForgotPass(HttpServletRequest request, Model model) {
-        String email = request.getParameter("email");
-        String token = RandomString.make(30);
+    @GetMapping
+    public String displayForgotPasswordPage(){
+        return "forgot_password";
+    }
 
-        try {
-            userService.updateResetPassword(token, email);
-            String resetPassLink = Utility.getSiteURL(request) + "/reset_password?token=" + token;
-            sendEmail(email, resetPassLink);
-            model.addAttribute("Message","We have Successfully sent a Reset Password Link to your email.");
-        } catch(UsernameNotFoundException ex) {
-            model.addAttribute("error", ex.getMessage());
-        } catch (MessagingException | UnsupportedEncodingException e) {
-            model.addAttribute("error", "There was an error sending your email.");
+    public String processForgotPassword(@ModelAttribute("forgotpasswordform") @Valid ForgotPasswordDTO form, BindingResult result,
+                                        HttpServletRequest request){
+        if(result.hasErrors()){
+            return "forgot_password";
         }
-
-        return "forgot_password_form";
-    }
-
-    public void sendEmail(String recipientEmail, String link) throws MessagingException, UnsupportedEncodingException{
-        MimeMessage message = mailSender.createMimeMessage();
-        MimeMessageHelper helper = new MimeMessageHelper(message);
-
-        helper.setFrom("sojazfitness@gmail.com", "SOJAZ Fitness Support");
-        helper.setTo(recipientEmail);
-
-        String subject = "Here's the link to reset your password";
-
-        String content = "<p>Hello,</p>"
-                + "<p>You have requested to reset your password.</p>"
-                + "<p>Click the link below to change your password:</p>"
-                + "<p><a href=\"" + link + "\">Change my password</a></p>"
-                + "<br>"
-                + "<p>Ignore this email if you do remember your password, "
-                + "or you have not made the request.</p>";
-
-        helper.setSubject(subject);
-
-        helper.setText(content, true);
-
-        mailSender.send(message);
-    }*/
-
-  /*  @GetMapping("/reset_password")
-    public String showResetPasswordForm(@Param(value = "password") String password, Model model) {
-        user User = userService.getUserByEmail(password);
-        model.addAttribute("password", password);
-
+        user User = userService.getUserByEmail(form.getEmail());
         if(User == null){
-            model.addAttribute("message", "Invalid Password");
-            return "message";
+            result.rejectValue("src/main/email", null, "Could not find account with that email.");
+            return "forgot_password";
         }
-        return "forgot_password_form" ;
+
+        ResetPasswordToken token = new ResetPasswordToken();
+        token.setToken(UUID.randomUUID().toString());
+        token.setUser(User);
+        token.setExpiryDate(30);
+        tokenRepository.save(token);
+
+        Mail mail = new Mail();
+        mail.setFrom("no-reply@SOJAZFitness.com");
+        mail.setTo(User.getEmail());
+        mail.setSubject("Reset password Request");
+
+        Map<String, Object> model = new HashMap<>();
+        model.put("token", token);
+        model.put("user", User);
+        model.put("signature", "https://SOJAZFitness.com");
+        String url = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort();
+        model.put("resetUrl", url + "/resetpassword?token=" + token.getToken());
+        mail.setModel(model);
+        emailService.sendEmail(mail);
+        return "redirect:/forgot-password?success";
     }
 
-    @PostMapping("/reset_password")
-    public String resetPasswordMessage(HttpServletRequest request, Model model) {
-        String token = request.getParameter("token");
-        String password = request.getParameter("password");
-
-        user User = userService.getUserByEmail(token);
-        model.addAttribute("model","Reset Password");
-
-        if(User == null){
-            model.addAttribute("message", "Invalid Token");
-            return "message";
-
-        }else{
-            userService.updatePassword(User, password);
-
-            model.addAttribute("message", "You have successfully reset your password.");
-        }
-        return "message";
-    }*/
 
 }

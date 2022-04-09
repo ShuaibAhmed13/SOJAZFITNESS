@@ -8,6 +8,7 @@ import edu.ben.SOJAZBackend.model.dto.userDTO;
 import edu.ben.SOJAZBackend.model.user;
 import edu.ben.SOJAZBackend.repository.UserRepository;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class UserService {
+public class UserService  {
 
     UserRepository userRepository;
     //userDTO loggedInUser;
@@ -131,15 +132,9 @@ public class UserService {
         }
     }*/
 
-    public String updatePassword(String password, user User){
-        try{
-            User.setPassword(password);
-            userRepository.save(User);
-            return "Password Set!";
-        } catch (Exception ex) {
-            return  "Password Error";
-        }
 
 
-    }
+
+
+
 }
