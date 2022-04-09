@@ -7,6 +7,7 @@ import edu.ben.SOJAZBackend.model.Muscle;
 import edu.ben.SOJAZBackend.model.dto.userDTO;
 import edu.ben.SOJAZBackend.model.user;
 import edu.ben.SOJAZBackend.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -22,6 +23,9 @@ public class UserService  {
 
     UserRepository userRepository;
     //userDTO loggedInUser;
+
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
 
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -134,7 +138,14 @@ public class UserService  {
 
 
 
+    public user findByEmail(String email){
+        return userRepository.findByEmail(email);
+    }
 
+
+    public void updatePassword(String password, Long userId){
+        userRepository.updatePassword(password, userId);
+    }
 
 
 }

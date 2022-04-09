@@ -119,8 +119,8 @@ public class UserResource {
         return new ResponseEntity<String>(muscleService.updateMuscle(muscleId, muscle), HttpStatus.OK);
     }*/
 
-    @PutMapping(value = "/crud/updatePassword/{password}")
+   /* @PutMapping(value = "/crud/updatePassword/{password}")
     public ResponseEntity<String> updatePassword(@PathVariable String password, @RequestBody user User) {
         return new ResponseEntity<String>(userService.updatePassword(password, User), HttpStatus.OK);
-    }
+    }*/
 }
