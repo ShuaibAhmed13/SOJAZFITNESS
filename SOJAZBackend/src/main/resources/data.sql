@@ -7,9 +7,9 @@ INSERT INTO user_profile VALUES ('5', '6.1', '193', '185', 'Mexican Salavadorean
 
 Insert into video values('1', 'Calisthenicmovement',  'https://www.youtube.com/embed/bt5b9x9N0KU','Push Ups');
 Insert into video values('2', 'LIVESTRONG.COM',  'https://www.youtube.com/embed/1fbU_MkV7NE','Sit Ups');
-insert into exercise values(1, 'A chest exercise that uses a barbell and bench.', 'Bench Press', 'Weight');
-insert into exercise values(2, 'A leg workout that uses a barbell.', 'Squats', 'Weight');
-insert into exercise values(3,'100 jumps with a jumprope.','JumpingRope','Cardio');
+insert into exercise values(1, '30', 'A chest exercise that uses a barbell and bench.', 'Bench Press', 'Weight');
+insert into exercise values(2, '20', 'A leg workout that uses a barbell.', 'Squats', 'Weight');
+insert into exercise values(3, '40', '100 jumps with a jumprope.','JumpingRope','Cardio');
 
 Insert into equipment values (1, 'Bench', 'Weight');
 Insert into equipment values (2, 'Barbell', 'Weight');

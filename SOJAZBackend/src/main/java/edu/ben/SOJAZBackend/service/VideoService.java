@@ -34,4 +34,32 @@ public class VideoService {
         return answer;
     }
 
+
+    public String createVideo(Video video) {
+        try {
+            videoRepository.save(video);
+            return "Video successfully created.";
+        } catch (Exception ex) {
+            return "Video could not be created.";
+        }
+    }
+
+    public String updateVideo(Long videoId, Video video) {
+        try {
+            video.setId(videoId);
+            videoRepository.save(video);
+            return "Video successfully updated.";
+        } catch (Exception ex) {
+            return "Video could not be updated.";
+        }
+    }
+
+    public String deleteVideo(Long videoId) {
+        try {
+            videoRepository.deleteById(videoId);
+            return "Video successfully deleted.";
+        } catch (Exception ex) {
+            return "Video could not be deleted.";
+        }
+    }
 }

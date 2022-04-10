@@ -25,6 +25,8 @@ public class Exercise {
     String description;
     @Column(name = "type")
     String type;
+    @Column(name = "calories_burned")
+    int caloriesBurned;
     @ManyToMany
     @JoinColumn(name = "muscles", referencedColumnName = "id")
     Set<Muscle> muscles;
@@ -32,9 +34,10 @@ public class Exercise {
     @JoinColumn(name = "equipment", referencedColumnName = "id")
     Set<Equipment> equipments;
 
-    public Exercise(String name, String description, String type) {
+    public Exercise(String name, String description, String type, int caloriesBurned) {
         this.name = name;
         this.description = description;
         this.type = type;
+        this.caloriesBurned = caloriesBurned;
     }
 }

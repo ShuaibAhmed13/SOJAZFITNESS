@@ -231,8 +231,8 @@
       <input type="text" ngModel="" name="description" required="required">
       <label>TYPE</label>
       <select ngModel="" name="type" required="required">
-        <option value="CARDIO">CARDIO</option>
-        <option value="WEIGHT">WEIGHT</option>
+        <option value="Cardio">CARDIO</option>
+        <option value="Weight">WEIGHT</option>
       </select>
       <p class="error">{{error}}</p>
       <div class="button-container">
@@ -260,8 +260,8 @@
       <input type="text" ngModel="{{editItem.description}}" name="description" required="required">
       <label>TYPE</label>
       <select ngModel="{{editItem.type}}" name="type" required="required">
-        <option value="CARDIO">CARDIO</option>
-        <option value="WEIGHT">WEIGHT</option>
+        <option value="Cardio">CARDIO</option>
+        <option value="Weight">WEIGHT</option>
       </select>
       <p class="error">{{error}}</p>
       <div class="button-container">
@@ -273,5 +273,57 @@
   </form>
 
 </div>
+
+  <div *ngIf="selected === 'addvideo'" class="modal-custom">
+    <div class="top">
+      <h1 class="title">ADD VIDEO</h1>
+      <!--      <h2 class="exit">CLOSE</h2>-->
+    </div>
+
+    <form #inputData = "ngForm" (ngSubmit)="submitForm(inputData)" novalidate>
+      <div class="inputcontainer">
+        <label>VIDEO NAME</label>
+        <input type="text" ngModel="" name="videoName" required="required">
+        <label>AUTHOR</label>
+        <input type="text" ngModel="" name="author" required="required">
+        <label>LINK</label>
+        <input type="text" ngModel="" name="link" required="required">
+        <p class="error">{{error}}</p>
+        <div class="button-container">
+          <button (click)="deselect.emit('')" class="Cancel button">CANCEL</button>
+          <button type=submit class="Submit button">SUBMIT</button>
+        </div>
+      </div>
+
+    </form>
+
+
+  </div>
+
+  <div *ngIf="selected === 'editvideo'" class="modal-custom">
+    <div class="top">
+      <h1 class="title">EDIT VIDEO</h1>
+      <!--      <h2 class="exit">CLOSE</h2>-->
+    </div>
+
+    <form #inputData = "ngForm" (ngSubmit)="submitForm(inputData)" novalidate>
+      <div class="inputcontainer">
+        <label>VIDEO NAME</label>
+        <input type="text" ngModel="{{editItem.videoName}}" name="videoName" required="required">
+        <label>AUTHOR</label>
+        <input type="text" ngModel="{{editItem.author}}" name="author" required="required">
+        <label>LINK</label>
+        <input type="text" ngModel="{{editItem.link}}" name="link" required="required">
+        <p class="error">{{error}}</p>
+        <div class="button-container">
+          <button (click)="deselect.emit('')" class="Cancel button">CANCEL</button>
+          <button type=submit class="Submit button">SUBMIT</button>
+        </div>
+      </div>
+
+    </form>
+
+  </div>
+
 
 </div>

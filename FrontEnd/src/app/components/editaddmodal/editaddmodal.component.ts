@@ -7,6 +7,7 @@ import {Equipment} from "../interfaces/equipment";
 import {MuscleService} from "../services/muscle.service";
 import {ExerciseService} from "../services/exercise.service";
 import {ToastrService} from "ngx-toastr";
+import {VideoService} from "../services/video.service";
 
 @Component({
   selector: 'app-editaddmodal',
@@ -22,7 +23,7 @@ export class EditaddmodalComponent implements OnInit {
   inputData: string[] = [];
   @Input() editItem: any;
 
-  constructor(public foodService: FoodService, public equipmentService: EquipmentService, public muscleService: MuscleService, public exerciseService: ExerciseService, private toastr: ToastrService) { }
+  constructor(public foodService: FoodService, public equipmentService: EquipmentService, public muscleService: MuscleService, public exerciseService: ExerciseService, private toastr: ToastrService, public videoService: VideoService) { }
 
   ngOnInit(): void {
   }
@@ -124,6 +125,21 @@ export class EditaddmodalComponent implements OnInit {
       }, message => {
         console.log(message.error.text);
         this.toastr.success("Exercise Updated!")
+      })
+      this.deselect.emit('');
+
+    } else if(this.selected === 'addvideo') {
+      this.videoService.createVideo( {videoName:inputData.value.videoName, author: inputData.value.author, link:inputData.value.link}).subscribe(data => {
+      }, message => {
+        console.log(message.error.text);
+      })
+      this.deselect.emit('');
+
+    } else if(this.selected === 'editvideo' && this.editItem) {
+      this.videoService.updateVideo(this.editItem.id, {videoName:inputData.value.videoName, author: inputData.value.author, link:inputData.value.link}).subscribe(data => {
+
+      }, message => {
+        console.log(message.error.text);
       })
       this.deselect.emit('');
 

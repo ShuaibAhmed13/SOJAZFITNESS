@@ -54,7 +54,7 @@ public class MuscleService {
             muscleRepository.deleteById(muscleId);
             return "Muscle successfully deleted.";
         } catch (Exception ex) {
-            return "Musce could not be deleted.";
+            return "Muscle could not be deleted.";
         }
     }
 }
