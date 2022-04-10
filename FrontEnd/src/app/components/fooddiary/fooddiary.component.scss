@@ -218,7 +218,6 @@ table {
     height: 95%;
     box-shadow: 4px 4px 8px 0 rgb(0, 0, 0),
       -4px -4px 8px 0 rgb(255, 255, 255);
-
   }
 
   .search {
@@ -244,6 +243,7 @@ table {
     border: none;
     margin: 0;
     height: 100%;
+    //transform: scale(0.8);
     .addPortion {
       flex-direction: column;
       width: 90%;

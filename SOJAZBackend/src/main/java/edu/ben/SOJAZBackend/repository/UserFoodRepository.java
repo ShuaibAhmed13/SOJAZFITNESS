@@ -29,4 +29,5 @@ public interface UserFoodRepository extends JpaRepository<User_Food, Long> {
     public List<User_Food> getAllByUserIdAndDate(Long user_id, LocalDate date);
 
     public void deleteById(Long id);
+
 }

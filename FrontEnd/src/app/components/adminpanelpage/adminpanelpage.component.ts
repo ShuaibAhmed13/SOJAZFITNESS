@@ -10,6 +10,7 @@ import {MuscleService} from "../services/muscle.service";
 import {Muscle} from "../interfaces/Muscle";
 import {Exercise} from "../interfaces/Exercise";
 import {ExerciseService} from "../services/exercise.service";
+import {ToastrService} from "ngx-toastr";
 
 
 @Component({
@@ -45,7 +46,7 @@ export class AdminpanelpageComponent implements OnInit, OnDestroy {
     this.ngOnInit();
   }
 
-  constructor(public userService: UserService, public foodService: FoodService, public equipmentService: EquipmentService, public muscleService: MuscleService, public exerciseService: ExerciseService) { }
+  constructor(public userService: UserService, public foodService: FoodService, public equipmentService: EquipmentService, public muscleService: MuscleService, public exerciseService: ExerciseService, private toastr: ToastrService) { }
   ngOnInit(): void {
     this.setTimer();
   }
@@ -91,11 +92,16 @@ export class AdminpanelpageComponent implements OnInit, OnDestroy {
   }
 
   suspendUser(user_id: number) {
-    this.userService.suspendUser(user_id).subscribe();
+    this.userService.suspendUser(user_id).subscribe( data=> {
+      this.toastr.success("User Suspended!")
+      }
+    );
     this.ngOnInit();
   }
   reactivateUser(user_id:number) {
-    this.userService.reactivateUser(user_id).subscribe();
+    this.userService.reactivateUser(user_id).subscribe(data => {
+      this.toastr.success("User Reactivated!")
+    });
     this.ngOnInit();
   }
 
@@ -198,6 +204,7 @@ export class AdminpanelpageComponent implements OnInit, OnDestroy {
     this.chooseModal = 'editmuscles';
     let muscle = this.muscles.find(x => x.id === muscleId);
     this.editItem = muscle;
+    console.log(this.chooseModal);
   }
 
   editExercise(exercise_id: number) {

@@ -6,6 +6,7 @@ import {Food} from "../interfaces/Food";
 import {Equipment} from "../interfaces/equipment";
 import {MuscleService} from "../services/muscle.service";
 import {ExerciseService} from "../services/exercise.service";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-editaddmodal',
@@ -21,7 +22,7 @@ export class EditaddmodalComponent implements OnInit {
   inputData: string[] = [];
   @Input() editItem: any;
 
-  constructor(public foodService: FoodService, public equipmentService: EquipmentService, public muscleService: MuscleService, public exerciseService: ExerciseService) { }
+  constructor(public foodService: FoodService, public equipmentService: EquipmentService, public muscleService: MuscleService, public exerciseService: ExerciseService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -36,13 +37,14 @@ export class EditaddmodalComponent implements OnInit {
       this.equipmentService.createEquipment( {name:inputData.value.name, type: inputData.value.type}).subscribe(data => {
       }, message => {
         console.log(message.error.text);
+        this.toastr.success("Equipment Added!")
       })
       this.deselect.emit('');
     } else if(this.selected === 'editequipment' && this.editItem) {
       this.equipmentService.updateEquipment(this.editItem.id, {name:inputData.value.name, type: inputData.value.type}).subscribe(data => {
-
       }, message => {
         console.log(message.error.text);
+        this.toastr.success("Equipment Updated!")
       })
       this.deselect.emit('');
 
@@ -61,9 +63,9 @@ export class EditaddmodalComponent implements OnInit {
         sodium: inputData.value.sodium,
         servingSize: inputData.value.servingSize
       }).subscribe(data => {
-
       }, message => {
         console.log(message.error.text);
+        this.toastr.success("Food Added!")
       })
       this.deselect.emit('');
 
@@ -82,9 +84,9 @@ export class EditaddmodalComponent implements OnInit {
           sodium: inputData.value.sodium,
           servingSize: inputData.value.servingSize
         }).subscribe(data => {
-
         }, message => {
           console.log(message.error.text);
+          this.toastr.success("Food Updated!")
         })
       this.deselect.emit('');
 
@@ -93,6 +95,7 @@ export class EditaddmodalComponent implements OnInit {
       this.muscleService.createMuscle( {muscleName:inputData.value.muscleName, muscleGroup: inputData.value.muscleGroup}).subscribe(data => {
       }, message => {
         console.log(message.error.text);
+        this.toastr.success("Muscle Added!")
       })
       this.deselect.emit('');
 
@@ -101,6 +104,7 @@ export class EditaddmodalComponent implements OnInit {
 
       }, message => {
         console.log(message.error.text);
+        this.toastr.success("Muscle Updated!")
       })
       this.deselect.emit('');
 
@@ -109,6 +113,7 @@ export class EditaddmodalComponent implements OnInit {
       this.exerciseService.getcreateExercises( {name:inputData.value.name, description: inputData.value.description,type:inputData.value.type}).subscribe(data => {
       }, message => {
         console.log(message.error.text);
+        this.toastr.success("Exercise Added!")
       })
       this.deselect.emit('');
 
@@ -118,6 +123,7 @@ export class EditaddmodalComponent implements OnInit {
 
       }, message => {
         console.log(message.error.text);
+        this.toastr.success("Exercise Updated!")
       })
       this.deselect.emit('');
 

@@ -25,6 +25,11 @@ export class FooddiaryService {
     return this.httpClient.get<Fooddiary[]>(url);
   }
 
+  getPastWeekCalories(user_id: number): Observable<caloriesPerDate[]> {
+    let url = "api/userfood/getpastweekcalories/" + user_id;
+    return this.httpClient.get<caloriesPerDate[]>(url);
+  }
+
   deleteFromFoodDiary(entry_id: number) {
     return this.httpClient.delete('api/userfood/deletefromfooddiary/' + entry_id);
   }
@@ -52,4 +57,12 @@ export interface dailyConsumption {
   totalCarbs: number;
   totalProteins: number;
   totalFats: number;
+}
+
+export interface caloriesPerDate {
+  date: number;
+  caloriesConsumed: number;
+  carbsConsumed: number;
+  proteinConsumed: number;
+  fatsConsumed: number;
 }

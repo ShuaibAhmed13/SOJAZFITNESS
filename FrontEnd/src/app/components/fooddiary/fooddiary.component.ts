@@ -3,6 +3,7 @@ import {FoodService} from "../services/food.service";
 import {Food} from "../interfaces/Food";
 import {Fooddiary} from "../interfaces/fooddiary";
 import {dailyConsumption, FooddiaryService} from "../services/fooddiary.service";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-fooddiary',
@@ -20,7 +21,7 @@ export class FooddiaryComponent implements OnInit {
   successmessage: string ="";
   dayConsumption: dailyConsumption = {totalCalories: 0, totalCarbs: 0, totalProteins: 0, totalFats: 0}
 
-  constructor(public foodService: FoodService, public fooddiaryService: FooddiaryService) { }
+  constructor(public foodService: FoodService, public fooddiaryService: FooddiaryService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.setFoods();
@@ -92,7 +93,7 @@ export class FooddiaryComponent implements OnInit {
       let user_id = Number(localStorage.getItem("user_id"))!;
 
       this.fooddiaryService.addFood(noOfServings, meal, food_id, user_id).subscribe(data => {
-        this.successmessage = "Meal Added";
+        this.toastr.success("Meal Added!")
         this.getUserFoodDiary();
         this.getDailyConsumption();
       });
@@ -105,7 +106,9 @@ export class FooddiaryComponent implements OnInit {
     let entry_id1 = entry_id!;
     this.fooddiaryService.deleteFromFoodDiary(entry_id1).subscribe(data => {
       console.log("Deleted successfully");
+      this.toastr.success("Meal Deleted!")
       this.getUserFoodDiary();
+      this.getDailyConsumption();
     }
     );
   }

@@ -55,3 +55,18 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   --bold: 700;
   --semi-bold: 600;
 }
+
+/*Toast Messages Bootstrap version*/
+@import '~ngx-toastr/toastr-bs4-alert';
+
+
+#toast-container > .toast-success {
+  background-color: var(--off-white-color);
+  color: var(--main-color);
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: var(--ff-regular);
+  background-image: url("assets/successcheckmark.svg")!important;
+  border: 3px solid var(--main-color);
+}
+
