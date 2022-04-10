@@ -52,6 +52,7 @@ import {ContactService} from "./contact.service";
 import { FooddiaryComponent } from './components/fooddiary/fooddiary.component';
 
 import { ResetPasswordFormComponent } from './components/reset-password-form/reset-password-form.component';
+import { ForgotpasswordformComponent } from './components/forgotpasswordform/forgotpasswordform.component';
 
 
 
@@ -96,6 +97,7 @@ import { ResetPasswordFormComponent } from './components/reset-password-form/res
     WorkoutequipmentComponent,
     FooddiaryComponent,
     ResetPasswordFormComponent,
+    ForgotpasswordformComponent,
 
   ],
   imports: [

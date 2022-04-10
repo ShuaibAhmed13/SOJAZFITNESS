@@ -21,12 +21,5 @@ export class forgotpasswordService {
 }
 
 export interface userDTO {
-  id: number;
-  email: string;
-  username: string;
-  firstName: string;
-  lastName: string;
-  roles: string;
-  active: boolean;
-  resetPassword: string;
+
 }

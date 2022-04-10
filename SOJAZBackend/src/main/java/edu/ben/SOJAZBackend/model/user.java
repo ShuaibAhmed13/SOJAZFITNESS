@@ -32,9 +32,11 @@ public class user implements Serializable {
     Boolean active;
     @Column(name = "ROLES")
     String roles;
+    @Column(name = "reset_password_token")
+    String resetPasswordToken;
 
 
-    public user(Long id, String email, String username, String firstName, String lastName, String password) {
+    public user(Long id, String email, String username, String firstName, String lastName, String password, String resetPasswordToken) {
         this.id = id;
         this.email = email;
         this.username = username;
@@ -43,11 +45,12 @@ public class user implements Serializable {
         this.password = password;
         this.active = true;
         this.roles = "ROLE_USER";
+        this.resetPasswordToken = resetPasswordToken;
 
 
     }
 
-    public user(String email, String username, String firstName, String lastName, String password) {
+    public user(String email, String username, String firstName, String lastName, String password, String resetPasswordToken) {
         this.email = email;
         this.username = username;
         this.firstName = firstName;
@@ -55,11 +58,13 @@ public class user implements Serializable {
         this.password = password;
         this.active = true;
         this.roles = "ROLE_USER";
+        this.resetPasswordToken = resetPasswordToken;
+
 
 
     }
 
-    public user(String email, String username, String firstName, String lastName, String password, Boolean active, String roles) {
+    public user(String email, String username, String firstName, String lastName, String password, Boolean active, String roles, String resetPasswordToken) {
         this.email = email;
         this.username = username;
         this.firstName = firstName;
@@ -67,6 +72,7 @@ public class user implements Serializable {
         this.password =password;
         this.active = true;
         this.roles = "ROLE_USER";
+        this.resetPasswordToken = resetPasswordToken;
 
     }
 }

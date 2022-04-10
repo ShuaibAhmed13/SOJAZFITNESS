@@ -155,6 +155,5 @@ export interface userDTO {
   lastName: string;
   roles: string;
   active: boolean;
-  resetPassword: string;
 }
 
