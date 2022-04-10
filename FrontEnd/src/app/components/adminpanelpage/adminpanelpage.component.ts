@@ -11,6 +11,8 @@ import {Muscle} from "../interfaces/Muscle";
 import {Exercise} from "../interfaces/Exercise";
 import {ExerciseService} from "../services/exercise.service";
 import {ToastrService} from "ngx-toastr";
+import {Video} from "../interfaces/Video";
+import {VideoService} from "../services/video.service";
 
 
 @Component({
@@ -26,11 +28,13 @@ export class AdminpanelpageComponent implements OnInit, OnDestroy {
   muscles: Muscle[] = [];
   exercises: Exercise[] = [];
   equipments: Equipment[] = [];
+  videos: Video[] = [];
   usersTHlist: string[] = ['ID', 'EMAIL', 'USERNAME', 'FIRST NAME', 'LAST NAME', 'ROLE', 'SUSPEND'];
   foodsTHlist: string[] = ['ID', 'NAME', 'CALORIES','PROTEIN', 'TOTAL CARBS', 'SUGAR', 'DIETARY FIBER', 'TOTAL FATS', 'SATURATED FATS', 'TRANS FATS', 'CHOLESTEROL', 'SODIUM', 'SERVING SIZE'];
   equipmentsTHlist: string[] = ['ID', 'NAME', 'TYPE'];
   musclesTHlist: string[] = ['ID', 'MUSCLE NAME', 'MUSCLE GROUP'];
   exercisesTHlist: string[] = ['ID', 'NAME', 'DESCRIPTION', 'TYPE'];
+  videoTHlist: string[] = ['ID', 'NAME', 'AUTHOR', 'LINK'];
   chooseModal: string = "";
   editItem: any;
   interval: number = 0
@@ -46,7 +50,7 @@ export class AdminpanelpageComponent implements OnInit, OnDestroy {
     this.ngOnInit();
   }
 
-  constructor(public userService: UserService, public foodService: FoodService, public equipmentService: EquipmentService, public muscleService: MuscleService, public exerciseService: ExerciseService, private toastr: ToastrService) { }
+  constructor(public userService: UserService, public foodService: FoodService, public equipmentService: EquipmentService, public muscleService: MuscleService, public exerciseService: ExerciseService, public videoService: VideoService, private toastr: ToastrService) { }
   ngOnInit(): void {
     this.setTimer();
   }
@@ -80,6 +84,11 @@ export class AdminpanelpageComponent implements OnInit, OnDestroy {
       this.getExercises();
       this.interval = setInterval(() => {
         this.getExercises();
+      }, 5000)
+    } else if(this.selectedtab === 'video') {
+      this.getVideos();
+      this.interval = setInterval(() => {
+        this.getVideos();
       }, 5000)
     }
   }
@@ -135,6 +144,12 @@ export class AdminpanelpageComponent implements OnInit, OnDestroy {
     })
   }
 
+  getVideos() {
+    this.subscribe = this.videoService.getAllVideos().subscribe(data => {
+      this.videos = data;
+    })
+  }
+
   deleteFood(food_id: number) {
     if(confirm("Are you sure you want to delete this food?")) {
       this.subscribe = this.foodService.deleteFood(food_id).subscribe(data => {
@@ -156,6 +171,15 @@ export class AdminpanelpageComponent implements OnInit, OnDestroy {
   deleteExercise(exercise_id: number) {
     if(confirm("Are you sure you want to delete this exercise?")) {
       this.subscribe = this.exerciseService.getdeleteExercises(exercise_id).subscribe(data => {
+        return data;
+        this.ngOnInit();
+      })
+    }
+  }
+
+  deleteVideo(videoId: number) {
+    if(confirm("Are you sure you want to delete this video?")) {
+      this.subscribe = this.videoService.deleteVideo(videoId).subscribe(data => {
         return data;
         this.ngOnInit();
       })
@@ -212,6 +236,12 @@ export class AdminpanelpageComponent implements OnInit, OnDestroy {
     let exercise = this.exercises.find(x => x.id === exercise_id);
     this.editItem = exercise;
     console.log(this.chooseModal);
+  }
+
+  editVideo(videoId: number) {
+    this.chooseModal = 'editvideo';
+    let video = this.videos.find(x => x.id === videoId);
+    this.editItem = video;
   }
 
   modalClose() {

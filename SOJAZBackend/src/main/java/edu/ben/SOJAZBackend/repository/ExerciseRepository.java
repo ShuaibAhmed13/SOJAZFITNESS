@@ -23,5 +23,8 @@ public interface ExerciseRepository extends JpaRepository<Exercise, Long> {
             "where muscles.id = :muscleId")
     public List<Exercise> findAllExercisesByMuscleId(Long muscleId);
 
+    public Exercise getById(Long id);
+
+    public Exercise findExerciseById(Long id);
 
 }

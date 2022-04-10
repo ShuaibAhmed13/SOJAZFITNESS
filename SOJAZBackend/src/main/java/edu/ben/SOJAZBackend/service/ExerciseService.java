@@ -30,7 +30,7 @@ public class ExerciseService {
     }
 
     public void exerciseSave(ExerciseDTO exerciseDTO) {
-        exerciseRepository.save(new Exercise(exerciseDTO.getName(), exerciseDTO.getDescription(), exerciseDTO.getType()));
+        exerciseRepository.save(new Exercise(exerciseDTO.getName(), exerciseDTO.getDescription(), exerciseDTO.getType(), exerciseDTO.getCaloriesBurned()));
     }
 
     public String createExercise(Exercise exercise) {
