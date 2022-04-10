@@ -140,6 +140,7 @@ export class EditaddmodalComponent implements OnInit {
 
       }, message => {
         console.log(message.error.text);
+        this.toastr.success("Exercise Updated!")
       })
       this.deselect.emit('');
 
