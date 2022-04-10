@@ -50,7 +50,8 @@ export class AdminpanelpageComponent implements OnInit, OnDestroy {
     this.ngOnInit();
   }
 
-  constructor(public userService: UserService, public foodService: FoodService, public equipmentService: EquipmentService, public muscleService: MuscleService, public exerciseService: ExerciseService, public videoService: VideoService, private toastr: ToastrService) { }
+  constructor(public userService: UserService, public foodService: FoodService, public equipmentService: EquipmentService, public muscleService: MuscleService, public exerciseService: ExerciseService, private toastr: ToastrService, public videoService: VideoService) { }
+
   ngOnInit(): void {
     this.setTimer();
   }

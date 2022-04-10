@@ -23,7 +23,7 @@ export class EditaddmodalComponent implements OnInit {
   inputData: string[] = [];
   @Input() editItem: any;
 
-  constructor(public foodService: FoodService, public equipmentService: EquipmentService, public muscleService: MuscleService, public exerciseService: ExerciseService,private toastr: ToastrService, public videoService: VideoService) { }
+  constructor(public foodService: FoodService, public equipmentService: EquipmentService, public muscleService: MuscleService, public exerciseService: ExerciseService, private toastr: ToastrService, public videoService: VideoService) { }
 
   ngOnInit(): void {
   }
@@ -43,7 +43,6 @@ export class EditaddmodalComponent implements OnInit {
       this.deselect.emit('');
     } else if(this.selected === 'editequipment' && this.editItem) {
       this.equipmentService.updateEquipment(this.editItem.id, {name:inputData.value.name, type: inputData.value.type}).subscribe(data => {
-
       }, message => {
         console.log(message.error.text);
         this.toastr.success("Equipment Updated!")
@@ -65,7 +64,6 @@ export class EditaddmodalComponent implements OnInit {
         sodium: inputData.value.sodium,
         servingSize: inputData.value.servingSize
       }).subscribe(data => {
-
       }, message => {
         console.log(message.error.text);
         this.toastr.success("Food Added!")
@@ -87,7 +85,6 @@ export class EditaddmodalComponent implements OnInit {
           sodium: inputData.value.sodium,
           servingSize: inputData.value.servingSize
         }).subscribe(data => {
-
         }, message => {
           console.log(message.error.text);
           this.toastr.success("Food Updated!")
@@ -127,6 +124,7 @@ export class EditaddmodalComponent implements OnInit {
 
       }, message => {
         console.log(message.error.text);
+        this.toastr.success("Exercise Updated!")
       })
       this.deselect.emit('');
 
