@@ -4,6 +4,7 @@ import edu.ben.SOJAZBackend.model.Food;
 import edu.ben.SOJAZBackend.model.user;
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Data
@@ -18,12 +19,17 @@ public class UserFoodDTO {
 
     user user;
     String meal;
-    Date date;
+    LocalDate date;
     double caloriesConsumed;
-    double fatsCed;
-    double carbsConsumed;int proteinConsumed;
+    double fatsConsumed;
+    double carbsConsumed;
+    double proteinConsumed;
     double sodiumConsumed;
     double sugarConsumed;
     double noOfServings;
 
+
+    public UserFoodDTO() {
+
+    }
 }

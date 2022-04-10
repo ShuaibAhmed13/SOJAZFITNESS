@@ -31,6 +31,11 @@ public class UserFoodResource {
         return userFoodService.getAllUserFoodByUserIdAndDate(user_id, date);
     }
 
+    @GetMapping("/getpastweekcalories/{user_id}")
+    public List<UserFoodDTO> getPastWeekCalories(@PathVariable Long user_id) throws ParseException {
+        return userFoodService.getPastWeekCaloriesConsumed(user_id);
+    }
+
     @GetMapping("/getall")
     public List<User_Food> getAll() {
         return userFoodService.getAll();
@@ -56,4 +61,6 @@ public class UserFoodResource {
     public void deleteFromFoodDiary(@PathVariable Long id) {
         userFoodService.deleteFromFoodDiary(id);
     }
+
+
 }

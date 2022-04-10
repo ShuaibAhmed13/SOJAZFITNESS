@@ -3,12 +3,34 @@
 
   <div class="diarycontainer">
     <div class="searchportion">
-      <h1 class="portiontitle">SEARCH FOOD</h1>
-      <input type="search" placeholder="search" list="food" [(ngModel)]="searchValue" (change)="validateSearch()"/>
-      <datalist id="food">
-        <option *ngFor="let food of foods">{{food.foodName}}</option>
-      </datalist>
-
+      <div class="search">
+        <h1 class="portiontitle">SEARCH FOOD</h1>
+        <input type="search" placeholder="search" list="food" [(ngModel)]="searchValue" (change)="validateSearch()"/>
+        <datalist id="food">
+          <option *ngFor="let food of foods">{{food.foodName}}</option>
+        </datalist>
+      </div>
+      <div class="consumptioncontainer">
+        <h1 class="title">Consumption for {{this.selectedDate | date: 'fullDate'}}</h1>
+        <div class="calories">
+          <p class="macrocal">Calories:</p>
+          <p>{{dayConsumption.totalCalories}}</p>
+        </div>
+        <div class="macronutrients">
+          <div>
+            <p class="macrocal">Carbs:</p>
+            <p>{{dayConsumption.totalCarbs}}g</p>
+          </div>
+          <div>
+            <p class="macrocal">Proteins:</p>
+            <p>{{dayConsumption.totalProteins}}g</p>
+          </div>
+          <div>
+            <p class="macrocal">Fats:</p>
+            <p>{{dayConsumption.totalFats}}g</p>
+          </div>
+        </div>
+      </div>
     </div>
     <div *ngIf="selectedFood" class="displaynutritionportion">
       <div class="nutritionlabel">

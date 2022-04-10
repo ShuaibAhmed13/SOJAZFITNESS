@@ -25,7 +25,44 @@ export class FooddiaryService {
     return this.httpClient.get<Fooddiary[]>(url);
   }
 
+  getPastWeekCalories(user_id: number): Observable<caloriesPerDate[]> {
+    let url = "api/userfood/getpastweekcalories/" + user_id;
+    return this.httpClient.get<caloriesPerDate[]>(url);
+  }
+
   deleteFromFoodDiary(entry_id: number) {
     return this.httpClient.delete('api/userfood/deletefromfooddiary/' + entry_id);
   }
+
+  getUsersCaloriesForTheDay(user_id: number, date: string): dailyConsumption {
+    let entries: Fooddiary[];
+    let consumption: dailyConsumption = {totalCalories: 0, totalCarbs: 0, totalProteins: 0, totalFats: 0}
+
+    this.getUsersFoodDiaryByDate(user_id, date).subscribe(data => {
+      entries = data;
+      for (let entry of entries) {
+        consumption.totalCalories += Number(entry.caloriesConsumed);
+        consumption.totalCarbs += Number(entry.carbsConsumed);
+        consumption.totalProteins += Number(entry.proteinConsumed);
+        consumption.totalFats += Number(entry.fatsConsumed);
+      }
+    })
+    return consumption;
+  }
+
+}
+
+export interface dailyConsumption {
+  totalCalories: number;
+  totalCarbs: number;
+  totalProteins: number;
+  totalFats: number;
+}
+
+export interface caloriesPerDate {
+  date: number;
+  caloriesConsumed: number;
+  carbsConsumed: number;
+  proteinConsumed: number;
+  fatsConsumed: number;
 }

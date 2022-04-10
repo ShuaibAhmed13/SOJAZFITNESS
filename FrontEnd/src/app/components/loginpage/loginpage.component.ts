@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {UserService} from "../services/user.services";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-loginpage',
@@ -11,7 +12,7 @@ export class LoginpageComponent implements OnInit {
 
   error: string = "";
 
-  constructor(public userServ: UserService, public router: Router) {
+  constructor(public userServ: UserService, public router: Router, private toastr: ToastrService) {
     this.userServ = userServ;
   }
 
@@ -35,6 +36,7 @@ export class LoginpageComponent implements OnInit {
           return;
         } else if (username != null && username != "" && password != null && password != "") {
           this.userServ.login(username, password).subscribe(data => {
+              this.toastr.success("Welcome " + username + "!");
               this.router.navigateByUrl('/welcomepage');
             },
             error => {
