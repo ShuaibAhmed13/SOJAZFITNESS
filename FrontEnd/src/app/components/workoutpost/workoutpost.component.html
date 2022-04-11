@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 <div class="header">
-  <h1>EXERCISE POST</h1>
+  <h1>EXERCISE DIARY</h1>
   <h3>What you have been working out on?</h3>
 </div>
 <br>
@@ -18,6 +18,106 @@
   <button class="button button3">Submit</button>
 </form>-->
 
+<div>
+  <div style="text-align: center">
+    <h1 class="portiontitle">SEARCH EXERCISE</h1>
+    <input type="search" placeholder="search" list="exercise" [(ngModel)]="searchValue" (change)="validateSearch()"/>
+    <datalist id="exercise">
+      <option *ngFor="let exercise of exercises">{{exercise.name}}</option>
+    </datalist>
+
+  </div>
+
+  <div *ngIf="selectedExercise" style="text-align: center">
+    <div *ngIf="selectedExercise.type === 'Cardio'">
+    <div>
+      <p><span style="font-weight: bold">Exercise Name: {{selectedExercise.name}}</span></p>
+      <p><span style="font-weight: bold">Exercise Description: {{selectedExercise.description}}</span></p>
+      <p><span style="font-weight: bold">Exercise Type: {{selectedExercise.type}}</span></p>
+      <p><span style="font-weight: bold">Calories Per Minute: {{selectedExercise.caloriesBurned}}</span></p>
+    </div>
+    <div class="addPortion">
+      <div class="portionwithoutmessage">
+        <div class="inputsInAdd">
+
+          <select #timeOfDay>
+            <option>Morning</option>
+            <option>Afternoon</option>
+            <option>Night</option>
+          </select>
+          <br><br>
+          <input type="number" step="0.5" min="0" placeholder="No of Minutes" #noOfMinutes (change)="message = ''"/>
+        </div>
+        <br>
+        <button [disabled]="noOfMinutes.value.length < 1" (click)="addCardioExercise(noOfMinutes.valueAsNumber, timeOfDay.value)">
+          ADD
+        </button>
+        <br>
+      </div>
+      <div class="messagescontainer">
+        <h1 class="message error" *ngIf="message">{{message}}</h1>
+        <h1 class="message success" *ngIf="successmessage">{{successmessage}}</h1>
+      </div>
+    </div>
+  </div>
+    <div *ngIf="selectedExercise.type === 'Weight'">
+      <div>
+        <p><span style="font-weight: bold">Exercise Name: {{selectedExercise.name}}</span></p>
+        <p><span style="font-weight: bold">Exercise Description: {{selectedExercise.description}}</span></p>
+        <p><span style="font-weight: bold">Exercise Type: {{selectedExercise.type}}</span></p>
+        <p><span style="font-weight: bold">Calories Per Minute: {{selectedExercise.caloriesBurned}}</span></p>
+      </div>
+      <div class="addPortion">
+        <div class="portionwithoutmessage">
+          <div class="inputsInAdd">
+
+            <select #timeOfDay>
+              <option>Morning</option>
+              <option>Afternoon</option>
+              <option>Night</option>
+            </select>
+            <br><br>
+            <input type="number" step="0.5" min="0" placeholder="No of Sets" #sets (change)="message = ''"/>
+            <br><br>
+            <input type="number" step="0.5" min="0" placeholder="No of Reps" #reps (change)="message = ''"/>
+          </div>
+          <br>
+          <button [disabled]="sets.value.length < 1 && reps.value.length < 1" (click)="addWeightExercise(sets.valueAsNumber, reps.valueAsNumber, timeOfDay.value)">
+            ADD
+          </button>
+        </div>
+        <div class="messagescontainer">
+          <h1 class="message error" *ngIf="message">{{message}}</h1>
+          <h1 class="message success" *ngIf="successmessage">{{successmessage}}</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <br>
+    <h1 style="text-align: center">Exercise Diary</h1>
+    <table *ngIf="exerciseDiary.length > 0" style="margin: auto; text-align: center;">
+      <thead>
+      <th>Exercise Name</th>
+      <th>Time of Day</th>
+      <th>Sets</th>
+      <th>Reps</th>
+      <th>Total Calories Burned</th>
+      <th>Delete</th>
+      </thead>
+      <tbody>
+      <tr *ngFor="let entry of exerciseDiary">
+        <td>{{entry.exercise.name}}</td>
+        <td>{{entry.timeOfDay}}</td>
+        <td>{{entry.sets}}</td>
+        <td>{{entry.reps}}</td>
+        <td>{{entry.totalCaloriesBurned}}</td>
+        <td><img class="deleteimg" (click)="deleteExercise(entry.id)" src="assets/deleteicon.svg"></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <br><br>
 <h2>Filter Workouts by Muscle</h2>
 <div class="form-container">
   <form #filterData="ngForm" (ngSubmit)="filterMuscles(filterData)" novalidate>
@@ -67,3 +167,4 @@
  <p>COPYRIGHT BY SOJAZ LLC.</p>
   <a href="settingspage">Settings</a>
 </footer>
+</div>
