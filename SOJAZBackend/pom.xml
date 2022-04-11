@@ -71,8 +71,13 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-mail</artifactId>
 		</dependency>
-    </dependencies>
+		<dependency>
+			<groupId>com.fasterxml.jackson.module</groupId>
+			<artifactId>jackson-module-paranamer</artifactId>
+			<version>2.9.10</version>
+		</dependency>
 
+    </dependencies>
 
 	<build>
 		<plugins>

@@ -1,0 +1,14 @@
+<div class="chartcontainer">
+  <div class="radio">
+    <input type="radio" name="chartType" value="line" [(ngModel)]="type"> Line
+    <input type="radio" name="chartType" value="bar" [(ngModel)]="type"> Bar
+  </div>
+  <canvas baseChart
+    [datasets]="chartData"
+    [labels]="labels"
+    [options]="chartOptions"
+    [chartType]="type" [legend]="chartLegend" [colors]="colors"
+    id="myChart" width="600" height="350">
+  </canvas>
+
+</div>

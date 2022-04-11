@@ -8,9 +8,9 @@ INSERT INTO user_profile VALUES ('5', '6.1', '193', '185', 'Mexican Salavadorean
 
 Insert into video values('1', 'Calisthenicmovement',  'https://www.youtube.com/embed/bt5b9x9N0KU','Push Ups');
 Insert into video values('2', 'LIVESTRONG.COM',  'https://www.youtube.com/embed/1fbU_MkV7NE','Sit Ups');
-insert into exercise values(1, 'A chest exercise that uses a barbell and bench.', 'Bench Press', 'Weight');
-insert into exercise values(2, 'A leg workout that uses a barbell.', 'Squats', 'Weight');
-insert into exercise values(3,'100 jumps with a jumprope.','JumpingRope','Cardio');
+insert into exercise values(1, '30', 'A chest exercise that uses a barbell and bench.', 'Bench Press', 'Weight');
+insert into exercise values(2, '20', 'A leg workout that uses a barbell.', 'Squats', 'Weight');
+insert into exercise values(3, '40', '100 jumps with a jumprope.','JumpingRope','Cardio');
 
 Insert into equipment values (1, 'Bench', 'Weight');
 Insert into equipment values (2, 'Barbell', 'Weight');
@@ -29,9 +29,20 @@ insert into muscles values(2, 'Legs', 'Quadriceps');
 insert into exercise_muscles values(1,1);
 insert into exercise_muscles values(2,2);
 
-insert into user_food values (1, 100, 100, "2022-03-24", 100, 'lunch', 2, 100, 100, 100, 1, 1);
-insert into user_food values (2, 100, 100, "2022-03-25", 100, 'lunch', 2, 100, 100, 100, 2, 1);
-insert into user_food values (3, 100, 100, "2022-03-24", 100, 'lunch', 2, 100, 100, 100, 1, 2);
-insert into user_food values (4, 100, 100, "2022-03-26", 100, 'lunch', 2, 100, 100, 100, 5, 1);
-insert into user_food values (5, 100, 100, "2022-03-26", 100, 'Dinner', 2, 100, 100, 100, 5, 1);
-insert into user_food values (6, 100, 100, "2022-03-27", 100, 'Breakfast', 2, 100, 100, 100, 4, 1);
+insert into user_food values (1, 403, 403, "2022-03-27", 403, 'lunch', 2, 123, 432, 123, 1, 1);
+insert into user_food values (2, 334, 334, "2022-03-27", 334, 'lunch', 2, 240, 323, 343, 2, 1);
+insert into user_food values (3, 393, 393, "2022-03-27", 393, 'lunch', 2, 420, 142, 232, 1, 2);
+insert into user_food values (4, 299, 299, "2022-03-28", 299, 'lunch', 2, 123, 432, 432, 5, 1);
+insert into user_food values (5, 249, 249, "2022-03-28", 249, 'Dinner', 2, 423, 432, 432, 5, 1);
+insert into user_food values (6, 542, 330, "2022-03-30", 330, 'Breakfast', 2, 402, 234, 432, 4, 1);
+insert into user_food values (7, 390, 331, "2022-03-31", 330, 'Breakfast', 2, 422, 234, 442, 4, 1);
+insert into user_food values (8, 122, 242, "2022-04-01", 249, 'Dinner', 2, 433, 431, 132, 5, 1);
+insert into user_food values (9, 233, 242, "2022-04-01", 249, 'Dinner', 2, 433, 431, 132, 5, 1);
+insert into user_food values (10, 554, 233, "2022-04-02", 543, 'Dinner', 2, 212, 431, 132, 5, 1);
+insert into user_food values (11, 432, 232, "2022-04-02", 244, 'Dinner', 2, 122, 431, 132, 5, 1);
+insert into user_food values (12, 122, 201, "2022-04-03", 442, 'Dinner', 2, 123, 122, 343, 5, 1);
+insert into user_food values (13, 342, 243, "2022-04-03", 422, 'Dinner', 2, 122, 431, 132, 5, 1);
+insert into user_food values (14, 432, 653, "2022-04-03", 123, 'Dinner', 2, 123, 234, 244, 5, 1);
+insert into user_food values (15, 332, 120, "2022-04-04", 432, 'Dinner', 2, 341, 122, 343, 5, 1);
+insert into user_food values (16, 321, 102, "2022-04-04", 543, 'Dinner', 2, 212, 431, 132, 5, 1);
+insert into user_food values (17, 643, 233, "2022-04-04", 123, 'Dinner', 2, 121, 234, 244, 5, 1);
