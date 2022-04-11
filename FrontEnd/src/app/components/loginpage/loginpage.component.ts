@@ -39,9 +39,8 @@ export class LoginpageComponent implements OnInit {
               this.router.navigateByUrl('/welcomepage');
             },
             error => {
-              this.alertService.error(error);
               console.log(error);
-              // this.error = "Invalid Credentials!";
+              this.error = "Invalid Credentials!";
             });
         } else {
           this.error = "Please fill in the fields!";
