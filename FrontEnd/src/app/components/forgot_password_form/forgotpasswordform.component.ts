@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ForgotPasswordService} from "../services/forgot-password.service";
 
 @Component({
   selector: 'app-forgotpasswordform',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ForgotpasswordformComponent implements OnInit {
 
-  constructor() { }
+  constructor(public forgotPasswordService: ForgotPasswordService) { }
 
   ngOnInit(): void {
+  }
+
+  sendEmail(email: string){
+    this.forgotPasswordService.processForgotPassword(email).subscribe(data =>{
+      console.log(data);
+    });
   }
 
 }

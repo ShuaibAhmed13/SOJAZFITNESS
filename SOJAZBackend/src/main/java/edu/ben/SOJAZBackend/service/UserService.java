@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.sql.SQLIntegrityConstraintViolationException;
@@ -102,7 +103,7 @@ public class UserService  {
     public void updateResetPasswordToken(String newPassword, String email) throws UsernameNotFoundException {
         user userEmailPass = userRepository.findByEmail(email);
         if(userEmailPass != null){
-           /* userEmailPass.setGeneratetoken(newPassword);*/
+            userEmailPass.setResetPasswordToken(newPassword);
             userRepository.save(userEmailPass);
         } else {
             throw new UsernameNotFoundException("Could not find user with that email" + email);
@@ -115,8 +116,9 @@ public class UserService  {
 
     public void updatePassword(user User, String newPassword) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        String encodedPassword = passwordEncoder.encode(newPassword);
-        User.setPassword(encodedPassword);
+        /*String encodedPassword = passwordEncoder.encode(newPassword);*/
+        /*User.setPassword(encodedPassword);*/
+        User.setPassword(newPassword);
 
         User.setResetPasswordToken(null);
         userRepository.save(User);

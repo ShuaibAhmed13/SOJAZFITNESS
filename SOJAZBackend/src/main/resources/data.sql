@@ -1,6 +1,6 @@
-INSERT INTO User VALUES ('1', True, 'Jake@StateFarm.com', 'Jake', 'TheSnake', 'memes12', 'ROLE_USER,ROLE_ADMIN',  'FarmerJake', 'null') ;
-INSERT INTO User VALUES ('2', true, 'Caillou@Cartel.com', 'Caillou', 'Smith', 'password123', 'ROLE_USER',  'HairlessFiend', 'null2');
-INSERT INTO User VALUES ('3', true, 'jonc9011@gmail.com', 'Jay', 'Cee', 'password9011', 'ROLE_USER',  'HairGod', 'null3');
+INSERT INTO User VALUES ('1', True, 'Jake@StateFarm.com', 'Jake', 'TheSnake', 'memes12', null, 'ROLE_USER,ROLE_ADMIN',  'FarmerJake') ;
+INSERT INTO User VALUES ('2', true, 'Caillou@Cartel.com', 'Caillou', 'Smith', 'password123',null, 'ROLE_USER',  'HairlessFiend');
+INSERT INTO User VALUES ('3', true, 'jonc9011@gmail.com', 'Jay', 'Cee', 'password9011', null, 'ROLE_USER',  'HairGod');
 -- INSERT INTO Food VALUES ('1','335', '0','Chicken', '38', '1 cup', '115', '0', '19'), ('2',  '250', '0','NY Strip Steak', '49', '1 Steak', '118', '0', '6'), ('3', '206', '45', 'Rice', '4', '1 Cup', '2', '0', '0'), ('4',  '400', '45', 'Spaghetti & Meatballs','18', '1 Can', '1295', '11', '16'), ('5', '188', '6', 'Peanut Butter','8', '2 tbsp', '5', '3', '16');
 INSERT INTO Food VALUES ('1','335', '0.123', '0','Chicken','38', '5', '1 cup', '0.115', '0', '0', '19', '0'), ('2',  '250', '0.118', '0','NY Strip Steak', '49', '2.2', '1 Steak', '0.118', '0', '0', '6', '0.2'), ('3', '206', '0.0', '0.6', 'Rice', '4.3', '0.1', '1 Cup', '0.002', '0.1', '45', '0.4','0'), ('4',  '400', '0.029','0', 'Spaghetti & Meatballs','18', '6','1 Can', '1295', '11', '45', '16', '0.6'), ('5', '188', '0', '1.9', 'Peanut Butter','8', '3.3', '2 tbsp', '5', '3', '6', '16', '0');
 

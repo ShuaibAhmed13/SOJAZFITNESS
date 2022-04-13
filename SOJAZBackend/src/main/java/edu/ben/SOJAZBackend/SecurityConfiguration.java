@@ -53,6 +53,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .antMatchers("/api/equipment/**")
                 .permitAll()
+                .antMatchers("/api/resetpassword/**")
+                .permitAll()
                 .antMatchers("/**").hasAnyRole("USER", "ADMIN")
                 .and().formLogin()
                 .and().httpBasic()
@@ -80,6 +82,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Bean
     public DaoAuthenticationProvider authenticationProvider(){
+
         DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
         auth.setUserDetailsService(userDetailsService);
         auth.setPasswordEncoder(passwordEncoder());

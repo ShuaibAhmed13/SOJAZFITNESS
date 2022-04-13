@@ -49,14 +49,14 @@ import {SafePipe} from "./components/pipes/safe.pipe";
 import {VideosearchComponent} from "./components/videosearch/videosearch.component";
 import{WorkoutequipmentComponent} from "./components/workoutequipment/workoutequipment.component";
 import {ContactService} from "./contact.service";
-import {FooddiaryComponent} from './components/fooddiary/fooddiary.component';
+
 import {ToastrModule} from "ngx-toastr";
 import { ChartComponent } from './components/chart/chart.component';
 import {DatePipe} from "@angular/common";
 import { FooddiaryComponent } from './components/fooddiary/fooddiary.component';
 
 import { ResetPasswordFormComponent } from './components/reset-password-form/reset-password-form.component';
-import { ForgotpasswordformComponent } from './components/forgotpasswordform/forgotpasswordform.component';
+import { ForgotpasswordformComponent } from './components/forgot_password_form/forgotpasswordform.component';
 
 
 
@@ -102,7 +102,6 @@ import { ForgotpasswordformComponent } from './components/forgotpasswordform/for
     FooddiaryComponent,
     ResetPasswordFormComponent,
     ForgotpasswordformComponent,
-
     ChartComponent,
   ],
   imports: [
