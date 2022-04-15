@@ -1,10 +1,14 @@
 <app-navbar></app-navbar>
 
-<div class="content {{storedTheme}}" role="main">
+
+
+<div class="content {{storedTheme}}" role="main" [ngClass]="{'dark-theme-mode':isDarkTheme}">
   <h1>WELCOME TO YOUR FITNESS PROFILE</h1>
   <h3>Check out the progress you've done so far solider!</h3>
 </div>
-
+<mat-slide-toggle [(ngModel)]="isDarkTheme" (change)="storeThemeSelection()">
+  Dark Theme
+</mat-slide-toggle>
 <div class = "profile">
   <h2 class = "titleHead">My Progress</h2>
 
@@ -87,4 +91,5 @@
 
 
 <app-footer></app-footer>
+
 

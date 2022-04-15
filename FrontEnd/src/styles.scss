@@ -28,6 +28,15 @@ $FrontEnd-theme: mat.define-light-theme((
   )
 ));
 
+$FrontEnd-primary-dark: mat.define-palette(mat.$yellow-palette);
+$FrontEnd-accent-dark: mat.define-palette(mat.$green-palette);
+$FrontEnd-warn-dark: mat.define-palette(mat.$red-palette);
+
+$FrontEnd-theme-dark: mat.define-dark-theme($FrontEnd-primary-dark, $FrontEnd-accent-dark, $FrontEnd-warn);
+.dark-theme-mode{
+  @include mat.all-component-themes($FrontEnd-theme-dark);
+}
+
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.

@@ -57,7 +57,8 @@ import { FooddiaryComponent } from './components/fooddiary/fooddiary.component';
 
 import { ResetPasswordFormComponent } from './components/reset-password-form/reset-password-form.component';
 import { ForgotpasswordformComponent } from './components/forgot_password_form/forgotpasswordform.component';
-
+import { ThemeModeComponent } from './components/theme-mode/theme-mode.component';
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 
 
 @NgModule({
@@ -103,6 +104,7 @@ import { ForgotpasswordformComponent } from './components/forgot_password_form/f
     ResetPasswordFormComponent,
     ForgotpasswordformComponent,
     ChartComponent,
+    ThemeModeComponent,
   ],
   imports: [
     BrowserModule,
@@ -123,6 +125,7 @@ import { ForgotpasswordformComponent } from './components/forgot_password_form/f
     NgbModule,
     MatExpansionModule,
     ToastrModule.forRoot({timeOut: 2000, positionClass: 'toast-bottom-left'}),
+    MatSlideToggleModule
 
 /*  HttpClientInMemoryApiModule.forRoot(
     InMemoryDataService, {dataEncapsulation: false,

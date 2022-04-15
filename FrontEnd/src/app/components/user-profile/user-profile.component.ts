@@ -14,6 +14,7 @@ export class UserProfileComponent implements OnInit {
   title = 'angular-multiple-theme-switcher';
   // @ts-ignore
   storedTheme: string = localStorage.getItem('theme-color');
+  isDarkTheme: boolean = false;
 
 /*  @Input() profList: string[] = [];
   @Input() listProf: any[] = [];
@@ -32,6 +33,7 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUserProfile();
+    this.isDarkTheme = localStorage.getItem('theme') === "Dark" ? true : false;
   }
 
   getUserProfile() {
@@ -60,6 +62,10 @@ export class UserProfileComponent implements OnInit {
     this.router.navigateByUrl("/resetpasswordform")
   }
 
+
+  storeThemeSelection(){
+    localStorage.setItem('theme', this.isDarkTheme ? "Dark" : "Light");
+  }
 /*  getallUsersProfile() {
     this.userProfileService.setUserProfile(data => {
       this.users = data;
