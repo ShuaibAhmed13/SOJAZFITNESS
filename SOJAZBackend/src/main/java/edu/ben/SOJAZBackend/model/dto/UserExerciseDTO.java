@@ -20,7 +20,8 @@ public class UserExerciseDTO {
         this.noOfMinutes = noOfMinutes;
     }
 
-    public UserExerciseDTO(int sets, int reps) {
+    public UserExerciseDTO(String timeOfDay, int sets, int reps) {
+        this.timeOfDay = timeOfDay;
         this.sets = sets;
         this.reps = reps;
     }
