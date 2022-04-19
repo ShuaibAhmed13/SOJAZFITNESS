@@ -28,6 +28,13 @@ export class MuscleService {
     })
   }
 
+  getTheMuscles() {
+    this.httpClient.get<Muscle[]>('api/muscle/getall').subscribe(data => {
+      console.log(data);
+      this.muscle = data;
+    })
+  }
+
   getFilteredData(muscleName: String) {
     this.httpClient.get<Exercise[]>(`api/muscle/getMuscles/${muscleName}`).subscribe(data => {
       console.log("FILTERDATA = " + data)
