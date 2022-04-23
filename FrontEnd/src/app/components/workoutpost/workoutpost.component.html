@@ -21,7 +21,7 @@
 <div>
   <div style="text-align: center">
     <h1 class="portiontitle">SEARCH EXERCISE</h1>
-    <input type="search" placeholder="search" list="exercise" [(ngModel)]="searchValue" (change)="validateSearch()"/>
+    <input type="search" placeholder="search" list="exercise" [(ngModel)]="searchValue" (change)="validateSearch()" (keydown.enter)="validateSearch()" (loadstart)="validateSearch()"/>
     <datalist id="exercise">
       <option *ngFor="let exercise of exercises">{{exercise.name}}</option>
     </datalist>

@@ -1,38 +1,138 @@
-.header {
-  background-color: var(--main-color);
-  color: white;
-  text-align: center;
-  font-family: Geneva;
-  padding: 100px;
-}
+//.header {
+//  background-color: var(--main-color);
+//  color: white;
+//  text-align: center;
+//  font-family: Geneva;
+//  padding: 100px;
+//}
 
 
-.para1 {
+//.para1 {
+//
+//  border-bottom: #121212;
+//  border-width: thick;
+//
+//}
+//
+//.mat-expansion-panel-header{
+//  border: #121212;
+//  border-width: thick;
+//}
+//
+//footer {
+//  background-color: #333333;
+//  color: white;
+//  text-align: center;
+//  margin: auto;
+//
+//  bottom: 0;
+//  width: 100%;
+//  height: 15%;
+//}
 
-  border-bottom: #121212;
-  border-width: thick;
+//
+//.box {
+//  width: 60%;
+//  position: center;
+//  margin: auto;
+//}
 
-}
 
-.mat-expansion-panel-header{
-  border: #121212;
-  border-width: thick;
-}
-
-footer {
-  background-color: #333333;
-  color: white;
-  text-align: center;
-  margin: auto;
-
-  bottom: 0;
+.body-img {
+  //transform: scale(0.1);
   width: 100%;
-  height: 15%;
+  //border: 2px solid black;
+  //background-color: red;
+}
+
+.body-img-map {
+  //background-color: pink;
+  width: 100%;
+}
+.picture-container {
+  width: 100%;
+  //background-color: orange;
+  display: flex;
 }
 
 
-.box {
-  width: 60%;
-  position: center;
+.page-container {
+  display: flex;
+  flex-direction: column;
+  //background-color: yellow;
+  width: 90%;
   margin: auto;
+}
+
+.exercise-container {
+  margin: 1rem;
+}
+
+.exercise-box {
+  font-size: 1rem;
+  box-shadow: -2px 2px 4px 0 rgb(0,0,0, 0.4), 2px 2px 4px 0 rgb(0,0,0,0.2);
+  padding: 1rem;
+}
+
+.button {
+  margin: auto;
+  border-radius: 2px;
+  padding: 0.2rem 0.5rem;
+  background-color: var(--main-color);
+  color: var(--light-color);
+  flex: 0.2;
+}
+
+.button-p {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.muscles-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.heavy {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.kinda-heavy {
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+@media only screen and (min-width: 1000px) {
+  .page-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+  .picture-container {
+    flex: 1.5;
+    display: flex;
+    width: 100%;
+    .body-img {
+      object-fit: cover;
+      margin-left: 6rem;
+      width: 80%;
+      aspect-ratio: 1300/1264;
+    }
+  }
+  .accordion-container {
+    flex: 1;
+    margin: auto;
+  }
+  .exercise-container {
+    .large {
+      font-size: 2rem;
+    }
+    flex: 1;
+    overflow-y: scroll;
+  }
 }
