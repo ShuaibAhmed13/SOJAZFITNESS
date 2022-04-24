@@ -17,7 +17,7 @@ import {ToastrService} from "ngx-toastr";
   styleUrls: ['./workoutpost.component.scss']
 })
 export class WorkoutpostComponent implements OnInit {
-
+  isDarkTheme: boolean = false;
   optionValue: any;
   exercises: Exercise[] = [];
   searchValue: String ="";
@@ -32,6 +32,7 @@ export class WorkoutpostComponent implements OnInit {
   @Input() exerciseFilter = <Exercise>{};
   ngOnInit(): void {
     this.getExercises();
+    this.isDarkTheme = localStorage.getItem('theme') === "Dark" ? true : false;
     this.setExercises();
     this.getUserExerciseDiary();
   }
@@ -59,6 +60,10 @@ export class WorkoutpostComponent implements OnInit {
     return this.exerciseService.getExercises();
   }
 
+  storeThemeSelection(){
+    localStorage.setItem('theme', this.isDarkTheme ? "Dark" : "Light");
+    /*    toggleSwitcher = localStorage.setItem('theme', this.isDarkTheme ? "Dark" : "Light");*/
+  }
   validateSearch() {
     for(let exercise of this.exercises) {
       if(exercise.name == this.searchValue) {

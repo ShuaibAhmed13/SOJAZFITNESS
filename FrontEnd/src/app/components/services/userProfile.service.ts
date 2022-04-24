@@ -19,7 +19,7 @@ export class userProfileService {
  public setUserProfile() {
     this.httpClient.get<userProfileDTO>("api/userProfile/getuserprofilebyname/" + this.currentUsername).subscribe(data => {
       localStorage.setItem("user_id", String(data.id));
-      localStorage.setItem("currentweight", String(data.currenWeight));
+      localStorage.setItem("currentweight", String(data.currentWeight));
       localStorage.setItem("goalweight", String(data.goalWeight));
       localStorage.setItem("lifestyle", String(data.lifestyle));
       localStorage.setItem("height", String(data.height));
@@ -48,7 +48,7 @@ export class userProfileService {
 
 export interface userProfileDTO {
   id: number;
-  currenWeight: number;
+  currentWeight: number;
   goalWeight: number;
   lifestyle: string;
   height: number;

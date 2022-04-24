@@ -9,10 +9,12 @@ import {MuscleService} from "../services/muscle.service";
   styleUrls: ['./workoutmanual.component.scss']
 })
 export class WorkoutmanualComponent implements OnInit {
+  isDarkTheme: boolean = false;
   panelOpenState = false;
   constructor(public exerciseService: ExerciseService, public muscleService: MuscleService) { }
 
   ngOnInit(): void {
+    this.isDarkTheme = localStorage.getItem('theme') === "Dark" ? true : false;
     this.getExercises();
     this.getMuscles();
   }
@@ -25,4 +27,8 @@ export class WorkoutmanualComponent implements OnInit {
   }
 
 
+  storeThemeSelection(){
+    localStorage.setItem('theme', this.isDarkTheme ? "Dark" : "Light");
+    /*    toggleSwitcher = localStorage.setItem('theme', this.isDarkTheme ? "Dark" : "Light");*/
+  }
 }
