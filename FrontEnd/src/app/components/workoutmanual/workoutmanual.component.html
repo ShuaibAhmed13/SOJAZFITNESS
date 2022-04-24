@@ -14,40 +14,32 @@
                          (closed)="panelOpenState = false">
       <mat-expansion-panel-header>
         <mat-panel-title>
-          Arms
+          <div *ngFor="let muscles of this.muscleService.muscle">
+            <div *ngIf="muscles.muscleGroup == 'Legs'">
+              {{muscles.muscleGroup}}
+            </div>
+          </div>
         </mat-panel-title>
         <mat-panel-description>
-          Currently I am arms
         </mat-panel-description>
       </mat-expansion-panel-header>
-      <p>Incline Arm Curl - Sit on an incline bench and hold a dumbbell in each hand at arm's length. Use your biceps to curl the dumbbell
-        until it reaches your shoulder, then lower them back down to your side and repeat.</p>
-      <p> Concentration Curl - Sit down on bench and rest your right arm against your right leg, letting the weight hang down.
-        Curl the weight up, pause, then lower. Repeat with the other arm. </p>
-      <p>Twisting Dumbbell Curl - Hold a dumbbell in each hand at your side with palms facing each other. Use your bicep to
-        curl the dumbbells up to your shoulders alternately, twisting your palms to face your chest as you lift them. Slowly
-        lower the dumbbells back down to your side and repeat. </p>
+      <div *ngFor="let exercises of this.exerciseService.exercises"><div *ngIf="exercises?.muscles![0]?.muscleGroup == 'Legs'">{{exercises.name}},{{exercises.description}}</div></div>
     </mat-expansion-panel>
 
     <mat-expansion-panel (opened)="panelOpenState = true"
                          (closed)="panelOpenState = false">
       <mat-expansion-panel-header>
         <mat-panel-title>
-          Back
+          <div *ngFor="let muscles of this.muscleService.muscle">
+            <div *ngIf="muscles.muscleGroup == 'Chest'">
+              {{muscles.muscleGroup}}
+            </div>
+          </div>
         </mat-panel-title>
         <mat-panel-description>
-          Currently I am Back
         </mat-panel-description>
       </mat-expansion-panel-header>
-      <p>Deadlift - a movement in which your hips hinge backward to lower down and pick up a weighted
-        barbell or kettlebell from the floor. Your back is flat throughout the movement. Some benefits of performing deadlifts
-        include strengthening and gaining more definition in your upper and lower back, glutes, and hamstrings.</p>
-      <p>Pull Up - an exercise in which one hangs by the hands from a support (such as a horizontal bar)
-        and pulls oneself up until the chin is level with the support specifically : such an exercise done with the palms facing
-        outward — compare chin-up.</p>
-      <p>Seated Row - an exercise you can do with a weight machine to work the muscles in your upper
-        back. Specifically, the seated row targets the muscles in your upper back and also the latissimus dorsi — a muscle
-        on the outer side of the chest wall. </p>
+      <div *ngFor="let exercises of this.exerciseService.exercises"><div *ngIf="exercises?.muscles![0]?.muscleGroup == 'Chest'">{{exercises.name}},{{exercises.description}}</div></div>
     </mat-expansion-panel>
 
     <mat-expansion-panel (opened)="panelOpenState = true"

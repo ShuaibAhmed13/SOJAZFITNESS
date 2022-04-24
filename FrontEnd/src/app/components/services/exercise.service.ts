@@ -28,7 +28,7 @@ export class ExerciseService {
       this.exercises = data;
     })
   }
-  getAllExercises():Observable<Exercise[]> {
+  getAllExercises():Observable <Exercise[]> {
     return this.httpClient.get<Exercise[]>('api/exercises/getall');
   }
   getcreateExercises(exercise: Exercise): Observable<string> {

@@ -3,7 +3,9 @@ import {Exercise} from "./Exercise";
 
 export interface Exercisediary {
   id?: number;
-  time?: string;
+  timeOfDay?: string;
+  sets?: number;
+  reps?: number;
   totalCaloriesBurned?: number;
   user: User;
   exercise: Exercise;
