@@ -2,15 +2,21 @@
 
 
 
-<div class="content {{storedTheme}}" role="main" [ngClass]="{'dark-theme-mode':isDarkTheme}">
+<div class="content {{storedTheme}}" role="main">
   <h1>WELCOME TO YOUR FITNESS PROFILE</h1>
   <h3>Check out the progress you've done so far solider!</h3>
 </div>
-<mat-slide-toggle [(ngModel)]="isDarkTheme" (change)="storeThemeSelection()">
-  Dark Theme
-</mat-slide-toggle>
+
+
+<div class="content mat-app-background " [ngClass]="{'darkMode': isDarkTheme}">
+  <mat-slide-toggle [(ngModel)]="isDarkTheme" (change)="storeThemeSelection()" >
+    Dark Theme
+  </mat-slide-toggle>
+
+
 <div class = "profile">
   <h2 class = "titleHead">My Progress</h2>
+
 
   <div class="card" *ngIf="currentUserProfile">
 
@@ -83,7 +89,7 @@
 
 </div>
 
-
+</div>
 
 
 

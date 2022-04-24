@@ -11,7 +11,7 @@ import {Exercise} from "../interfaces/Exercise";
   styleUrls: ['./workoutpost.component.scss']
 })
 export class WorkoutpostComponent implements OnInit {
-
+  isDarkTheme: boolean = false;
   optionValue: any;
 
   constructor(public exerciseService: ExerciseService, public exerciseCardioService: ExerciseCardioService, public muscleService: MuscleService) {
@@ -20,6 +20,7 @@ export class WorkoutpostComponent implements OnInit {
   @Input() exercises = <Exercise>{};
   ngOnInit(): void {
     this.getExercises();
+    this.isDarkTheme = localStorage.getItem('theme') === "Dark" ? true : false;
   }
 
   workout(workoutData: any) {
@@ -34,4 +35,8 @@ export class WorkoutpostComponent implements OnInit {
     return this.exerciseService.getExercises();
   }
 
+  storeThemeSelection(){
+    localStorage.setItem('theme', this.isDarkTheme ? "Dark" : "Light");
+    /*    toggleSwitcher = localStorage.setItem('theme', this.isDarkTheme ? "Dark" : "Light");*/
+  }
 }

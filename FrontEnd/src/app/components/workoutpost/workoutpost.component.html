@@ -3,7 +3,6 @@
   <h1>EXERCISE POST</h1>
   <h3>What you have been working out on?</h3>
 </div>
-<br>
 <!--  <h2>Enter Your Workout</h2>
 <form #workoutData="ngForm" (ngSubmit)="workout(workoutData)" novalidate style="width: 500px;">
   <div class="form-group">
@@ -17,7 +16,7 @@
   </div>
   <button class="button button3">Submit</button>
 </form>-->
-
+<div class="content mat-app-background " [ngClass]="{'darkMode': isDarkTheme}">
 <h2>Filter Workouts by Muscle</h2>
 <div class="form-container">
   <form #filterData="ngForm" (ngSubmit)="filterMuscles(filterData)" novalidate>
@@ -63,6 +62,7 @@
   </tr>
 </table>
 <br>
+</div>
 <footer>
  <p>COPYRIGHT BY SOJAZ LLC.</p>
   <a href="settingspage">Settings</a>
