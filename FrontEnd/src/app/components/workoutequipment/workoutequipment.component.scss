@@ -69,3 +69,42 @@ footer {
   width: 100%;
   height: 15%;
 }
+
+.theme {
+  background-color: var(--main-color);
+  color: white;
+  text-align: center;
+  font-family: Geneva;
+  padding: 100px;
+}
+
+.theme.theme-black{
+  background-color: #333333;
+}
+.theme.theme-pink{
+  background-color: pink;
+  color: #333333;
+}
+.theme.theme-orange{
+  background-color: orange;
+}
+.theme.theme-yellow{
+  background-color: yellow;
+  color: #333333;
+}
+
+.theme.theme-og{
+  background-color: var(--main-color);
+}
+.theme.theme-red{
+  background-color: #e02121;
+
+}
+
+.theme.theme-blue{
+  background-color: #2980B9;
+}
+
+.theme.theme-green{
+  background-color: #11cc3b;
+}

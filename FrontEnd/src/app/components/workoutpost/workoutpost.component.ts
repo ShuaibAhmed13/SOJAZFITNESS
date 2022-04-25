@@ -11,6 +11,7 @@ import {Fooddiary} from "../interfaces/fooddiary";
 import {Exercisediary} from "../interfaces/Exercisediary";
 import {ToastrService} from "ngx-toastr";
 import {ActivatedRoute, Router} from "@angular/router";
+import {themeColor} from "../user-profile/user-profile.component";
 
 @Component({
   selector: 'app-workoutpost',
@@ -19,7 +20,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class WorkoutpostComponent implements OnInit, AfterContentChecked {
   isDarkTheme: boolean = false;
-
+  themeColor = themeColor;
 
   optionValue: any;
   exercises: Exercise[] = [];
@@ -129,7 +130,7 @@ export class WorkoutpostComponent implements OnInit, AfterContentChecked {
     let entry_id1 = entry_id!;
     this.exerciseDiaryService.deleteFromExerciseDiary(entry_id1).subscribe(data => {
         console.log("Deleted successfully");
-        this.toastr.success("Meal Deleted!")
+        this.toastr.success("Exercise Deleted!")
         this.getUserExerciseDiary();
       }
     );

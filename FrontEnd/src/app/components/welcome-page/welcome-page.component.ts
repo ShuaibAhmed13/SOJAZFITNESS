@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {toggleSwitcher} from "../user-profile/user-profile.component";
+import {themeColor} from "../user-profile/user-profile.component";
 
 @Component({
   selector: 'app-welcome-page',
@@ -8,6 +9,7 @@ import {toggleSwitcher} from "../user-profile/user-profile.component";
 })
 export class WelcomePageComponent implements OnInit {
   isDarkTheme: boolean = false;
+  themeColor = themeColor;
   toggleSwitcher = toggleSwitcher;
   constructor() { }
 

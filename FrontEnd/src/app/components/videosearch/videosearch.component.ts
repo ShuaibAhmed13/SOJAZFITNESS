@@ -3,6 +3,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 import {Video} from "../interfaces/Video";
 import {VideoService} from "../services/video.service";
 import { DomSanitizer } from '@angular/platform-browser';
+import {themeColor} from "../user-profile/user-profile.component";
 
 
 @Component({
@@ -11,6 +12,8 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./videosearch.component.scss']
 })
 export class VideosearchComponent implements OnInit {
+
+  themeColor = themeColor;
 
   constructor(public videoService: VideoService, public sanitizer: DomSanitizer) {
   }
