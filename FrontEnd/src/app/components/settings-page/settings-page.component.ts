@@ -2,6 +2,7 @@ import {Component, HostListener, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators, NgForm} from "@angular/forms";
 import {ConnectionService} from "../../connection.service";
 import {ContactService} from "../../contact.service";
+import {themeColor} from "../user-profile/user-profile.component";
 
 @Component({
   selector: 'app-settings-page',
@@ -13,6 +14,8 @@ export class SettingsPageComponent implements OnInit {
   contactForm: FormGroup;
   disabledSubmitButton: boolean = true;
   optionsSelect: Array<any> | undefined;
+
+  themeColor = themeColor;
 
   @HostListener('input') oninput() {
 

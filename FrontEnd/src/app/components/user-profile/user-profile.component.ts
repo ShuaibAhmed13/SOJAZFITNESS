@@ -6,6 +6,8 @@ import {Subscription} from "rxjs";
 import {userProfile} from "../interfaces/userProfile";
 import {FormControl} from "@angular/forms";
 export let toggleSwitcher = localStorage.getItem('toggleControl');
+export let themeColor = localStorage.getItem('theme-color');
+
 
 @Component({
   selector: 'app-user-profile',
@@ -71,6 +73,7 @@ export class UserProfileComponent implements OnInit {
     localStorage.setItem('theme-color', themes);
     // @ts-ignore
     this.storedTheme = localStorage.getItem('theme-color');
+    themeColor = localStorage.getItem('theme-color');
   }
 
   pageOneDisplay(): void {

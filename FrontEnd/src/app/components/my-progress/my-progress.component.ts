@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {themeColor} from "../user-profile/user-profile.component";
 
 @Component({
   selector: 'app-my-progress',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyProgressComponent implements OnInit {
   isDarkTheme: boolean = false;
+  themeColor = themeColor;
 
   constructor() { }
 

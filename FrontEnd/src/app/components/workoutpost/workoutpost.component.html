@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
-<div class="header">
+<div class="theme {{themeColor}}" role="main">
   <h1>EXERCISE DIARY</h1>
   <h3>What you have been working out on?</h3>
 </div>
@@ -19,9 +19,9 @@
 <div class="content mat-app-background " [ngClass]="{'darkMode': isDarkTheme}">
 
 <div>
-  <div style="text-align: center">
-    <h1 class="portiontitle">SEARCH EXERCISE</h1>
-    <input type="search" placeholder="search" list="exercise" [(ngModel)]="searchValue" (change)="validateSearch()" (keydown.enter)="validateSearch()" (loadstart)="validateSearch()"/>
+  <div>
+    <h1 class="portiontitle" style="text-align: center;">SEARCH EXERCISE</h1>
+    <input class="form-control" style="width: 250px; margin: auto; align-content: center;" type="search" placeholder="search" list="exercise" [(ngModel)]="searchValue" (change)="validateSearch()" (keydown.enter)="validateSearch()" (loadstart)="validateSearch()"/>
     <datalist id="exercise">
       <option *ngFor="let exercise of exercises">{{exercise.name}}</option>
     </datalist>
@@ -31,25 +31,26 @@
   <div *ngIf="selectedExercise" style="text-align: center">
     <div *ngIf="selectedExercise.type === 'Cardio'">
     <div>
-      <p><span style="font-weight: bold">Exercise Name: {{selectedExercise.name}}</span></p>
-      <p><span style="font-weight: bold">Exercise Description: {{selectedExercise.description}}</span></p>
-      <p><span style="font-weight: bold">Exercise Type: {{selectedExercise.type}}</span></p>
-      <p><span style="font-weight: bold">Calories Per Minute: {{selectedExercise.caloriesBurned}}</span></p>
+      <p><span>Exercise Name: </span>{{selectedExercise.name}}</p>
+      <p><span>Exercise Description: </span>{{selectedExercise.description}}</p>
+      <p><span>Exercise Type: </span>{{selectedExercise.type}}</p>
+      <p><span>Calories Per Minute: </span>{{selectedExercise.caloriesBurned}}</p>
     </div>
     <div class="addPortion">
       <div class="portionwithoutmessage">
         <div class="inputsInAdd">
-
-          <select #timeOfDay>
+          <label>Time of Day</label>
+          <select style="width: 150px; margin: auto; align-content: center;" class="form-control" #timeOfDay>
             <option>Morning</option>
             <option>Afternoon</option>
             <option>Night</option>
           </select>
-          <br><br>
-          <input type="number" step="0.5" min="0" placeholder="No of Minutes" #noOfMinutes (change)="message = ''"/>
+          <br>
+          <label>Number of Minutes</label>
+          <input class="form-control" style="width: 150px; margin: auto; align-content: center;" type="number" step="0.5" min="0" placeholder="No of Minutes" #noOfMinutes (change)="message = ''"/>
         </div>
         <br>
-        <button [disabled]="noOfMinutes.value.length < 1" (click)="addCardioExercise(noOfMinutes.valueAsNumber, timeOfDay.value)">
+        <button class="form-control" style="width: 60px; align-content: center; margin: auto; background-color: #342b6d; color: white;"  [disabled]="noOfMinutes.value.length < 1" (click)="addCardioExercise(noOfMinutes.valueAsNumber, timeOfDay.value)">
           ADD
         </button>
         <br>
@@ -61,28 +62,30 @@
     </div>
   </div>
     <div *ngIf="selectedExercise.type === 'Weight'">
-      <div>
-        <p><span style="font-weight: bold">Exercise Name: {{selectedExercise.name}}</span></p>
-        <p><span style="font-weight: bold">Exercise Description: {{selectedExercise.description}}</span></p>
-        <p><span style="font-weight: bold">Exercise Type: {{selectedExercise.type}}</span></p>
-        <p><span style="font-weight: bold">Calories Per Minute: {{selectedExercise.caloriesBurned}}</span></p>
+      <div >
+        <p><span>Exercise Name: </span> {{selectedExercise.name}}</p>
+        <p><span>Exercise Description: </span>{{selectedExercise.description}}</p>
+        <p><span>Exercise Type: </span>{{selectedExercise.type}}</p>
+        <p><span>Calories Per Minute: </span>{{selectedExercise.caloriesBurned}}</p>
       </div>
-      <div class="addPortion">
+      <div style="margin: auto; align-items: center">
         <div class="portionwithoutmessage">
           <div class="inputsInAdd">
-
-            <select #timeOfDay>
+            <label>Time of Day</label>
+            <select style="width: 150px; margin: auto; align-content: center;" class="form-control" #timeOfDay>
               <option>Morning</option>
               <option>Afternoon</option>
               <option>Night</option>
             </select>
-            <br><br>
-            <input type="number" step="0.5" min="0" placeholder="No of Sets" #sets (change)="message = ''"/>
-            <br><br>
-            <input type="number" step="0.5" min="0" placeholder="No of Reps" #reps (change)="message = ''"/>
+            <br>
+            <label>Sets</label>
+            <input class="form-control" style="width: 150px; margin: auto; align-content: center;" type="number" step="0.5" min="0" placeholder="No of Sets" #sets (change)="message = ''"/>
+            <br>
+            <label>Reps</label>
+            <input class="form-control" style="width: 150px; margin: auto; align-content: center;" type="number" step="0.5" min="0" placeholder="No of Reps" #reps (change)="message = ''"/>
           </div>
           <br>
-          <button [disabled]="sets.value.length < 1 && reps.value.length < 1" (click)="addWeightExercise(sets.valueAsNumber, reps.valueAsNumber, timeOfDay.value)">
+          <button class="form-control" style="width: 60px; align-content: center; margin: auto; background-color: #342b6d; color: white;" [disabled]="sets.value.length < 1 && reps.value.length < 1" (click)="addWeightExercise(sets.valueAsNumber, reps.valueAsNumber, timeOfDay.value)">
             ADD
           </button>
         </div>

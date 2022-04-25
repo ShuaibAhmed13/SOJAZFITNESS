@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ExerciseService} from "../services/exercise.service";
 import {Exercise} from "../interfaces/Exercise";
+import {themeColor} from "../user-profile/user-profile.component";
 
 @Component({
   selector: 'app-workoutequipment',
@@ -8,6 +9,7 @@ import {Exercise} from "../interfaces/Exercise";
   styleUrls: ['./workoutequipment.component.scss']
 })
 export class WorkoutequipmentComponent implements OnInit {
+  themeColor = themeColor;
   optionValue: any;
 
   constructor(public exerciseService: ExerciseService) {
