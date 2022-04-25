@@ -106,9 +106,9 @@ export class WorkoutmanualComponent implements OnInit, AfterViewInit {
     }
   }
 
-  // storeThemeSelection() {
-  //   localStorage.setItem('theme', this.isDarkTheme ? "Dark" : "Light");
-  //   /*    toggleSwitcher = localStorage.setItem('theme', this.isDarkTheme ? "Dark" : "Light");*/
-  // }
+   storeThemeSelection() {
+     localStorage.setItem('theme', this.isDarkTheme ? "Dark" : "Light");
+     /*toggleSwitcher = localStorage.setItem('theme', this.isDarkTheme ? "Dark" : "Light");*/
+   }
 
 }
