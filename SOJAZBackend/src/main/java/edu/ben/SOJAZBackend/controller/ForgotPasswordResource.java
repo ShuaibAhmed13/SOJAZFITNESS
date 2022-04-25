@@ -53,8 +53,9 @@ public class ForgotPasswordResource {
 
         try {
             userService.updateResetPasswordToken(token, email);
-            /*String resetPasswordLink = Utility.getSiteURL(request) + "/reset_password?token=" + token;*/
-            sendEmail(email, token);
+//            String resetPasswordLink = Utility.getSiteURL(request) + "/reset_password?token=" + token;
+            String resetPasswordLink = Utility.getSiteURL(request) + "/resetpasswordform;token=" + token;
+            sendEmail(email, resetPasswordLink, token);
             model.addAttribute("message", "We have sent a reset password link to your email. Please check.");
 
         } catch (UsernameNotFoundException ex) {
@@ -66,7 +67,7 @@ public class ForgotPasswordResource {
         return "forgot_password_form";
     }
 
-    public void sendEmail(String recipientEmail, String link) throws MessagingException, UnsupportedEncodingException{
+    public void sendEmail(String recipientEmail, String link, String token) throws MessagingException, UnsupportedEncodingException{
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message);
 
@@ -78,8 +79,10 @@ public class ForgotPasswordResource {
         String content = "<p>Hello,</p>"
                 + "<p>You have requested to reset your password.</p>"
                 + "<p>Here is your token code to reset your password:</p>"
-
-                + "<p>"+ link +"<p>"
+                + "<p>"+ token +"<p>"
+                + "<br>"
+                + "<p>You can also click this link to reset your password:</p>"
+                + "<p>"+ link + "<p>"
                 + "<br>"
                 + "<p>Ignore this email if you do remember your password, "
                 + "or you have not made the request.</p>";

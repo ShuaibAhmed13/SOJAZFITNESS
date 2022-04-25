@@ -2,7 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {User} from "../interfaces/User";
 import {HttpClient} from "@angular/common/http";
 import {UserService} from "../services/user.services";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {ForgotPasswordService} from "../services/forgot-password.service";
 
 @Component({
@@ -15,7 +15,11 @@ export class ResetPasswordFormComponent implements OnInit {
   users = <User[]> [];
   error: string = "";
   chooseModel: string = "";
-  constructor(public forgotPasswordService: ForgotPasswordService, public router: Router) { }
+  token: string="";
+  constructor(public forgotPasswordService: ForgotPasswordService, public router: Router, public route: ActivatedRoute) {
+    // @ts-ignore
+    this.token = this.route.snapshot.paramMap.get('token');
+  }
 
   @Input()userEmail = <User>{}
   @Input() editItem: any;
@@ -30,11 +34,22 @@ export class ResetPasswordFormComponent implements OnInit {
 
 
 
-  resetNewPassword(password: string, token: string){
-    this.router.navigateByUrl("/loginpage");
-    this.forgotPasswordService.processResetPassword(password, token).subscribe(data =>{
+  resetNewPassword(password: string, confirmpassword: string, token: string){
+    if(password != confirmpassword) {
+      this.error = "The passwords do not match.";
+      return;
+    }
+    if(token.length == 0) {
+      this.error = "Please enter a valid token."
+      return;
+    }
+    // this.router.navigateByUrl("/loginpage");
+    this.forgotPasswordService.processResetPassword(token, password).subscribe(data =>{
       console.log(data);
+
     })
+    this.router.navigateByUrl('/loginpage');
+
   }
 
  /* checkPasswordMatch(fieldConfirmPassword){
