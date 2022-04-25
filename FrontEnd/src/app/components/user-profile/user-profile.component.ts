@@ -29,6 +29,7 @@ export class UserProfileComponent implements OnInit {
 /*  users: userProfileDTO[] = [];*/
   subscribe: Subscription | undefined;
   currentUserProfile: userProfileDTO | undefined;
+  currentUserName: string = '';
   @Output() edit: EventEmitter<string> = new EventEmitter<string>();
 
   editProfile(id: string) {
@@ -43,8 +44,10 @@ export class UserProfileComponent implements OnInit {
       this.className = value ? 'darkMode' : '';
       localStorage.getItem('toggleControl');
       console.log(this.className);
+
     });
 
+    this.getuserName();
     this.isDarkTheme = localStorage.getItem('theme') === "Dark" ? true : false;
   }
 
@@ -92,5 +95,9 @@ export class UserProfileComponent implements OnInit {
   }*/
 
 
+  getuserName(){
+    // @ts-ignore
+    this.currentUserName = localStorage.getItem('username');
+  }
 
 }
