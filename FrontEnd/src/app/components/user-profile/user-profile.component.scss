@@ -177,35 +177,41 @@ padding-bottom: 6vh;
   }
 }
 
-.content.theme-black{
-  background-color: #333333;
+.theme {
+  background-color: var(--main-color);
   color: white;
+  text-align: center;
+  font-family: Geneva;
+  padding: 100px;
 }
-.content.theme-pink{
+
+.theme.theme-black{
+  background-color: #333333;
+}
+.theme.theme-pink{
   background-color: pink;
   color: #333333;
 }
-.content.theme-orange{
+.theme.theme-orange{
   background-color: orange;
 }
-.content.theme-yellow{
+.theme.theme-yellow{
   background-color: yellow;
   color: #333333;
 }
 
-.content.theme-og{
+.theme.theme-og{
   background-color: var(--main-color);
-  color: white;
 }
-.content.theme-red{
+.theme.theme-red{
   background-color: #e02121;
 
 }
 
-.content.theme-blue{
+.theme.theme-blue{
   background-color: #2980B9;
 }
 
-.content.theme-green{
+.theme.theme-green{
   background-color: #11cc3b;
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {themeColor} from "../user-profile/user-profile.component";
 
 @Component({
   selector: 'app-about-us',
@@ -8,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class AboutUsComponent implements OnInit {
 
   isDarkTheme: boolean = false;
+  themeColor = themeColor;
 
   constructor() { }
 
