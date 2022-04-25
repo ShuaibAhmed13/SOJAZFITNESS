@@ -18,6 +18,6 @@ export class ForgotPasswordService {
 
   public processResetPassword(token: string, password: string){
 
-    return this.httpClient.post<string>("api/resetpassword/reset_password?token=" + token, token);
+    return this.httpClient.post<string>("api/resetpassword/reset_password?token=" + token + "&password=" + password, token);
   }
 }
