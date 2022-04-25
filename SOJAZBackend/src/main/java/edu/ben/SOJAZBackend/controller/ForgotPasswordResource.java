@@ -4,10 +4,12 @@ import edu.ben.SOJAZBackend.service.UserService;
 import edu.ben.SOJAZBackend.service.Utility;
 import net.bytebuddy.utility.RandomString;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.data.repository.query.Param;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
@@ -27,6 +29,12 @@ import java.io.UnsupportedEncodingException;
 @RestController
 @RequestMapping(value = "api/resetpassword", produces = "application/json")
 public class ForgotPasswordResource {
+
+    @Autowired
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
     @Autowired
     private JavaMailSender mailSender;
 
@@ -110,6 +118,7 @@ public class ForgotPasswordResource {
             model.addAttribute("message", "Invalid Token");
             return "message";
         } else{
+            password = passwordEncoder().encode(password);
             userService.updatePassword(User,password);
             model.addAttribute("message", "You have successfully changed your password.");
         }
