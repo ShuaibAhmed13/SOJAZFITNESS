@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {AfterContentChecked, AfterContentInit, AfterViewInit, Component, Input, OnChanges, OnInit} from '@angular/core';
 import {ExerciseService} from "../services/exercise.service";
 import {ExerciseCardioService} from "../services/exercise-cardio.service";
 import {Muscle} from "../interfaces/Muscle";
@@ -10,14 +10,17 @@ import {Food} from "../interfaces/Food";
 import {Fooddiary} from "../interfaces/fooddiary";
 import {Exercisediary} from "../interfaces/Exercisediary";
 import {ToastrService} from "ngx-toastr";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-workoutpost',
   templateUrl: './workoutpost.component.html',
   styleUrls: ['./workoutpost.component.scss']
 })
-export class WorkoutpostComponent implements OnInit {
+export class WorkoutpostComponent implements OnInit, AfterContentChecked {
   isDarkTheme: boolean = false;
+
+
   optionValue: any;
   exercises: Exercise[] = [];
   searchValue: String ="";
@@ -26,15 +29,22 @@ export class WorkoutpostComponent implements OnInit {
   message: string = "";
   successmessage: string ="";
 
-  constructor(public exerciseService: ExerciseService, public exerciseCardioService: ExerciseCardioService, public muscleService: MuscleService, public exerciseDiaryService: ExercisediaryService, private toastr: ToastrService) {
+  constructor(public exerciseService: ExerciseService, public exerciseCardioService: ExerciseCardioService, public muscleService: MuscleService, public exerciseDiaryService: ExercisediaryService, private toastr: ToastrService, private route: ActivatedRoute) {
+    // @ts-ignore
+    this.searchValue = this.route.snapshot.paramMap.get('selectedExercise');
   }
 
   @Input() exerciseFilter = <Exercise>{};
+
   ngOnInit(): void {
     this.getExercises();
     this.isDarkTheme = localStorage.getItem('theme') === "Dark" ? true : false;
     this.setExercises();
     this.getUserExerciseDiary();
+  }
+
+  ngAfterContentChecked() {
+    this.validateSearch();
   }
 
   getUserExerciseDiary() {

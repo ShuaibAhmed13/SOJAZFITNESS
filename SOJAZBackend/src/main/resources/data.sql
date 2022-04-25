@@ -11,23 +11,48 @@ Insert into video values('2', 'LIVESTRONG.COM',  'https://www.youtube.com/embed/
 insert into exercise values(1, '30', 'A chest exercise that uses a barbell and bench.', 'Bench Press', 'Weight');
 insert into exercise values(2, '20', 'A leg workout that uses a barbell.', 'Squats', 'Weight');
 insert into exercise values(3, '40', '100 jumps with a jumprope.','JumpingRope','Cardio');
+insert into exercise values(4, '30', 'A biceps workout that can be done with dumbbells or a barbell.', 'Bicep Curls', 'Weight');
 
 Insert into equipment values (1, 'Bench', 'Weight');
 Insert into equipment values (2, 'Barbell', 'Weight');
 Insert into equipment values(3,'Jumprope', 'Cardio');
+Insert into equipment values(4,'Dumbbells', 'Weight');
+
 
 
 insert into exercise_equipments values(1,1);
 insert into exercise_equipments values(1,2);
 insert into exercise_equipments values(2,2);
 insert into exercise_equipments values(3,3);
+insert into exercise_equipments values(4,2);
+insert into exercise_equipments values(4,4);
 
 
-insert into muscles values(1, 'Chest', 'Pectoralis Major');
+insert into muscles values(1, 'Chest', 'Pectorals');
 insert into muscles values(2, 'Legs', 'Quadriceps');
+insert into muscles values(3, 'Arms', 'Biceps');
+insert into muscles values(4, 'Arms', 'Triceps');
+insert into muscles values(5, 'Arms', 'Forearms');
+insert into muscles values(6, 'Core', 'Abdominals');
+insert into muscles values(7, 'Legs', 'Hamstrings');
+insert into muscles values(8, 'Legs', 'Calves');
+insert into muscles values(9, 'Shoulders', 'Deltoids');
+insert into muscles values(10, 'Hips', 'Glutes');
+insert into muscles values(11, 'Back', 'Lats');
+insert into muscles values(12, 'Back', 'Traps');
+
+
 
 insert into exercise_muscles values(1,1);
 insert into exercise_muscles values(2,2);
+insert into exercise_muscles values(4,3);
+insert into exercise_muscles values(2,7);
+insert into exercise_muscles values(2,10);
+insert into exercise_muscles values(1,4);
+insert into exercise_muscles values(1,9);
+
+
+
 
 insert into user_food values (1, 403, 403, "2022-03-27", 403, 'lunch', 2, 123, 432, 123, 1, 1);
 insert into user_food values (2, 334, 334, "2022-03-27", 334, 'lunch', 2, 240, 323, 343, 2, 1);

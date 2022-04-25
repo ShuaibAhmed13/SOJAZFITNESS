@@ -48,10 +48,16 @@ export class ExerciseService {
     })
   }
 
+  getExerciseByMuscle(muscleName: String): Observable<Exercise[]> {
+    return this.httpClient.get<Exercise[]>(`api/muscle/getMuscles/${muscleName}`);
+  }
+
   getFilteredEquipment(equipmentName:String){
     this.httpClient.get<Exercise[]>(`api/equipment/getequipment/${equipmentName}`).subscribe((data =>{console.log("FILTERDATA = " + data)
       this.exercises = data;
     }))
   }
+
+
 
 }

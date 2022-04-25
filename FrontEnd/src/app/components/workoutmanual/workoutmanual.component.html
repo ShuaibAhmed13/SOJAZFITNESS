@@ -1,13 +1,68 @@
-<html>
 <app-navbar></app-navbar>
 
+<!--<div class="header">-->
+<!--  <h1>WORKOUTZ</h1>-->
+<!--  <h3>KEY to success. That's it.</h3>-->
+<!--</div>-->
+
+  <div class="content mat-app-background " [ngClass]="{'darkMode': isDarkTheme}">
+
+<div class="page-container">
+
+  <div class="picture-container">
+    <img class="body-img" src="assets/anatomyfile.png" usemap="#image-map" (load)="imageResized()">
+
+    <map class="body-img-map" name="image-map">
+      <area target="" alt="Chest" title="Chest" (click)="selectGroup('Chest')" coords="287,307,335,305,347,326,361,305,404,305,414,329,440,358,421,376,394,390,358,389,320,391,291,387,265,367,253,353,272,336" shape="poly">
+      <area target="" alt="Shoulders" title="Shoulders" (click)="selectGroup('Shoulders')"  coords="280,298,243,312,234,328,229,369,247,360,270,339,283,315" shape="poly">
+      <area target="" alt="Shoulders" title="Shoulders" (click)="selectGroup('Shoulders')" coords="414,299,440,304,456,318,463,346,463,365,441,353,423,339,410,313" shape="poly">
+      <area target="" alt="Arms" title="Arms" (click)="selectGroup('Arms')" coords="251,357,223,375,211,404,208,430,215,458,230,441,245,441,254,426,261,411,261,388" shape="poly">
+      <area target="" alt="Arms" title="Arms" (click)="selectGroup('Arms')" coords="441,356,438,379,431,408,438,427,451,441,468,445,480,457,485,430,482,404,468,370" shape="poly">
+      <area target="" alt="Forearms" title="Forearms" (click)="selectGroup('Arms')" coords="207,436,181,463,168,489,154,514,135,540,124,546,136,557,139,561,159,546,183,528,203,509,220,491,236,467,243,443,226,446,215,461" shape="poly">
+      <area target="" alt="Forearms" title="Forearms" (click)="selectGroup('Arms')" coords="454,442,459,472,477,496,500,517,528,538,554,561,571,550,537,512,520,474,500,445,484,435,482,461" shape="poly">
+      <area target="" alt="Core" title="Core" (click)="selectGroup('Core')" coords="255,359,275,429,285,453,285,490,286,532,312,551,348,574,379,552,408,528,408,482,410,445,424,420,437,361,413,383,371,393,347,387,307,395,278,388" shape="poly">
+      <area target="" alt="Legs" title="Legs" (click)="selectGroup('Legs')" coords="288,538,270,612,267,698,276,754,284,775,284,792,275,825,285,877,290,908,289,950,296,963,311,968,314,925,322,896,330,868,330,842,322,790,330,751,335,710,333,671,342,621,344,584" shape="poly">
+      <area target="" alt="Legs" title="Legs" (click)="selectGroup('Legs')" coords="406,534,350,581,355,629,361,663,360,709,367,762,373,790,368,813,362,854,374,900,385,941,385,964,401,962,407,906,415,863,420,829,409,780,425,735,430,670,422,596" shape="poly">
+      <area target="" alt="Back" title="Back" (click)="selectGroup('Back')" coords="321,279,289,294,284,305,312,304,338,307" shape="poly">
+      <area target="" alt="Back" title="Back" (click)="selectGroup('Back')" coords="371,279,412,298,408,305,384,303,360,305,367,292" shape="poly">
+      <area target="" alt="Back" title="Back" (click)="selectGroup('Back')" coords="950,240,949,264,939,273,917,284,896,299,896,317,884,335,868,352,871,390,881,422,895,444,909,467,911,499,913,509,932,536,957,568,982,539,1003,506,1006,466,1020,445,1037,420,1044,404,1050,362,1040,345,1026,328,1024,299,992,283,972,271,969,240" shape="poly">
+      <area target="" alt="Shoulders" title="Shoulders" (click)="selectGroup('Shoulders')" coords="890,299,858,310,845,331,846,359,869,350,887,331,892,312" shape="poly">
+      <area target="" alt="Shoulders" title="Shoulders" (click)="selectGroup('Shoulders')" coords="1026,299,1027,322,1037,339,1054,356,1075,359,1071,331,1063,310" shape="poly">
+      <area target="" alt="Arms" title="Arms" (click)="selectGroup('Arms')" coords="868,350,845,362,834,378,823,400,822,429,824,446,847,440,861,433,876,415" shape="poly">
+      <area target="" alt="Arms" title="Arms" (click)="selectGroup('Arms')" coords="1051,353,1047,381,1046,416,1055,433,1075,440,1091,447,1095,428,1096,405,1088,382,1074,363" shape="poly">
+      <area target="" alt="Forearms" title="Forearms" (click)="selectGroup('Arms')" coords="819,434,796,456,785,486,769,518,739,545,754,563,791,531,817,506,840,489,849,457,854,439,825,450" shape="poly">
+      <area target="" alt="Forearms" title="Forearms" (click)="selectGroup('Arms')" coords="1063,439,1073,475,1093,501,1120,525,1149,549,1166,563,1178,548,1150,513,1136,483,1120,457,1096,434,1097,455" shape="poly">
+      <area target="" alt="Hips" title="Hips" (click)="selectGroup('Hips')" coords="912,512,890,555,888,616,890,636,923,622,943,619,955,595,973,614,988,622,1010,628,1028,632,1033,608,1033,578,1026,542,1005,508,989,535,969,562,958,580,932,549" shape="poly">
+      <area target="" alt="Legs" title="Legs" (click)="selectGroup('Legs')" coords="884,600,873,668,881,727,895,769,895,792,886,832,895,871,901,943,900,991,920,987,926,930,938,879,941,847,932,797,944,742,946,701,947,660,955,605,927,622,910,625,893,638" shape="poly">
+      <area target="" alt="Legs" title="Legs" (click)="selectGroup('Legs')" coords="964,611,972,664,972,705,978,750,988,793,979,814,978,851,984,891,996,935,997,989,1019,990,1018,924,1026,872,1033,827,1022,777,1038,714,1042,674,1040,636,1036,599,1027,636,997,625" shape="poly">
+    </map>
+
+  </div>
+
+<!--  <div *ngFor="let key of groupsMap.values()">-->
+<!--    {{key}}-->
+<!--    <div *ngFor="let val of key.values()">-->
+<!--      {{val.muscleName}}-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--  <div *ngFor="let group of groupsMap.keys()">-->
+<!--    {{group}}-->
+<!--    <div *ngFor="let muscle of groupsMap.get(group)">-->
+<!--      {{muscle.muscleName}}-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div *ngFor="let muscle of muscles">-->
+<!--    {{muscle.muscleName}}-->
+<!--  </div>-->
+<!-- =======
 <div class="header">
   <h1>WORKOUTZ</h1>
   <h3>KEY to success. That's it.</h3>
-</div>
+</div> -->
 
-<div class="content mat-app-background " [ngClass]="{'darkMode': isDarkTheme}">
-<div class="box">
+<!-- <div class="content mat-app-background " [ngClass]="{'darkMode': isDarkTheme}"> -->
+<!-- <div class="box">
 
   <mat-accordion>
     <mat-expansion-panel (opened)="panelOpenState = true"
@@ -159,15 +214,234 @@
 
   </mat-accordion>
 
-</div>
+  <div class="accordion-container">
+    <mat-accordion  [multi]="false">
+      <mat-expansion-panel [expanded]="group === selectedGroup" *ngFor="let group of groupsMap.keys()">
+        <mat-expansion-panel-header>
+          <mat-panel-title class="heavy">
+            {{group}}
+          </mat-panel-title>
+          <mat-panel-description>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="muscles-box" *ngFor="let muscle of groupsMap.get(group)">
+            <a (click)="setMuscle(muscle)" class="kinda-heavy">{{muscle.muscleName}}</a>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
 
-<br>
-<br>
-</div>
+  <div *ngIf="currentMuscle" class="exercise-container">
+    <h1 class="heavy large">{{currentMuscle.muscleName}} Workouts</h1>
+    <div class="exercise-box" *ngFor="let exercise of exercises">
+      <h3 class="heavy">{{exercise.name}}</h3>
+      <p>{{exercise.description}}</p>
+      <p class="button-p"><button class="button" (click)="goToPost(exercise)">POST</button></p>
+    </div>
+  </div>
+</div> -->
+<!-- Image Map Generated by http://www.image-map.net/ -->
+
+<!-- Image Map Generated by http://www.image-map.net/ -->
+<!--<img class="body-img"-->
+<!--  src="https://thumbs.dreamstime.com/z/muscles-chart-description-muscular-body-man-muscle-accurate-most-important-human-front-back-view-vector-90796905.jpg"-->
+<!--  usemap="#image-map">-->
+
+<!--<map name="image-map">-->
+<!--  <area class="chest" target="" alt="Chest" title="Chest" href="google.com"-->
+<!--        coords="334,196,347,275,313,282,275,267,259,222,277,186,311,191" shape="poly">-->
+<!--</map>-->
+
+<!--<div class="box">-->
+
+
+
+<!--  <mat-accordion *ngIf="true">-->
+<!--    <mat-expansion-panel>-->
+<!--      <mat-expansion-panel-header>-->
+<!--        <mat-panel-title>-->
+<!--          BICEPS-->
+<!--        </mat-panel-title>-->
+<!--      </mat-expansion-panel-header>-->
+<!--      BICEP WORKOUTS-->
+<!--    </mat-expansion-panel>-->
+<!--  </mat-accordion>-->
+
+
+<!--  <mat-accordion>-->
+<!--    <mat-expansion-panel>-->
+<!--      <mat-expansion-panel-header>-->
+<!--        <mat-panel-title>-->
+<!--          <div *ngFor="let muscles of this.muscleService.muscle">-->
+<!--            <div *ngIf="muscles.muscleGroup == 'Legs'">-->
+<!--              {{muscles.muscleGroup}}-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </mat-panel-title>-->
+<!--        <mat-panel-description>-->
+<!--        </mat-panel-description>-->
+<!--      </mat-expansion-panel-header>-->
+<!--      <div *ngFor="let exercises of this.exerciseService.exercises">-->
+<!--        <div *ngIf="exercises?.muscles![0]?.muscleGroup == 'Legs'">{{exercises.name}},{{exercises.description}}</div>-->
+<!--      </div>-->
+<!--    </mat-expansion-panel>-->
+
+<!--    <mat-expansion-panel (opened)="panelOpenState = true"-->
+<!--                         (closed)="panelOpenState = false">-->
+<!--      <mat-expansion-panel-header>-->
+<!--        <mat-panel-title>-->
+<!--          <div *ngFor="let muscles of this.muscleService.muscle">-->
+<!--            <div *ngIf="muscles.muscleGroup == 'Chest'">-->
+<!--              {{muscles.muscleGroup}}-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </mat-panel-title>-->
+<!--        <mat-panel-description>-->
+<!--        </mat-panel-description>-->
+<!--      </mat-expansion-panel-header>-->
+<!--      <div *ngFor="let exercises of this.exerciseService.exercises">-->
+<!--        <div *ngIf="exercises?.muscles![0]?.muscleGroup == 'Chest'">{{exercises.name}},{{exercises.description}}</div>-->
+<!--      </div>-->
+<!--    </mat-expansion-panel>-->
+
+<!--    <mat-expansion-panel (opened)="panelOpenState = true"-->
+<!--                         (closed)="panelOpenState = false">-->
+<!--      <mat-expansion-panel-header>-->
+<!--        <mat-panel-title>-->
+<!--          Cardio-->
+<!--        </mat-panel-title>-->
+<!--        <mat-panel-description>-->
+<!--          Currently I am Cardio-->
+<!--        </mat-panel-description>-->
+<!--      </mat-expansion-panel-header>-->
+<!--      <p>5k - Under this 5K run training schedule, you'll spend some of your time walking.-->
+<!--        For instance, during week one on run/walk days, you'll run for 15 seconds and then walk for 45 seconds,-->
+<!--        repeating-->
+<!--        that cycle for 30 minutes. As the weeks progress, you'll gradually increase time spent running and reduce the-->
+<!--        time spent walking.</p>-->
+<!--      <p>Jump Rope - Lightly grip the handles of the jump rope.-->
+<!--        Relax the shoulders and keep the elbows close to the torso.-->
+<!--        Gently bend the knees.-->
+<!--        Rotate the rope from the wrist and keep a smooth arc as the rope passes overhead.-->
+<!--        Jump low to reduce impact on the knees and ankles. </p>-->
+<!--      <p>Burpees - Stand upright.-->
+<!--        Squat, placing the hands on the ground.-->
+<!--        Jump the legs back so they are straight.-->
+<!--        Jump the legs to return into the squat position.-->
+<!--        Stand up.-->
+<!--        Jump in place.-->
+<!--        Repeat. </p>-->
+<!--    </mat-expansion-panel>-->
+
+<!--    <mat-expansion-panel (opened)="panelOpenState = true"-->
+<!--                         (closed)="panelOpenState = false">-->
+<!--      <mat-expansion-panel-header>-->
+<!--        <mat-panel-title>-->
+<!--          Chest-->
+<!--        </mat-panel-title>-->
+<!--        <mat-panel-description>-->
+<!--          Currently I am Chest-->
+<!--        </mat-panel-description>-->
+<!--      </mat-expansion-panel-header>-->
+<!--      <p>Bench Press- 3 sets of 5 repetitions with 85% of 1RM (block periodization style).</p>-->
+<!--      <p>Incline Bench Press - pulling your shoulder blades back and down, grabbing the bar with your hands a little-->
+<!--        wider-->
+<!--        than shoulder-width apart, lowering the barbell to your upper chest, and pressing the bar back up to the-->
+<!--        starting position. </p>-->
+<!--      <p>Chest Dip - Grab the parallel bars and jump up, straighten your arms-->
+<!--        Lower your body by bending your arms while leaning forward-->
+<!--        Dip down until your shoulders are below your elbows-->
+<!--        Lift your body up by straightening your arms-->
+<!--        Lock your elbows at the top.</p>-->
+<!--    </mat-expansion-panel>-->
+
+<!--    <mat-expansion-panel (opened)="panelOpenState = true"-->
+<!--                         (closed)="panelOpenState = false">-->
+<!--      <mat-expansion-panel-header>-->
+<!--        <mat-panel-title>-->
+<!--          Core-->
+<!--        </mat-panel-title>-->
+<!--        <mat-panel-description>-->
+<!--          Currently I am Core-->
+<!--        </mat-panel-description>-->
+<!--      </mat-expansion-panel-header>-->
+<!--      <p>Forearm Plank - Rest your forearms on the floor, with your elbows directly underneath your shoulders and hands-->
+<!--        facing forward so that your arms are parallel.-->
+<!--        Extend your legs out behind you and rest your toes on the floor. Your body should form one straight line from-->
+<!--        your shoulders to your heels.-->
+<!--        Squeeze your entire core, glutes, and quads, and tuck your butt under a little to keep your lower back straight.-->
+<!--        Make sure you are not dropping your hips or hiking your butt up high toward the ceiling.-->
+<!--        Position your head so that your neck is in a neutral position and your gaze is on your hands.-->
+<!--        Hold this position.</p>-->
+<!--      <p>Russian Twist - Sit with your knees bent out in front of you, feet flexed, and heels on the floor.-->
+<!--        Hold your hands to your chest and lean your torso back until you feel your abdominal muscles engage. For an-->
+<!--        extra challenge, add a dumbbell (as pictured).-->
+<!--        Slowly twist your torso from right to left. Remember to keep your core tight (and breathe!) throughout. This is-->
+<!--        one rep. </p>-->
+<!--      <p>Butterfly Sit-up - Lie faceup with the soles of your feet together, knees bent out to sides. Reach your arms-->
+<!--        overhead. This is starting position.-->
+<!--        Using your core, roll your body up until you are sitting upright. Reach forward to touch your toes. That's one-->
+<!--        rep.-->
+<!--        Slowly lower back down to starting position and continue immediately into the next rep.</p>-->
+<!--    </mat-expansion-panel>-->
+
+<!--    <mat-expansion-panel (opened)="panelOpenState = true"-->
+<!--                         (closed)="panelOpenState = false">-->
+<!--      <mat-expansion-panel-header>-->
+<!--        <mat-panel-title>-->
+<!--          Legs-->
+<!--        </mat-panel-title>-->
+<!--        <mat-panel-description>-->
+<!--          Currently I am Legs-->
+<!--        </mat-panel-description>-->
+<!--      </mat-expansion-panel-header>-->
+<!--      <p>Weighted Back Squat - Load a barbell on your traps and stand with your feet shoulder-width apart. Your gaze-->
+<!--        should be ahead, your chest should be proud, and your toes should be pointed slightly out.-->
+<!--        Sit back into your hips, bend your knees, and drop down toward the floor. Ensure that your knees move slightly-->
+<!--        out, and do not collapse in.-->
+<!--        Lower until your thighs are parallel to the ground — or as far down as your mobility allows — then push back up-->
+<!--        to the starting position.</p>-->
+<!--      <p>Walking Lunges - Start with your feet together. Hold a dumbbell in each hand if you want to perform a weighted-->
+<!--        walking lunge.-->
+<!--        Keeping your chest proud and gaze straight ahead, step forward, lunging with your right leg until your thigh is-->
+<!--        parallel to the ground.-->
+<!--        Push up through your right heel, coming back up to the starting position.-->
+<!--        Continue forward with the left leg.-->
+<!--        Gently bend the knees.-->
+<!--        Rotate the rope from the wrist and keep a smooth arc as the rope passes overhead.-->
+<!--        Jump low to reduce impact on the knees and ankles. </p>-->
+<!--      <p>Glute Bridge - Lie on your back with your knees bent, feet flat on the floor, and your arms down at your sides.-->
+<!--        Inhale and push through all four corners of your feet, engaging your core, glutes, and hamstrings to press your-->
+<!--        hips toward the ceiling.-->
+<!--        Pause at the top, then slowly release back to the starting position. </p>-->
+<!--    </mat-expansion-panel>-->
+
+<!--    <mat-expansion-panel (opened)="panelOpenState = true"-->
+<!--                         (closed)="panelOpenState = false" class="para">-->
+<!--      <mat-expansion-panel-header>-->
+<!--        <mat-panel-title>-->
+<!--          Shoulders-->
+<!--        </mat-panel-title>-->
+<!--        <mat-panel-description>-->
+<!--          Shoulders. They Lit-->
+<!--        </mat-panel-description>-->
+
+<!--      </mat-expansion-panel-header>-->
+<!--      <p>Push ups- get down on all fours, extend your legs behind you, and lower your upper body. Hold this position for-->
+<!--        a few seconds and push yourself back up parallel to the floor.</p>-->
+<!--      <p>Overhaed Press- the starting position by standing with your barbell tucked underneath your chin and your hands-->
+<!--        close to your shoulders and palms facing upwards. Extend your arms to raise the barbell above your head.-->
+<!--        Wait a few seconds before gradually lowering the barbell.</p>-->
+<!--      <p>Crab Walk - crawl by moving one hand along with the opposite foot and repeating on the other side. It’ll takes-->
+<!--        some practice to master, but it’s a worthy inclusion to to any full-body workout.</p>-->
+<!--    </mat-expansion-panel>-->
+
+<!--  </mat-accordion>-->
+
+<!--</div>-->
+
 <app-footer></app-footer>
 
-
-</html>
 
 
 
