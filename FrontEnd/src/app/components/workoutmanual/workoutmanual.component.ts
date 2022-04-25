@@ -11,8 +11,9 @@ import {Muscle} from "../interfaces/Muscle";
 import {MuscleService} from "../services/muscle.service";
 import {timer} from "rxjs";
 import {Exercise} from "../interfaces/Exercise";
-import { ChangeDetectorRef } from "@angular/core";
+import {ChangeDetectorRef} from "@angular/core";
 import {Router} from "@angular/router";
+
 declare function imageMapResize(): void;
 
 @Component({
@@ -21,7 +22,7 @@ declare function imageMapResize(): void;
   styleUrls: ['./workoutmanual.component.scss'],
 })
 export class WorkoutmanualComponent implements OnInit, AfterViewInit {
-isDarkTheme: boolean = false;
+  isDarkTheme: boolean = false;
   panelOpenState = false;
   muscles: Muscle[] = [];
   groups: string[] = ["Arms", "Back", "Core", "Chest", "Hips", "Legs", "Shoulders"];
@@ -29,7 +30,9 @@ isDarkTheme: boolean = false;
   currentMuscle: Muscle | undefined;
   exercises: Exercise[] = [];
   selectedGroup: any;
-  constructor(public exerciseService: ExerciseService, public muscleService: MuscleService, private cdRef: ChangeDetectorRef, private router: Router) { }
+
+  constructor(public exerciseService: ExerciseService, public muscleService: MuscleService, private cdRef: ChangeDetectorRef, private router: Router) {
+  }
 
   ngOnInit(): void {
     this.isDarkTheme = localStorage.getItem('theme') === "Dark" ? true : false;
@@ -54,7 +57,7 @@ isDarkTheme: boolean = false;
 
   populateMap(muscles: Muscle[]) {
 
-    for(let muscle of muscles) {
+    for (let muscle of muscles) {
       if (muscle.muscleGroup != null && this.groupsMap.has(muscle.muscleGroup)) {
         let all = this.groupsMap.get(muscle.muscleGroup);
         // @ts-ignore
@@ -62,13 +65,12 @@ isDarkTheme: boolean = false;
         // @ts-ignore
         this.groupsMap.set(muscle.muscleGroup, all);
 
-      }
-      else if (muscle.muscleGroup != null) {
+      } else if (muscle.muscleGroup != null) {
         this.groupsMap.set(muscle.muscleGroup, [muscle]);
       }
     }
 
-    for(let key of this.groupsMap.keys()) {
+    for (let key of this.groupsMap.keys()) {
       console.log(key)
       // @ts-ignore
       for (let val of this.groupsMap.get(key).values()) {
@@ -97,14 +99,16 @@ isDarkTheme: boolean = false;
 
 
   selectGroup(group: string) {
-    if(this.selectedGroup == group)
-    {
+    if (this.selectedGroup == group) {
       this.selectedGroup = null;
     } else {
       this.selectedGroup = group;
     }
-  storeThemeSelection(){
-    localStorage.setItem('theme', this.isDarkTheme ? "Dark" : "Light");
-    /*    toggleSwitcher = localStorage.setItem('theme', this.isDarkTheme ? "Dark" : "Light");*/
   }
+
+  // storeThemeSelection() {
+  //   localStorage.setItem('theme', this.isDarkTheme ? "Dark" : "Light");
+  //   /*    toggleSwitcher = localStorage.setItem('theme', this.isDarkTheme ? "Dark" : "Light");*/
+  // }
+
 }
