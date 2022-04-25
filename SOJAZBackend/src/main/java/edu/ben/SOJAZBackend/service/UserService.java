@@ -56,6 +56,7 @@ public class UserService  {
             else {
                 Long newID = userRepository.count() + 1;
                 System.out.println("The new id number is " + newID);
+                userDTO.setPassword(passwordEncoder.encode(userDTO.getPassword()));
                 userRepository.save(new user(newID, userDTO.getEmail(), userDTO.getUsername(), userDTO.getFirstName(), userDTO.getLastName(), userDTO.getPassword(), userDTO.getResetPasswordToken()));
                 return "Registered Successfully";
             }
