@@ -21,7 +21,8 @@ declare function imageMapResize(): void;
   styleUrls: ['./workoutmanual.component.scss'],
 })
 export class WorkoutmanualComponent implements OnInit, AfterViewInit {
-
+isDarkTheme: boolean = false;
+  panelOpenState = false;
   muscles: Muscle[] = [];
   groups: string[] = ["Arms", "Back", "Core", "Chest", "Hips", "Legs", "Shoulders"];
   groupsMap: Map<string, Muscle[]> = new Map<string, Muscle[]>();
@@ -31,10 +32,12 @@ export class WorkoutmanualComponent implements OnInit, AfterViewInit {
   constructor(public exerciseService: ExerciseService, public muscleService: MuscleService, private cdRef: ChangeDetectorRef, private router: Router) { }
 
   ngOnInit(): void {
+    this.isDarkTheme = localStorage.getItem('theme') === "Dark" ? true : false;
 
     this.getAllMuscles();
     // @ts-ignore
     // this.populateMap(this.muscles);
+
   }
 
   ngAfterViewInit() {
@@ -100,5 +103,8 @@ export class WorkoutmanualComponent implements OnInit, AfterViewInit {
     } else {
       this.selectedGroup = group;
     }
+  storeThemeSelection(){
+    localStorage.setItem('theme', this.isDarkTheme ? "Dark" : "Light");
+    /*    toggleSwitcher = localStorage.setItem('theme', this.isDarkTheme ? "Dark" : "Light");*/
   }
 }

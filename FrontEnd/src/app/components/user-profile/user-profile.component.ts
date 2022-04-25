@@ -1,9 +1,11 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, HostBinding, Input, OnInit, Output} from '@angular/core';
 import {userDTO, UserService} from "../services/user.services";
 import {Router} from "@angular/router";
 import {userProfileDTO, userProfileService} from "../services/userProfile.service";
 import {Subscription} from "rxjs";
 import {userProfile} from "../interfaces/userProfile";
+import {FormControl} from "@angular/forms";
+export let toggleSwitcher = localStorage.getItem('toggleControl');
 
 @Component({
   selector: 'app-user-profile',
@@ -14,6 +16,11 @@ export class UserProfileComponent implements OnInit {
   title = 'angular-multiple-theme-switcher';
   // @ts-ignore
   storedTheme: string = localStorage.getItem('theme-color');
+
+  isDarkTheme: boolean = false;
+
+  @HostBinding('class') className = '';
+  toggleControl = new FormControl(false);
 
 /*  @Input() profList: string[] = [];
   @Input() listProf: any[] = [];
@@ -32,6 +39,13 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUserProfile();
+    this.toggleControl.valueChanges.subscribe(value => {
+      this.className = value ? 'darkMode' : '';
+      localStorage.getItem('toggleControl');
+      console.log(this.className);
+    });
+
+    this.isDarkTheme = localStorage.getItem('theme') === "Dark" ? true : false;
   }
 
   getUserProfile() {
@@ -41,6 +55,7 @@ export class UserProfileComponent implements OnInit {
       console.log("The user id is: " + userID);
     }
      this.userProfileService.getUserProfileByUserId(userID).subscribe(data => {
+       console.log(data);
        this.currentUserProfile = data;
      });
   }
@@ -55,7 +70,21 @@ export class UserProfileComponent implements OnInit {
     this.storedTheme = localStorage.getItem('theme-color');
   }
 
+  pageOneDisplay(): void {
+    this.router.navigateByUrl("/resetpasswordform")
+  }
 
+  setToggle(themes: string) {
+    localStorage.setItem('toggleControl', themes);
+    // @ts-ignore
+    this.storedTheme = localStorage.getItem('toggleControl');
+    toggleSwitcher = localStorage.getItem('toggleControl');
+  }
+
+  storeThemeSelection(){
+    localStorage.setItem('theme', this.isDarkTheme ? "Dark" : "Light");
+/*    toggleSwitcher = localStorage.setItem('theme', this.isDarkTheme ? "Dark" : "Light");*/
+  }
 /*  getallUsersProfile() {
     this.userProfileService.setUserProfile(data => {
       this.users = data;

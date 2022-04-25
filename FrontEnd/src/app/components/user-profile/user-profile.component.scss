@@ -1,6 +1,10 @@
 .content {
-  background-color: var(--main-color);
-  color: white;
+  text-align: center;
+  font-family: Geneva;
+  padding: 100px;
+}
+
+.tester{
   text-align: center;
   font-family: Geneva;
   padding: 100px;
@@ -19,7 +23,7 @@
 }
 
 .title {
-  color: black;
+
   flex-direction: row;
   font-size: 15px;
 
@@ -175,6 +179,7 @@ padding-bottom: 6vh;
 
 .content.theme-black{
   background-color: #333333;
+  color: white;
 }
 .content.theme-pink{
   background-color: pink;
@@ -190,6 +195,7 @@ padding-bottom: 6vh;
 
 .content.theme-og{
   background-color: var(--main-color);
+  color: white;
 }
 .content.theme-red{
   background-color: #e02121;

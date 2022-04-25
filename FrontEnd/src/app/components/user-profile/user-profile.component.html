@@ -1,27 +1,35 @@
 <app-navbar></app-navbar>
 
+
+
 <div class="content {{storedTheme}}" role="main">
   <h1>WELCOME TO YOUR FITNESS PROFILE</h1>
   <h3>Check out the progress you've done so far solider!</h3>
 </div>
 
+
+<div class="content mat-app-background " [ngClass]="{'darkMode': isDarkTheme}">
+
+
+
 <div class = "profile">
   <h2 class = "titleHead">My Progress</h2>
 
-  <div class="card" *ngIf="currentUserProfile">
+
+  <div class="card mat-app-background" *ngIf="currentUserProfile">
 
     <div class="topPart">
       <div class="profpic">
         <img src="assets/aaikfy.jpg" alt="John" class="photoStyle" >
       </div>
-      <div class = "profDesc"> <h1>Welcome Bitch</h1>
-        <div class="title">
+      <div class = "profDesc mat-app-background"> <h1>Welcome Farmer Jake</h1>
+        <div class="title mat-app-background">
 
 
-          <p>Sex: Male</p>
-          <p>Diet: I wish</p>
-          <p>Height: {{currentUserProfile.height}}</p>
-          <P>Lifestyle: {{currentUserProfile.lifestyle}}</P>
+          <h2>Sex: Male</h2>
+          <h2>Diet: I wish</h2>
+          <h2>Height: {{currentUserProfile.height}}</h2>
+          <h2>Lifestyle: {{currentUserProfile.lifestyle}}</h2>
         </div>
 
       </div>
@@ -29,17 +37,49 @@
 
     <br>
 
-    <div class="bottomPart">
+    <div class="bottomPart mat-app-background">
       <div class="bottomLeftPart">
 
-          <a href="url">Change Theme</a>
-          <a href="url">Change Password</a>
-          <a href="url">Change Email</a>
+          <h1>Change Theme</h1>
+        <div class="theme-options">
+        <div id="theme-og"
+             [ngClass]="(storedTheme === 'theme-og') ? 'active' : ''"
+             (click)="setTheme('theme-og')"></div>
+        <div id="theme-green"
+             [ngClass]="(storedTheme === 'theme-green') ? 'active' : ''"
+             (click)="setTheme('theme-green')"></div>
+        <div id="theme-blue"
+             [ngClass]="(storedTheme === 'theme-blue') ? 'active' : ''"
+             (click)="setTheme('theme-blue')"></div>
+        <div id="theme-red"
+             [ngClass]="(storedTheme === 'theme-red') ? 'active' : ''"
+             (click)="setTheme('theme-red')"></div>
+      </div>
+        <div class="theme-options">
+          <div id="theme-yellow"
+               [ngClass]="(storedTheme === 'theme-yellow') ? 'active' : ''"
+               (click)="setTheme('theme-yellow')"></div>
+          <div id="theme-orange"
+               [ngClass]="(storedTheme === 'theme-orange') ? 'active' : ''"
+               (click)="setTheme('theme-orange')"></div>
+          <div id="theme-pink"
+               [ngClass]="(storedTheme === 'theme-pink') ? 'active' : ''"
+               (click)="setTheme('theme-pink')"></div>
+          <div id="theme-black"
+               [ngClass]="(storedTheme === 'theme-black') ? 'active' : ''"
+               (click)="setTheme('theme-black')"></div>
+
+        </div>
+        <mat-slide-toggle [(ngModel)]="isDarkTheme" (change)="storeThemeSelection()" >
+        Dark Theme
+      </mat-slide-toggle>
+          <a (click)="pageOneDisplay()">Change Password</a>
         <a (click)="logout()" >LOG OUT</a>
+
 
       </div>
       <div class="bottomRightPart">
-        <p>Current Weight: {{currentUserProfile.currenWeight}}</p>
+        <p>Current Weight: {{currentUserProfile.currentWeight}}</p>
         <p>Goal Weight: {{currentUserProfile.goalWeight}}</p>
         <p>Calories done today: 400</p>
         <p>Calorie Goal: 2500</p>
@@ -50,40 +90,13 @@
 
 </div>
 
-
-
-  <div class="theme-options">
-    <div id="theme-og"
-         [ngClass]="(storedTheme === 'theme-og') ? 'active' : ''"
-         (click)="setTheme('theme-og')"></div>
-    <div id="theme-green"
-         [ngClass]="(storedTheme === 'theme-green') ? 'active' : ''"
-         (click)="setTheme('theme-green')"></div>
-    <div id="theme-blue"
-         [ngClass]="(storedTheme === 'theme-blue') ? 'active' : ''"
-         (click)="setTheme('theme-blue')"></div>
-    <div id="theme-red"
-         [ngClass]="(storedTheme === 'theme-red') ? 'active' : ''"
-         (click)="setTheme('theme-red')"></div>
-  </div>
-<div class="theme-options">
-  <div id="theme-yellow"
-       [ngClass]="(storedTheme === 'theme-yellow') ? 'active' : ''"
-       (click)="setTheme('theme-yellow')"></div>
-  <div id="theme-orange"
-       [ngClass]="(storedTheme === 'theme-orange') ? 'active' : ''"
-       (click)="setTheme('theme-orange')"></div>
-  <div id="theme-pink"
-       [ngClass]="(storedTheme === 'theme-pink') ? 'active' : ''"
-       (click)="setTheme('theme-pink')"></div>
-  <div id="theme-black"
-       [ngClass]="(storedTheme === 'theme-black') ? 'active' : ''"
-       (click)="setTheme('theme-black')"></div>
-
 </div>
 
 
 
 
+
+
 <app-footer></app-footer>
+
 

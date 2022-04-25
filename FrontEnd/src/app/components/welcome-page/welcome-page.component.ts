@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {toggleSwitcher} from "../user-profile/user-profile.component";
 
 @Component({
   selector: 'app-welcome-page',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./welcome-page.component.scss']
 })
 export class WelcomePageComponent implements OnInit {
-
+  isDarkTheme: boolean = false;
+  toggleSwitcher = toggleSwitcher;
   constructor() { }
 
   ngOnInit(): void {
+
+    this.isDarkTheme = localStorage.getItem('theme') === "Dark" ? true : false;
   }
 
+  storeThemeSelection(){
+    localStorage.setItem('theme', this.isDarkTheme ? "Dark" : "Light");
+    /*    toggleSwitcher = localStorage.setItem('theme', this.isDarkTheme ? "Dark" : "Light");*/
+  }
 }

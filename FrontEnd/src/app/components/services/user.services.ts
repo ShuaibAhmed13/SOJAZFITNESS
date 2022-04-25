@@ -4,6 +4,7 @@ import {User} from "../interfaces/User";
 import {Router} from "@angular/router";
 import {map} from "rxjs/operators";
 import {Observable} from "rxjs";
+import {Muscle} from "../interfaces/Muscle";
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,7 @@ export class UserService {
 
   error = "";
   currentUsername = "";
+  users = <User[]> [];
   //loggedInUser = <userDTO>{};
 
 
@@ -39,6 +41,13 @@ export class UserService {
       this.successfulLogin(username);
     }))
 
+  }
+
+  confirmEmail(emailToken: String){
+    this.httpClient.get<User[]>(`api/users/getUser/${emailToken}`).subscribe(data => {
+      console.log("success confirmation email")
+      this.users = data
+    })
   }
   //     .subscribe(data=> {
   //     console.log(data);
@@ -120,6 +129,22 @@ export class UserService {
   reactivateUser(user_id:number) {
     return this.httpClient.get('/api/users/crud/reactivateuser/' + user_id);
   }
+
+  getAllEmail(){
+    this.httpClient.get<User[]>('api/users/getAll').subscribe(data =>{
+      console.log(data);
+      this.users = data;
+    })
+  }
+
+ /* updateMuscle(muscleId: number, muscle: Muscle): Observable<string> {
+    return this.httpClient.put<string>('api/muscle/crud/updatemuscle/' + muscleId, muscle);
+  }*/
+
+  updatePassword(userPassword: string, user: User): Observable<string>{
+    return this.httpClient.put<string>('/crud/updatePassword/{password}' + userPassword, user);
+  }
+
 }
 
 export interface userDTO {

@@ -18,6 +18,8 @@ import {ActivatedRoute, Router} from "@angular/router";
   styleUrls: ['./workoutpost.component.scss']
 })
 export class WorkoutpostComponent implements OnInit, AfterContentChecked {
+  isDarkTheme: boolean = false;
+
 
   optionValue: any;
   exercises: Exercise[] = [];
@@ -36,6 +38,7 @@ export class WorkoutpostComponent implements OnInit, AfterContentChecked {
 
   ngOnInit(): void {
     this.getExercises();
+    this.isDarkTheme = localStorage.getItem('theme') === "Dark" ? true : false;
     this.setExercises();
     this.getUserExerciseDiary();
   }
@@ -67,6 +70,10 @@ export class WorkoutpostComponent implements OnInit, AfterContentChecked {
     return this.exerciseService.getExercises();
   }
 
+  storeThemeSelection(){
+    localStorage.setItem('theme', this.isDarkTheme ? "Dark" : "Light");
+    /*    toggleSwitcher = localStorage.setItem('theme', this.isDarkTheme ? "Dark" : "Light");*/
+  }
   validateSearch() {
     for(let exercise of this.exercises) {
       if(exercise.name == this.searchValue) {
