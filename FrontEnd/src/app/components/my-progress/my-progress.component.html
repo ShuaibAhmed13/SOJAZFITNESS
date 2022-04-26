@@ -8,12 +8,9 @@
 <div class="content mat-app-background " [ngClass]="{'darkMode': isDarkTheme}">
 <div class="desc">
   <h2>Enter you percentage of calories here:</h2>
-  <input type="number" #CalorieInput (keyup.enter)="CalorieInput" value="gees">
+  <input type="number" class="form-control" style="width: 150px; margin: auto; align-items: center" #CalorieInput (keyup.enter)="CalorieInput" value="gees">
 
-
-
-<app-progress-bar [progress]="CalorieInput.valueAsNumber" [total]="100"></app-progress-bar>
-
+  <app-progress-bar [progress]="CalorieInput.valueAsNumber" [total]="100"></app-progress-bar>
 </div>
 </div>
 <footer>
