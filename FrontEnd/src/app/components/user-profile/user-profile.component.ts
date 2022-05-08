@@ -1,10 +1,12 @@
-import {Component, EventEmitter, HostBinding, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, HostBinding, Input, OnInit, Output,} from '@angular/core';
 import {userDTO, UserService} from "../services/user.services";
 import {Router} from "@angular/router";
 import {userProfileDTO, userProfileService} from "../services/userProfile.service";
 import {Subscription} from "rxjs";
 import {userProfile} from "../interfaces/userProfile";
 import {FormControl} from "@angular/forms";
+import {NgbModal, ModalDismissReasons} from "@ng-bootstrap/ng-bootstrap";
+
 export let toggleSwitcher = localStorage.getItem('toggleControl');
 export let themeColor = localStorage.getItem('theme-color');
 
@@ -24,6 +26,11 @@ export class UserProfileComponent implements OnInit {
   @HostBinding('class') className = '';
   toggleControl = new FormControl(false);
 
+  userProfile: userProfile[] = [];
+  chooseModal: string = "";
+  @Input() listitems: any[] = [];
+
+
 /*  @Input() profList: string[] = [];
   @Input() listProf: any[] = [];
   @Input() selectProf: 'user' | 'currentweight' | 'goalweight' | 'lifestyle' | 'height' = 'user';*/
@@ -33,12 +40,20 @@ export class UserProfileComponent implements OnInit {
   currentUserProfile: userProfileDTO | undefined;
   currentUserName: string = '';
   @Output() edit: EventEmitter<string> = new EventEmitter<string>();
+  inputData: string[] = [];
+  @Input() editProf: any;
+  error: string = "";
+  @Input() selected: string = "";
+  @Output() deselect: EventEmitter<string> = new EventEmitter<string>();
+  @Input() editItem: any;
+
+  closeResult = '';
 
   editProfile(id: string) {
     this.edit.emit(id);
   }
 
-  constructor(private userProfileService: userProfileService, private router: Router) { }
+  constructor(private userProfileService: userProfileService, private router: Router, private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.getUserProfile();
@@ -48,6 +63,7 @@ export class UserProfileComponent implements OnInit {
       console.log(this.className);
 
     });
+
 
     this.getuserName();
     this.isDarkTheme = localStorage.getItem('theme') === "Dark" ? true : false;
@@ -77,7 +93,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   pageOneDisplay(): void {
-    this.router.navigateByUrl("/resetpasswordform")
+    this.router.navigateByUrl("/forgotpasswordform")
   }
 
   setToggle(themes: string) {
@@ -101,6 +117,14 @@ export class UserProfileComponent implements OnInit {
   getuserName(){
     // @ts-ignore
     this.currentUserName = localStorage.getItem('username');
+  }
+
+
+
+  editProfilePage(id: number) {
+    this.chooseModal = "editProfilePage";
+    let profPage = this.userProfile.find(x => x.id === id);
+    this.editItem = profPage;
   }
 
 }

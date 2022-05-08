@@ -29,9 +29,9 @@ public class userProfileService {
         try {
             userProfile.setId(userProfile_id);
             userProfileRepository.save(userProfile);
-            return "Current Weight Succesfully Changed!";
+            return "Current Profile Succesfully Changed!";
         } catch (Exception ex) {
-            return "Current Weight could not be changed.";
+            return "Current Profile could not be changed.";
         }
     }
 

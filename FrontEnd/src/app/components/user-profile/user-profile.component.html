@@ -20,7 +20,7 @@
 
     <div class="topPart">
       <div class="profpic">
-        <img src="assets/aaikfy.jpg" alt="John" class="photoStyle" >
+        <img src="assets/supas.jpeg" alt="John" class="photoStyle" >
       </div>
       <div class = "profDesc mat-app-background"> <h1>Welcome {{currentUserName}}!</h1>
         <div class="title mat-app-background">
@@ -30,6 +30,9 @@
           <h2>Diet: I wish</h2>
           <h2>Height: {{currentUserProfile.height}}</h2>
           <h2>Lifestyle: {{currentUserProfile.lifestyle}}</h2>
+
+
+
         </div>
 
       </div>
@@ -78,19 +81,20 @@
 
 
       </div>
-      <div class="bottomRightPart">
+      <div class="bottomRightPart" >
         <p>Current Weight: {{currentUserProfile.currentWeight}}</p>
         <p>Goal Weight: {{currentUserProfile.goalWeight}}</p>
         <p>Calories done today: 400</p>
         <p>Calorie Goal: 2500</p>
+        <app-editprofilemodel></app-editprofilemodel>
       </div>
     </div>
 
   </div>
 
 </div>
-
 </div>
+
 
 
 
