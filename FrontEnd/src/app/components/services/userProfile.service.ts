@@ -23,6 +23,9 @@ export class userProfileService {
       localStorage.setItem("goalweight", String(data.goalWeight));
       localStorage.setItem("lifestyle", String(data.lifestyle));
       localStorage.setItem("height", String(data.height));
+      localStorage.setItem("currentcalories", String(data.currentCalories));
+      localStorage.setItem("goalcalories", String(data.goalCalories));
+      localStorage.setItem("sex", String(data.sex));
     })
  }
 
@@ -57,5 +60,8 @@ export interface userProfileDTO {
   goalWeight: number;
   lifestyle: string;
   height: number;
+  currentCalories: number;
+  goalCalories: number;
+  sex: string;
   user: string;
 }

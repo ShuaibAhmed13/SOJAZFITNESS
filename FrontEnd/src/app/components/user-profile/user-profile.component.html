@@ -26,7 +26,7 @@
         <div class="title mat-app-background">
 
 
-          <h2>Sex: Male</h2>
+          <h2>Sex: {{currentUserProfile.sex}}</h2>
           <h2>Diet: I wish</h2>
           <h2>Height: {{currentUserProfile.height}}</h2>
           <h2>Lifestyle: {{currentUserProfile.lifestyle}}</h2>
@@ -84,8 +84,8 @@
       <div class="bottomRightPart" >
         <h2>Current Weight: {{currentUserProfile.currentWeight}}</h2>
         <h2>Goal Weight: {{currentUserProfile.goalWeight}}</h2>
-        <h2>Calories done today: 400</h2>
-        <h2>Calorie Goal: 2500</h2>
+        <h2>Calories done today: {{currentUserProfile.currentCalories}}</h2>
+        <h2>Calorie Goal: {{currentUserProfile.goalCalories}}</h2>
         <app-editprofilemodel></app-editprofilemodel>
       </div>
     </div>

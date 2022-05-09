@@ -4,6 +4,7 @@ import {Food} from "../interfaces/Food";
 import {Fooddiary} from "../interfaces/fooddiary";
 import {dailyConsumption, FooddiaryService} from "../services/fooddiary.service";
 import {ToastrService} from "ngx-toastr";
+import {themeColor} from "../user-profile/user-profile.component";
 
 @Component({
   selector: 'app-fooddiary',
@@ -11,6 +12,10 @@ import {ToastrService} from "ngx-toastr";
   styleUrls: ['./fooddiary.component.scss']
 })
 export class FooddiaryComponent implements OnInit {
+  themeColor = themeColor;
+  isDarkTheme: boolean = false;
+
+
 
   foods: Food[] = [];
   searchValue: String ="";
@@ -28,6 +33,7 @@ export class FooddiaryComponent implements OnInit {
     this.getCurrentDate();
     this.getUserFoodDiary();
     this.getDailyConsumption();
+    this.isDarkTheme = localStorage.getItem('theme') === "Dark" ? true : false;
 
   }
 
@@ -115,5 +121,10 @@ export class FooddiaryComponent implements OnInit {
 
   getDailyConsumption() {
     this.dayConsumption = this.fooddiaryService.getUsersCaloriesForTheDay(Number(localStorage.getItem("user_id")), this.selectedDate);
+  }
+
+  storeThemeSelection(){
+    localStorage.setItem('theme', this.isDarkTheme ? "Dark" : "Light");
+    /*    toggleSwitcher = localStorage.setItem('theme', this.isDarkTheme ? "Dark" : "Light");*/
   }
 }
