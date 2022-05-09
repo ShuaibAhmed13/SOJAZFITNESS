@@ -2,26 +2,39 @@
   <div class="left">
     <img class="logo" src="assets/SOJAZLOGO%201.svg"/>
   </div>
-  <li class="link" (click)="pageOneDisplay()">
+  <li *ngIf="authenticated" class="link" (click)="pageOneDisplay()">
     <a class="navButton">Welcome</a>
   </li>
-  <li class="link" (click)="pageSixDisplay()">
+  <li *ngIf="authenticated" class="link" (click)="pageSixDisplay()">
     <a class="navButton">My Profile</a>
   </li>
-  <li class="link" (click)="pageFourDisplay()">
-  <a class="navButton">My Progress</a>
-</li>
-  <li class="link" (click)="pageThreeDisplay()">
+  <!--  <li class="link" (click)="pageFourDisplay()">-->
+  <!--  <a class="navButton">My Progress</a>-->
+  <!--</li>-->
+  <li *ngIf="authenticated" class="link" (click)="foodDiaryPage()">
+    <a class="navButton">Food Diary</a>
+  </li>
+  <li *ngIf="authenticated" class="link" (click)="pageThreeDisplay()">
     <a class="navButton">Workouts</a>
+  </li>
+
+  <li *ngIf="authenticated" class="link" (click)="pageFiveDisplay()">
+    <a class="navButton">Workout Post</a>
+  </li>
+  <li *ngIf="!authenticated" class="link" (click)="signUpPage()">
+    <a class="navButton">Sign Up</a>
+  </li>
+  <li *ngIf="!authenticated" class="link" (click)="logInPage()">
+    <a class="navButton">Log In</a>
   </li>
   <li class="link" (click)="pageTwoDisplay()">
     <a class="navButton">About Us</a>
   </li>
-  <li class="link" (click)="pageFiveDisplay()">
-    <a class="navButton">Workout Post</a>
+  <li *ngIf="checkIfAdmin()" class="link" (click)="adminDisplay()">
+    <a class="navButton">Admin Panel</a>
   </li>
-  <li class="link" (click)="logout()">
-    <a class="navButton" (click)="logout()" >Log Out</a>
+  <li *ngIf="authenticated" class="link" (click)="logout()">
+    <a class="navButton" (click)="logout()">Log Out</a>
   </li>
 
 </div>

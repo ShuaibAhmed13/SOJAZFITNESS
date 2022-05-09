@@ -134,7 +134,7 @@ import { EditprofilemodelComponent } from './components/editprofilemodel/editpro
     passThruUnknownUrl: true}
 )*/
   ],
-  providers: [UserService, AuthGuard, ConnectionService, ContactService, DatePipe],
+  providers: [UserService, AuthGuard, ConnectionService, ContactService, DatePipe, SearchfilterPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

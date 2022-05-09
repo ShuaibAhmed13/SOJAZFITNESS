@@ -8,10 +8,12 @@ import {UserService} from "../services/user.services";
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  public authenticated: boolean = false;
 
   constructor(public router: Router, private userService: UserService) { }
 
   ngOnInit(): void {
+    this.checkAuthenticated();
   }
   pageOneDisplay(): void {
     this.router.navigateByUrl("/welcomepage")
@@ -41,4 +43,37 @@ export class NavbarComponent implements OnInit {
     this.router.navigateByUrl("/loginpage");
   }
 
+
+  checkIfAdmin():boolean {
+    let roles = localStorage.getItem("user_role");
+    if(roles !== null && roles.match("ROLE_ADMIN")) {
+      return true;
+    }
+    return false;
+  }
+
+  adminDisplay() {
+    this.router.navigateByUrl("/adminpanelpage")
+  }
+
+  foodDiaryPage() {
+    this.router.navigateByUrl("/fooddiary")
+  }
+
+  checkAuthenticated() {
+    if(localStorage.getItem("username") !== null) {
+      this.authenticated = true;
+    }
+    else {
+      this.authenticated = false;
+    }
+  }
+
+  signUpPage() {
+    this.router.navigateByUrl("/signup")
+  }
+
+  logInPage() {
+    this.router.navigateByUrl("/loginpage")
+  }
 }
