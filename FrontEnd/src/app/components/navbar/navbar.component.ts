@@ -76,4 +76,8 @@ export class NavbarComponent implements OnInit {
   logInPage() {
     this.router.navigateByUrl("/loginpage")
   }
+
+  pageSevenDisplay() {
+    this.router.navigateByUrl("/videosearch")
+  }
 }

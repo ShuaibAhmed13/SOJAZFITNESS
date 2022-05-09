@@ -19,7 +19,10 @@
   </li>
 
   <li *ngIf="authenticated" class="link" (click)="pageFiveDisplay()">
-    <a class="navButton">Workout Post</a>
+    <a class="navButton">Exercise Diary</a>
+  </li>
+  <li *ngIf="authenticated" class="link" (click)="pageSevenDisplay()">
+    <a class="navButton">Video Search</a>
   </li>
   <li *ngIf="!authenticated" class="link" (click)="signUpPage()">
     <a class="navButton">Sign Up</a>
