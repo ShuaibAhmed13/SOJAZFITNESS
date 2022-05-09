@@ -16,5 +16,9 @@ public class userProfileDTO {
     Double goalWeight;
     String lifestyle;
     Double height;
+    Double currentCalories;
+    Double goalCalories;
+    String sex;
     user user;
+
 }

@@ -1,5 +1,13 @@
 <app-navbar xmlns="http://www.w3.org/1999/html"></app-navbar>
+
+<div class="theme {{themeColor}}" role="main">
+  <h1>WELCOME TO SOJAZ WORKOUT MANUAL</h1>
+  <h3>TEST YOUR LIMITS.</h3>
+</div>
+
+<div class="content mat-app-background " [ngClass]="{'darkMode': isDarkTheme}">
 <div class="fooddiary">
+
 
   <div class="diarycontainer">
     <div class="searchportion">
@@ -103,5 +111,6 @@
 
   </div>
 
+</div>
 </div>
 <app-footer></app-footer>

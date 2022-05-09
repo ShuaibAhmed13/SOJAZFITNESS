@@ -13,6 +13,7 @@ import {timer} from "rxjs";
 import {Exercise} from "../interfaces/Exercise";
 import {ChangeDetectorRef} from "@angular/core";
 import {Router} from "@angular/router";
+import {themeColor} from "../user-profile/user-profile.component";
 
 declare function imageMapResize(): void;
 
@@ -22,6 +23,7 @@ declare function imageMapResize(): void;
   styleUrls: ['./workoutmanual.component.scss'],
 })
 export class WorkoutmanualComponent implements OnInit, AfterViewInit {
+  themeColor = themeColor;
   isDarkTheme: boolean = false;
   panelOpenState = false;
   muscles: Muscle[] = [];

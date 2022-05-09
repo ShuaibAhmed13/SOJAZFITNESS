@@ -24,6 +24,12 @@ public class UserProfileModel {
     String lifestyle;
     @Column (name= "height")
     Double Height;
+    @Column (name= "current_calories")
+    Double currentCalories;
+    @Column (name= "goal_calories")
+    Double goalCalories;
+    @Column (name= "sex")
+    String sex;
     @OneToOne
     @JoinColumn(name="user", referencedColumnName = "id")
     user user;
