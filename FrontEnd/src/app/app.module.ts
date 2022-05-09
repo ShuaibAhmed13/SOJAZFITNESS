@@ -132,7 +132,7 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
     passThruUnknownUrl: true}
 )*/
   ],
-  providers: [UserService, AuthGuard, ConnectionService, ContactService, DatePipe],
+  providers: [UserService, AuthGuard, ConnectionService, ContactService, DatePipe, SearchfilterPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

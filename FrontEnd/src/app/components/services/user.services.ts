@@ -5,18 +5,20 @@ import {Router} from "@angular/router";
 import {map} from "rxjs/operators";
 import {Observable} from "rxjs";
 import {Muscle} from "../interfaces/Muscle";
+import {SearchfilterPipe} from "../pipes/searchfilter.pipe";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(private httpClient: HttpClient, private router: Router) { }
+  constructor(private httpClient: HttpClient, private router: Router, private filterPipe: SearchfilterPipe) { }
 
 
   error = "";
   currentUsername = "";
   users = <User[]> [];
+  usersLogin = <userDTO[]> [];
   //loggedInUser = <userDTO>{};
 
 
