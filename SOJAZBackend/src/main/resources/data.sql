@@ -4,7 +4,8 @@ INSERT INTO User VALUES ('3', true, 'jonc9011@gmail.com', 'Jay', 'Cee', '$2a$10$
 -- INSERT INTO Food VALUES ('1','335', '0','Chicken', '38', '1 cup', '115', '0', '19'), ('2',  '250', '0','NY Strip Steak', '49', '1 Steak', '118', '0', '6'), ('3', '206', '45', 'Rice', '4', '1 Cup', '2', '0', '0'), ('4',  '400', '45', 'Spaghetti & Meatballs','18', '1 Can', '1295', '11', '16'), ('5', '188', '6', 'Peanut Butter','8', '2 tbsp', '5', '3', '16');
 INSERT INTO Food VALUES ('1','335', '0.123', '0','Chicken','38', '5', '1 cup', '0.115', '0', '0', '19', '0'), ('2',  '250', '0.118', '0','NY Strip Steak', '49', '2.2', '1 Steak', '0.118', '0', '0', '6', '0.2'), ('3', '206', '0.0', '0.6', 'Rice', '4.3', '0.1', '1 Cup', '0.002', '0.1', '45', '0.4','0'), ('4',  '400', '0.029','0', 'Spaghetti & Meatballs','18', '6','1 Can', '1295', '11', '45', '16', '0.6'), ('5', '188', '0', '1.9', 'Peanut Butter','8', '3.3', '2 tbsp', '5', '3', '6', '16', '0');
 
-INSERT INTO user_profile VALUES ('5', '6.1', '193', '185', 'Mexican Salavadorean','1');
+INSERT INTO user_profile VALUES ('5', '6.1', '193', '185', 'Carnivore','1');
+INSERT INTO user_profile VALUES ('4', '6.1', '193', '185', 'Vegetarian','3');
 
 Insert into video values('1', 'Calisthenicmovement',  'https://www.youtube.com/embed/bt5b9x9N0KU','Push Ups');
 Insert into video values('2', 'LIVESTRONG.COM',  'https://www.youtube.com/embed/1fbU_MkV7NE','Sit Ups');
@@ -71,3 +72,4 @@ insert into user_food values (14, 432, 653, "2022-04-03", 123, 'Dinner', 2, 123,
 insert into user_food values (15, 332, 120, "2022-04-04", 432, 'Dinner', 2, 341, 122, 343, 5, 1);
 insert into user_food values (16, 321, 102, "2022-04-04", 543, 'Dinner', 2, 212, 431, 132, 5, 1);
 insert into user_food values (17, 643, 233, "2022-04-04", 123, 'Dinner', 2, 121, 234, 244, 5, 1);
+

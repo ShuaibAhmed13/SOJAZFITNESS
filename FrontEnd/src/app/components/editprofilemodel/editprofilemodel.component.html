@@ -1,0 +1,26 @@
+<div *ngIf="selected === 'editprofilepage'" class="modal-custom">
+  <div class="top">
+    <h1 class="title">EDIT FOOD</h1>
+
+  </div>
+
+  <form #inputData="ngForm" (ngSubmit)="submitProfileForm(inputData)">
+    <div class="inputcontainer">
+      <label>CURRENT WEIGHT</label>
+      <input type="text" ngModel="{{editItem.currentweight}}" name="currentweight" required="required">
+      <label>GOAL WEIGHT</label>
+      <input type="number" ngModel="{{editItem.goalWeight}}" name="goalweight"required="required">
+      <label>LIFESTYLE</label>
+      <input type="number" ngModel="{{editItem.lifestyle}}" name="lifestyle" required="required">
+      <label>HEIGHT</label>
+      <input type="number" ngModel="{{editItem.height}}" name="height" required="required">
+      <p class="error">{{error}}</p>
+      <div class="button-container">
+        <button (click)="deselect.emit('')" class="Cancel button">CANCEL</button>
+        <button type="submit" class="Submit button">SUBMIT</button>
+      </div>
+    </div>
+  </form>
+
+
+</div>

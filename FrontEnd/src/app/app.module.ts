@@ -59,6 +59,7 @@ import { ResetPasswordFormComponent } from './components/reset-password-form/res
 import { ForgotpasswordformComponent } from './components/forgot_password_form/forgotpasswordform.component';
 import { ThemeModeComponent } from './components/theme-mode/theme-mode.component';
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import { EditprofilemodelComponent } from './components/editprofilemodel/editprofilemodel.component';
 
 
 @NgModule({
@@ -105,6 +106,7 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
     ForgotpasswordformComponent,
     ChartComponent,
     ThemeModeComponent,
+    EditprofilemodelComponent,
   ],
   imports: [
     BrowserModule,

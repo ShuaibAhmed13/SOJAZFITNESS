@@ -44,6 +44,11 @@ export class userProfileService {
   getUserProfileByUserId(user_id: number) :Observable<userProfileDTO> {
     return this.httpClient.get<userProfileDTO>("/api/userProfile/getuserprofilebyuserid/" + user_id);
   }
+
+  UpdateUserProfile(user_id: number, userProfile: {currentweight: any, goalweight: any, lifestyle: any, height: any}): Observable<string> {
+    return this.httpClient.put<string>("api/userProfile/updateUserProfile/" + user_id, userProfile);
+
+  }
 }
 
 export interface userProfileDTO {
